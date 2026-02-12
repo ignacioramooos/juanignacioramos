@@ -12,7 +12,7 @@ const athletics = [
   {
     icon: Trophy,
     title: "Open Water Swimming",
-    stats: "3 Podium Finishes · 1,250m–5,000m",
+    stats: "3 Podium Finishes · ~1,500m",
     description: "Multiple podium finishes (1st, 2nd, and 3rd place) in regional endurance races, demonstrating sustained physical performance and mental discipline.",
   },
   {

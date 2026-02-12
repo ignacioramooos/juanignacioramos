@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import { Mail, Phone, Linkedin, Instagram, Send } from "lucide-react";
 import { z } from "zod";
+import { supabase } from "@/integrations/supabase/client";
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100),
@@ -34,11 +35,18 @@ export const Contact = () => {
     }
 
     setSending(true);
-    // Simulate sending (replace with Supabase edge function when backend is enabled)
-    await new Promise((r) => setTimeout(r, 1000));
-    toast.success("Message sent! I'll get back to you soon.");
-    setForm({ name: "", email: "", message: "" });
-    setSending(false);
+    try {
+      const { error } = await supabase.functions.invoke("contact", {
+        body: result.data,
+      });
+      if (error) throw error;
+      toast.success("Message sent! I'll get back to you soon.");
+      setForm({ name: "", email: "", message: "" });
+    } catch {
+      toast.error("Failed to send message. Please try again.");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (

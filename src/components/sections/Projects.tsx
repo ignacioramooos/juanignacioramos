@@ -248,6 +248,24 @@ export const RocketSimulator = () => {
             </div>
           </div>
 
+          {/* Eiffel Tower Easter Egg */}
+          {maxAlt > 330 && (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ type: "spring", stiffness: 200, delay: 0.3 }}
+              className="p-4 rounded-xl bg-card border border-foreground/20 text-center space-y-2"
+            >
+              <p className="text-3xl">🗼</p>
+              <p className="font-display font-semibold text-sm">
+                Your model rocket just surpassed the Eiffel Tower!
+              </p>
+              <p className="text-xs text-muted-foreground">
+                At {maxAlt.toFixed(1)}m, this tiny rocket exceeded the 330m height of the Eiffel Tower — the very question from the Grand Oral.
+              </p>
+            </motion.div>
+          )}
+
           {/* Charts */}
           <div className="grid sm:grid-cols-2 gap-4">
             <MiniChart data={results} xKey="t" yKey="alt" label="Altitude (m)" color="hsl(142, 50%, 50%)" />
@@ -264,7 +282,7 @@ export const RocketSimulator = () => {
 const projects = [
   {
     title: "6-DOF Rocketry Simulation",
-    description: "Excel & Python-based 6-Degrees-of-Freedom trajectory simulation using LSODA numerical solvers to model aerodynamic complexities. Originally developed for the French Baccalaureate 'Grand Oral' — modeling whether a 3D-printed rocket could exceed the height of the Eiffel Tower.",
+    description: "Excel-based 6-Degrees-of-Freedom trajectory simulation using numerical solvers to model aerodynamic complexities. Originally developed for the French Baccalaureate 'Grand Oral' — though the jury selected the other topic, I continued developing and refining the simulator after the exam out of genuine passion.",
     tags: ["Python", "Excel", "LSODA", "Aerodynamics", "SimScale"],
     featured: true,
     category: "engineering",

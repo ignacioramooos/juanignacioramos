@@ -79,9 +79,12 @@ export const Hero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.7, duration: 0.8 }}
-          className="font-display text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tight mb-3"
+          className="font-display font-bold tracking-tight mb-3"
         >
-          Juan Ignacio Ramos
+          <span className="block text-6xl sm:text-8xl lg:text-9xl">Juan Ignacio</span>
+          <span className="block text-6xl sm:text-8xl lg:text-9xl bg-gradient-to-r from-muted-foreground/70 via-muted-foreground/50 to-muted-foreground/30 bg-clip-text text-transparent">
+            Ramos
+          </span>
         </motion.h1>
 
         <motion.p

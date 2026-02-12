@@ -1,111 +1,66 @@
-# 🚀 Juan Ignacio Ramos — Interactive Portfolio
 
-## Color Palette & Design
 
-- **No dark blue** — using gray, black, white, light beige, and cream tones
-- Dark theme as default, with light theme toggle (keyboard shortcut included)
-- Minimal & clean with fluid, aerodynamic line aesthetics
-- Smooth scroll animations throughout all sections
+# Portfolio Updates Plan
 
----
+## 1. Fix Rocket Simulator
 
-## Sections
+**Problem**: The `MiniChart` component triggers a React ref warning, and the simulator may not render properly after launch. The console shows "Function components cannot be given refs" errors.
 
-### 1. Hero
+**Fix**:
+- Remove the incorrect ref usage in `MiniChart` (it's being passed a ref from `useScrollReveal` that it shouldn't use)
+- Ensure the simulation runs and charts render correctly on "Launch" click
+- Add the **Eiffel Tower Easter Egg**: When apogee exceeds 330m, show an animated Eiffel Tower icon/illustration with a congratulatory message for the model rocket surpassing the Eiffel Tower's height
+- Add a note about the **Grand Oral** context: "Originally developed for the French Baccalaureate Grand Oral -- though the jury selected the other topic, I continued developing the simulator after the exam"
 
-- Your name, "Aspiring Aerospace Engineer" tagline
-- Smooth trajectory/path animation (aerodynamic flowing lines, not rocket symbols)
-- CTA buttons to scroll down or jump to contact
-- Dark/light theme toggle with keyboard shortcut (e.g., Ctrl+D)
+## 2. Update Skills Section
 
-### 2. About Me
+**Remove**: Python and React (user doesn't feel confident listing those)
 
-- Professional summary adapted from your dossier
-- Key highlights: 4 languages, French BAC "Mention Très Bien", Space Academy Scholar
-- Animated stats/counters (funds managed, 1,350 + 900+  600 + 400 + 1000 event attendees, 4 languages, etc.)
-- Engaging, scroll-triggered reveal animations
+**Replace with skills inferred from the PDF/essays**:
+- Technical: Excel Modeling, AutoCAD, Blender, 3D Printing, Drone Piloting, Simulation/Modeling, Photography
+- Soft Skills: Emphasize **Problem Solving** and **Leadership** more prominently, plus add Crisis Management, Cross-cultural Communication, and Perseverance
+- Pull quotes/citations from the college application essays to enrich soft skills descriptions
 
-### 3. Experience Timeline
+## 3. Add Inspirational Quotes from College Essays
 
-- Interactive vertical timeline with smooth reveal animations
-- Entries: LKSUR Intern, Schoolhouse.world SAT Tutor, Warmup Method Event Director, Lycée Français Student Event Lead, Ecolojules contributor, TECHO volunteer, MUN secretay general (lycee francais model united nations)
-- Each entry expands on hover/click for details
+Integrate select quotes from the application essays into relevant sections (About or a dedicated quotes area):
+- *"True growth begins when we stop working for a grade and start reaching for a height we once thought impossible."*
+- *"Every interaction is an opportunity to learn from and contribute to those around me."*
+- *"Perseverance -- I guarantee you, that's my favorite word in the world."*
 
-### 4. Education
+These will appear as subtle, elegant pull-quotes within the About or Skills sections.
 
-- Lycée Français Jules Supervielle — BAC "Mention Très Bien"
-- UdelaR Engineering enrollment (ingenieria fisico matematica)
-- Advanced Space Academy scholarship
-- Visual cards with hover interactions
+## 4. Fix Athletics Section
 
-### 5. Technical Projects
+- Change Open Water Swimming distance from "1,250m-5,000m" to approximately "~1,500m" range
+- Keep the 3 podium finishes
 
-- Interactive project cards with hover animations and tech stack tags
-- **6-DOF Rocketry Simulation** — featured prominently with an interactive mini-demo (simplified 2D trajectory visualization with adjustable parameters like thrust, mass, drag). If you upload the spreadsheet data, we'll use real values for presets and simscale for aerodynamic fluid modeling
-- **Agora AI Platform** — React, Vonage SDK (not published, still in development)
-- **Solar Water Distiller** — engineering prototype
-- **MUN Technical Integration** — 3D-printed awards
-- Filter/tabs by project category
+## 5. Enable Working Contact Form via Lovable Cloud
 
-### 6. Skills
+- Connect to Lovable Cloud backend
+- Create a Supabase edge function to receive and store contact form submissions
+- Create a `contact_messages` database table to store submissions
+- Wire the existing form UI to call the edge function
+- Keep validation and toast feedback
 
-- Interactive skill tags with hover effects, grouped by category:
-  - Languages: Spanish, French, English, Portuguese
-  - Technical: Python, AutoCAD, Blender, 3D Printing, Drone Piloting, Excel Modeling, React
-  - Certifications: PADI Open Water Diver
-  - also add soft skills
-- Visual proficiency indicators
+## 6. Grand Oral Context in Rocket Project
 
-### 7. Volunteering & Leadership
-
-- TECHO housing construction + drone surveys
-- Model UN: Delegate → Chair → Secretary General journey
-- Ecolojules environmental initiative
-- Interactive cards with scroll animations
-- Schoolhouse tutor
-
-### 8. Athletics
-
-- Water Polo: National Pre-selection, Bigua Club (20hrs/week)
-- Open Water Swimming: 3 podium finishes
-- PADI Scuba certification
-- Visual highlight cards
-
-### 9. Awards & Honors
-
-- BAC "Mention Très Bien"
-- Space Academy Scholarship
-- MUN Best Delegate 2024
-- Animated reveal on scroll
-
-### 10. Contact Form (Working)
-
-- Functional form: name, email, message — sends via Supabase edge function
-- Input validation with feedback
-- Social links: LinkedIn, Instagram, email, phone
-- Success/error toast notifications
+Update the 6-DOF Rocketry Simulation project card description to mention:
+- The Grand Oral exam didn't select this topic, but Ignacio continued developing the project after the exam
+- This shows perseverance and genuine passion beyond grades
 
 ---
 
-## Interactive Features & Easter Eggs
+## Technical Details
 
-- Creative hidden easter eggs (e.g., Konami code reveals a fun animation, clicking a specific element triggers a surprise, hidden "aerospace mode" with particle effects)
-- Smooth parallax scrolling effects
-- Interactive cursor trail or hover effects on key sections
-- Animated page transitions between sections
+**Files to modify**:
+- `src/components/sections/Projects.tsx` -- Fix MiniChart ref, add Eiffel Tower easter egg, update project description
+- `src/components/sections/Skills.tsx` -- Remove Python/React, add problem solving + leadership emphasis, add quotes
+- `src/components/sections/Athletics.tsx` -- Fix swimming distance
+- `src/components/sections/About.tsx` -- Optionally add a pull-quote
+- `src/components/sections/Contact.tsx` -- Wire to Lovable Cloud edge function
 
-## Backend
+**New files**:
+- `supabase/functions/contact/index.ts` -- Edge function for contact form
+- Database migration for `contact_messages` table
 
-- Supabase for contact form message storage and delivery
-
-## Content
-
-- All real data from your PDF dossier — no placeholders
-- Links to your LinkedIn profile
-- Waiting on: 6-DOF spreadsheet data (CSV export) for the simulator demo presets
-
-&nbsp;
-
-&nbsp;
-
-Additional note: you will have to re-read the pdf resume i gave you

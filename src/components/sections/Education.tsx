@@ -34,10 +34,6 @@ const education = [
   },
 ];
 
-const birthDate = new Date(2008, 0, 11);
-const now = new Date();
-let age = now.getFullYear() - birthDate.getFullYear();
-if (now < new Date(now.getFullYear(), birthDate.getMonth(), birthDate.getDate())) age--;
 
 export const Education = () => {
   const { ref, isInView } = useScrollReveal();
@@ -52,8 +48,7 @@ export const Education = () => {
           transition={{ duration: 0.6 }}
         >
           <p className="text-sm tracking-[0.3em] uppercase text-muted-foreground mb-3">Foundation</p>
-          <h2 className="font-display text-3xl sm:text-4xl font-bold mb-3">Education</h2>
-          <p className="text-sm text-muted-foreground mb-12">{age} years old · Born January 11, 2008</p>
+          <h2 className="font-display text-3xl sm:text-4xl font-bold mb-12">Education</h2>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* Future education — awaiting card */}
@@ -119,6 +114,15 @@ export const Education = () => {
               </motion.div>
             ))}
           </div>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.8, duration: 0.5 }}
+            className="text-center text-sm italic text-muted-foreground mt-10"
+          >
+            "The educational journey is never over."
+          </motion.p>
         </motion.div>
       </div>
     </section>

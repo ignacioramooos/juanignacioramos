@@ -1,6 +1,8 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { Quote } from "lucide-react";
+import { Quote, ChevronLeft, ChevronRight } from "lucide-react";
+import { getDailyQuotes } from "@/data/quotes";
+import { useState } from "react";
 
 const skillGroups = [
   {
@@ -44,23 +46,11 @@ const skillGroups = [
   },
 ];
 
-const quotes = [
-  {
-    text: "Perseverance — I guarantee you, that's my favorite word in the world.",
-    context: "On resilience",
-  },
-  {
-    text: "Every interaction is an opportunity to learn from and contribute to those around me.",
-    context: "On leadership",
-  },
-  {
-    text: "True growth begins when we stop working for a grade and start reaching for a height we once thought impossible.",
-    context: "On ambition",
-  },
-];
+const dailyQuotes = getDailyQuotes();
 
 export const Skills = () => {
   const { ref, isInView } = useScrollReveal();
+  const [quoteIndex, setQuoteIndex] = useState(0);
 
   return (
     <section id="skills" className="py-24 px-6">
@@ -118,29 +108,58 @@ export const Skills = () => {
             ))}
           </div>
 
-          {/* Inspirational Quotes */}
+          {/* Daily Quote Carousel */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.6, duration: 0.6 }}
-            className="mt-16 space-y-6"
+            className="mt-16"
           >
-            <h3 className="font-display font-semibold text-sm uppercase tracking-wider text-muted-foreground">
-              In My Own Words
+            <h3 className="font-display font-semibold text-sm uppercase tracking-wider text-muted-foreground mb-6">
+              In My Own Words — Today's Quote
             </h3>
-            <div className="grid md:grid-cols-3 gap-4">
-              {quotes.map((q, i) => (
-                <motion.blockquote
+            <div className="relative flex items-center gap-4">
+              <button
+                onClick={() => setQuoteIndex((prev) => (prev - 1 + dailyQuotes.length) % dailyQuotes.length)}
+                className="p-2 rounded-full border border-border hover:bg-muted transition-colors flex-shrink-0"
+                aria-label="Previous quote"
+              >
+                <ChevronLeft size={16} />
+              </button>
+              <div className="flex-1 overflow-hidden">
+                <AnimatePresence mode="wait">
+                  <motion.blockquote
+                    key={quoteIndex}
+                    initial={{ opacity: 0, x: 30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -30 }}
+                    transition={{ duration: 0.3 }}
+                    className="p-6 rounded-2xl bg-card border border-border text-center"
+                  >
+                    <Quote size={16} className="text-muted-foreground/40 mx-auto mb-3" />
+                    <p className="text-base sm:text-lg italic text-foreground/80 leading-relaxed max-w-2xl mx-auto">
+                      "{dailyQuotes[quoteIndex].text}"
+                    </p>
+                    <p className="text-xs text-muted-foreground mt-4">{dailyQuotes[quoteIndex].context}</p>
+                  </motion.blockquote>
+                </AnimatePresence>
+              </div>
+              <button
+                onClick={() => setQuoteIndex((prev) => (prev + 1) % dailyQuotes.length)}
+                className="p-2 rounded-full border border-border hover:bg-muted transition-colors flex-shrink-0"
+                aria-label="Next quote"
+              >
+                <ChevronRight size={16} />
+              </button>
+            </div>
+            <div className="flex justify-center gap-2 mt-4">
+              {dailyQuotes.map((_, i) => (
+                <button
                   key={i}
-                  initial={{ opacity: 0, y: 15 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ delay: 0.7 + i * 0.1 }}
-                  className="p-5 rounded-xl bg-card border border-border relative"
-                >
-                  <Quote size={14} className="text-muted-foreground/40 mb-2" />
-                  <p className="text-sm italic text-foreground/80 leading-relaxed">"{q.text}"</p>
-                  <p className="text-xs text-muted-foreground mt-3">{q.context}</p>
-                </motion.blockquote>
+                  onClick={() => setQuoteIndex(i)}
+                  className={`w-2 h-2 rounded-full transition-colors ${i === quoteIndex ? "bg-foreground" : "bg-muted-foreground/30"}`}
+                  aria-label={`Quote ${i + 1}`}
+                />
               ))}
             </div>
           </motion.div>

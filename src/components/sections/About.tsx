@@ -3,6 +3,14 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useEffect, useState, useRef, useCallback } from "react";
 import { Globe, Award, DollarSign, Users } from "lucide-react";
 
+const getAge = () => {
+  const birth = new Date(2008, 0, 11);
+  const now = new Date();
+  let age = now.getFullYear() - birth.getFullYear();
+  if (now < new Date(now.getFullYear(), birth.getMonth(), birth.getDate())) age--;
+  return age;
+};
+
 const CountUp = ({ end, suffix = "", duration = 2 }: { end: number; suffix?: string; duration?: number }) => {
   const [count, setCount] = useState(0);
   const containerRef = useRef<HTMLSpanElement>(null);
@@ -62,10 +70,13 @@ export const About = () => {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <p className="text-sm tracking-[0.3em] uppercase text-muted-foreground mb-3">About Me</p>
-          <h2 className="font-display text-3xl sm:text-4xl font-bold mb-8">
+          <p className="text-sm tracking-[0.3em] uppercase text-muted-foreground mb-3">About Me · {getAge()} years old</p>
+          <h2 className="font-display text-3xl sm:text-4xl font-bold mb-1">
             Mind & Hand
           </h2>
+          <p className="font-display text-lg sm:text-xl italic text-muted-foreground mb-8 tracking-wide">
+            Mens et Manus
+          </p>
 
           <div className="grid lg:grid-cols-5 gap-12">
             <div className="lg:col-span-3 space-y-5 text-muted-foreground leading-relaxed">

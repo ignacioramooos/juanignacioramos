@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { GraduationCap, Rocket, BookOpen } from "lucide-react";
+import { GraduationCap, Rocket, BookOpen, Loader2 } from "lucide-react";
 
 const education = [
   {
@@ -34,6 +34,11 @@ const education = [
   },
 ];
 
+const birthDate = new Date(2008, 0, 11);
+const now = new Date();
+let age = now.getFullYear() - birthDate.getFullYear();
+if (now < new Date(now.getFullYear(), birthDate.getMonth(), birthDate.getDate())) age--;
+
 export const Education = () => {
   const { ref, isInView } = useScrollReveal();
 
@@ -47,16 +52,57 @@ export const Education = () => {
           transition={{ duration: 0.6 }}
         >
           <p className="text-sm tracking-[0.3em] uppercase text-muted-foreground mb-3">Foundation</p>
-          <h2 className="font-display text-3xl sm:text-4xl font-bold mb-12">Education</h2>
+          <h2 className="font-display text-3xl sm:text-4xl font-bold mb-3">Education</h2>
+          <p className="text-sm text-muted-foreground mb-12">{age} years old · Born January 11, 2008</p>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Future education — awaiting card */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0, duration: 0.5 }}
+              className="group relative p-6 rounded-2xl border-2 border-dashed border-foreground/15 hover:border-foreground/30 transition-all hover:-translate-y-1 bg-gradient-to-b from-card to-transparent overflow-hidden"
+            >
+              <div className="absolute inset-0 bg-gradient-to-b from-muted/30 to-transparent opacity-50" />
+              <div className="relative">
+                <motion.div
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                  className="mb-4 w-6 h-6"
+                >
+                  <Loader2 size={24} className="text-muted-foreground" />
+                </motion.div>
+                <h3 className="font-display font-semibold text-lg mb-1">Next Chapter</h3>
+                <p className="text-sm text-muted-foreground mb-2">U.S. College — Class of 2030</p>
+                <p className="text-xs text-muted-foreground/70 mb-4">Awaiting admissions decisions</p>
+                <ul className="space-y-2">
+                  <li className="text-xs text-muted-foreground flex items-start gap-2">
+                    <span className="w-1 h-1 rounded-full bg-muted-foreground mt-1.5 flex-shrink-0" />
+                    Applying to top engineering programs
+                  </li>
+                  <li className="text-xs text-muted-foreground flex items-start gap-2">
+                    <span className="w-1 h-1 rounded-full bg-muted-foreground mt-1.5 flex-shrink-0" />
+                    The journey never stops loading...
+                  </li>
+                </ul>
+                <div className="mt-4 h-1.5 rounded-full bg-muted overflow-hidden">
+                  <motion.div
+                    className="h-full rounded-full bg-foreground/30"
+                    animate={{ x: ["-100%", "100%"] }}
+                    transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                    style={{ width: "40%" }}
+                  />
+                </div>
+              </div>
+            </motion.div>
+
             {education.map((edu, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: 0.15 * i, duration: 0.5 }}
-                className="group p-6 rounded-xl bg-card border border-border hover:border-foreground/20 transition-all hover:-translate-y-1"
+                transition={{ delay: 0.15 * (i + 1), duration: 0.5 }}
+                className="group p-6 rounded-2xl bg-card border border-border hover:border-foreground/20 transition-all hover:-translate-y-1"
               >
                 <edu.icon size={24} className="text-muted-foreground mb-4 group-hover:text-foreground transition-colors" />
                 <h3 className="font-display font-semibold text-lg mb-1">{edu.title}</h3>

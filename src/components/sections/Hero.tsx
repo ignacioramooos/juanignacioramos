@@ -4,15 +4,15 @@ import { ChevronDown, Mail } from "lucide-react";
 export const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Trajectory SVG background */}
+      {/* Aerodynamic flowing SVG background */}
       <svg
-        className="absolute inset-0 w-full h-full opacity-[0.07]"
+        className="absolute inset-0 w-full h-full opacity-[0.06]"
         viewBox="0 0 1200 800"
         fill="none"
         preserveAspectRatio="xMidYMid slice"
       >
         <motion.path
-          d="M-100,700 C200,600 300,200 500,300 S700,100 900,200 S1100,50 1300,100"
+          d="M-100,700 Q200,550 400,400 T800,250 T1300,100"
           stroke="currentColor"
           strokeWidth="1.5"
           initial={{ pathLength: 0 }}
@@ -20,7 +20,7 @@ export const Hero = () => {
           transition={{ duration: 3, ease: "easeInOut" }}
         />
         <motion.path
-          d="M-50,750 C150,650 350,250 550,350 S750,150 950,250 S1150,100 1350,150"
+          d="M-50,750 Q250,500 500,350 T900,200 T1350,80"
           stroke="currentColor"
           strokeWidth="1"
           initial={{ pathLength: 0 }}
@@ -28,12 +28,21 @@ export const Hero = () => {
           transition={{ duration: 3.5, ease: "easeInOut", delay: 0.3 }}
         />
         <motion.path
-          d="M0,800 C250,500 400,300 600,400 S800,200 1000,300 S1200,150 1400,200"
+          d="M0,800 Q300,450 550,350 T1000,200 T1400,120"
           stroke="currentColor"
           strokeWidth="0.8"
           initial={{ pathLength: 0 }}
           animate={{ pathLength: 1 }}
           transition={{ duration: 4, ease: "easeInOut", delay: 0.6 }}
+        />
+        {/* Aerodynamic curves */}
+        <motion.path
+          d="M1200,0 Q900,200 700,350 T300,550 T-100,700"
+          stroke="currentColor"
+          strokeWidth="0.5"
+          initial={{ pathLength: 0 }}
+          animate={{ pathLength: 1 }}
+          transition={{ duration: 5, ease: "easeInOut", delay: 1 }}
         />
       </svg>
 
@@ -70,20 +79,27 @@ export const Hero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.7, duration: 0.8 }}
-          className="font-display text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tight mb-4"
+          className="font-display text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tight mb-3"
         >
-          Juan Ignacio
-          <br />
-          <span className="text-muted-foreground">Ramos</span>
+          Mind and Hand
         </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.9 }}
+          className="font-display text-xl sm:text-2xl italic text-muted-foreground mb-2 tracking-wide"
+        >
+          Mens et Manus
+        </motion.p>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1 }}
-          className="text-lg sm:text-xl text-muted-foreground max-w-xl mx-auto mb-10"
+          transition={{ delay: 1.1 }}
+          className="text-sm sm:text-base text-muted-foreground/70 max-w-md mx-auto mb-10"
         >
-          Aspiring Aerospace Engineer · Operational Strategist
+          Juan Ignacio Ramos · Aspiring Aerospace Engineer
         </motion.p>
 
         <motion.div

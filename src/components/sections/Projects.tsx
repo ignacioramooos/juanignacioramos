@@ -5,8 +5,8 @@ import { Slider } from "@/components/ui/slider";
 import { Play, RotateCcw } from "lucide-react";
 import {
   LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip,
-  AreaChart, Area, ResponsiveContainer, ComposedChart, Bar, Legend,
-} from "recharts";
+  AreaChart, Area, ResponsiveContainer, ComposedChart, Bar, Legend } from
+"recharts";
 
 /* ─── Simulation Engine (from uploaded reference) ─── */
 
@@ -36,8 +36,8 @@ function runSimulation(p: SimulationParams): TrajectoryPoint[] {
 
   let t = 0;
   let altitude = 0;
-  let vx = p.initialVelocity * Math.cos((p.launchAngle * Math.PI) / 180);
-  let vy = p.initialVelocity * Math.sin((p.launchAngle * Math.PI) / 180);
+  let vx = p.initialVelocity * Math.cos(p.launchAngle * Math.PI / 180);
+  let vy = p.initialVelocity * Math.sin(p.launchAngle * Math.PI / 180);
   let x = 0;
   const data: TrajectoryPoint[] = [];
 
@@ -48,8 +48,8 @@ function runSimulation(p: SimulationParams): TrajectoryPoint[] {
 
     const machFactor = mach > 0.8 ? 1 + (mach - 0.8) * 0.5 : 1;
     const dragForce = 0.5 * AIR_DENSITY * v * v * (p.dragCoefficient * machFactor) * CROSS_SECTION;
-    const dragAx = (-dragForce / p.mass) * (vx / (v || 1));
-    const dragAy = (-dragForce / p.mass) * (vy / (v || 1));
+    const dragAx = -dragForce / p.mass * (vx / (v || 1));
+    const dragAy = -dragForce / p.mass * (vy / (v || 1));
 
     const ax = dragAx;
     const ay = -G + dragAy;
@@ -68,7 +68,7 @@ function runSimulation(p: SimulationParams): TrajectoryPoint[] {
       horizontalDistance: x,
       acceleration: totalAccel,
       machNumber: mach,
-      angle: angleOfAttack,
+      angle: angleOfAttack
     });
 
     t += dt;
@@ -81,22 +81,22 @@ function runSimulation(p: SimulationParams): TrajectoryPoint[] {
 /* ─── Rocket Simulator Component ─── */
 
 const PRESETS = [
-  { name: "Conservative", params: { initialVelocity: 120, mass: 8, dragCoefficient: 0.35, launchAngle: 45 } },
-  { name: "Optimal Range", params: { initialVelocity: 180, mass: 6.5, dragCoefficient: 0.25, launchAngle: 45 } },
-  { name: "Max Altitude", params: { initialVelocity: 200, mass: 5, dragCoefficient: 0.2, launchAngle: 75 } },
-  { name: "Supersonic", params: { initialVelocity: 350, mass: 4, dragCoefficient: 0.3, launchAngle: 50 } },
-];
+{ name: "Conservative", params: { initialVelocity: 120, mass: 8, dragCoefficient: 0.35, launchAngle: 45 } },
+{ name: "Optimal Range", params: { initialVelocity: 180, mass: 6.5, dragCoefficient: 0.25, launchAngle: 45 } },
+{ name: "Max Altitude", params: { initialVelocity: 200, mass: 5, dragCoefficient: 0.2, launchAngle: 75 } },
+{ name: "Supersonic", params: { initialVelocity: 350, mass: 4, dragCoefficient: 0.3, launchAngle: 50 } }];
+
 
 export const RocketSimulator = () => {
   const [params, setParams] = useState<SimulationParams>({
     initialVelocity: 180,
     mass: 6.5,
     dragCoefficient: 0.25,
-    launchAngle: 48,
+    launchAngle: 48
   });
   const [running, setRunning] = useState(false);
 
-  const results = useMemo(() => (running ? runSimulation(params) : []), [running, params]);
+  const results = useMemo(() => running ? runSimulation(params) : [], [running, params]);
 
   const stats = useMemo(() => {
     if (results.length === 0) return null;
@@ -121,20 +121,20 @@ export const RocketSimulator = () => {
     <div className="p-6 rounded-2xl bg-card border border-border space-y-6">
       <div className="flex items-center justify-between flex-wrap gap-3">
         <div>
-          <h4 className="font-display font-semibold text-sm">Interactive 6-DOF Trajectory Simulator</h4>
+          <h4 className="font-display font-semibold text-sm">Interactive 6-DOF Trajectory Simulator (for model rockets)</h4>
           <p className="text-xs text-muted-foreground">Adjust parameters · Real-time physics engine</p>
         </div>
         <div className="flex gap-2">
           <button
             onClick={() => setRunning(true)}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs bg-foreground text-background rounded-full hover:bg-foreground/90 transition-colors"
-          >
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs bg-foreground text-background rounded-full hover:bg-foreground/90 transition-colors">
+
             <Play size={12} /> Launch
           </button>
           <button
             onClick={reset}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs border border-border rounded-full hover:bg-muted transition-colors"
-          >
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs border border-border rounded-full hover:bg-muted transition-colors">
+
             <RotateCcw size={12} /> Reset
           </button>
         </div>
@@ -142,67 +142,67 @@ export const RocketSimulator = () => {
 
       {/* Presets */}
       <div className="flex flex-wrap gap-2">
-        {PRESETS.map((preset) => (
-          <button
-            key={preset.name}
-            onClick={() => { setParams(preset.params); setRunning(false); }}
-            className="px-3 py-1 text-[11px] rounded-full border border-border text-muted-foreground hover:border-foreground/30 hover:text-foreground transition-colors"
-          >
+        {PRESETS.map((preset) =>
+        <button
+          key={preset.name}
+          onClick={() => {setParams(preset.params);setRunning(false);}}
+          className="px-3 py-1 text-[11px] rounded-full border border-border text-muted-foreground hover:border-foreground/30 hover:text-foreground transition-colors">
+
             {preset.name}
           </button>
-        ))}
+        )}
       </div>
 
       {/* Parameter sliders */}
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {[
-          { key: "initialVelocity" as const, label: "Initial Velocity", unit: "m/s", min: 50, max: 500, step: 10 },
-          { key: "mass" as const, label: "Mass", unit: "kg", min: 1, max: 20, step: 0.5 },
-          { key: "dragCoefficient" as const, label: "Drag Coeff.", unit: "Cd", min: 0.1, max: 1, step: 0.05 },
-          { key: "launchAngle" as const, label: "Launch Angle", unit: "°", min: 15, max: 89, step: 1 },
-        ].map(({ key, label, unit, min, max, step }) => (
-          <div key={key} className="space-y-2">
+        { key: "initialVelocity" as const, label: "Initial Velocity", unit: "m/s", min: 50, max: 500, step: 10 },
+        { key: "mass" as const, label: "Mass", unit: "kg", min: 1, max: 20, step: 0.5 },
+        { key: "dragCoefficient" as const, label: "Drag Coeff.", unit: "Cd", min: 0.1, max: 1, step: 0.05 },
+        { key: "launchAngle" as const, label: "Launch Angle", unit: "°", min: 15, max: 89, step: 1 }].
+        map(({ key, label, unit, min, max, step }) =>
+        <div key={key} className="space-y-2">
             <label className="text-xs text-muted-foreground flex justify-between">
               {label} <span className="font-mono">{params[key].toFixed(key === "dragCoefficient" ? 2 : 0)}{unit}</span>
             </label>
             <Slider
-              value={[params[key] * (1 / step)]}
-              onValueChange={([v]) => { setParams((p) => ({ ...p, [key]: v * step })); setRunning(false); }}
-              min={min / step}
-              max={max / step}
-              step={1}
-            />
+            value={[params[key] * (1 / step)]}
+            onValueChange={([v]) => {setParams((p) => ({ ...p, [key]: v * step }));setRunning(false);}}
+            min={min / step}
+            max={max / step}
+            step={1} />
+
           </div>
-        ))}
+        )}
       </div>
 
-      {running && stats && (
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-6">
+      {running && stats &&
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-6">
           {/* Key stats */}
           <div className="grid grid-cols-3 sm:grid-cols-6 gap-3">
             {[
-              { label: "Max Altitude", value: `${stats.maxAlt.toFixed(1)}m` },
-              { label: "Apogee Time", value: `${stats.apogeeTime.toFixed(2)}s` },
-              { label: "Range", value: `${stats.range.toFixed(1)}m` },
-              { label: "Max Velocity", value: `${stats.maxVel.toFixed(1)}m/s` },
-              { label: "Flight Time", value: `${stats.flightTime.toFixed(1)}s` },
-              { label: "Peak G-Force", value: `${stats.maxG.toFixed(2)}g` },
-            ].map(({ label, value }) => (
-              <div key={label} className="p-3 rounded-xl bg-muted/50 text-center">
+          { label: "Max Altitude", value: `${stats.maxAlt.toFixed(1)}m` },
+          { label: "Apogee Time", value: `${stats.apogeeTime.toFixed(2)}s` },
+          { label: "Range", value: `${stats.range.toFixed(1)}m` },
+          { label: "Max Velocity", value: `${stats.maxVel.toFixed(1)}m/s` },
+          { label: "Flight Time", value: `${stats.flightTime.toFixed(1)}s` },
+          { label: "Peak G-Force", value: `${stats.maxG.toFixed(2)}g` }].
+          map(({ label, value }) =>
+          <div key={label} className="p-3 rounded-xl bg-muted/50 text-center">
                 <p className="text-base sm:text-lg font-display font-bold">{value}</p>
                 <p className="text-[10px] text-muted-foreground">{label}</p>
               </div>
-            ))}
+          )}
           </div>
 
           {/* Eiffel Tower Easter Egg */}
-          {stats.maxAlt > 330 && (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ type: "spring", stiffness: 200, delay: 0.3 }}
-              className="p-4 rounded-2xl bg-card border border-foreground/20 text-center space-y-2"
-            >
+          {stats.maxAlt > 330 &&
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ type: "spring", stiffness: 200, delay: 0.3 }}
+          className="p-4 rounded-2xl bg-card border border-foreground/20 text-center space-y-2">
+
               <p className="text-3xl">🗼</p>
               <p className="font-display font-semibold text-sm">
                 Your rocket just surpassed the Eiffel Tower!
@@ -211,7 +211,7 @@ export const RocketSimulator = () => {
                 At {stats.maxAlt.toFixed(1)}m, this rocket exceeded the 330m height of the Eiffel Tower — the very question from the Grand Oral.
               </p>
             </motion.div>
-          )}
+        }
 
           {/* Charts */}
           <div className="grid sm:grid-cols-2 gap-4">
@@ -274,41 +274,41 @@ export const RocketSimulator = () => {
             </div>
           </div>
         </motion.div>
-      )}
-    </div>
-  );
+      }
+    </div>);
+
 };
 
 /* ─── Projects Section ─── */
 
 const projects = [
-  {
-    title: "6-DOF Rocketry Simulation",
-    description: "Excel-based 6-Degrees-of-Freedom trajectory simulation using numerical solvers to model aerodynamic complexities. Originally developed for the French Baccalaureate 'Grand Oral' — though the jury selected the other topic, I continued developing and refining the simulator after the exam out of genuine passion.",
-    tags: ["Python", "Excel", "LSODA", "Aerodynamics", "SimScale"],
-    featured: true,
-    category: "engineering",
-  },
-  {
-    title: "Agora AI Platform",
-    description: "React-based platform presenting multi-perspective discourse on controversial topics using AI-generated personas: a proponent, an opponent, and a moderator. Full-stack integration with Vonage Video SDK.",
-    tags: ["React", "Vonage SDK", "AI", "Full-Stack"],
-    status: "In Development",
-    category: "software",
-  },
-  {
-    title: "Solar Water Distiller",
-    description: "Engineered a solar distillation prototype from scrap materials to provide drinking water to low-income areas. Later optimized with Peltier cells, voltage regulators, and repurposed PC fans for increased efficiency.",
-    tags: ["Engineering", "Solar Energy", "Peltier Cells", "Sustainability"],
-    category: "engineering",
-  },
-  {
-    title: "MUN Technical Integration",
-    description: "Designed and 3D-printed custom awards for Model UN conferences. Integrated technical design tools with diplomatic event management.",
-    tags: ["3D Printing", "Blender", "Design"],
-    category: "design",
-  },
-];
+{
+  title: "6-DOF Rocketry Simulation",
+  description: "Excel-based 6-Degrees-of-Freedom trajectory simulation using numerical solvers to model aerodynamic complexities. Originally developed for the French Baccalaureate 'Grand Oral' — though the jury selected the other topic, I continued developing and refining the simulator after the exam out of genuine passion.",
+  tags: ["Python", "Excel", "LSODA", "Aerodynamics", "SimScale"],
+  featured: true,
+  category: "engineering"
+},
+{
+  title: "Agora AI Platform",
+  description: "React-based platform presenting multi-perspective discourse on controversial topics using AI-generated personas: a proponent, an opponent, and a moderator. Full-stack integration with Vonage Video SDK.",
+  tags: ["React", "Vonage SDK", "AI", "Full-Stack"],
+  status: "In Development",
+  category: "software"
+},
+{
+  title: "Solar Water Distiller",
+  description: "Engineered a solar distillation prototype from scrap materials to provide drinking water to low-income areas. Later optimized with Peltier cells, voltage regulators, and repurposed PC fans for increased efficiency.",
+  tags: ["Engineering", "Solar Energy", "Peltier Cells", "Sustainability"],
+  category: "engineering"
+},
+{
+  title: "MUN Technical Integration",
+  description: "Designed and 3D-printed custom awards for Model UN conferences. Integrated technical design tools with diplomatic event management.",
+  tags: ["3D Printing", "Blender", "Design"],
+  category: "design"
+}];
+
 
 export const Projects = () => {
   const { ref, isInView } = useScrollReveal();
@@ -323,71 +323,71 @@ export const Projects = () => {
           ref={ref}
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-        >
+          transition={{ duration: 0.6 }}>
+
           <p className="text-sm tracking-[0.3em] uppercase text-muted-foreground mb-3">Portfolio</p>
           <h2 className="font-display text-3xl sm:text-4xl font-bold mb-8">Technical Projects</h2>
 
           {/* Filter tabs */}
           <div className="flex gap-2 mb-8 flex-wrap">
-            {["all", "engineering", "software", "design"].map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setFilter(cat)}
-                className={`px-4 py-1.5 text-xs rounded-full border transition-colors capitalize ${
-                  filter === cat
-                    ? "bg-foreground text-background border-foreground"
-                    : "border-border hover:border-foreground/30 text-muted-foreground"
-                }`}
-              >
+            {["all", "engineering", "software", "design"].map((cat) =>
+            <button
+              key={cat}
+              onClick={() => setFilter(cat)}
+              className={`px-4 py-1.5 text-xs rounded-full border transition-colors capitalize ${
+              filter === cat ?
+              "bg-foreground text-background border-foreground" :
+              "border-border hover:border-foreground/30 text-muted-foreground"}`
+              }>
+
                 {cat}
               </button>
-            ))}
+            )}
           </div>
 
           {/* Featured simulator */}
-          {(filter === "all" || filter === "engineering") && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.2 }}
-              className="mb-8"
-            >
+          {(filter === "all" || filter === "engineering") &&
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.2 }}
+            className="mb-8">
+
               <RocketSimulator />
             </motion.div>
-          )}
+          }
 
           {/* Project cards */}
           <div className="grid sm:grid-cols-2 gap-4">
-            {filtered.map((project, i) => (
-              <motion.div
-                key={project.title}
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: 0.1 * i + 0.3, duration: 0.5 }}
-                className="group p-6 rounded-2xl bg-card border border-border hover:border-foreground/20 transition-all hover:-translate-y-1"
-              >
+            {filtered.map((project, i) =>
+            <motion.div
+              key={project.title}
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.1 * i + 0.3, duration: 0.5 }}
+              className="group p-6 rounded-2xl bg-card border border-border hover:border-foreground/20 transition-all hover:-translate-y-1">
+
                 <div className="flex items-start justify-between mb-3">
                   <h3 className="font-display font-semibold">{project.title}</h3>
-                  {"status" in project && (
-                    <span className="text-[10px] px-2 py-0.5 rounded-full border border-border text-muted-foreground">
+                  {"status" in project &&
+                <span className="text-[10px] px-2 py-0.5 rounded-full border border-border text-muted-foreground">
                       {project.status}
                     </span>
-                  )}
+                }
                 </div>
                 <p className="text-sm text-muted-foreground mb-4 leading-relaxed">{project.description}</p>
                 <div className="flex flex-wrap gap-1.5">
-                  {project.tags.map((tag) => (
-                    <span key={tag} className="text-[10px] px-2 py-0.5 rounded-full bg-muted text-muted-foreground">
+                  {project.tags.map((tag) =>
+                <span key={tag} className="text-[10px] px-2 py-0.5 rounded-full bg-muted text-muted-foreground">
                       {tag}
                     </span>
-                  ))}
+                )}
                 </div>
               </motion.div>
-            ))}
+            )}
           </div>
         </motion.div>
       </div>
-    </section>
-  );
+    </section>);
+
 };

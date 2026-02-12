@@ -81,17 +81,8 @@ export const Hero = () => {
           transition={{ delay: 0.7, duration: 0.8 }}
           className="font-display text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tight mb-3"
         >
-          Mind and Hand
+          Juan Ignacio Ramos
         </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.9 }}
-          className="font-display text-xl sm:text-2xl italic text-muted-foreground mb-2 tracking-wide"
-        >
-          Mens et Manus
-        </motion.p>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -99,7 +90,7 @@ export const Hero = () => {
           transition={{ delay: 1.1 }}
           className="text-sm sm:text-base text-muted-foreground/70 max-w-md mx-auto mb-10"
         >
-          Juan Ignacio Ramos · Aspiring Aerospace Engineer
+          Aspiring Aerospace Engineer · Learner · Problem Solver
         </motion.p>
 
         <motion.div

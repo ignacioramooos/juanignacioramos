@@ -1,192 +1,128 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Slider } from "@/components/ui/slider";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import { ExternalLink, Play, RotateCcw } from "lucide-react";
+import { Play, RotateCcw } from "lucide-react";
+import {
+  LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip,
+  AreaChart, Area, ResponsiveContainer, ComposedChart, Bar, Legend,
+} from "recharts";
 
-// Real data from Estes E12 engine
-const thrustCurve = [
-  { t: 0, thrust: 0, mass: 35.9 },
-  { t: 0.052, thrust: 5.045, mass: 35.7265 },
-  { t: 0.096, thrust: 9.91, mass: 35.2912 },
-  { t: 0.196, thrust: 24.144, mass: 33.0386 },
-  { t: 0.251, thrust: 31.351, mass: 31.0196 },
-  { t: 0.287, thrust: 32.973, mass: 29.4878 },
-  { t: 0.3, thrust: 29.91, mass: 28.947 },
-  { t: 0.344, thrust: 17.117, mass: 27.5783 },
-  { t: 0.37, thrust: 14.414, mass: 27.036 },
-  { t: 0.4, thrust: 12.973, mass: 26.4925 },
-  { t: 0.5, thrust: 11.712, mass: 24.8597 },
-  { t: 0.6, thrust: 11.171, mass: 23.346 },
-  { t: 0.7, thrust: 10.631, mass: 21.9038 },
-  { t: 0.8, thrust: 10.09, mass: 20.5332 },
-  { t: 0.9, thrust: 9.73, mass: 19.2221 },
-  { t: 1.0, thrust: 9.55, mass: 17.9467 },
-  { t: 1.101, thrust: 9.91, mass: 16.6466 },
-  { t: 1.2, thrust: 9.55, mass: 15.3722 },
-  { t: 1.3, thrust: 9.73, mass: 14.0969 },
-  { t: 1.4, thrust: 9.73, mass: 12.8097 },
-  { t: 1.5, thrust: 9.73, mass: 11.5224 },
-  { t: 1.6, thrust: 9.73, mass: 10.2352 },
-  { t: 1.7, thrust: 9.55, mass: 8.95981 },
-  { t: 1.8, thrust: 9.73, mass: 7.68447 },
-  { t: 1.9, thrust: 9.73, mass: 6.39722 },
-  { t: 2.0, thrust: 9.55, mass: 5.12188 },
-  { t: 2.1, thrust: 9.55, mass: 3.85844 },
-  { t: 2.2, thrust: 9.73, mass: 2.5831 },
-  { t: 2.3, thrust: 9.19, mass: 1.33157 },
-  { t: 2.375, thrust: 9.37, mass: 0.410782 },
-  { t: 2.4, thrust: 5.95, mass: 0.157433 },
-  { t: 2.44, thrust: 0, mass: 0 },
-];
+/* ─── Simulation Engine (from uploaded reference) ─── */
 
-// Rocket parameters from spreadsheet
-const DEFAULTS = {
-  rocketMass: 50, // g (without engine)
-  length: 0.4, // m
-  diameter: 0.027, // m
-  cd: 0.195,
-  engineMass: 61.2, // g
-  burnTime: 2.4, // s
-};
-
-const AIR_DENSITY = 1.225;
-const G = 9.81;
-
-function interpolateThrust(t: number): { thrust: number; propMass: number } {
-  if (t >= 2.44) return { thrust: 0, propMass: 0 };
-  if (t <= 0) return { thrust: 0, propMass: 35.9 };
-  for (let i = 0; i < thrustCurve.length - 1; i++) {
-    const a = thrustCurve[i], b = thrustCurve[i + 1];
-    if (t >= a.t && t <= b.t) {
-      const frac = (t - a.t) / (b.t - a.t);
-      return {
-        thrust: a.thrust + frac * (b.thrust - a.thrust),
-        propMass: a.mass + frac * (b.mass - a.mass),
-      };
-    }
-  }
-  return { thrust: 0, propMass: 0 };
+interface SimulationParams {
+  initialVelocity: number;
+  mass: number;
+  dragCoefficient: number;
+  launchAngle: number;
 }
 
-function simulate(params: {
-  rocketMass: number; cd: number; diameter: number;
-}) {
+interface TrajectoryPoint {
+  time: number;
+  altitude: number;
+  velocity: number;
+  horizontalDistance: number;
+  acceleration: number;
+  machNumber: number;
+  angle: number;
+}
+
+function runSimulation(p: SimulationParams): TrajectoryPoint[] {
+  const G = 9.81;
   const dt = 0.01;
-  const area = Math.PI * (params.diameter / 2) ** 2;
-  const dryEngineMass = DEFAULTS.engineMass / 1000 - 36 / 1000; // ~0.0252 kg
-  const rocketMassKg = params.rocketMass / 1000;
+  const SOUND_SPEED = 343;
+  const AIR_DENSITY = 1.225;
+  const CROSS_SECTION = 0.008;
 
-  const results: { t: number; alt: number; vel: number; accel: number; thrust: number; mach: number }[] = [];
-  let v = 0, alt = 0, t = 0;
+  let t = 0;
+  let altitude = 0;
+  let vx = p.initialVelocity * Math.cos((p.launchAngle * Math.PI) / 180);
+  let vy = p.initialVelocity * Math.sin((p.launchAngle * Math.PI) / 180);
+  let x = 0;
+  const data: TrajectoryPoint[] = [];
 
-  while (t < 40 && alt >= 0 && results.length < 4000) {
-    const { thrust, propMass } = interpolateThrust(t);
-    const totalMass = rocketMassKg + dryEngineMass + propMass / 1000;
-    const drag = 0.5 * AIR_DENSITY * v * Math.abs(v) * params.cd * area;
-    const accel = (thrust - drag - totalMass * G) / totalMass;
+  while (altitude >= 0 || t < 1) {
+    const v = Math.sqrt(vx * vx + vy * vy);
+    const angleOfAttack = Math.atan2(vy, vx) * (180 / Math.PI);
+    const mach = v / SOUND_SPEED;
 
-    results.push({
-      t: Math.round(t * 100) / 100,
-      alt: Math.max(0, Math.round(alt * 100) / 100),
-      vel: Math.round(v * 100) / 100,
-      accel: Math.round(accel * 100) / 100,
-      thrust: Math.round(thrust * 100) / 100,
-      mach: Math.round((v / 343) * 1000) / 1000,
+    const machFactor = mach > 0.8 ? 1 + (mach - 0.8) * 0.5 : 1;
+    const dragForce = 0.5 * AIR_DENSITY * v * v * (p.dragCoefficient * machFactor) * CROSS_SECTION;
+    const dragAx = (-dragForce / p.mass) * (vx / (v || 1));
+    const dragAy = (-dragForce / p.mass) * (vy / (v || 1));
+
+    const ax = dragAx;
+    const ay = -G + dragAy;
+
+    vx += ax * dt;
+    vy += ay * dt;
+    x += vx * dt;
+    altitude += vy * dt;
+
+    const totalAccel = Math.sqrt(ax * ax + ay * ay);
+
+    data.push({
+      time: parseFloat(t.toFixed(2)),
+      altitude: Math.max(0, altitude),
+      velocity: v,
+      horizontalDistance: x,
+      acceleration: totalAccel,
+      machNumber: mach,
+      angle: angleOfAttack,
     });
 
-    v += accel * dt;
-    alt += v * dt;
     t += dt;
-
-    if (alt < 0 && t > 1) break;
+    if (altitude < 0 && t > 1) break;
   }
 
-  return results;
+  return data;
 }
 
-const MiniChart = ({
-  data,
-  xKey,
-  yKey,
-  label,
-  color,
-  width = 300,
-  height = 150,
-}: {
-  data: any[];
-  xKey: string;
-  yKey: string;
-  label: string;
-  color: string;
-  width?: number;
-  height?: number;
-}) => {
-  if (data.length === 0) return null;
-  const maxY = Math.max(...data.map((d) => d[yKey]));
-  const minY = Math.min(...data.map((d) => d[yKey]));
-  const maxX = data[data.length - 1][xKey];
-  const range = maxY - minY || 1;
-  const padding = 10;
+/* ─── Rocket Simulator Component ─── */
 
-  const points = data
-    .filter((_, i) => i % 3 === 0 || i === data.length - 1)
-    .map((d) => {
-      const x = padding + ((d[xKey] / maxX) * (width - padding * 2));
-      const y = height - padding - (((d[yKey] - minY) / range) * (height - padding * 2));
-      return `${x},${y}`;
-    })
-    .join(" ");
-
-  return (
-    <div className="space-y-2">
-      <div className="flex justify-between text-xs text-muted-foreground">
-        <span>{label}</span>
-        <span>Peak: {maxY.toFixed(1)}</span>
-      </div>
-      <svg viewBox={`0 0 ${width} ${height}`} className="w-full" style={{ maxHeight: height }}>
-        <polyline
-          fill="none"
-          stroke={color}
-          strokeWidth="1.5"
-          points={points}
-        />
-        <line x1={padding} y1={height - padding} x2={width - padding} y2={height - padding} stroke="currentColor" strokeWidth="0.5" opacity="0.2" />
-        <line x1={padding} y1={padding} x2={padding} y2={height - padding} stroke="currentColor" strokeWidth="0.5" opacity="0.2" />
-      </svg>
-    </div>
-  );
-};
+const PRESETS = [
+  { name: "Conservative", params: { initialVelocity: 120, mass: 8, dragCoefficient: 0.35, launchAngle: 45 } },
+  { name: "Optimal Range", params: { initialVelocity: 180, mass: 6.5, dragCoefficient: 0.25, launchAngle: 45 } },
+  { name: "Max Altitude", params: { initialVelocity: 200, mass: 5, dragCoefficient: 0.2, launchAngle: 75 } },
+  { name: "Supersonic", params: { initialVelocity: 350, mass: 4, dragCoefficient: 0.3, launchAngle: 50 } },
+];
 
 export const RocketSimulator = () => {
-  const [mass, setMass] = useState(DEFAULTS.rocketMass);
-  const [cd, setCd] = useState(DEFAULTS.cd);
-  const [diameter, setDiameter] = useState(DEFAULTS.diameter * 1000);
+  const [params, setParams] = useState<SimulationParams>({
+    initialVelocity: 180,
+    mass: 6.5,
+    dragCoefficient: 0.25,
+    launchAngle: 48,
+  });
   const [running, setRunning] = useState(false);
 
-  const results = useMemo(
-    () => (running ? simulate({ rocketMass: mass, cd, diameter: diameter / 1000 }) : []),
-    [running, mass, cd, diameter]
-  );
+  const results = useMemo(() => (running ? runSimulation(params) : []), [running, params]);
 
-  const maxAlt = results.length > 0 ? Math.max(...results.map((r) => r.alt)) : 0;
-  const maxVel = results.length > 0 ? Math.max(...results.map((r) => r.vel)) : 0;
-  const flightTime = results.length > 0 ? results[results.length - 1].t : 0;
+  const stats = useMemo(() => {
+    if (results.length === 0) return null;
+    const maxAlt = Math.max(...results.map((p) => p.altitude));
+    const maxVel = Math.max(...results.map((p) => p.velocity));
+    const maxG = Math.max(...results.map((p) => p.acceleration / 9.81));
+    const apogeeTime = results.find((p) => p.altitude === maxAlt)?.time || 0;
+    const range = results[results.length - 1]?.horizontalDistance || 0;
+    const flightTime = results[results.length - 1]?.time || 0;
+    return { maxAlt, maxVel, maxG, apogeeTime, range, flightTime };
+  }, [results]);
 
   const reset = () => {
-    setMass(DEFAULTS.rocketMass);
-    setCd(DEFAULTS.cd);
-    setDiameter(DEFAULTS.diameter * 1000);
+    setParams({ initialVelocity: 180, mass: 6.5, dragCoefficient: 0.25, launchAngle: 48 });
     setRunning(false);
   };
 
+  // Downsample for charts
+  const chartData = useMemo(() => results.filter((_, i) => i % 5 === 0 || i === results.length - 1), [results]);
+
   return (
-    <div className="p-6 rounded-xl bg-card border border-border space-y-6">
-      <div className="flex items-center justify-between">
+    <div className="p-6 rounded-2xl bg-card border border-border space-y-6">
+      <div className="flex items-center justify-between flex-wrap gap-3">
         <div>
           <h4 className="font-display font-semibold text-sm">Interactive 6-DOF Trajectory Simulator</h4>
-          <p className="text-xs text-muted-foreground">Estes E12 Engine · Real thrust curve data</p>
+          <p className="text-xs text-muted-foreground">Adjust parameters · Real-time physics engine</p>
         </div>
         <div className="flex gap-2">
           <button
@@ -204,80 +140,146 @@ export const RocketSimulator = () => {
         </div>
       </div>
 
-      {/* Parameter sliders */}
-      <div className="grid sm:grid-cols-3 gap-4">
-        <div className="space-y-2">
-          <label className="text-xs text-muted-foreground flex justify-between">
-            Rocket Mass <span>{mass}g</span>
-          </label>
-          <Slider value={[mass]} onValueChange={([v]) => { setMass(v); setRunning(false); }} min={20} max={200} step={5} />
-        </div>
-        <div className="space-y-2">
-          <label className="text-xs text-muted-foreground flex justify-between">
-            Drag Coefficient <span>{cd.toFixed(3)}</span>
-          </label>
-          <Slider value={[cd * 1000]} onValueChange={([v]) => { setCd(v / 1000); setRunning(false); }} min={50} max={500} step={5} />
-        </div>
-        <div className="space-y-2">
-          <label className="text-xs text-muted-foreground flex justify-between">
-            Diameter <span>{diameter.toFixed(1)}mm</span>
-          </label>
-          <Slider value={[diameter]} onValueChange={([v]) => { setDiameter(v); setRunning(false); }} min={15} max={60} step={1} />
-        </div>
+      {/* Presets */}
+      <div className="flex flex-wrap gap-2">
+        {PRESETS.map((preset) => (
+          <button
+            key={preset.name}
+            onClick={() => { setParams(preset.params); setRunning(false); }}
+            className="px-3 py-1 text-[11px] rounded-full border border-border text-muted-foreground hover:border-foreground/30 hover:text-foreground transition-colors"
+          >
+            {preset.name}
+          </button>
+        ))}
       </div>
 
-      {running && results.length > 0 && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          className="space-y-4"
-        >
+      {/* Parameter sliders */}
+      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {[
+          { key: "initialVelocity" as const, label: "Initial Velocity", unit: "m/s", min: 50, max: 500, step: 10 },
+          { key: "mass" as const, label: "Mass", unit: "kg", min: 1, max: 20, step: 0.5 },
+          { key: "dragCoefficient" as const, label: "Drag Coeff.", unit: "Cd", min: 0.1, max: 1, step: 0.05 },
+          { key: "launchAngle" as const, label: "Launch Angle", unit: "°", min: 15, max: 89, step: 1 },
+        ].map(({ key, label, unit, min, max, step }) => (
+          <div key={key} className="space-y-2">
+            <label className="text-xs text-muted-foreground flex justify-between">
+              {label} <span className="font-mono">{params[key].toFixed(key === "dragCoefficient" ? 2 : 0)}{unit}</span>
+            </label>
+            <Slider
+              value={[params[key] * (1 / step)]}
+              onValueChange={([v]) => { setParams((p) => ({ ...p, [key]: v * step })); setRunning(false); }}
+              min={min / step}
+              max={max / step}
+              step={1}
+            />
+          </div>
+        ))}
+      </div>
+
+      {running && stats && (
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-6">
           {/* Key stats */}
-          <div className="grid grid-cols-3 gap-3">
-            <div className="p-3 rounded-lg bg-muted/50 text-center">
-              <p className="text-lg font-display font-bold">{maxAlt.toFixed(1)}m</p>
-              <p className="text-xs text-muted-foreground">Max Altitude</p>
-            </div>
-            <div className="p-3 rounded-lg bg-muted/50 text-center">
-              <p className="text-lg font-display font-bold">{maxVel.toFixed(1)}m/s</p>
-              <p className="text-xs text-muted-foreground">Max Velocity</p>
-            </div>
-            <div className="p-3 rounded-lg bg-muted/50 text-center">
-              <p className="text-lg font-display font-bold">{flightTime.toFixed(1)}s</p>
-              <p className="text-xs text-muted-foreground">Flight Time</p>
-            </div>
+          <div className="grid grid-cols-3 sm:grid-cols-6 gap-3">
+            {[
+              { label: "Max Altitude", value: `${stats.maxAlt.toFixed(1)}m` },
+              { label: "Apogee Time", value: `${stats.apogeeTime.toFixed(2)}s` },
+              { label: "Range", value: `${stats.range.toFixed(1)}m` },
+              { label: "Max Velocity", value: `${stats.maxVel.toFixed(1)}m/s` },
+              { label: "Flight Time", value: `${stats.flightTime.toFixed(1)}s` },
+              { label: "Peak G-Force", value: `${stats.maxG.toFixed(2)}g` },
+            ].map(({ label, value }) => (
+              <div key={label} className="p-3 rounded-xl bg-muted/50 text-center">
+                <p className="text-base sm:text-lg font-display font-bold">{value}</p>
+                <p className="text-[10px] text-muted-foreground">{label}</p>
+              </div>
+            ))}
           </div>
 
           {/* Eiffel Tower Easter Egg */}
-          {maxAlt > 330 && (
+          {stats.maxAlt > 330 && (
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ type: "spring", stiffness: 200, delay: 0.3 }}
-              className="p-4 rounded-xl bg-card border border-foreground/20 text-center space-y-2"
+              className="p-4 rounded-2xl bg-card border border-foreground/20 text-center space-y-2"
             >
               <p className="text-3xl">🗼</p>
               <p className="font-display font-semibold text-sm">
-                Your model rocket just surpassed the Eiffel Tower!
+                Your rocket just surpassed the Eiffel Tower!
               </p>
               <p className="text-xs text-muted-foreground">
-                At {maxAlt.toFixed(1)}m, this tiny rocket exceeded the 330m height of the Eiffel Tower — the very question from the Grand Oral.
+                At {stats.maxAlt.toFixed(1)}m, this rocket exceeded the 330m height of the Eiffel Tower — the very question from the Grand Oral.
               </p>
             </motion.div>
           )}
 
           {/* Charts */}
           <div className="grid sm:grid-cols-2 gap-4">
-            <MiniChart data={results} xKey="t" yKey="alt" label="Altitude (m)" color="hsl(142, 50%, 50%)" />
-            <MiniChart data={results} xKey="t" yKey="vel" label="Velocity (m/s)" color="hsl(210, 50%, 60%)" />
-            <MiniChart data={results} xKey="t" yKey="thrust" label="Thrust (N)" color="hsl(30, 70%, 55%)" />
-            <MiniChart data={results} xKey="t" yKey="accel" label="Acceleration (m/s²)" color="hsl(0, 60%, 55%)" />
+            <div className="rounded-xl bg-muted/30 p-4 border border-border">
+              <p className="text-xs text-muted-foreground mb-3">Altitude Profile</p>
+              <ResponsiveContainer width="100%" height={200}>
+                <AreaChart data={chartData}>
+                  <defs>
+                    <linearGradient id="altGrad" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="5%" stopColor="hsl(142, 50%, 50%)" stopOpacity={0.4} />
+                      <stop offset="95%" stopColor="hsl(142, 50%, 50%)" stopOpacity={0} />
+                    </linearGradient>
+                  </defs>
+                  <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                  <XAxis dataKey="time" stroke="hsl(var(--muted-foreground))" tick={{ fontSize: 10 }} />
+                  <YAxis stroke="hsl(var(--muted-foreground))" tick={{ fontSize: 10 }} />
+                  <Tooltip contentStyle={{ background: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: "8px", fontSize: 12 }} />
+                  <Area type="monotone" dataKey="altitude" stroke="hsl(142, 50%, 50%)" fill="url(#altGrad)" isAnimationActive={false} />
+                </AreaChart>
+              </ResponsiveContainer>
+            </div>
+
+            <div className="rounded-xl bg-muted/30 p-4 border border-border">
+              <p className="text-xs text-muted-foreground mb-3">Trajectory Path</p>
+              <ResponsiveContainer width="100%" height={200}>
+                <LineChart data={chartData}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                  <XAxis dataKey="horizontalDistance" stroke="hsl(var(--muted-foreground))" tick={{ fontSize: 10 }} />
+                  <YAxis stroke="hsl(var(--muted-foreground))" tick={{ fontSize: 10 }} />
+                  <Tooltip contentStyle={{ background: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: "8px", fontSize: 12 }} />
+                  <Line type="monotone" dataKey="altitude" stroke="hsl(210, 50%, 60%)" dot={false} strokeWidth={2} isAnimationActive={false} />
+                </LineChart>
+              </ResponsiveContainer>
+            </div>
+
+            <div className="rounded-xl bg-muted/30 p-4 border border-border">
+              <p className="text-xs text-muted-foreground mb-3">Velocity Over Time</p>
+              <ResponsiveContainer width="100%" height={200}>
+                <LineChart data={chartData}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                  <XAxis dataKey="time" stroke="hsl(var(--muted-foreground))" tick={{ fontSize: 10 }} />
+                  <YAxis stroke="hsl(var(--muted-foreground))" tick={{ fontSize: 10 }} />
+                  <Tooltip contentStyle={{ background: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: "8px", fontSize: 12 }} />
+                  <Line type="monotone" dataKey="velocity" stroke="hsl(30, 70%, 55%)" dot={false} strokeWidth={2} isAnimationActive={false} />
+                </LineChart>
+              </ResponsiveContainer>
+            </div>
+
+            <div className="rounded-xl bg-muted/30 p-4 border border-border">
+              <p className="text-xs text-muted-foreground mb-3">Mach Number</p>
+              <ResponsiveContainer width="100%" height={200}>
+                <LineChart data={chartData}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                  <XAxis dataKey="time" stroke="hsl(var(--muted-foreground))" tick={{ fontSize: 10 }} />
+                  <YAxis stroke="hsl(var(--muted-foreground))" tick={{ fontSize: 10 }} />
+                  <Tooltip contentStyle={{ background: "hsl(var(--card))", border: "1px solid hsl(var(--border))", borderRadius: "8px", fontSize: 12 }} />
+                  <Line type="monotone" dataKey="machNumber" stroke="hsl(0, 60%, 55%)" dot={false} strokeWidth={2} isAnimationActive={false} />
+                </LineChart>
+              </ResponsiveContainer>
+            </div>
           </div>
         </motion.div>
       )}
     </div>
   );
 };
+
+/* ─── Projects Section ─── */
 
 const projects = [
   {
@@ -363,7 +365,7 @@ export const Projects = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.1 * i + 0.3, duration: 0.5 }}
-                className="group p-6 rounded-xl bg-card border border-border hover:border-foreground/20 transition-all hover:-translate-y-1"
+                className="group p-6 rounded-2xl bg-card border border-border hover:border-foreground/20 transition-all hover:-translate-y-1"
               >
                 <div className="flex items-start justify-between mb-3">
                   <h3 className="font-display font-semibold">{project.title}</h3>

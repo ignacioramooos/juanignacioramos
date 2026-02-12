@@ -1,32 +1,44 @@
 import { motion } from "framer-motion";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import { Globe, Award, DollarSign, Users } from "lucide-react";
 
 const CountUp = ({ end, suffix = "", duration = 2 }: { end: number; suffix?: string; duration?: number }) => {
   const [count, setCount] = useState(0);
-  const ref = useRef<HTMLSpanElement>(null);
-  const { ref: inViewRef, isInView } = useScrollReveal();
+  const containerRef = useRef<HTMLSpanElement>(null);
+  const [hasAnimated, setHasAnimated] = useState(false);
 
   useEffect(() => {
-    if (!isInView) return;
-    let start = 0;
-    const step = end / (duration * 60);
-    const timer = setInterval(() => {
-      start += step;
-      if (start >= end) {
-        setCount(end);
-        clearInterval(timer);
-      } else {
-        setCount(Math.floor(start));
-      }
-    }, 1000 / 60);
-    return () => clearInterval(timer);
-  }, [isInView, end, duration]);
+    const el = containerRef.current;
+    if (!el || hasAnimated) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setHasAnimated(true);
+          let start = 0;
+          const step = end / (duration * 60);
+          const timer = setInterval(() => {
+            start += step;
+            if (start >= end) {
+              setCount(end);
+              clearInterval(timer);
+            } else {
+              setCount(Math.floor(start));
+            }
+          }, 1000 / 60);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [end, duration, hasAnimated]);
 
   return (
-    <span ref={inViewRef}>
-      <span ref={ref}>{count.toLocaleString()}</span>{suffix}
+    <span ref={containerRef}>
+      {count.toLocaleString()}{suffix}
     </span>
   );
 };
@@ -75,7 +87,7 @@ export const About = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ delay: 0.2 + i * 0.1, duration: 0.5 }}
-                  className="p-4 rounded-xl bg-card border border-border hover:border-foreground/20 transition-colors"
+                  className="p-4 rounded-2xl bg-card border border-border hover:border-foreground/20 transition-colors"
                 >
                   <stat.icon size={18} className="text-muted-foreground mb-2" />
                   <p className="font-display text-2xl font-bold">

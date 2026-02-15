@@ -1,4 +1,5 @@
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+import { z } from "https://esm.sh/zod@3.25.76";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -6,16 +7,23 @@ const corsHeaders = {
     "authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
 };
 
+const contactSchema = z.object({
+  name: z.string().trim().min(1, "Name is required").max(100, "Name too long"),
+  email: z.string().trim().email("Invalid email").max(255, "Email too long"),
+  message: z.string().trim().min(1, "Message is required").max(2000, "Message too long"),
+});
+
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
   }
 
   try {
-    const { name, email, message } = await req.json();
+    const body = await req.json();
+    const result = contactSchema.safeParse(body);
 
-    if (!name || !email || !message) {
-      return new Response(JSON.stringify({ error: "Missing fields" }), {
+    if (!result.success) {
+      return new Response(JSON.stringify({ error: "Invalid input", details: result.error.errors }), {
         status: 400,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
@@ -28,7 +36,7 @@ Deno.serve(async (req) => {
 
     const { error } = await supabase
       .from("contact_messages")
-      .insert({ name, email, message });
+      .insert(result.data);
 
     if (error) {
       console.error("Insert error:", error);

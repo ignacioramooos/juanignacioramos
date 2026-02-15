@@ -28,7 +28,7 @@ const experiences = [
     ],
   },
   {
-    year: "2025",
+    year: "2022",
     role: "Logistics and Operations Intern",
     org: "LKSUR (Infrastructure & Sanitation)",
     location: "Montevideo, Uruguay",

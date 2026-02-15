@@ -52,7 +52,7 @@ const experiences = [
     ],
   },
   {
-    year: "2024",
+    year: "2025",
     role: "Event Director",
     org: "Warmup Method (Event Production)",
     location: "Montevideo, Uruguay",

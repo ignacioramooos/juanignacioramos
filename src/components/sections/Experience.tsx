@@ -33,9 +33,7 @@ const experiences = [
     org: "LKSUR (Infrastructure & Sanitation)",
     location: "Montevideo, Uruguay",
     details: [
-      "Worked on architecture, urban planning, and infrastructure projects.",
-      "Assisted with architectural drafting and technical design tasks during the internship.",
-      "Managed fiduciary responsibilities alongside technical design tasks.",
+      "Worked with project records and reviewed past infrastructure projects completed by the company during the internship.",
     ],
   },
   {

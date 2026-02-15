@@ -61,7 +61,7 @@ const experiences = [
     ],
   },
   {
-    year: "2023–2025",
+    year: "2025",
     role: "Volunteer & Drone Surveyor",
     org: "TECHO",
     location: "Uruguay",

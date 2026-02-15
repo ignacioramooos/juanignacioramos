@@ -34,7 +34,7 @@ const experiences = [
     location: "Montevideo, Uruguay",
     details: [
       "Worked on architecture, urban planning, and infrastructure projects.",
-      "Applied AutoCAD and Revit for architectural drafting.",
+      "Assisted with architectural drafting and technical design tasks during the internship.",
       "Managed fiduciary responsibilities alongside technical design tasks.",
     ],
   },

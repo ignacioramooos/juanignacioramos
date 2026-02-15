@@ -39,7 +39,7 @@ const experiences = [
     ],
   },
   {
-    year: "2021–2025",
+    year: "2025",
     role: "Student Event Lead & Project Founder",
     org: "Lycée Français Jules Supervielle",
     location: "Montevideo, Uruguay",

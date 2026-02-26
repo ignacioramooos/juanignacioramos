@@ -58,12 +58,14 @@ const BlogPage = () => {
                     className="group block p-6 rounded-2xl bg-card border border-border hover:border-foreground/20 transition-all hover:-translate-y-1"
                   >
                     {post.cover_image_url && (
-                      <img
-                        src={post.cover_image_url}
-                        alt={post.title}
-                        className="w-full h-48 object-cover rounded-xl mb-4"
-                        loading="lazy"
-                      />
+                      <div className="rounded-xl overflow-hidden mb-4 bg-card">
+                        <img
+                          src={post.cover_image_url}
+                          alt={post.title}
+                          className="w-full h-48 object-cover"
+                          loading="lazy"
+                        />
+                      </div>
                     )}
                     <h2 className="font-display text-xl font-semibold group-hover:text-foreground/80 transition-colors">
                       {post.title}

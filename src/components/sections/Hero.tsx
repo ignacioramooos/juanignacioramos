@@ -70,7 +70,7 @@ export const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 }}
-          className="text-sm tracking-[0.3em] uppercase text-muted-foreground mb-6">
+          className="text-sm tracking-[0.3em] uppercase text-muted-foreground mb-6 mt-8 sm:mt-12">
 
           Montevideo, Uruguay
         </motion.p>

@@ -9,7 +9,7 @@ const DocumentsPage = () => {
         <p className="text-muted-foreground mb-8">
           Acceptance letters, certificates, and other documents.
         </p>
-        <div className="w-full rounded-xl border border-border overflow-hidden" style={{ height: "80vh" }}>
+        <div className="w-full rounded-xl border border-border overflow-hidden bg-background relative z-[1]" style={{ height: "80vh" }}>
           <iframe
             src="https://drive.google.com/embeddedfolderview?id=1RNm8bZ4qnAcvEVkHUpI-YkyGlgkhcwob#grid"
             className="w-full h-full border-0"

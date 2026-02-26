@@ -1,150 +1,47 @@
 
 
-# Multi-Page Site with Blog, Colleges Page, and Admin Panel
+# Fix Admin Access, RLS Policies, and Add Documents Page
 
-## Overview
+## Problems Found
 
-Transform the current single-page portfolio into a multi-page site with proper routing, add a Colleges showcase page, a Blog with hybrid content (built-in CMS + Google Drive for documents), and a password-protected admin panel to manage everything.
+1. **Your account exists but has no admin role** -- you signed up but were never granted the `admin` role in the `user_roles` table, so the admin panel blocks you.
 
----
+2. **All RLS policies are RESTRICTIVE** -- they were created as RESTRICTIVE instead of PERMISSIVE. This means multiple SELECT policies on the same table require ALL conditions to be true simultaneously (AND logic), which blocks everyone. For example, on `blog_posts`, you'd need to be both an admin AND have the post be published -- impossible for public visitors.
 
-## 1. Multi-Page Routing
+3. **No Google Drive connector available** -- the Google Drive connector isn't set up in the workspace. Since the folder is publicly shared, we can embed it directly using Google Drive's embed/iframe URL or link to files.
 
-Convert the app from a single scrollable page to proper routes:
+## Plan
 
-| Route | Purpose |
-|---|---|
-| `/` | Home -- keeps Hero, About, Experience, Education, Skills, Volunteering, Athletics, Awards. A brief "Contact" snippet stays at the bottom with a link to the full page |
-| `/contact` | Full contact page (form + chatbot + info) |
-| `/projects` | Dedicated projects page with the rocket simulator and project cards |
-| `/colleges` | College acceptances showcase |
-| `/blog` | Blog listing page |
-| `/blog/:slug` | Individual blog post |
-| `/admin` | Password-protected admin panel |
+### Step 1: Grant Admin Role
 
-The Navbar will be updated to use `react-router-dom` Links pointing to these routes instead of anchor scrolls.
+Insert your user ID (`617d43cd-2d78-4320-b506-664d7fb8b1c2`) into the `user_roles` table with the `admin` role.
 
----
+### Step 2: Fix All RLS Policies
 
-## 2. Colleges Page (`/colleges`)
+Drop all existing RESTRICTIVE policies and recreate them as PERMISSIVE (the default). Tables affected:
 
-A clean page displaying college acceptances with:
-- College name, location, acceptance status
-- Financial aid offered vs. cost of attendance
-- A visual comparison (progress bars or cards showing the gap)
-- Optional notes per college
+- **colleges**: Public SELECT (permissive), admin INSERT/UPDATE/DELETE (permissive)
+- **blog_posts**: Public SELECT where published=true (permissive), admin full access (permissive)
+- **contact_messages**: Public INSERT (permissive), no read/update/delete
+- **profiles**: User own-data SELECT/UPDATE (permissive)
+- **user_roles**: User own-data SELECT (permissive)
 
-Data stored in a new `colleges` database table, managed through the admin panel.
+### Step 3: Create Documents Page
 
----
+- New file: `src/pages/DocumentsPage.tsx`
+- Embeds the Google Drive folder (`1RNm8bZ4qnAcvEVkHUpI-YkyGlgkhcwob`) using an iframe with Google Drive's embed view
+- Clean page layout matching the existing site style
+- Add `/documents` route in `App.tsx`
+- Add "Documents" link in `Navbar.tsx`
 
-## 3. Blog System (Hybrid)
+### Files to Create
+- `src/pages/DocumentsPage.tsx` -- iframe embed of the shared Drive folder
 
-### Built-in CMS (primary)
-- New `blog_posts` database table (title, slug, content as Markdown, cover image URL, published flag, created/updated timestamps)
-- New `blog-images` storage bucket for uploaded images
-- Posts written and managed via the admin panel
-- Blog listing page with cards, individual post pages rendered with `react-markdown`
+### Files to Modify
+- `src/App.tsx` -- add `/documents` route
+- `src/components/Navbar.tsx` -- add "Documents" nav link
 
-### Google Drive Integration (for documents)
-- Connect the Google Drive connector to pull files (acceptance letters, financial aid documents, PDFs) from a specific folder
-- Display these as downloadable document cards on the Colleges page or embedded in blog posts
-- Uses the connector gateway for authenticated access
+### Database Changes
+- 1 data insert: admin role for your account
+- 1 migration: drop and recreate all RLS policies as PERMISSIVE
 
----
-
-## 4. Admin Panel (`/admin`)
-
-A simple password-protected area (using authentication with email/password login) where you can:
-- **Colleges**: Add, edit, delete college entries
-- **Blog**: Create, edit, publish/unpublish posts with a Markdown editor and image uploads
-- Clean tabbed interface
-
----
-
-## Technical Details
-
-### Database Changes (migrations)
-
-**`colleges` table:**
-```
-- id (uuid, PK)
-- name (text)
-- location (text)
-- status (text: accepted, waitlisted, rejected)
-- cost_of_attendance (numeric, nullable)
-- financial_aid (numeric, nullable)
-- notes (text, nullable)
-- display_order (integer)
-- created_at (timestamptz)
-```
-
-**`blog_posts` table:**
-```
-- id (uuid, PK)
-- title (text)
-- slug (text, unique)
-- content (text -- Markdown)
-- cover_image_url (text, nullable)
-- published (boolean, default false)
-- created_at (timestamptz)
-- updated_at (timestamptz)
-```
-
-**`profiles` table** for admin auth:
-```
-- id (uuid, PK, references auth.users)
-- email (text)
-- created_at (timestamptz)
-```
-
-**`user_roles` table** for admin role:
-```
-- id (uuid, PK)
-- user_id (uuid, references auth.users)
-- role (app_role enum: admin, user)
-```
-
-**Storage bucket:** `blog-images` (public)
-
-**RLS policies:**
-- Colleges: public SELECT, admin-only INSERT/UPDATE/DELETE
-- Blog posts: public SELECT (where published = true), admin-only all operations
-- Profiles and user_roles: standard user-own-data policies
-
-### New Files
-
-- `src/pages/ContactPage.tsx` -- full contact page
-- `src/pages/ProjectsPage.tsx` -- dedicated projects page
-- `src/pages/CollegesPage.tsx` -- college showcase
-- `src/pages/BlogPage.tsx` -- blog listing
-- `src/pages/BlogPostPage.tsx` -- individual post
-- `src/pages/AdminPage.tsx` -- admin panel with tabs
-- `src/pages/LoginPage.tsx` -- admin login
-- `src/components/admin/CollegesAdmin.tsx` -- CRUD for colleges
-- `src/components/admin/BlogAdmin.tsx` -- CRUD for blog posts
-- `src/components/ProtectedRoute.tsx` -- auth guard
-
-### Modified Files
-
-- `src/App.tsx` -- add all new routes
-- `src/components/Navbar.tsx` -- convert to router Links, add Colleges and Blog nav items
-- `src/pages/Index.tsx` -- remove Projects and Contact sections, add brief contact snippet with link
-- `src/components/sections/Contact.tsx` -- keep as-is, just used in ContactPage
-
-### Google Drive Setup
-
-- Use the `connect` tool to link the Google Drive connector
-- Create an edge function `drive-files` to fetch folder contents via the connector gateway
-- Display documents as cards with download links on the Colleges page
-
----
-
-## Implementation Order
-
-1. Database migrations (tables, RLS, storage bucket)
-2. Authentication setup (login page, protected route)
-3. Multi-page routing refactor (App.tsx, Navbar, Index)
-4. Colleges page + admin CRUD
-5. Blog system + admin CRUD
-6. Google Drive connector integration

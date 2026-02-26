@@ -7,6 +7,7 @@ import { Skills } from "@/components/sections/Skills";
 import { Volunteering } from "@/components/sections/Volunteering";
 import { Athletics } from "@/components/sections/Athletics";
 import { Awards } from "@/components/sections/Awards";
+import { DailyQuotes } from "@/components/sections/DailyQuotes";
 import { Contact } from "@/components/sections/Contact";
 import { EasterEggs } from "@/components/EasterEggs";
 
@@ -22,6 +23,7 @@ const Index = () => {
       <Volunteering />
       <Athletics />
       <Awards />
+      <DailyQuotes />
       <Contact />
       <EasterEggs />
     </main>

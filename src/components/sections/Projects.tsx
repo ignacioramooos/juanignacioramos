@@ -317,7 +317,7 @@ export const Projects = () => {
   const filtered = filter === "all" ? projects : projects.filter((p) => p.category === filter);
 
   return (
-    <section id="projects" className="py-24 px-6 bg-card/50">
+    <section id="projects" className="py-24 px-6 bg-background">
       <div className="max-w-5xl mx-auto">
         <motion.div
           ref={ref}

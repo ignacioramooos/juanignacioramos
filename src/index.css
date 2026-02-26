@@ -154,3 +154,15 @@ html {
   background: hsl(var(--foreground) / 0.08);
   border-color: hsl(var(--foreground) / 0.12);
 }
+
+/* Opaque content block to fully obscure stars */
+.content-block {
+  background: hsl(var(--background));
+  position: relative;
+  z-index: 1;
+}
+
+/* Safe area padding for mobile bottom nav */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}

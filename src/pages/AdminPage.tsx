@@ -2,6 +2,7 @@ import { Navbar } from "@/components/Navbar";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { CollegesAdmin } from "@/components/admin/CollegesAdmin";
 import { BlogAdmin } from "@/components/admin/BlogAdmin";
+import { ProjectsAdmin } from "@/components/admin/ProjectsAdmin";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
 import { useNavigate } from "react-router-dom";
@@ -34,12 +35,16 @@ const AdminPage = () => {
             <TabsList>
               <TabsTrigger value="colleges">Colleges</TabsTrigger>
               <TabsTrigger value="blog">Blog</TabsTrigger>
+              <TabsTrigger value="projects">Projects</TabsTrigger>
             </TabsList>
             <TabsContent value="colleges">
               <CollegesAdmin />
             </TabsContent>
             <TabsContent value="blog">
               <BlogAdmin />
+            </TabsContent>
+            <TabsContent value="projects">
+              <ProjectsAdmin />
             </TabsContent>
           </Tabs>
         </div>

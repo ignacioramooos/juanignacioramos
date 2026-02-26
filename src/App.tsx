@@ -16,6 +16,7 @@ import BlogPostPage from "./pages/BlogPostPage";
 import LoginPage from "./pages/LoginPage";
 import AdminPage from "./pages/AdminPage";
 import DocumentsPage from "./pages/DocumentsPage";
+import { MobileBottomNav } from "@/components/MobileBottomNav";
 
 const queryClient = new QueryClient();
 
@@ -39,6 +40,7 @@ const App = () => (
             <Route path="/admin" element={<ProtectedRoute><AdminPage /></ProtectedRoute>} />
             <Route path="*" element={<NotFound />} />
           </Routes>
+          <MobileBottomNav />
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>

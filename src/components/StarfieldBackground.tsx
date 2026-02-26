@@ -2,7 +2,6 @@ import { useEffect, useRef } from "react";
 import { useTheme } from "./ThemeProvider";
 
 // Real northern hemisphere stars: [RA (hours 0-24), Dec (degrees -30 to 90), magnitude (0=brightest)]
-// Stereographic projection centered on Polaris (RA ~2.5h, Dec +89.26°)
 const STARS: [number, number, number][] = [
   // Ursa Minor (Little Dipper)
   [2.53, 89.26, 1.97],   // Polaris
@@ -31,7 +30,7 @@ const STARS: [number, number, number][] = [
 
   // Cygnus (Northern Cross)
   [20.69, 45.28, 1.25],  // Deneb
-  [19.51, 27.96, 2.23],  // Sadr (Gamma Cyg)
+  [19.51, 27.96, 2.23],  // Sadr
   [19.75, 45.13, 2.87],  // Delta Cyg
   [20.37, 40.26, 2.48],  // Gienah
   [19.50, 32.69, 3.08],  // Albireo area
@@ -104,9 +103,31 @@ const STARS: [number, number, number][] = [
   [6.75, -16.72, -1.46], // Sirius (low on horizon)
   [7.65, 5.22, 0.34],    // Procyon
   [16.49, -26.43, 0.91], // Antares (very low)
+
+  // ── Additional edge/dim stars to fill sides ──
+  [13.42, 10.96, 2.56],  // Vindemiatrix (Virgo)
+  [12.69, -1.45, 2.74],  // Porrima (Virgo)
+  [13.18, -23.17, 3.37], // Gamma Hydra
+  [9.31, -8.66, 3.11],   // Alphard (Hydra)
+  [8.16, -24.86, 3.61],  // Delta Vel area
+  [22.10, -0.32, 2.90],  // Sadalsud (Aquarius)
+  [21.53, 9.88, 2.91],   // Enif (Pegasus)
+  [22.71, 30.22, 3.40],  // Iota Peg
+  [20.43, -14.78, 3.05], // Dabih (Capricornus)
+  [18.35, -29.83, 1.85], // Kaus Australis (Sagittarius)
+  [17.56, 12.56, 2.08],  // Rasalhague (Ophiuchus)
+  [16.00, -22.62, 2.29], // Dschubba (Scorpius)
+  [8.74, 18.15, 3.52],   // Rho Leo
+  [6.38, -17.96, 3.02],  // Mirzam (CMa)
+  [21.74, 62.59, 3.35],  // Alpha Cep
+  [22.49, 58.20, 3.21],  // Beta Cep
+  [3.58, 31.88, 3.60],   // Delta And
+  [23.63, 46.02, 3.53],  // Schedir area
+  [1.62, 48.63, 3.57],   // Eta Cas
+  [4.95, 33.17, 3.72],   // Epsilon Per
 ];
 
-// Project RA/Dec to screen coords using stereographic projection centered near Polaris
+// Project RA/Dec to screen coords using stereographic projection
 function projectStar(
   ra: number,
   dec: number,
@@ -117,18 +138,17 @@ function projectStar(
 ): [number, number] {
   const raRad = (ra / 24) * Math.PI * 2 + rotation;
   const decRad = (dec * Math.PI) / 180;
-  const centerDec = (80 * Math.PI) / 180; // Center slightly below pole for better spread
+  const centerDec = (60 * Math.PI) / 180; // Lowered from 80° to spread stars wider
 
-  // Stereographic projection
   const sinDec = Math.sin(decRad);
   const cosDec = Math.cos(decRad);
   const sinCenter = Math.sin(centerDec);
   const cosCenter = Math.cos(centerDec);
 
   const denom = 1 + sinCenter * sinDec + cosCenter * cosDec * Math.cos(raRad);
-  if (denom < 0.1) return [-100, -100]; // Behind projection
+  if (denom < 0.1) return [-100, -100];
 
-  const scale = Math.min(width, height) * 0.45;
+  const scale = Math.min(width, height) * 0.7; // Increased from 0.45 for wider spread
   const x = (scale * cosDec * Math.sin(raRad)) / denom;
   const y = (scale * (cosCenter * sinDec - sinCenter * cosDec * Math.cos(raRad))) / denom;
 
@@ -139,7 +159,6 @@ function projectStar(
 }
 
 function magnitudeToSize(mag: number): number {
-  // Brighter stars (lower mag) = larger dots
   return Math.max(0.5, 3 - mag * 0.5);
 }
 
@@ -148,6 +167,7 @@ export const StarfieldBackground = () => {
   const { theme } = useTheme();
   const animRef = useRef<number>(0);
   const startTime = useRef(Date.now());
+  const currentScrollOffset = useRef(0);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -171,9 +191,13 @@ export const StarfieldBackground = () => {
       ctx.clearRect(0, 0, w, h);
 
       const elapsed = (Date.now() - startTime.current) / 1000;
-      const rotation = elapsed * 0.001; // Very slow rotation
-      const scrollY = window.scrollY;
-      const scrollOffset = scrollY * 0.03;
+      const rotation = elapsed * 0.0005; // Slower rotation (was 0.001)
+
+      // Lerped scroll offset for smooth parallax
+      const targetOffset = window.scrollY * 0.03;
+      currentScrollOffset.current += (targetOffset - currentScrollOffset.current) * 0.05;
+      const scrollOffset = currentScrollOffset.current;
+
       const isDark = document.documentElement.classList.contains("dark");
       const baseOpacity = isDark ? 0.7 : 0.2;
 
@@ -184,22 +208,21 @@ export const StarfieldBackground = () => {
         if (x < -10 || x > w + 10 || y < -10 || y > h + 10) continue;
 
         const size = magnitudeToSize(mag);
-        // Twinkle: each star oscillates at a unique frequency
-        const twinkle = 0.6 + 0.4 * Math.sin(elapsed * (1.5 + (i % 7) * 0.3) + i * 2.1);
+        // Softer twinkle: lower frequency (0.8), gentler range (0.75-1.0)
+        const twinkle = 0.75 + 0.25 * Math.sin(elapsed * (0.8 + (i % 7) * 0.15) + i * 2.1);
         const alpha = baseOpacity * twinkle;
 
-        // Warm white color with slight variation
-        const warmth = 220 + (i % 3) * 15; // 220-250 range
+        const warmth = 220 + (i % 3) * 15;
         ctx.beginPath();
         ctx.arc(x, y, size, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(${warmth}, ${warmth}, ${Math.min(255, warmth + 10)}, ${alpha})`;
         ctx.fill();
 
-        // Glow for bright stars
+        // Softer glow for bright stars
         if (mag < 1) {
           ctx.beginPath();
           ctx.arc(x, y, size * 3, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(${warmth}, ${warmth}, 255, ${alpha * 0.1})`;
+          ctx.fillStyle = `rgba(${warmth}, ${warmth}, 255, ${alpha * 0.07})`;
           ctx.fill();
         }
       }

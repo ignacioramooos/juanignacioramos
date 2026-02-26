@@ -109,7 +109,7 @@ export const Navbar = () => {
           <div className="relative" ref={dropdownRef}>
             <button
               onClick={() => setPortfolioOpen(!portfolioOpen)}
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1"
+              className="text-[15px] font-semibold text-foreground/80 hover:text-foreground transition-colors flex items-center gap-1"
             >
               Portfolio
               <ChevronDown size={14} className={`transition-transform duration-200 ${portfolioOpen ? "rotate-180" : ""}`} />

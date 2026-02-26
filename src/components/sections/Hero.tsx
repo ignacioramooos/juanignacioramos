@@ -91,8 +91,30 @@ export const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.1 }}
-          className="text-sm sm:text-base text-muted-foreground/70 max-w-md mx-auto mb-10">
+          className="text-base sm:text-lg text-muted-foreground max-w-lg mx-auto mb-4 font-medium">
+          Building the path to aerospace engineering in Uruguay
+        </motion.p>
 
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.25 }}
+          className="flex flex-wrap justify-center gap-2 mb-3">
+          {["Aerospace", "Systems Thinking", "Leadership", "Real-world Impact"].map((pill) => (
+            <span
+              key={pill}
+              className="px-3 py-1 text-xs font-medium tracking-wide rounded-full border border-border bg-card text-muted-foreground"
+            >
+              {pill}
+            </span>
+          ))}
+        </motion.div>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.4 }}
+          className="text-xs sm:text-sm text-muted-foreground/50 max-w-md mx-auto mb-10">
           Aspiring Aerospace Engineer · Learner · Problem Solver
         </motion.p>
 

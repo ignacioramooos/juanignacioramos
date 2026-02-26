@@ -29,7 +29,7 @@ export const WhatDrivesMe = () => {
   const { ref, isInView } = useScrollReveal();
 
   return (
-    <section className="py-24 px-6">
+    <section id="what-drives-me" className="py-24 px-6">
       <div className="max-w-5xl mx-auto" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 30 }}

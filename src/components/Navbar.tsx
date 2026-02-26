@@ -6,6 +6,7 @@ import { Link, useLocation } from "react-router-dom";
 
 const portfolioItems = [
   { label: "About Me", href: "/#about" },
+  { label: "What Drives Me", href: "/#what-drives-me" },
   { label: "Experience", href: "/#experience" },
   { label: "Education", href: "/#education" },
   { label: "Skills", href: "/#skills" },

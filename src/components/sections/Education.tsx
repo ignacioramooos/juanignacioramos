@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { GraduationCap, Rocket, BookOpen, Loader2 } from "lucide-react";
@@ -37,6 +38,7 @@ const education = [
 
 export const Education = () => {
   const { ref, isInView } = useScrollReveal();
+  const navigate = useNavigate();
 
   return (
     <section id="education" className="py-24 px-6">
@@ -56,7 +58,8 @@ export const Education = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0, duration: 0.5 }}
-              className="group relative p-6 rounded-2xl border-2 border-dashed border-foreground/15 hover:border-foreground/30 transition-all hover:-translate-y-1 bg-gradient-to-b from-card to-transparent overflow-hidden"
+              className="group relative p-6 rounded-2xl border-2 border-dashed border-foreground/15 hover:border-foreground/30 transition-all hover:-translate-y-1 bg-gradient-to-b from-card to-transparent overflow-hidden cursor-pointer"
+              onClick={() => navigate("/colleges")}
             >
               <div className="absolute inset-0 bg-gradient-to-b from-muted/30 to-transparent opacity-50" />
               <div className="relative">

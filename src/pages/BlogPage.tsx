@@ -55,7 +55,7 @@ const BlogPage = () => {
                 >
                   <Link
                     to={`/blog/${post.slug}`}
-                    className="group block p-6 rounded-2xl bg-card border border-border hover:border-foreground/20 transition-all hover:-translate-y-1"
+                    className="group block p-6 rounded-2xl bg-card border border-border hover:border-foreground/20 transition-all hover:-translate-y-1 relative z-[1]"
                   >
                     {post.cover_image_url && (
                       <div className="rounded-xl overflow-hidden mb-4 bg-card">

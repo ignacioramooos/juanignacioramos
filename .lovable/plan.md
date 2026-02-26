@@ -1,47 +1,66 @@
 
 
-# Fix Admin Access, RLS Policies, and Add Documents Page
+# Northern Sky Background + Liquid Glass Nav Badges
 
-## Problems Found
+## Overview
 
-1. **Your account exists but has no admin role** -- you signed up but were never granted the `admin` role in the `user_roles` table, so the admin panel blocks you.
+Three visual enhancements: (1) "liquid glass" pill badges in the navbar to group and highlight certain links, (2) a subtle animated starfield background across the entire site showing the real northern hemisphere sky, symbolizing going north/forward.
 
-2. **All RLS policies are RESTRICTIVE** -- they were created as RESTRICTIVE instead of PERMISSIVE. This means multiple SELECT policies on the same table require ALL conditions to be true simultaneously (AND logic), which blocks everyone. For example, on `blog_posts`, you'd need to be both an admin AND have the post be published -- impossible for public visitors.
+---
 
-3. **No Google Drive connector available** -- the Google Drive connector isn't set up in the workspace. Since the folder is publicly shared, we can embed it directly using Google Drive's embed/iframe URL or link to files.
+## 1. Northern Night Sky Background
 
-## Plan
+A new `StarfieldBackground` component rendered at the app root level (in `App.tsx`), behind all content. It will:
 
-### Step 1: Grant Admin Role
+- Use a full-viewport `<canvas>` element with `position: fixed`, `z-index: -1`, and very low opacity
+- Render real northern hemisphere constellations (Ursa Major, Ursa Minor/Polaris, Cassiopeia, Orion, Cygnus) using actual star positions mapped to screen coordinates
+- Apply a very slow parallax drift tied to scroll position -- stars shift slightly as you scroll, creating depth without being distracting
+- Add a gentle twinkle animation (opacity oscillation) to each star
+- Use white/warm-white dots of varying sizes (1-3px) based on star magnitude
+- In light mode, reduce opacity significantly so it's barely visible; in dark mode, make it more prominent
+- The background is purely decorative and non-interactive (pointer-events: none)
 
-Insert your user ID (`617d43cd-2d78-4320-b506-664d7fb8b1c2`) into the `user_roles` table with the `admin` role.
+## 2. Liquid Glass Nav Badges
 
-### Step 2: Fix All RLS Policies
+In the `Navbar.tsx`, visually group certain links with a frosted-glass pill container:
 
-Drop all existing RESTRICTIVE policies and recreate them as PERMISSIVE (the default). Tables affected:
+- **Group 1**: "Colleges", "Blog", "Documents" -- wrapped in a rounded pill with `backdrop-blur`, semi-transparent background, and a subtle glowing border (the "liquid glass" effect)
+- **Group 2**: "Projects" -- wrapped in its own smaller glass pill to call attention to it separately
 
-- **colleges**: Public SELECT (permissive), admin INSERT/UPDATE/DELETE (permissive)
-- **blog_posts**: Public SELECT where published=true (permissive), admin full access (permissive)
-- **contact_messages**: Public INSERT (permissive), no read/update/delete
-- **profiles**: User own-data SELECT/UPDATE (permissive)
-- **user_roles**: User own-data SELECT (permissive)
+The effect is achieved with CSS: `backdrop-blur-md`, `bg-white/5` (dark) / `bg-black/5` (light), `border border-white/10`, `rounded-full`, and a faint `shadow` with a slight glow. This keeps the minimal aesthetic while clearly differentiating these links.
 
-### Step 3: Create Documents Page
+The mobile menu will also reflect these groupings with subtle dividers or background highlights.
 
-- New file: `src/pages/DocumentsPage.tsx`
-- Embeds the Google Drive folder (`1RNm8bZ4qnAcvEVkHUpI-YkyGlgkhcwob`) using an iframe with Google Drive's embed view
-- Clean page layout matching the existing site style
-- Add `/documents` route in `App.tsx`
-- Add "Documents" link in `Navbar.tsx`
+---
 
-### Files to Create
-- `src/pages/DocumentsPage.tsx` -- iframe embed of the shared Drive folder
+## Technical Details
 
-### Files to Modify
-- `src/App.tsx` -- add `/documents` route
-- `src/components/Navbar.tsx` -- add "Documents" nav link
+### New Files
 
-### Database Changes
-- 1 data insert: admin role for your account
-- 1 migration: drop and recreate all RLS policies as PERMISSIVE
+- `src/components/StarfieldBackground.tsx` -- Canvas-based starfield with real northern star positions, scroll-based parallax, and twinkle animation. Uses `useEffect` for the animation loop and scroll listener. No external dependencies needed -- pure canvas API.
+
+### Modified Files
+
+- **`src/App.tsx`** -- Add `<StarfieldBackground />` as the first child inside the ThemeProvider, before all routes
+- **`src/components/Navbar.tsx`** -- Restructure the desktop nav links to wrap "Projects" in one glass pill and "Colleges/Blog/Documents" in another. The rest (About, Experience, Contact) remain unstyled. Mobile menu gets equivalent visual grouping.
+- **`src/index.css`** -- Add a `.glass-pill` utility class for the liquid glass effect:
+  ```css
+  .glass-pill {
+    backdrop-filter: blur(12px);
+    background: hsl(var(--foreground) / 0.05);
+    border: 1px solid hsl(var(--foreground) / 0.08);
+    border-radius: 9999px;
+    padding: 4px 6px;
+    box-shadow: 0 0 12px hsl(var(--foreground) / 0.03);
+  }
+  ```
+
+### Star Data
+
+The component will include hardcoded positions for approximately 50-80 notable northern hemisphere stars (Polaris, Dubhe, Merak, Schedar, Deneb, Vega, Altair, Betelgeuse, Rigel, etc.) with their approximate right ascension and declination mapped to x/y screen coordinates. The projection will place Polaris near the top-center of the viewport, reinforcing the "going north" symbolism.
+
+### Parallax Behavior
+
+- On scroll, stars shift vertically by a small factor (e.g., `scrollY * 0.03`), creating a subtle depth effect
+- A very slow continuous rotation (~0.001 rad/s) simulates Earth's rotation, making the sky feel alive without being distracting
 

@@ -32,7 +32,8 @@ export const MobileBottomNav = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 20 }}
-              className="fixed bottom-20 left-1/2 -translate-x-1/2 z-50 md:hidden glass-pill px-4 py-3 flex gap-4"
+              className="fixed bottom-20 z-50 md:hidden glass-pill px-4 py-3 flex gap-4"
+              style={{ left: "50%", transform: "translateX(-50%)" }}
             >
               {exploreLinks.map((l) => (
                 <Link

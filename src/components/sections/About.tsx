@@ -81,10 +81,13 @@ export const About = () => {
           <div className="grid lg:grid-cols-5 gap-12">
             <div className="lg:col-span-3 space-y-5 text-muted-foreground leading-relaxed">
               <p>
-                I'm an {getAge()}-year-old from Montevideo building the foundation for what I believe Uruguay needs: its own aerospace engineering capability. I graduated with the French Baccalaureate "Mention Très Bien," earned a scholarship to the Advanced Space Academy in Huntsville, Alabama, and led international MUN conferences as Secretary General.
+                I'm an aspiring Aerospace Engineer from Montevideo, Uruguay, with a documented record of managing high-stakes logistical projects and developing complex technical simulations. I graduated with the French Baccalaureate "Mention Très Bien" (Highest Honors — top 10-15%) and received the Advanced Space Academy Scholarship in Huntsville, Alabama.
               </p>
               <p>
-                I work best where systems thinking meets hands-on execution — managing $35,000 in event logistics, coding 6-DOF flight simulations, or leading drone surveys for humanitarian housing projects. Currently studying Physical & Mathematical Engineering at UdelaR, I'm guided by the MIT motto <em>"Mens et Manus"</em>: mind and hand, theory and practice, always together.
+                My expertise spans fiduciary management of 1,380,000+ UYU (~$35,000 USD), technical modeling with Python and 6-DOF simulations, and international leadership as Model UN Secretary General. I'm fluent in four languages and guided by the "Mens et Manus" principle — applying both mind and hand to solve structural challenges in aerospace and sustainable infrastructure.
+              </p>
+              <p>
+                Currently enrolled in Physical & Mathematical Engineering at Universidad de la República (UdelaR), I'm building a rigorous quantitative foundation for my goal: to promote an aerospace industry in Uruguay and design space vehicles.
               </p>
             </div>
 

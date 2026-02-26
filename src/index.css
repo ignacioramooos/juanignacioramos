@@ -166,3 +166,24 @@ html {
 .pb-safe {
   padding-bottom: env(safe-area-inset-bottom, 0px);
 }
+
+/* Ensure images and media never show stars through them */
+img, video, iframe, canvas:not(.starfield-canvas) {
+  position: relative;
+  z-index: 1;
+}
+
+img {
+  background: hsl(var(--card));
+}
+
+/* Cards and containers must be fully opaque */
+.bg-card, [class*="bg-card"] {
+  background-color: hsl(var(--card));
+}
+
+/* Ensure all page content sits above starfield */
+main, article {
+  position: relative;
+  z-index: 1;
+}

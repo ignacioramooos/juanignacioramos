@@ -134,3 +134,19 @@ html {
   mask-composite: exclude;
   pointer-events: none;
 }
+
+/* Liquid glass pill for nav grouping */
+.glass-pill {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: hsl(var(--foreground) / 0.05);
+  border: 1px solid hsl(var(--foreground) / 0.08);
+  border-radius: 9999px;
+  padding: 4px 8px;
+  box-shadow: 0 0 12px hsl(var(--foreground) / 0.03);
+  transition: background 0.3s, border-color 0.3s;
+}
+.glass-pill:hover {
+  background: hsl(var(--foreground) / 0.08);
+  border-color: hsl(var(--foreground) / 0.12);
+}

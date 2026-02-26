@@ -4,15 +4,26 @@ import { useTheme } from "./ThemeProvider";
 import { Sun, Moon, Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 
-const links = [
+const ungroupedBefore = [
   { label: "About", href: "/#about" },
   { label: "Experience", href: "/#experience" },
+];
+
+const projectsGroup = [
   { label: "Projects", href: "/projects" },
+];
+
+const contentGroup = [
   { label: "Colleges", href: "/colleges" },
   { label: "Blog", href: "/blog" },
   { label: "Documents", href: "/documents" },
+];
+
+const ungroupedAfter = [
   { label: "Contact", href: "/contact" },
 ];
+
+const allLinks = [...ungroupedBefore, ...projectsGroup, ...contentGroup, ...ungroupedAfter];
 
 export const Navbar = () => {
   const { theme, toggle } = useTheme();
@@ -28,37 +39,22 @@ export const Navbar = () => {
 
   const handleClick = (href: string) => {
     setMobileOpen(false);
-    // Handle hash links on home page
     if (href.startsWith("/#") && location.pathname === "/") {
       const el = document.querySelector(href.replace("/", ""));
       el?.scrollIntoView({ behavior: "smooth" });
     }
   };
 
-  const renderLink = (l: typeof links[0]) => {
-    const isHash = l.href.startsWith("/#");
-    if (isHash) {
-      return (
-        <Link
-          key={l.href}
-          to={l.href}
-          onClick={() => handleClick(l.href)}
-          className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-        >
-          {l.label}
-        </Link>
-      );
-    }
-    return (
-      <Link
-        key={l.href}
-        to={l.href}
-        className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-      >
-        {l.label}
-      </Link>
-    );
-  };
+  const renderLink = (l: { label: string; href: string }) => (
+    <Link
+      key={l.href}
+      to={l.href}
+      onClick={() => handleClick(l.href)}
+      className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+    >
+      {l.label}
+    </Link>
+  );
 
   return (
     <motion.nav
@@ -76,8 +72,21 @@ export const Navbar = () => {
         </Link>
 
         {/* Desktop */}
-        <div className="hidden md:flex items-center gap-8">
-          {links.map(renderLink)}
+        <div className="hidden md:flex items-center gap-6">
+          {ungroupedBefore.map(renderLink)}
+
+          {/* Projects glass pill */}
+          <div className="glass-pill flex items-center gap-2">
+            {projectsGroup.map(renderLink)}
+          </div>
+
+          {/* Colleges/Blog/Documents glass pill */}
+          <div className="glass-pill flex items-center gap-3">
+            {contentGroup.map(renderLink)}
+          </div>
+
+          {ungroupedAfter.map(renderLink)}
+
           <button
             onClick={toggle}
             className="p-2 rounded-full hover:bg-muted transition-colors"
@@ -107,20 +116,56 @@ export const Navbar = () => {
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden bg-background/95 backdrop-blur-lg border-b border-border"
           >
-            <div className="px-6 py-4 flex flex-col gap-3">
-              {links.map((l) => {
-                const isHash = l.href.startsWith("/#");
-                return (
+            <div className="px-6 py-4 flex flex-col gap-1">
+              {ungroupedBefore.map((l) => (
+                <Link
+                  key={l.href}
+                  to={l.href}
+                  onClick={() => handleClick(l.href)}
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors py-2"
+                >
+                  {l.label}
+                </Link>
+              ))}
+
+              {/* Projects group */}
+              <div className="glass-pill my-1 py-2 px-3 flex flex-col gap-1">
+                {projectsGroup.map((l) => (
                   <Link
                     key={l.href}
                     to={l.href}
                     onClick={() => handleClick(l.href)}
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors py-2"
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors py-1"
                   >
                     {l.label}
                   </Link>
-                );
-              })}
+                ))}
+              </div>
+
+              {/* Content group */}
+              <div className="glass-pill my-1 py-2 px-3 flex flex-col gap-1">
+                {contentGroup.map((l) => (
+                  <Link
+                    key={l.href}
+                    to={l.href}
+                    onClick={() => handleClick(l.href)}
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors py-1"
+                  >
+                    {l.label}
+                  </Link>
+                ))}
+              </div>
+
+              {ungroupedAfter.map((l) => (
+                <Link
+                  key={l.href}
+                  to={l.href}
+                  onClick={() => handleClick(l.href)}
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors py-2"
+                >
+                  {l.label}
+                </Link>
+              ))}
             </div>
           </motion.div>
         )}

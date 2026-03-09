@@ -32,15 +32,20 @@ export const MobileBottomNav = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 20 }}
-              className="fixed bottom-20 z-50 md:hidden glass-pill px-5 py-4 flex gap-5"
-              style={{ left: "50%", transform: "translateX(-50%)" }}
+              className="fixed bottom-20 z-50 md:hidden glass-pill px-4 py-3 flex gap-3 max-w-[90vw]"
+              style={{ 
+                left: "50%", 
+                transform: "translateX(-50%)",
+                marginLeft: 0,
+                marginRight: 0
+              }}
             >
               {exploreLinks.map((l) => (
                 <Link
                   key={l.href}
                   to={l.href}
                   onClick={() => setExploreOpen(false)}
-                  className={`text-sm px-3 py-2 rounded-lg transition-colors ${
+                  className={`text-sm px-3 py-2 rounded-lg transition-colors whitespace-nowrap ${
                     isActive(l.href) ? "text-foreground font-medium bg-muted" : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
                   }`}
                 >

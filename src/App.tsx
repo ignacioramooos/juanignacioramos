@@ -16,6 +16,10 @@ import BlogPostPage from "./pages/BlogPostPage";
 import LoginPage from "./pages/LoginPage";
 import AdminPage from "./pages/AdminPage";
 import DocumentsPage from "./pages/DocumentsPage";
+import ServicesPage from "./pages/ServicesPage";
+import ServiceDetailPage from "./pages/ServiceDetailPage";
+import LabPage from "./pages/LabPage";
+import IdeasPage from "./pages/IdeasPage";
 import { MobileBottomNav } from "@/components/MobileBottomNav";
 
 const queryClient = new QueryClient();
@@ -36,6 +40,10 @@ const App = () => (
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/blog/:slug" element={<BlogPostPage />} />
             <Route path="/documents" element={<DocumentsPage />} />
+            <Route path="/services" element={<ServicesPage />} />
+            <Route path="/services/:slug" element={<ServiceDetailPage />} />
+            <Route path="/lab" element={<LabPage />} />
+            <Route path="/ideas" element={<IdeasPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/admin" element={<ProtectedRoute><AdminPage /></ProtectedRoute>} />
             <Route path="*" element={<NotFound />} />

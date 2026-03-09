@@ -1,33 +1,50 @@
 import {
   Globe, Camera, TrendingUp, CalendarDays, Users, Sheet,
-  Bot, Printer
+  Bot, Printer, Video, Box
 } from "lucide-react";
 
 export interface ServiceData {
   slug: string;
   title: string;
+  titleEs: string;
   shortDescription: string;
+  shortDescriptionEs: string;
   icon: any;
   description: string;
+  descriptionEs: string;
   whoItsFor: string[];
+  whoItsForEs: string[];
   useCases: string[];
+  useCasesEs: string[];
   deliverables: string[];
+  deliverablesEs: string[];
   priceGuidance?: string;
+  priceGuidanceEs?: string;
 }
 
 export const services: ServiceData[] = [
   {
     slug: "web-design",
     title: "Web Design",
+    titleEs: "Diseño Web",
     shortDescription: "Business-integrated websites for startups, portfolios, and events with booking, lead capture, SEO, and automation bundles.",
+    shortDescriptionEs: "Sitios web integrados para startups, portafolios y eventos con reservas, captura de leads, SEO y packs de automatización.",
     icon: Globe,
     description: "I build modern, fast, and conversion-focused websites tailored to your business needs. Every site includes lead capture, SEO basics, performance optimization, and optional integrations with Google Sheets, email, WhatsApp, and payment tools.",
+    descriptionEs: "Construyo sitios web modernos, rápidos y enfocados en conversión adaptados a tus necesidades. Cada sitio incluye captura de leads, SEO básico, optimización de rendimiento e integraciones opcionales con Google Sheets, email, WhatsApp y herramientas de pago.",
     whoItsFor: ["Startups & small businesses", "Freelancers & creatives needing a portfolio", "Event organizers needing landing pages", "Anyone who needs a professional web presence"],
+    whoItsForEs: ["Startups y pequeños negocios", "Freelancers y creativos que necesitan un portafolio", "Organizadores de eventos que necesitan landing pages", "Cualquiera que necesite presencia web profesional"],
     useCases: [
       "Business website with booking/appointment integration",
       "Portfolio site with CMS for easy content updates",
       "Event landing page with RSVP and ticketing",
       "Lead capture site wired to Google Sheets or CRM",
+    ],
+    useCasesEs: [
+      "Sitio web de negocio con integración de reservas/citas",
+      "Portafolio con CMS para actualizar contenido fácilmente",
+      "Landing page para eventos con RSVP y ticketing",
+      "Sitio de captura de leads conectado a Google Sheets o CRM",
     ],
     deliverables: [
       "Fully responsive website (mobile + desktop)",
@@ -39,20 +56,41 @@ export const services: ServiceData[] = [
       "Training docs & handover session",
       "30-day post-launch support",
     ],
-    priceGuidance: "Starting from $500 for a single-page site. Multi-page sites with automations from $1,000+. Website + Automation bundles from $1,500+.",
+    deliverablesEs: [
+      "Sitio web totalmente responsivo (mobile + desktop)",
+      "Configuración SEO (meta tags, datos estructurados, sitemap)",
+      "Optimización de rendimiento (Lighthouse 90+)",
+      "Formularios de captura de leads con notificaciones por email",
+      "Integración con Google Sheets para leads (opcional)",
+      "Opciones de facturación con Stripe (opcional)",
+      "Documentación y sesión de entrega",
+      "30 días de soporte post-lanzamiento",
+    ],
+    priceGuidance: "Starting from $200 for a single-page site. Multi-page sites with automations from $800+. Website + Automation bundles from $1,200+.",
+    priceGuidanceEs: "Desde $200 USD para sitios de una página. Sitios multi-página con automatizaciones desde $800+. Packs Web + Automatización desde $1.200+.",
   },
   {
     slug: "drone-videography",
     title: "Drone Videography",
+    titleEs: "Videografía con Drones",
     shortDescription: "Aerial footage for events, real estate, construction surveys, and creative projects.",
+    shortDescriptionEs: "Tomas aéreas para eventos, inmobiliarias, relevamientos de obra y proyectos creativos.",
     icon: Camera,
     description: "Professional drone videography and photography services. From event coverage to construction site surveys, I deliver high-quality aerial content with proper planning and safety protocols.",
+    descriptionEs: "Servicios profesionales de videografía y fotografía con drones. Desde cobertura de eventos hasta relevamientos de obra, entrego contenido aéreo de alta calidad con planificación y protocolos de seguridad.",
     whoItsFor: ["Event organizers", "Real estate agencies", "Construction companies", "Content creators & filmmakers"],
+    whoItsForEs: ["Organizadores de eventos", "Inmobiliarias", "Empresas de construcción", "Creadores de contenido y cineastas"],
     useCases: [
       "Aerial event documentation",
       "Real estate property tours",
       "Construction site progress monitoring",
       "Land surveying for logistics planning",
+    ],
+    useCasesEs: [
+      "Documentación aérea de eventos",
+      "Tours de propiedades inmobiliarias",
+      "Monitoreo de avance de obra",
+      "Relevamiento de terrenos para planificación logística",
     ],
     deliverables: [
       "Pre-flight planning & shot list",
@@ -61,20 +99,116 @@ export const services: ServiceData[] = [
       "Post-production editing",
       "Delivery in multiple formats",
     ],
+    deliverablesEs: [
+      "Planificación de vuelo y lista de tomas",
+      "Metraje aéreo 4K (editado)",
+      "Fotos aéreas de alta resolución",
+      "Edición de post-producción",
+      "Entrega en múltiples formatos",
+    ],
     priceGuidance: "From $200 per session. Contact for custom packages.",
+    priceGuidanceEs: "Desde $200 USD por sesión. Contactar para paquetes personalizados.",
+  },
+  {
+    slug: "video-editing",
+    title: "Video Editing",
+    titleEs: "Edición de Video",
+    shortDescription: "Professional video editing for events, social media, promos, and personal projects.",
+    shortDescriptionEs: "Edición de video profesional para eventos, redes sociales, promos y proyectos personales.",
+    icon: Video,
+    description: "I provide professional video editing services — from event recap videos and promotional content to social media reels and cinematic short films. Clean cuts, color grading, transitions, and music sync included.",
+    descriptionEs: "Ofrezco servicios de edición de video profesional — desde videos resumen de eventos y contenido promocional hasta reels para redes sociales y cortometrajes cinematográficos. Incluye cortes limpios, corrección de color, transiciones y sincronización musical.",
+    whoItsFor: ["Content creators & influencers", "Small businesses needing promo videos", "Event organizers wanting recap videos", "Students & personal projects"],
+    whoItsForEs: ["Creadores de contenido e influencers", "Pequeños negocios que necesitan videos promocionales", "Organizadores de eventos que quieren videos resumen", "Estudiantes y proyectos personales"],
+    useCases: [
+      "Event highlight & recap videos",
+      "Social media reels & shorts",
+      "Promotional videos for businesses",
+      "Personal project compilations",
+    ],
+    useCasesEs: [
+      "Videos resumen y highlights de eventos",
+      "Reels y shorts para redes sociales",
+      "Videos promocionales para negocios",
+      "Compilaciones de proyectos personales",
+    ],
+    deliverables: [
+      "Edited video in requested format (MP4, MOV)",
+      "Color grading & correction",
+      "Music sync & sound design",
+      "Subtitles/captions (optional)",
+      "Multiple export sizes (social, web, HD)",
+    ],
+    deliverablesEs: [
+      "Video editado en formato solicitado (MP4, MOV)",
+      "Corrección y gradación de color",
+      "Sincronización musical y diseño de sonido",
+      "Subtítulos (opcional)",
+      "Múltiples tamaños de exportación (redes, web, HD)",
+    ],
+    priceGuidance: "Simple edits from $100. Full event recaps from $300+. Contact for custom projects.",
+    priceGuidanceEs: "Ediciones simples desde $100 USD. Resúmenes de eventos completos desde $300+. Contactar para proyectos personalizados.",
+  },
+  {
+    slug: "3d-modeling",
+    title: "3D Modeling",
+    titleEs: "Modelado 3D",
+    shortDescription: "Custom 3D models for printing, visualization, animation, and engineering prototypes.",
+    shortDescriptionEs: "Modelos 3D personalizados para impresión, visualización, animación y prototipos de ingeniería.",
+    icon: Box,
+    description: "I create detailed 3D models using Blender and CAD tools for a variety of applications — from 3D printing-ready STL files to visualization renders and engineering prototypes. Whether you need a product mockup, architectural model, or artistic sculpture, I can bring your idea to life in 3D.",
+    descriptionEs: "Creo modelos 3D detallados usando Blender y herramientas CAD para diversas aplicaciones — desde archivos STL listos para impresión 3D hasta renders de visualización y prototipos de ingeniería. Ya sea que necesites un mockup de producto, modelo arquitectónico o escultura artística, puedo dar vida a tu idea en 3D.",
+    whoItsFor: ["Engineers needing CAD models", "Architects & designers", "3D printing enthusiasts", "Game developers & artists"],
+    whoItsForEs: ["Ingenieros que necesitan modelos CAD", "Arquitectos y diseñadores", "Entusiastas de la impresión 3D", "Desarrolladores de juegos y artistas"],
+    useCases: [
+      "3D print-ready model design",
+      "Product visualization & mockups",
+      "Architectural models & renders",
+      "Custom sculptures & artistic pieces",
+    ],
+    useCasesEs: [
+      "Diseño de modelos listos para impresión 3D",
+      "Visualización de productos y mockups",
+      "Modelos arquitectónicos y renders",
+      "Esculturas y piezas artísticas personalizadas",
+    ],
+    deliverables: [
+      "3D model files (STL, OBJ, BLEND, STEP)",
+      "Print-ready optimization (if for 3D printing)",
+      "Renders & visualizations",
+      "Revision rounds included",
+    ],
+    deliverablesEs: [
+      "Archivos de modelo 3D (STL, OBJ, BLEND, STEP)",
+      "Optimización para impresión (si aplica)",
+      "Renders y visualizaciones",
+      "Rondas de revisión incluidas",
+    ],
+    priceGuidance: "Simple models from $80. Complex engineering/artistic models from $300+. Contact for custom quotes.",
+    priceGuidanceEs: "Modelos simples desde $80 USD. Modelos complejos de ingeniería/arte desde $300+. Contactar para cotizaciones.",
   },
   {
     slug: "investment-research",
     title: "Investment Research",
+    titleEs: "Investigación de Inversiones",
     shortDescription: "Data-driven research reports, market analysis, and financial modeling for informed investment decisions.",
+    shortDescriptionEs: "Informes de investigación basados en datos, análisis de mercado y modelado financiero para decisiones de inversión informadas.",
     icon: TrendingUp,
     description: "Quantitative research and analysis to help you make data-driven investment decisions. Leveraging my background in mathematical engineering and Excel modeling expertise.",
+    descriptionEs: "Investigación y análisis cuantitativo para ayudarte a tomar decisiones de inversión basadas en datos. Aprovechando mi formación en ingeniería matemática y experiencia en modelado con Excel.",
     whoItsFor: ["Individual investors", "Small funds & family offices", "Students studying finance", "Startups evaluating markets"],
+    whoItsForEs: ["Inversores individuales", "Fondos pequeños y family offices", "Estudiantes de finanzas", "Startups evaluando mercados"],
     useCases: [
       "Company or sector research reports",
       "Financial model building in Excel",
       "Market opportunity analysis",
       "Risk assessment frameworks",
+    ],
+    useCasesEs: [
+      "Informes de investigación de empresas o sectores",
+      "Construcción de modelos financieros en Excel",
+      "Análisis de oportunidades de mercado",
+      "Marcos de evaluación de riesgos",
     ],
     deliverables: [
       "Detailed research report (PDF)",
@@ -82,19 +216,35 @@ export const services: ServiceData[] = [
       "Executive summary with key findings",
       "Follow-up Q&A session",
     ],
+    deliverablesEs: [
+      "Informe detallado de investigación (PDF)",
+      "Modelo financiero en Excel (si aplica)",
+      "Resumen ejecutivo con hallazgos clave",
+      "Sesión de preguntas y respuestas de seguimiento",
+    ],
   },
   {
     slug: "event-organization",
     title: "Event Organization",
+    titleEs: "Organización de Eventos",
     shortDescription: "End-to-end event planning and logistics for conferences, school events, and community gatherings.",
+    shortDescriptionEs: "Planificación y logística integral de eventos para conferencias, eventos escolares y reuniones comunitarias.",
     icon: CalendarDays,
     description: "With experience managing events for 1,350+ participants and budgets of $35,000+, I offer comprehensive event planning — from logistics and budgeting to digital access systems and vendor coordination.",
+    descriptionEs: "Con experiencia gestionando eventos para más de 1.350 participantes y presupuestos de $35.000+, ofrezco planificación integral de eventos — desde logística y presupuesto hasta sistemas de acceso digital y coordinación de proveedores.",
     whoItsFor: ["Schools & universities", "Community organizations", "Corporate teams", "Private event hosts"],
+    whoItsForEs: ["Escuelas y universidades", "Organizaciones comunitarias", "Equipos corporativos", "Organizadores de eventos privados"],
     useCases: [
       "Large-scale school or community events",
       "Conference & MUN logistics",
       "Graduation ceremonies & fundraisers",
       "Digital ticketing & access control setup",
+    ],
+    useCasesEs: [
+      "Eventos escolares o comunitarios a gran escala",
+      "Logística de conferencias y MUN",
+      "Ceremonias de graduación y recaudaciones",
+      "Configuración de ticketing digital y control de acceso",
     ],
     deliverables: [
       "Event plan & timeline document",
@@ -103,19 +253,36 @@ export const services: ServiceData[] = [
       "Digital access control system (QR-code based)",
       "Post-event report with metrics",
     ],
+    deliverablesEs: [
+      "Plan de evento y cronograma",
+      "Gestión y seguimiento de presupuesto",
+      "Coordinación de proveedores",
+      "Sistema de control de acceso digital (basado en QR)",
+      "Informe post-evento con métricas",
+    ],
   },
   {
     slug: "collaborative-research",
     title: "Collaborative Research",
+    titleEs: "Investigación Colaborativa",
     shortDescription: "Team-based technical research on engineering, sustainability, and aerospace topics.",
+    shortDescriptionEs: "Investigación técnica en equipo sobre ingeniería, sostenibilidad y temas aeroespaciales.",
     icon: Users,
     description: "I collaborate on technical research projects — from engineering prototypes to sustainability studies. My background in physics, simulation, and cross-cultural teamwork makes me a strong research partner.",
+    descriptionEs: "Colaboro en proyectos de investigación técnica — desde prototipos de ingeniería hasta estudios de sostenibilidad. Mi formación en física, simulación y trabajo en equipo multicultural me convierte en un fuerte colaborador de investigación.",
     whoItsFor: ["Student research teams", "Academic groups", "NGOs working on sustainability", "Engineering startups"],
+    whoItsForEs: ["Equipos de investigación estudiantil", "Grupos académicos", "ONGs trabajando en sostenibilidad", "Startups de ingeniería"],
     useCases: [
       "Sustainability & environmental engineering research",
       "Aerospace concept studies",
       "Technical literature reviews",
       "Prototype development & testing",
+    ],
+    useCasesEs: [
+      "Investigación en sostenibilidad e ingeniería ambiental",
+      "Estudios conceptuales aeroespaciales",
+      "Revisiones de literatura técnica",
+      "Desarrollo y prueba de prototipos",
     ],
     deliverables: [
       "Research report or paper draft",
@@ -123,19 +290,35 @@ export const services: ServiceData[] = [
       "Prototype (if applicable)",
       "Presentation-ready slides",
     ],
+    deliverablesEs: [
+      "Informe o borrador de paper de investigación",
+      "Análisis técnico y datos",
+      "Prototipo (si aplica)",
+      "Diapositivas listas para presentación",
+    ],
   },
   {
     slug: "spreadsheet-systems",
     title: "Advanced Google Sheets / Excel Systems",
+    titleEs: "Sistemas Avanzados de Google Sheets / Excel",
     shortDescription: "Custom spreadsheet solutions for data management, financial tracking, dashboards, and automation.",
+    shortDescriptionEs: "Soluciones personalizadas de planillas para gestión de datos, seguimiento financiero, dashboards y automatización.",
     icon: Sheet,
     description: "I build powerful spreadsheet systems — from financial trackers to automated dashboards and data pipelines. With expertise in Excel modeling and Google Apps Script, I create tools that replace expensive software.",
+    descriptionEs: "Construyo sistemas de planillas potentes — desde rastreadores financieros hasta dashboards automatizados y pipelines de datos. Con experiencia en modelado Excel y Google Apps Script, creo herramientas que reemplazan software costoso.",
     whoItsFor: ["Small businesses tracking finances", "Teams needing data dashboards", "Anyone drowning in manual data entry", "Educators & administrators"],
+    whoItsForEs: ["Pequeños negocios rastreando finanzas", "Equipos que necesitan dashboards", "Cualquiera ahogado en entrada manual de datos", "Educadores y administradores"],
     useCases: [
       "Financial tracking & budget management",
       "Automated reporting dashboards",
       "CRM / lead tracking in Google Sheets",
       "Inventory & logistics management",
+    ],
+    useCasesEs: [
+      "Seguimiento financiero y gestión de presupuesto",
+      "Dashboards de reportes automatizados",
+      "CRM / seguimiento de leads en Google Sheets",
+      "Gestión de inventario y logística",
     ],
     deliverables: [
       "Custom spreadsheet system",
@@ -143,20 +326,37 @@ export const services: ServiceData[] = [
       "Google Apps Script automations (if needed)",
       "Training session",
     ],
+    deliverablesEs: [
+      "Sistema de planillas personalizado",
+      "Documentación y guía de usuario",
+      "Automatizaciones con Google Apps Script (si necesario)",
+      "Sesión de capacitación",
+    ],
     priceGuidance: "Simple systems from $150. Complex multi-sheet systems with automations from $500+.",
+    priceGuidanceEs: "Sistemas simples desde $150 USD. Sistemas complejos multi-hoja con automatizaciones desde $500+.",
   },
   {
     slug: "ai-automation",
     title: "AI Automation for Businesses",
+    titleEs: "Automatización con IA para Negocios",
     shortDescription: "Smart automations using AI, Zapier, Make, and Google Apps Script to streamline your workflows.",
+    shortDescriptionEs: "Automatizaciones inteligentes usando IA, Zapier, Make y Google Apps Script para optimizar tus flujos de trabajo.",
     icon: Bot,
     description: "I set up AI-powered automations that save you hours every week. From chatbots and form-to-CRM pipelines to email sequences and WhatsApp auto-replies — I wire your tools together so they work for you.",
+    descriptionEs: "Configuro automatizaciones potenciadas por IA que te ahorran horas cada semana. Desde chatbots y pipelines formulario-a-CRM hasta secuencias de email y respuestas automáticas de WhatsApp — conecto tus herramientas para que trabajen por vos.",
     whoItsFor: ["Small businesses with repetitive tasks", "Service providers managing leads", "E-commerce stores", "Anyone wanting to automate workflows"],
+    whoItsForEs: ["Pequeños negocios con tareas repetitivas", "Proveedores de servicios gestionando leads", "Tiendas de e-commerce", "Cualquiera que quiera automatizar flujos de trabajo"],
     useCases: [
       "Form submissions → Google Sheets → Email/WhatsApp notification",
       "AI chatbot for customer support",
       "Automated lead nurturing sequences",
       "Data extraction and report generation",
+    ],
+    useCasesEs: [
+      "Envíos de formulario → Google Sheets → Notificación Email/WhatsApp",
+      "Chatbot IA para atención al cliente",
+      "Secuencias automatizadas de nutrición de leads",
+      "Extracción de datos y generación de reportes",
     ],
     deliverables: [
       "Automation workflow design & implementation",
@@ -165,15 +365,27 @@ export const services: ServiceData[] = [
       "Documentation & maintenance guide",
       "30-day support period",
     ],
+    deliverablesEs: [
+      "Diseño e implementación del flujo de automatización",
+      "Configuración de integraciones (Zapier/Make/Apps Script)",
+      "Configuración de herramienta IA (si aplica)",
+      "Documentación y guía de mantenimiento",
+      "30 días de soporte",
+    ],
     priceGuidance: "Simple automations from $200. Complex multi-tool workflows from $800+.",
+    priceGuidanceEs: "Automatizaciones simples desde $200 USD. Flujos complejos multi-herramienta desde $800+.",
   },
   {
     slug: "3d-printing",
     title: "3D Printing",
+    titleEs: "Impresión 3D",
     shortDescription: "Custom prototypes, engineering components, functional parts, and small-batch prints with automated quote estimation.",
+    shortDescriptionEs: "Prototipos personalizados, componentes de ingeniería, piezas funcionales e impresiones en lotes pequeños con estimación automática de precios.",
     icon: Printer,
-    description: "From rapid prototyping to custom objects and engineering components, I offer 3D printing services using PLA, PETG, and ABS materials. Upload your STL file and get an instant estimate.",
+    description: "From rapid prototyping to custom objects and engineering components, I offer 3D printing services using PLA material. Upload your STL file and get an instant estimate based on real production costs.",
+    descriptionEs: "Desde prototipado rápido hasta objetos personalizados y componentes de ingeniería, ofrezco servicios de impresión 3D usando material PLA. Subí tu archivo STL y obtené una estimación instantánea basada en costos reales de producción.",
     whoItsFor: ["Engineers & designers needing prototypes", "Students with school/uni projects", "Hobbyists & makers", "Small businesses needing custom parts"],
+    whoItsForEs: ["Ingenieros y diseñadores que necesitan prototipos", "Estudiantes con proyectos escolares/universitarios", "Hobistas y makers", "Pequeños negocios que necesitan piezas personalizadas"],
     useCases: [
       "Rapid prototyping for product development",
       "Custom enclosures & housings",
@@ -181,12 +393,26 @@ export const services: ServiceData[] = [
       "Awards, trophies, and decorative items",
       "Small-batch production runs",
     ],
+    useCasesEs: [
+      "Prototipado rápido para desarrollo de productos",
+      "Carcasas y cajas personalizadas",
+      "Piezas de repuesto y componentes funcionales",
+      "Premios, trofeos y artículos decorativos",
+      "Producciones en lotes pequeños",
+    ],
     deliverables: [
-      "3D-printed part(s) in chosen material",
+      "3D-printed part(s) in PLA",
       "Post-processing (sanding, painting on request)",
       "Quality inspection",
       "Design feedback (if STL provided)",
     ],
-    priceGuidance: "Estimates based on volume, material, and print time. Use the quote estimator below or contact for custom jobs.",
+    deliverablesEs: [
+      "Pieza(s) impresas en 3D en PLA",
+      "Post-procesado (lijado, pintura a pedido)",
+      "Inspección de calidad",
+      "Feedback de diseño (si se proporciona STL)",
+    ],
+    priceGuidance: "Estimates based on weight, print time, and complexity. Use the quote estimator below or contact for custom jobs.",
+    priceGuidanceEs: "Estimaciones basadas en peso, tiempo de impresión y complejidad. Usá el estimador de precios abajo o contactame para trabajos personalizados.",
   },
 ];

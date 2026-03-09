@@ -1,21 +1,24 @@
 import { motion } from "framer-motion";
 import { Rocket, GraduationCap, Globe, Waves } from "lucide-react";
-
-const highlights = [
-  { icon: Rocket, label: "Advanced Space Academy Scholar", detail: "Huntsville, Alabama" },
-  { icon: GraduationCap, label: 'French BAC "Mention Très Bien"', detail: "Top 10–15%" },
-  { icon: Globe, label: "MUN Secretary General", detail: "International leadership" },
-  { icon: Waves, label: "National Water Polo Pre-selection", detail: "Elite discipline" },
-];
+import { useLanguage } from "@/i18n/LanguageContext";
 
 export const HighlightReel = () => {
+  const { t } = useLanguage();
+
+  const highlights = [
+    { icon: Rocket, label: t.highlights.spaceAcademy, detail: t.highlights.spaceAcademyDetail },
+    { icon: GraduationCap, label: t.highlights.bac, detail: t.highlights.bacDetail },
+    { icon: Globe, label: t.highlights.mun, detail: t.highlights.munDetail },
+    { icon: Waves, label: t.highlights.waterPolo, detail: t.highlights.waterPoloDetail },
+  ];
+
   return (
     <section className="py-12 px-6 overflow-hidden">
       <div className="max-w-5xl mx-auto">
         <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
           {highlights.map((item, i) => (
             <motion.div
-              key={item.label}
+              key={i}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}

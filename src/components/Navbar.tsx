@@ -102,7 +102,7 @@ export const Navbar = () => {
         </Link>
 
         {/* Desktop */}
-        <div className="hidden md:flex items-center gap-6">
+        <div className="hidden md:flex items-center gap-3 lg:gap-6">
           <div className="relative" ref={dropdownRef}>
             <button
               onClick={() => setPortfolioOpen(!portfolioOpen)}
@@ -139,7 +139,7 @@ export const Navbar = () => {
             {projectsGroup.map(renderLink)}
           </div>
 
-          <div className="glass-pill flex items-center gap-3">
+          <div className="glass-pill flex items-center gap-2 lg:gap-3">
             {contentGroup.map(renderLink)}
           </div>
 

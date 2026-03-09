@@ -17,28 +17,10 @@ const ideas = [
     description: "Investigating how prediction markets could improve public policy decisions in developing countries. Could decentralized forecasting improve infrastructure investment allocation?",
   },
   {
-    icon: Droplets,
-    title: "Water Tech for Rural Uruguay",
-    status: "idea",
-    description: "Mapping water infrastructure gaps in rural Uruguay and designing low-cost filtration and distribution systems powered by renewable energy.",
-  },
-  {
-    icon: Rocket,
-    title: "South American Sounding Rockets",
-    status: "research",
-    description: "Feasibility study for a student-led sounding rocket program in Uruguay. Exploring regulatory frameworks, propulsion options, and partnerships with local universities.",
-  },
-  {
     icon: Globe2,
     title: "Aerospace Industry in Uruguay",
     status: "idea",
     description: "Long-term vision: what would it take to bootstrap an aerospace sector in a country with no existing space industry? Identifying first steps, potential niches, and required policy changes.",
-  },
-  {
-    icon: Beaker,
-    title: "Recycled Filament Quality Standards",
-    status: "prototype",
-    description: "Developing testing protocols and quality benchmarks for 3D printing filament made from recycled PET/HDPE. Can recycled filament meet engineering-grade requirements?",
   },
 ];
 

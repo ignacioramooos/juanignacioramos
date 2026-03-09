@@ -17,12 +17,15 @@ const portfolioItems = [
 
 const projectsGroup = [
   { label: "Projects", href: "/projects" },
+  { label: "Services", href: "/services" },
 ];
 
 const contentGroup = [
   { label: "Colleges", href: "/colleges" },
   { label: "Blog", href: "/blog" },
   { label: "Documents", href: "/documents" },
+  { label: "Lab", href: "/lab" },
+  { label: "Ideas", href: "/ideas" },
 ];
 
 const ungroupedAfter = [

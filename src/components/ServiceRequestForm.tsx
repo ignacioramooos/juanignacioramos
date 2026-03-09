@@ -37,15 +37,17 @@ export const ServiceRequestForm = ({
 
     setLoading(true);
     try {
-      const { error } = await supabase.from("service_requests" as any).insert({
-        service,
-        name: form.name.trim(),
-        email: form.email.trim(),
-        description: form.description.trim(),
-        budget_range: form.budget_range || null,
-        deadline: form.deadline || null,
-        industry: form.industry || null,
-      } as any);
+      const { error } = await supabase.functions.invoke("notify-service-request", {
+        body: {
+          service,
+          name: form.name.trim(),
+          email: form.email.trim(),
+          description: form.description.trim(),
+          budget_range: form.budget_range || null,
+          deadline: form.deadline || null,
+          industry: form.industry || null,
+        },
+      });
 
       if (error) throw error;
 
@@ -67,8 +69,8 @@ export const ServiceRequestForm = ({
 
   if (submitted) {
     return (
-      <div className="p-8 rounded-2xl bg-card border border-border text-center space-y-3">
-        <p className="text-2xl">✅</p>
+      <div className="p-8 rounded-2xl bg-card border border-border text-center space-y-3" role="status">
+        <p className="text-2xl" aria-hidden="true">✅</p>
         <h3 className="font-display font-semibold text-lg">Request Received!</h3>
         <p className="text-sm text-muted-foreground">
           Thanks for your interest. Juan will review your request and get back to you shortly.
@@ -78,7 +80,7 @@ export const ServiceRequestForm = ({
   }
 
   return (
-    <form onSubmit={handleSubmit} className="p-6 rounded-2xl bg-card border border-border space-y-4">
+    <form onSubmit={handleSubmit} className="p-6 rounded-2xl bg-card border border-border space-y-4" aria-label={`Request ${service} service`}>
       <h3 className="font-display font-semibold text-lg mb-2">Request this Service</h3>
 
       <div className="grid sm:grid-cols-2 gap-4">
@@ -91,6 +93,7 @@ export const ServiceRequestForm = ({
             value={form.name}
             onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
             placeholder="Your name"
+            autoComplete="name"
           />
         </div>
         <div className="space-y-2">
@@ -103,6 +106,7 @@ export const ServiceRequestForm = ({
             value={form.email}
             onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))}
             placeholder="you@example.com"
+            autoComplete="email"
           />
         </div>
       </div>
@@ -134,15 +138,17 @@ export const ServiceRequestForm = ({
       </div>
 
       <div className="grid sm:grid-cols-2 gap-4">
-        <div className="space-y-2">
-          <Label>Budget Range</Label>
-          <div className="flex flex-wrap gap-2">
+        <fieldset className="space-y-2">
+          <Label asChild><legend>Budget Range</legend></Label>
+          <div className="flex flex-wrap gap-2" role="radiogroup">
             {budgetOptions.map((opt) => (
               <button
                 key={opt}
                 type="button"
+                role="radio"
+                aria-checked={form.budget_range === opt}
                 onClick={() => setForm((f) => ({ ...f, budget_range: f.budget_range === opt ? "" : opt }))}
-                className={`px-3 py-1.5 text-xs rounded-full border transition-colors ${
+                className={`px-3 py-1.5 text-xs rounded-full border transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
                   form.budget_range === opt
                     ? "bg-foreground text-background border-foreground"
                     : "border-border text-muted-foreground hover:border-foreground/30"
@@ -152,7 +158,7 @@ export const ServiceRequestForm = ({
               </button>
             ))}
           </div>
-        </div>
+        </fieldset>
         <div className="space-y-2">
           <Label htmlFor="sr-deadline">Desired Deadline</Label>
           <Input
@@ -168,9 +174,9 @@ export const ServiceRequestForm = ({
       <button
         type="submit"
         disabled={loading}
-        className="inline-flex items-center gap-2 px-6 py-3 bg-foreground text-background rounded-full text-sm font-medium hover:bg-foreground/90 transition-colors disabled:opacity-50"
+        className="inline-flex items-center gap-2 px-6 py-3 bg-foreground text-background rounded-full text-sm font-medium hover:bg-foreground/90 transition-colors disabled:opacity-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
       >
-        {loading ? <Loader2 size={16} className="animate-spin" /> : <Send size={16} />}
+        {loading ? <Loader2 size={16} className="animate-spin" /> : <Send size={16} aria-hidden="true" />}
         Send Request
       </button>
     </form>

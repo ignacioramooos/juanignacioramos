@@ -1,4 +1,4 @@
-import { Home, Rocket, Compass, Mail } from "lucide-react";
+import { Home, Rocket, Compass, Mail, Briefcase } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
@@ -7,6 +7,8 @@ const exploreLinks = [
   { label: "Colleges", href: "/colleges" },
   { label: "Blog", href: "/blog" },
   { label: "Documents", href: "/documents" },
+  { label: "Lab", href: "/lab" },
+  { label: "Ideas", href: "/ideas" },
 ];
 
 export const MobileBottomNav = () => {
@@ -68,6 +70,7 @@ export const MobileBottomNav = () => {
 
           <Link
             to="/projects"
+            aria-label="Projects"
             className={`flex flex-col items-center gap-0.5 px-3 py-1 rounded-xl transition-colors ${
               isActive("/projects") ? "text-foreground" : "text-muted-foreground"
             }`}
@@ -76,10 +79,23 @@ export const MobileBottomNav = () => {
             <span className="text-[10px]">Projects</span>
           </Link>
 
+          <Link
+            to="/services"
+            aria-label="Services"
+            className={`flex flex-col items-center gap-0.5 px-3 py-1 rounded-xl transition-colors ${
+              isActive("/services") || location.pathname.startsWith("/services/") ? "text-foreground" : "text-muted-foreground"
+            }`}
+          >
+            <Briefcase size={18} />
+            <span className="text-[10px]">Services</span>
+          </Link>
+
           <button
             onClick={() => setExploreOpen(!exploreOpen)}
+            aria-label="Explore more pages"
+            aria-expanded={exploreOpen}
             className={`flex flex-col items-center gap-0.5 px-3 py-1 rounded-xl transition-colors ${
-              exploreOpen || ["/colleges", "/blog", "/documents"].includes(location.pathname)
+              exploreOpen || ["/colleges", "/blog", "/documents", "/lab", "/ideas"].includes(location.pathname)
                 ? "text-foreground"
                 : "text-muted-foreground"
             }`}

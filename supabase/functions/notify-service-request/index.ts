@@ -7,10 +7,14 @@ const corsHeaders = {
     "authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
 };
 
-const contactSchema = z.object({
-  name: z.string().trim().min(1, "Name is required").max(100, "Name too long"),
-  email: z.string().trim().email("Invalid email").max(255, "Email too long"),
-  message: z.string().trim().min(1, "Message is required").max(2000, "Message too long"),
+const requestSchema = z.object({
+  service: z.string().min(1).max(200),
+  name: z.string().trim().min(1).max(100),
+  email: z.string().trim().email().max(255),
+  description: z.string().trim().max(2000).default(""),
+  budget_range: z.string().max(100).nullable().optional(),
+  deadline: z.string().max(100).nullable().optional(),
+  industry: z.string().max(100).nullable().optional(),
 });
 
 Deno.serve(async (req) => {
@@ -20,7 +24,7 @@ Deno.serve(async (req) => {
 
   try {
     const body = await req.json();
-    const result = contactSchema.safeParse(body);
+    const result = requestSchema.safeParse(body);
 
     if (!result.success) {
       return new Response(JSON.stringify({ error: "Invalid input", details: result.error.errors }), {
@@ -35,27 +39,27 @@ Deno.serve(async (req) => {
     );
 
     const { error } = await supabase
-      .from("contact_messages")
-      .insert(result.data);
+      .from("service_requests")
+      .insert({
+        service: result.data.service,
+        name: result.data.name,
+        email: result.data.email,
+        description: result.data.description,
+        budget_range: result.data.budget_range || null,
+        deadline: result.data.deadline || null,
+        industry: result.data.industry || null,
+      });
 
     if (error) {
       console.error("Insert error:", error);
-      return new Response(JSON.stringify({ error: "Failed to save message" }), {
+      return new Response(JSON.stringify({ error: "Failed to save request" }), {
         status: 500,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
     }
 
-    // Send email notification via Lovable AI gateway (composing notification)
-    try {
-      const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
-      if (LOVABLE_API_KEY) {
-        // Log notification for admin review
-        console.log(`📧 New contact message from ${result.data.name} (${result.data.email}): ${result.data.message.substring(0, 100)}...`);
-      }
-    } catch (notifyErr) {
-      console.error("Notification error (non-blocking):", notifyErr);
-    }
+    // Log notification for admin review
+    console.log(`🔔 New service request: ${result.data.service} from ${result.data.name} (${result.data.email})`);
 
     return new Response(JSON.stringify({ success: true }), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },

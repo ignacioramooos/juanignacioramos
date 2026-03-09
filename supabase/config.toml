@@ -1,10 +1,11 @@
 project_id = "xqvjjfbzgjhutvhfrrbu"
 
-[functions.contact]
-verify_jwt = false
-
-[functions.chat]
-verify_jwt = false
-
-[functions.notify-service-request]
-verify_jwt = false
+[functions]
+  [functions.auth-email-hook]
+    verify_jwt = false
+  [functions.chat]
+    verify_jwt = false
+  [functions.contact]
+    verify_jwt = false
+  [functions.notify-service-request]
+    verify_jwt = false

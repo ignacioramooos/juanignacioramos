@@ -3,36 +3,7 @@ import { motion } from "framer-motion";
 import { FlaskConical, Calendar, Tag } from "lucide-react";
 import { SEOHead } from "@/components/SEOHead";
 
-const labEntries = [
-  {
-    date: "2026-03-01",
-    title: "6-DOF Trajectory Simulator v2",
-    status: "prototype",
-    tags: ["Python", "Aerodynamics", "Simulation"],
-    content: "Refactored the original Excel-based rocketry simulation into a Python module using LSODA numerical solver. Added wind shear modeling and multi-stage separation logic. Next: integrate with a web-based 3D visualizer.",
-  },
-  {
-    date: "2026-02-15",
-    title: "Solar Distiller Efficiency Testing",
-    status: "research",
-    tags: ["Solar", "Peltier", "Sustainability"],
-    content: "Conducted systematic tests on the solar water distiller prototype comparing passive vs. Peltier-assisted configurations. Peltier cells improved output by ~35% with repurposed PC fans. Documenting optimal voltage regulator settings.",
-  },
-  {
-    date: "2026-01-20",
-    title: "PET-to-Filament Pipeline",
-    status: "prototype",
-    tags: ["3D Printing", "Recycling", "Ecolojules"],
-    content: "Testing the school's PET/HDPE shredder-to-filament machine. Calibrating extrusion temperatures and measuring tensile strength of recycled filament vs. commercial PLA. Early results show 80% comparable strength.",
-  },
-  {
-    date: "2025-12-10",
-    title: "Drone Survey Workflow Automation",
-    status: "idea",
-    tags: ["Drone", "Automation", "GIS"],
-    content: "Exploring automated stitching of drone survey images into georeferenced maps using open-source tools (OpenDroneMap). Goal: create a streamlined pipeline for TECHO-style land surveys.",
-  },
-];
+const labEntries: { date: string; title: string; status: string; tags: string[]; content: string }[] = [];
 
 const statusColors: Record<string, string> = {
   idea: "border-muted-foreground/30 text-muted-foreground",

@@ -130,14 +130,17 @@ export const Hero = () => {
           <a
             href="#about"
             className="inline-flex items-center gap-2 px-6 py-3 bg-foreground text-background rounded-full text-sm font-medium hover:bg-foreground/90 transition-colors">
-
             Explore My Work
             <ChevronDown size={16} />
           </a>
           <a
+            href="/services"
+            className="inline-flex items-center gap-2 px-6 py-3 border border-border rounded-full text-sm font-medium hover:bg-muted transition-colors">
+            Services I Offer
+          </a>
+          <a
             href="#contact"
             className="inline-flex items-center gap-2 px-6 py-3 border border-border rounded-full text-sm font-medium hover:bg-muted transition-colors">
-
             <Mail size={16} />
             Get in Touch
           </a>

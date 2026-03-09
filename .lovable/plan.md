@@ -1,59 +1,106 @@
+# Portfolio Narrative Transformation
 
+## The Problem
 
-# Optimización del Portfolio
-
-## Cambios a realizar
-
-### 1. Blur detrás del texto (Hero)
-Agregar un div con `backdrop-blur` después del nombre para crear separación visual entre el texto y el starfield.
-
-**Archivo:** `src/components/sections/Hero.tsx`
+The site reads like a great CV but doesn't tell a story. A recruiter or admissions officer decides in 7-10 seconds. We need immediate impact, a clear narrative arc, and a "wow factor" that makes Juan Ignacio unforgettable.
 
 ---
 
-### 2. Botones más grandes en Explore (Mobile)
-Aumentar el tamaño de los links en el popup de Explore: padding más grande y fuente más legible.
+## 1. Hero Section -- Immediate Impact
 
-**Archivo:** `src/components/MobileBottomNav.tsx`
+**Current**: Generic subtitle "Aspiring Aerospace Engineer . Learner . Problem Solver"
 
----
+**New structure**:
 
-### 3. Imágenes con placeholder blur-up
-Crear un componente `BlurImage` que:
-- Muestra un placeholder con blur mientras carga
-- Transiciona suavemente a la imagen completa
-- Usa CSS `filter: blur()` que se anima a `blur(0)`
+- Keep "Montevideo, Uruguay" location tag
+- Keep the big "Juan Ignacio / Ramos" name
+- Replace subtitle with a mission statement: **"Building the path to aerospace engineering in Uruguay"**
+- Add a row of 4-5 keyword pills below: `Aerospace` `Systems Thinking` `Leadership` `Real-world Impact`
+- Keep the two CTA buttons
+- Keep Aspiring Aerospace Engineer · Learner · Problem Solver
 
-**Archivos:** 
-- Crear `src/components/ui/blur-image.tsx`
-- Actualizar `src/pages/BlogPage.tsx` y `src/pages/BlogPostPage.tsx`
+**File**: `src/components/sections/Hero.tsx`
 
 ---
 
-### 4. Quitar Sign Up
-Eliminar toda la lógica de sign up del LoginPage, dejando solo el formulario de login.
+## 2. New Section: "What Drives Me" (after About, before Experience)
 
-**Archivo:** `src/pages/LoginPage.tsx`
+A short, punchy narrative section that answers "why aerospace, why Uruguay, what problem do you want to solve." This is what universities fall in love with.
+
+Content (3-4 short statements with icons):
+
+- "Building an aerospace future in South America"
+- "Applying engineering to humanitarian and infrastructure challenges"
+- "Designing systems that combine sustainability and performance"
+- "Leading teams under pressure and uncertainty"
+
+Styled as a minimal grid with subtle icons, no heavy text blocks.
+
+**File**: Create `src/components/sections/WhatDrivesMe.tsx`
+**Modify**: `src/pages/Index.tsx` -- insert between `<About />` and `<Experience />`
 
 ---
 
-### 5. Optimización de carga
-El sitio ya es mayormente estático (React SPA). Los únicos datos dinámicos vienen de Supabase (blog posts, projects). Para mejorar perceived performance:
-- Agregar `staleTime` alto a las queries de React Query
-- Usar `placeholderData` para evitar loading states visibles
-- Los componentes estáticos (Hero, About, etc.) ya no hacen fetch
+## 3. Improve About Section -- More Impact, more authenticity
 
-**Archivo:** Componentes que usan `useQuery`
+**Current**: Three dense paragraphs + 4 stat cards
+
+**Changes**:
+
+- Punchier paragraphs 
+- Authenticity
+- Rewrite stat descriptions for human impact:
+  - "USD Managed" becomes "Managed $35,000 in event operations"
+- Keep the "Mind & Hand / Mens et Manus" title -- it's strong
+
+**File**: `src/components/sections/About.tsx`
 
 ---
 
-## Resumen técnico
+## 4. Add "Highlight Reel" strip between Hero and About
 
-| Cambio | Archivo |
-|--------|---------|
-| Backdrop blur en Hero | `Hero.tsx` |
-| Botones Explore más grandes | `MobileBottomNav.tsx` |
-| BlurImage component | Nuevo + BlogPage/BlogPostPage |
-| Solo login, sin signup | `LoginPage.tsx` |
-| Optimizar React Query | Componentes con useQuery |
+A horizontally scrolling or static row of the most impressive achievements, visible within the first scroll. These are the "gold" moments that should hit in seconds:
 
+- Advanced Space Academy Scholar (USA)
+- French BAC "Mention Tres Bien"
+- MUN Secretary General
+- National Water Polo Pre-selection
+
+Styled as small, elegant badges/chips with subtle icons, acting as a quick proof-of-credibility strip before the reader dives into details.
+
+**File**: Create `src/components/sections/HighlightReel.tsx`
+**Modify**: `src/pages/Index.tsx` -- insert between `<Hero />` and `<About />`
+
+---
+
+## 5. Updated Page Order
+
+```text
+Hero
+HighlightReel (NEW -- instant credibility)
+About (shortened, punchier)
+WhatDrivesMe (NEW -- narrative/mission)
+Experience
+Education
+Skills
+Volunteering
+Athletics
+Awards
+DailyQuotes
+Contact
+```
+
+---
+
+## Technical Summary
+
+### New Files
+
+- `src/components/sections/HighlightReel.tsx` -- achievement badges strip
+- `src/components/sections/WhatDrivesMe.tsx` -- mission/narrative section
+
+### Modified Files
+
+- `src/components/sections/Hero.tsx` -- new subtitle + keyword pills
+- `src/components/sections/About.tsx` -- shorter text, better stat descriptions
+- `src/pages/Index.tsx` -- updated section order with two new sections

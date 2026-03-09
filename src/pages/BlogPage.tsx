@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { supabase } from "@/integrations/supabase/client";
 import { Calendar } from "lucide-react";
+import { BlurImage } from "@/components/ui/blur-image";
 
 interface BlogPost {
   id: string;
@@ -58,14 +59,11 @@ const BlogPage = () => {
                     className="group block p-6 rounded-2xl bg-card border border-border hover:border-foreground/20 transition-all hover:-translate-y-1 relative z-[1]"
                   >
                     {post.cover_image_url && (
-                      <div className="rounded-xl overflow-hidden mb-4 bg-card">
-                        <img
-                          src={post.cover_image_url}
-                          alt={post.title}
-                          className="w-full h-48 object-cover"
-                          loading="lazy"
-                        />
-                      </div>
+                      <BlurImage
+                        src={post.cover_image_url}
+                        alt={post.title}
+                        className="rounded-xl mb-4 h-48"
+                      />
                     )}
                     <h2 className="font-display text-xl font-semibold group-hover:text-foreground/80 transition-colors">
                       {post.title}

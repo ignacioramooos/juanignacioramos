@@ -4,6 +4,7 @@ import { Navbar } from "@/components/Navbar";
 import { supabase } from "@/integrations/supabase/client";
 import ReactMarkdown from "react-markdown";
 import { ArrowLeft, Calendar } from "lucide-react";
+import { BlurImage } from "@/components/ui/blur-image";
 
 interface BlogPost {
   id: string;
@@ -49,9 +50,11 @@ const BlogPostPage = () => {
           ) : (
             <article>
               {post.cover_image_url && (
-                <div className="rounded-2xl overflow-hidden mb-8 bg-card">
-                  <img src={post.cover_image_url} alt={post.title} className="w-full h-64 sm:h-80 object-cover" />
-                </div>
+                <BlurImage
+                  src={post.cover_image_url}
+                  alt={post.title}
+                  className="rounded-2xl mb-8 h-64 sm:h-80"
+                />
               )}
               <h1 className="font-display text-3xl sm:text-4xl font-bold mb-3">{post.title}</h1>
               <div className="flex items-center gap-1.5 text-sm text-muted-foreground mb-8">

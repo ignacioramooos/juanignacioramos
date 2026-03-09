@@ -1,4 +1,8 @@
-export const en = {
+export type Translations = {
+  [key: string]: string | string[] | Translations | Translations[];
+};
+
+export const en: Translations = {
   // Navbar
   nav: {
     portfolio: "Portfolio",

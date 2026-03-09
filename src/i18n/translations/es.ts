@@ -1,6 +1,6 @@
-import type { en } from "./en";
+import type { Translations } from "./en";
 
-export const es: typeof en = {
+export const es: Translations = {
   nav: {
     portfolio: "Portafolio",
     projects: "Proyectos",

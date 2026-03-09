@@ -3,6 +3,9 @@ import { en } from "./translations/en";
 import { es } from "./translations/es";
 
 export type Language = "en" | "es";
+
+// Helper type for nested access
+type NestedObj = { [key: string]: string | string[] | NestedObj | NestedObj[] };
 type Translations = typeof en;
 
 interface LanguageContextType {

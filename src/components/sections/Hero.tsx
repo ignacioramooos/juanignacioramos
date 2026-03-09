@@ -75,17 +75,20 @@ export const Hero = () => {
           Montevideo, Uruguay
         </motion.p>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.7, duration: 0.8 }}
-          className="font-display font-bold tracking-tight mb-3">
+        <div className="relative">
+          <div className="absolute inset-0 -inset-x-8 -inset-y-4 backdrop-blur-sm bg-background/30 rounded-3xl" />
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.7, duration: 0.8 }}
+            className="relative font-display font-bold tracking-tight mb-3">
 
-          <span className="block text-6xl sm:text-8xl lg:text-9xl">Juan Ignacio</span>
-          <span className="block text-6xl sm:text-8xl lg:text-9xl bg-gradient-to-r from-muted-foreground/70 via-muted-foreground/50 to-muted-foreground/30 bg-clip-text text-center font-bold text-[#8c8c8c]">
-            Ramos
-          </span>
-        </motion.h1>
+            <span className="block text-6xl sm:text-8xl lg:text-9xl">Juan Ignacio</span>
+            <span className="block text-6xl sm:text-8xl lg:text-9xl bg-gradient-to-r from-muted-foreground/70 via-muted-foreground/50 to-muted-foreground/30 bg-clip-text text-center font-bold text-[#8c8c8c]">
+              Ramos
+            </span>
+          </motion.h1>
+        </div>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}

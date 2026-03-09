@@ -1,0 +1,37 @@
+import type { Translations } from "./en";
+
+export const es: Translations = {
+  nav: { portfolio: "Portafolio", projects: "Proyectos", services: "Servicios", colleges: "Universidades", blog: "Blog", documents: "Documentos", lab: "Laboratorio", ideas: "Ideas", contact: "Contacto", toggleTheme: "Cambiar tema (Ctrl+D)" },
+  mobileNav: { home: "Inicio", projects: "Proyectos", services: "Servicios", explore: "Explorar", contact: "Contacto" },
+  hero: { location: "Montevideo, Uruguay", tagline: "Construyendo el camino hacia la ingeniería aeroespacial en Uruguay", subtitle: "Aspirante a Ingeniero Aeroespacial · Aprendiz · Solucionador de Problemas", exploreWork: "Explorar mi Trabajo", servicesOffer: "Servicios que Ofrezco", getInTouch: "Contacto", pills: ["Aeroespacial", "Pensamiento Sistémico", "Liderazgo", "Impacto Real"] },
+  highlights: { spaceAcademy: "Becario Advanced Space Academy", spaceAcademyDetail: "Huntsville, Alabama", bac: 'BAC Francés "Mention Très Bien"', bacDetail: "Top 10–15%", mun: "Secretario General MUN", munDetail: "Liderazgo internacional", waterPolo: "Pre-selección Nacional de Waterpolo", waterPoloDetail: "Disciplina de élite" },
+  about: {
+    label: "Sobre Mí", title: "Mente y Mano", motto: "Mens et Manus",
+    p1: "Soy un aspirante a Ingeniero Aeroespacial de Montevideo, Uruguay, con un historial documentado de gestión de proyectos logísticos de alto impacto y desarrollo de simulaciones técnicas complejas. Me gradué con el Baccalauréat Français \"Mention Très Bien\" (Honores Máximos — top 10-15%) y recibí la beca del Advanced Space Academy en Huntsville, Alabama.",
+    p2: "Mi experiencia abarca la gestión fiduciaria de más de 1.380.000 UYU (~$35.000 USD), modelado técnico con Python y simulaciones 6-DOF, y liderazgo internacional como Secretario General de Model UN. Hablo cuatro idiomas con fluidez y me guío por el principio \"Mens et Manus\" — aplicando mente y mano para resolver desafíos estructurales en aeroespacial e infraestructura sostenible.",
+    p3: "Actualmente cursando Ingeniería Físico Matemática en la Universidad de la República (UdelaR), estoy construyendo una base cuantitativa rigurosa para mi objetivo: promover una industria aeroespacial en Uruguay y diseñar vehículos espaciales.",
+    stats: { languages: "Idiomas", languagesDesc: "Español · Francés · Inglés · Portugués", usdManaged: "USD Gestionados", usdManagedDesc: "Operaciones y logística de eventos", attendeesLed: "Asistentes Liderados", attendeesLedDesc: "En eventos que organicé", keyHonors: "Honores Clave", keyHonorsDesc: "BAC Honores · Space Academy · MUN SG" },
+  },
+  drives: { label: "Propósito", title: "Lo que me Impulsa", items: [
+    { title: "Construir un futuro aeroespacial en Sudamérica", desc: "Abriendo camino donde aún no existe." },
+    { title: "Aplicar ingeniería a desafíos humanitarios", desc: "Desde relevamientos con drones hasta soluciones de infraestructura." },
+    { title: "Diseñar sistemas que combinen sostenibilidad y rendimiento", desc: "Residuos a filamento, economía circular, impacto real." },
+    { title: "Liderar equipos bajo presión e incertidumbre", desc: "Delegaciones MUN, logística de eventos, deportes competitivos." },
+  ]},
+  timeline: { label: "Trayectoria", title: "El Camino Hasta Ahora", ariaLabel: "Línea de tiempo interactiva del recorrido de Juan", scrubberLabel: "Control deslizante de la línea de tiempo" },
+  experience: { label: "Trayectoria Profesional", title: "Experiencia" },
+  education: { label: "Formación", title: "Educación", nextChapter: "Próximo Capítulo", nextChapterSub: "Universidad en EE.UU. — Clase de 2030", nextChapterNote: "Esperando decisiones de admisión", nextChapterBullets: ["Postulando a programas de ingeniería de élite", "El camino nunca deja de cargar..."], quote: '"El camino educativo nunca termina."' },
+  skills: { label: "Capacidades", title: "Habilidades" },
+  servicesPreview: { label: "Profesional", title: "Servicios que Ofrezco", viewAll: "Ver todos", viewAllServices: "Ver todos los servicios" },
+  volunteering: { label: "Impacto", title: "Voluntariado y Liderazgo" },
+  athletics: { label: "Disciplina", title: "Deporte" },
+  awards: { label: "Reconocimiento", title: "Premios y Honores" },
+  quotes: { title: "En Mis Propias Palabras — Frase del Día", prev: "Frase anterior", next: "Siguiente frase" },
+  contact: { label: "Conectar", title: "Ponete en Contacto", namePlaceholder: "Tu nombre", emailPlaceholder: "Tu email", messagePlaceholder: "Tu mensaje", send: "Enviar Mensaje", sending: "Enviando...", sent: "¡Mensaje enviado! Te responderé pronto.", error: "Error al enviar. Por favor intentá de nuevo.", contactInfo: "Información de Contacto", social: "Redes Sociales", askAI: "Preguntale a mi Asistente IA", closeChat: "Cerrar Chat", aiTitle: "Asistente IA", aiWelcome: "👋 ¡Hola! Preguntame lo que quieras sobre Ignacio — sus habilidades, proyectos, experiencia o educación.", aiPlaceholder: "Escribí una pregunta...", aiThinking: "Pensando..." },
+  servicesPage: { label: "Profesional", title: "Servicios", description: "Desde diseño web hasta videografía con drones, impresión 3D y automatización con IA — ofrezco servicios profesionales basados en rigor ingenieril y resolución creativa de problemas.", learnMore: "Saber más" },
+  serviceDetail: { allServices: "Todos los Servicios", whoItsFor: "¿Para Quién Es?", useCases: "Casos de Uso", deliverables: "Entregables", pricing: "💰 Guía de Precios", businessFeatures: "Funcionalidades de Negocio Incluidas", bundleTitle: "📦 Pack Web + Automatización", bundleDesc: "Obtené un sitio web con automatizaciones completas: formularios → Google Sheets/CRM → notificaciones por email/WhatsApp vía Zapier, Make o Google Apps Script. Perfecto para negocios que generan leads.", timelinesTitle: "⏱️ Plazos Típicos", timelines: ["Sitio de una página: 3–5 días hábiles", "Multi-página con CMS: 1–2 semanas", "Pack Web + Automatización: 2–3 semanas"] },
+  serviceForm: { title: "Solicitar Este Servicio", subtitle: "Completá el formulario y te respondo en 24 horas.", name: "Nombre", email: "Email", description: "Describí tu proyecto", budget: "Rango de Presupuesto", selectBudget: "Seleccionar rango", deadline: "Fecha límite (opcional)", industry: "Industria", industryPlaceholder: "ej. Inmobiliaria, Educación", submit: "Enviar Solicitud", submitting: "Enviando...", success: "¡Solicitud enviada! Te contactaré en 24 horas.", error: "Algo salió mal. Por favor intentá de nuevo." },
+  printQuote: { title: "Estimador Rápido de Precio", subtitle: "Estimación aproximada basada en peso, material y tiempo de impresión. El precio final puede variar.", material: "Material", weight: "Peso de la Pieza", printTime: "Tiempo de Impresión Estimado", estimatedTotal: "Total Estimado", estPrintTime: "Tiempo Est.", materialCost: "Costo Material", note: "* Esta es una estimación aproximada. Subí tu archivo STL en el formulario de solicitud para una cotización precisa." },
+  notFound: { title: "Página no encontrada", back: "Volver al inicio" },
+  common: { language: "Idioma" },
+};

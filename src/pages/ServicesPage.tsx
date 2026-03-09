@@ -3,10 +3,36 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { services } from "@/data/services";
 import { ArrowRight } from "lucide-react";
+import { SEOHead } from "@/components/SEOHead";
 
 const ServicesPage = () => {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Services by Juan Ignacio Ramos",
+    itemListElement: services.map((s, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      item: {
+        "@type": "Service",
+        name: s.title,
+        description: s.shortDescription,
+        url: `https://juanignacioramos.lovable.app/services/${s.slug}`,
+        provider: {
+          "@type": "Person",
+          name: "Juan Ignacio Ramos",
+        },
+      },
+    })),
+  };
+
   return (
     <main className="min-h-screen bg-background text-foreground">
+      <SEOHead
+        title="Services — Juan Ignacio Ramos"
+        description="Professional services: Web Design, Drone Videography, 3D Printing, AI Automation, Event Organization, and more by Juan Ignacio Ramos."
+        jsonLd={jsonLd}
+      />
       <Navbar />
       <div className="pt-24 pb-16 px-6">
         <div className="max-w-6xl mx-auto">
@@ -32,9 +58,9 @@ const ServicesPage = () => {
               >
                 <Link
                   to={`/services/${service.slug}`}
-                  className="group block p-6 rounded-2xl bg-card border border-border hover:border-foreground/20 transition-all hover:-translate-y-1 h-full"
+                  className="group block p-6 rounded-2xl bg-card border border-border hover:border-foreground/20 transition-all hover:-translate-y-1 h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                 >
-                  <service.icon size={24} className="text-muted-foreground mb-4 group-hover:text-foreground transition-colors" />
+                  <service.icon size={24} className="text-muted-foreground mb-4 group-hover:text-foreground transition-colors" aria-hidden="true" />
                   <h2 className="font-display font-semibold text-lg mb-2">{service.title}</h2>
                   <p className="text-sm text-muted-foreground leading-relaxed mb-4">{service.shortDescription}</p>
                   <span className="inline-flex items-center gap-1.5 text-xs font-medium text-muted-foreground group-hover:text-foreground transition-colors">

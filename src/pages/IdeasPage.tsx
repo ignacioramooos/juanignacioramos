@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/Navbar";
 import { motion } from "framer-motion";
 import { Lightbulb, Beaker, Rocket, Droplets, BarChart3, Globe2 } from "lucide-react";
+import { SEOHead } from "@/components/SEOHead";
 
 const ideas = [
   {
@@ -50,6 +51,10 @@ const statusStyles: Record<string, { bg: string; label: string }> = {
 const IdeasPage = () => {
   return (
     <main className="min-h-screen bg-background text-foreground">
+      <SEOHead
+        title="Ideas — Juan Ignacio Ramos"
+        description="Exploring concepts in sustainability, aerospace, prediction markets, and water technology."
+      />
       <Navbar />
       <div className="pt-24 pb-16 px-6">
         <div className="max-w-5xl mx-auto">
@@ -59,7 +64,7 @@ const IdeasPage = () => {
             transition={{ duration: 0.6 }}
           >
             <div className="flex items-center gap-3 mb-3">
-              <Lightbulb size={20} className="text-muted-foreground" />
+              <Lightbulb size={20} className="text-muted-foreground" aria-hidden="true" />
               <p className="text-sm tracking-[0.3em] uppercase text-muted-foreground">Exploration</p>
             </div>
             <h1 className="font-display text-4xl sm:text-5xl font-bold mb-4">Ideas</h1>
@@ -68,19 +73,21 @@ const IdeasPage = () => {
             </p>
           </motion.div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" role="list" aria-label="Ideas">
             {ideas.map((idea, i) => {
               const style = statusStyles[idea.status];
               return (
                 <motion.div
                   key={idea.title}
+                  role="listitem"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.05 * i, duration: 0.5 }}
-                  className="group p-6 rounded-2xl bg-card border border-border hover:border-foreground/20 transition-all hover:-translate-y-1"
+                  className="group p-6 rounded-2xl bg-card border border-border hover:border-foreground/20 transition-all hover:-translate-y-1 focus-within:ring-2 focus-within:ring-ring"
+                  tabIndex={0}
                 >
                   <div className="flex items-center justify-between mb-4">
-                    <idea.icon size={20} className="text-muted-foreground group-hover:text-foreground transition-colors" />
+                    <idea.icon size={20} className="text-muted-foreground group-hover:text-foreground transition-colors" aria-hidden="true" />
                     <span className={`px-2 py-0.5 text-[10px] font-medium rounded-full ${style.bg}`}>
                       {style.label}
                     </span>

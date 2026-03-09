@@ -2,10 +2,12 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { StarfieldBackground } from "@/components/StarfieldBackground";
 import { ProtectedRoute } from "@/components/ProtectedRoute";
+import { AnimatePresence } from "framer-motion";
+import { PageTransition } from "@/components/PageTransition";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import ContactPage from "./pages/ContactPage";
@@ -24,6 +26,30 @@ import { MobileBottomNav } from "@/components/MobileBottomNav";
 
 const queryClient = new QueryClient();
 
+const AnimatedRoutes = () => {
+  const location = useLocation();
+  return (
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<PageTransition><Index /></PageTransition>} />
+        <Route path="/contact" element={<PageTransition><ContactPage /></PageTransition>} />
+        <Route path="/projects" element={<PageTransition><ProjectsPage /></PageTransition>} />
+        <Route path="/colleges" element={<PageTransition><CollegesPage /></PageTransition>} />
+        <Route path="/blog" element={<PageTransition><BlogPage /></PageTransition>} />
+        <Route path="/blog/:slug" element={<PageTransition><BlogPostPage /></PageTransition>} />
+        <Route path="/documents" element={<PageTransition><DocumentsPage /></PageTransition>} />
+        <Route path="/services" element={<PageTransition><ServicesPage /></PageTransition>} />
+        <Route path="/services/:slug" element={<PageTransition><ServiceDetailPage /></PageTransition>} />
+        <Route path="/lab" element={<PageTransition><LabPage /></PageTransition>} />
+        <Route path="/ideas" element={<PageTransition><IdeasPage /></PageTransition>} />
+        <Route path="/login" element={<PageTransition><LoginPage /></PageTransition>} />
+        <Route path="/admin" element={<ProtectedRoute><AdminPage /></ProtectedRoute>} />
+        <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
+      </Routes>
+    </AnimatePresence>
+  );
+};
+
 const App = () => (
   <ThemeProvider>
     <StarfieldBackground />
@@ -32,22 +58,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="/projects" element={<ProjectsPage />} />
-            <Route path="/colleges" element={<CollegesPage />} />
-            <Route path="/blog" element={<BlogPage />} />
-            <Route path="/blog/:slug" element={<BlogPostPage />} />
-            <Route path="/documents" element={<DocumentsPage />} />
-            <Route path="/services" element={<ServicesPage />} />
-            <Route path="/services/:slug" element={<ServiceDetailPage />} />
-            <Route path="/lab" element={<LabPage />} />
-            <Route path="/ideas" element={<IdeasPage />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/admin" element={<ProtectedRoute><AdminPage /></ProtectedRoute>} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+          <AnimatedRoutes />
           <MobileBottomNav />
         </BrowserRouter>
       </TooltipProvider>

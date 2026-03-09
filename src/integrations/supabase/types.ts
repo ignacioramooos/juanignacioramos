@@ -164,6 +164,48 @@ export type Database = {
         }
         Relationships: []
       }
+      service_requests: {
+        Row: {
+          budget_range: string | null
+          created_at: string
+          deadline: string | null
+          description: string
+          email: string
+          file_url: string | null
+          id: string
+          industry: string | null
+          name: string
+          service: string
+          status: string
+        }
+        Insert: {
+          budget_range?: string | null
+          created_at?: string
+          deadline?: string | null
+          description?: string
+          email: string
+          file_url?: string | null
+          id?: string
+          industry?: string | null
+          name: string
+          service: string
+          status?: string
+        }
+        Update: {
+          budget_range?: string | null
+          created_at?: string
+          deadline?: string | null
+          description?: string
+          email?: string
+          file_url?: string | null
+          id?: string
+          industry?: string | null
+          name?: string
+          service?: string
+          status?: string
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           id: string

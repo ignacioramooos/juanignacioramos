@@ -107,6 +107,72 @@ export type Database = {
         }
         Relationships: []
       }
+      ideas: {
+        Row: {
+          created_at: string
+          description: string
+          display_order: number
+          icon: string
+          id: string
+          published: boolean
+          status: string
+          title: string
+        }
+        Insert: {
+          created_at?: string
+          description?: string
+          display_order?: number
+          icon?: string
+          id?: string
+          published?: boolean
+          status?: string
+          title: string
+        }
+        Update: {
+          created_at?: string
+          description?: string
+          display_order?: number
+          icon?: string
+          id?: string
+          published?: boolean
+          status?: string
+          title?: string
+        }
+        Relationships: []
+      }
+      lab_entries: {
+        Row: {
+          content: string
+          created_at: string
+          date: string
+          id: string
+          published: boolean
+          status: string
+          tags: string[]
+          title: string
+        }
+        Insert: {
+          content?: string
+          created_at?: string
+          date?: string
+          id?: string
+          published?: boolean
+          status?: string
+          tags?: string[]
+          title: string
+        }
+        Update: {
+          content?: string
+          created_at?: string
+          date?: string
+          id?: string
+          published?: boolean
+          status?: string
+          tags?: string[]
+          title?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           created_at: string

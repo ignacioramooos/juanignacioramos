@@ -73,7 +73,7 @@ export const Navbar = () => {
       key={l.href}
       to={l.href}
       onClick={() => handleClick(l.href)}
-      className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+      className="text-[13px] lg:text-sm text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap"
     >
       {l.label}
     </Link>
@@ -102,11 +102,11 @@ export const Navbar = () => {
         </Link>
 
         {/* Desktop */}
-        <div className="hidden md:flex items-center gap-3 lg:gap-6">
+        <div className="hidden md:flex items-center gap-1.5 lg:gap-4 xl:gap-6">
           <div className="relative" ref={dropdownRef}>
             <button
               onClick={() => setPortfolioOpen(!portfolioOpen)}
-              className="text-[15px] font-semibold text-foreground/80 hover:text-foreground transition-colors flex items-center gap-1"
+              className="text-[13px] lg:text-[15px] font-semibold text-foreground/80 hover:text-foreground transition-colors flex items-center gap-1 whitespace-nowrap"
             >
               {t.nav.portfolio}
               <ChevronDown size={14} className={`transition-transform duration-200 ${portfolioOpen ? "rotate-180" : ""}`} />
@@ -135,11 +135,11 @@ export const Navbar = () => {
             </AnimatePresence>
           </div>
 
-          <div className="glass-pill flex items-center gap-2">
+          <div className="glass-pill flex items-center gap-1.5 lg:gap-2">
             {projectsGroup.map(renderLink)}
           </div>
 
-          <div className="glass-pill flex items-center gap-2 lg:gap-3">
+          <div className="glass-pill flex items-center gap-1.5 lg:gap-2">
             {contentGroup.map(renderLink)}
           </div>
 

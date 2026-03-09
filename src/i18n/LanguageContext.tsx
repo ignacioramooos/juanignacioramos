@@ -1,12 +1,8 @@
 import { createContext, useContext, useState, useCallback, ReactNode } from "react";
-import { en } from "./translations/en";
+import { en, type Translations } from "./translations/en";
 import { es } from "./translations/es";
 
 export type Language = "en" | "es";
-
-// Helper type for nested access
-type NestedObj = { [key: string]: string | string[] | NestedObj | NestedObj[] };
-type Translations = typeof en;
 
 interface LanguageContextType {
   lang: Language;

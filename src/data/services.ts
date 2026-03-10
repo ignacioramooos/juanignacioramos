@@ -1,5 +1,5 @@
 import {
-  Globe, Camera, TrendingUp, CalendarDays, Users, Sheet,
+  ShoppingBag, Camera, TrendingUp, CalendarDays, Users, Sheet,
   Bot, Printer, Video, Box
 } from "lucide-react";
 

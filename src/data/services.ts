@@ -30,8 +30,8 @@ export const services: ServiceData[] = [
     shortDescription: "Business-integrated websites for startups, portfolios, and events with booking, lead capture, SEO, and automation bundles.",
     shortDescriptionEs: "Sitios web integrados para startups, portafolios y eventos con reservas, captura de leads, SEO y packs de automatización.",
     icon: Globe,
-    description: "I build modern, fast, and conversion-focused websites tailored to your business needs. Every site includes lead capture, SEO basics, performance optimization, and optional integrations with Google Sheets, email, WhatsApp, and payment tools.",
-    descriptionEs: "Construyo sitios web modernos, rápidos y enfocados en conversión adaptados a tus necesidades. Cada sitio incluye captura de leads, SEO básico, optimización de rendimiento e integraciones opcionales con Google Sheets, email, WhatsApp y herramientas de pago.",
+    description: "I build modern, fast, and conversion-focused websites tailored to your business needs. Every site includes lead capture, SEO basics, performance optimization, and optional integrations with Google Sheets, Shopify, Supabase, custom domains with branded email, and more.",
+    descriptionEs: "Construyo sitios web modernos, rápidos y enfocados en conversión adaptados a tus necesidades. Cada sitio incluye captura de leads, SEO básico, optimización de rendimiento e integraciones opcionales con Google Sheets, Shopify, Supabase, dominios personalizados con email personalizado, y más.",
     whoItsFor: ["Startups & small businesses", "Freelancers & creatives needing a portfolio", "Event organizers needing landing pages", "Anyone who needs a professional web presence"],
     whoItsForEs: ["Startups y pequeños negocios", "Freelancers y creativos que necesitan un portafolio", "Organizadores de eventos que necesitan landing pages", "Cualquiera que necesite presencia web profesional"],
     useCases: [

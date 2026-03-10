@@ -44,7 +44,7 @@ export const services: ServiceData[] = [
       "Sitio web de negocio con integración de reservas/citas",
       "Portafolio con CMS para actualizar contenido fácilmente",
       "Landing page para eventos con RSVP y ticketing",
-      "Sitio de captura de leads conectado a Google Sheets o CRM",
+      "Sitio de captura de leads conectado a Google Sheets, Supabase o CRM",
     ],
     deliverables: [
       "Fully responsive website (mobile + desktop)",

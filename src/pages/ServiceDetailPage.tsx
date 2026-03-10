@@ -16,7 +16,7 @@ const ServiceDetailPage = () => {
 
   if (!service) return <NotFound />;
 
-  const isWebDesign = slug === "web-design";
+  const isWebDesign = slug === "shopify-stores";
   const is3DPrinting = slug === "3d-printing";
 
   const title = lang === "es" ? service.titleEs : service.title;

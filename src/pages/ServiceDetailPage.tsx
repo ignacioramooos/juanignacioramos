@@ -16,7 +16,7 @@ const ServiceDetailPage = () => {
 
   if (!service) return <NotFound />;
 
-  const isWebDesign = slug === "web-design";
+  const isWebDesign = slug === "shopify-stores";
   const is3DPrinting = slug === "3d-printing";
 
   const title = lang === "es" ? service.titleEs : service.title;
@@ -38,8 +38,8 @@ const ServiceDetailPage = () => {
   };
 
   const webFeatures = lang === "es"
-    ? ["Integración de reservas/citas", "Bloques de precios y cotizaciones", "Formularios de captura de leads", "Integración con Google Sheets", "Triggers de Stripe/facturación", "SEO básico y datos estructurados", "Optimización de rendimiento Lighthouse", "Diseño responsivo (mobile-first)"]
-    : ["Booking / appointment integration", "Pricing & quote blocks", "Lead capture forms", "Google Sheets integration for leads", "Stripe / invoicing triggers", "Basic SEO & structured data", "Lighthouse performance optimization", "Responsive design (mobile-first)"];
+    ? ["Configuración completa de tienda Shopify", "Dominio personalizado y configuración DNS", "Gestión de datos con Supabase", "Catálogo de productos con variantes", "Integración de pagos con Stripe", "SEO básico y datos estructurados", "Optimización de rendimiento", "Diseño responsivo (mobile-first)"]
+    : ["Full Shopify store setup", "Custom domain & DNS configuration", "Supabase data management backend", "Product catalog with variants & inventory", "Stripe payment integration", "Basic SEO & structured data", "Performance optimization", "Responsive design (mobile-first)"];
 
   return (
     <main className="min-h-screen bg-background text-foreground">

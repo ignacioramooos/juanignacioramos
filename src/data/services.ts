@@ -369,7 +369,7 @@ export const services: ServiceData[] = [
     ],
     deliverablesEs: [
       "Diseño e implementación del flujo de automatización",
-      "Configuración de integraciones (Zapier/Make/Apps Script)",
+      "Configuración de integraciones (Google Apps Script / código personalizado)",
       "Configuración de herramienta IA (si aplica)",
       "Documentación y guía de mantenimiento",
       "30 días de soporte",

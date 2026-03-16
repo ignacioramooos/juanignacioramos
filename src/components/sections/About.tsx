@@ -1,7 +1,5 @@
 import { motion } from "framer-motion";
-import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useEffect, useState, useRef } from "react";
-import { Globe, Award, DollarSign, Users } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 const getAge = () => {
@@ -43,23 +41,29 @@ const CountUp = ({ end, suffix = "", duration = 2 }: { end: number; suffix?: str
 };
 
 export const About = () => {
-  const { ref, isInView } = useScrollReveal();
   const { t } = useLanguage();
 
   const stats = [
-    { icon: Globe, value: 4, suffix: "", label: t.about.stats.languages, desc: t.about.stats.languagesDesc },
-    { icon: DollarSign, value: 35000, suffix: "+", label: t.about.stats.usdManaged, desc: t.about.stats.usdManagedDesc },
-    { icon: Users, value: 4250, suffix: "+", label: t.about.stats.attendeesLed, desc: t.about.stats.attendeesLedDesc },
-    { icon: Award, value: 3, suffix: "", label: t.about.stats.keyHonors, desc: t.about.stats.keyHonorsDesc },
+    { value: 4, suffix: "", label: t.about.stats.languages, desc: t.about.stats.languagesDesc },
+    { value: 35000, suffix: "+", label: t.about.stats.usdManaged, desc: t.about.stats.usdManagedDesc },
+    { value: 4250, suffix: "+", label: t.about.stats.attendeesLed, desc: t.about.stats.attendeesLedDesc },
+    { value: 3, suffix: "", label: t.about.stats.keyHonors, desc: t.about.stats.keyHonorsDesc },
   ];
 
   return (
-    <section id="about" className="py-24 px-6">
+    <section id="about" className="py-28 px-6">
       <div className="max-w-6xl mx-auto">
-        <motion.div ref={ref} initial={{ opacity: 0, y: 40 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }}>
-          <p className="text-sm tracking-[0.3em] uppercase text-muted-foreground mb-3">{t.about.label} · {getAge()} years old</p>
-          <h2 className="font-display text-3xl sm:text-4xl font-bold mb-1">{t.about.title}</h2>
-          <p className="font-display text-lg sm:text-xl italic text-muted-foreground mb-8 tracking-wide">{t.about.motto}</p>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8 }}
+        >
+          <div className="flex items-baseline gap-3 mb-1">
+            <h2 className="font-display text-3xl sm:text-4xl font-bold">{t.about.title}</h2>
+            <span className="text-sm text-muted-foreground">· {getAge()}</span>
+          </div>
+          <p className="font-display text-lg italic text-muted-foreground mb-10 tracking-wide">{t.about.motto}</p>
 
           <div className="grid lg:grid-cols-5 gap-12">
             <div className="lg:col-span-3 space-y-5 text-muted-foreground leading-relaxed">
@@ -72,12 +76,12 @@ export const About = () => {
               {stats.map((stat, i) => (
                 <motion.div
                   key={stat.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ delay: 0.2 + i * 0.1, duration: 0.5 }}
-                  className="p-4 rounded-2xl bg-card border border-border hover:border-foreground/20 transition-colors"
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.1 + i * 0.08, duration: 0.4 }}
+                  className="p-4 rounded-lg border border-border"
                 >
-                  <stat.icon size={18} className="text-muted-foreground mb-2" />
                   <p className="font-display text-2xl font-bold"><CountUp end={stat.value} suffix={stat.suffix} /></p>
                   <p className="text-xs font-medium mt-1">{stat.label}</p>
                   <p className="text-xs text-muted-foreground">{stat.desc}</p>

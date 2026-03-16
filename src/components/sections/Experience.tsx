@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
-import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useState } from "react";
-import { Briefcase, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 const experiences = [
@@ -94,26 +93,32 @@ const experiences = [
 ];
 
 export const Experience = () => {
-  const { ref, isInView } = useScrollReveal();
   const [expanded, setExpanded] = useState<number | null>(null);
   const { lang, t } = useLanguage();
 
   return (
-    <section id="experience" className="py-24 px-6 bg-card/50">
+    <section id="experience" className="py-28 px-6 bg-card/50">
       <div className="max-w-4xl mx-auto">
-        <motion.div ref={ref} initial={{ opacity: 0, y: 40 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }}>
-          <p className="text-sm tracking-[0.3em] uppercase text-muted-foreground mb-3">{t.experience.label}</p>
-          <h2 className="font-display text-3xl sm:text-4xl font-bold mb-12">{t.experience.title}</h2>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="flex items-baseline gap-4 mb-12">
+            <h2 className="font-display text-3xl sm:text-4xl font-bold">{t.experience.title}</h2>
+            <span className="text-xs text-muted-foreground tracking-widest uppercase">{t.experience.label}</span>
+          </div>
 
           <div className="relative">
             <div className="absolute left-[19px] top-0 bottom-0 w-px bg-border" />
             <div className="space-y-2">
               {experiences.map((exp, i) => (
-                <motion.div key={i} initial={{ opacity: 0, x: -20 }} animate={isInView ? { opacity: 1, x: 0 } : {}} transition={{ delay: 0.1 * i, duration: 0.5 }}>
+                <div key={i}>
                   <button onClick={() => setExpanded(expanded === i ? null : i)} className="w-full text-left group">
                     <div className="flex items-start gap-4 p-4 rounded-xl hover:bg-muted/50 transition-colors">
                       <div className="mt-1 w-10 h-10 rounded-full bg-muted border border-border flex items-center justify-center flex-shrink-0 group-hover:border-foreground/30 transition-colors">
-                        <Briefcase size={16} className="text-muted-foreground" />
+                        <span className="text-xs font-medium text-muted-foreground">{exp.year.slice(-2)}</span>
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center justify-between gap-2">
@@ -121,10 +126,7 @@ export const Experience = () => {
                             <p className="font-display font-semibold">{lang === "es" ? exp.roleEs : exp.role}</p>
                             <p className="text-sm text-muted-foreground">{lang === "es" ? exp.orgEs : exp.org}</p>
                           </div>
-                          <div className="flex items-center gap-2 flex-shrink-0">
-                            <span className="text-xs text-muted-foreground">{exp.year}</span>
-                            <ChevronDown size={14} className={`text-muted-foreground transition-transform ${expanded === i ? "rotate-180" : ""}`} />
-                          </div>
+                          <ChevronDown size={14} className={`text-muted-foreground transition-transform flex-shrink-0 ${expanded === i ? "rotate-180" : ""}`} />
                         </div>
                         <p className="text-xs text-muted-foreground mt-0.5">{lang === "es" ? exp.locationEs : exp.location}</p>
                       </div>
@@ -142,7 +144,7 @@ export const Experience = () => {
                       </ul>
                     </motion.div>
                   )}
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>

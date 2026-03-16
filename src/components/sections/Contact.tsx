@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useState, useRef, useEffect } from "react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -52,7 +51,6 @@ async function streamChat({ messages, onDelta, onDone }: { messages: ChatMsg[]; 
 }
 
 export const Contact = () => {
-  const { ref, isInView } = useScrollReveal();
   const { t } = useLanguage();
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -111,11 +109,16 @@ export const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-24 px-6">
+    <section id="contact" className="py-28 px-6">
       <div className="max-w-4xl mx-auto">
-        <motion.div ref={ref} initial={{ opacity: 0, y: 40 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }}>
-          <p className="text-sm tracking-[0.3em] uppercase text-muted-foreground mb-3">{t.contact.label}</p>
-          <h2 className="font-display text-3xl sm:text-4xl font-bold mb-8">{t.contact.title}</h2>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className="font-display text-3xl sm:text-4xl font-bold mb-2">{t.contact.title}</h2>
+          <p className="text-sm text-muted-foreground mb-10">{t.contact.label}</p>
 
           <div className="grid md:grid-cols-5 gap-12">
             <form onSubmit={handleSubmit} className="md:col-span-3 space-y-4">
@@ -162,7 +165,7 @@ export const Contact = () => {
           </div>
 
           {chatOpen && (
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }} className="mt-10 rounded-2xl border border-border bg-card overflow-hidden">
+            <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} transition={{ duration: 0.3 }} className="mt-10 rounded-lg border border-border bg-card overflow-hidden">
               <div className="flex items-center justify-between px-5 py-3 border-b border-border">
                 <div className="flex items-center gap-2"><Bot size={18} className="text-muted-foreground" /><span className="text-sm font-medium">{t.contact.aiTitle}</span></div>
                 <button onClick={() => setChatOpen(false)} className="text-muted-foreground hover:text-foreground transition-colors"><X size={16} /></button>
@@ -171,13 +174,13 @@ export const Contact = () => {
                 {chatMessages.length === 0 && <p className="text-sm text-muted-foreground text-center mt-8">{t.contact.aiWelcome}</p>}
                 {chatMessages.map((m, i) => (
                   <div key={i} className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}>
-                    <div className={`max-w-[80%] rounded-2xl px-4 py-2.5 text-sm ${m.role === "user" ? "bg-foreground text-background rounded-br-md" : "bg-muted text-foreground rounded-bl-md"}`}>
+                    <div className={`max-w-[80%] rounded-lg px-4 py-2.5 text-sm ${m.role === "user" ? "bg-foreground text-background" : "bg-muted text-foreground"}`}>
                       {m.role === "assistant" ? <div className="prose prose-sm dark:prose-invert max-w-none [&>p]:m-0"><ReactMarkdown>{m.content}</ReactMarkdown></div> : m.content}
                     </div>
                   </div>
                 ))}
                 {chatLoading && chatMessages[chatMessages.length - 1]?.role !== "assistant" && (
-                  <div className="flex justify-start"><div className="bg-muted rounded-2xl rounded-bl-md px-4 py-2.5 text-sm text-muted-foreground">{t.contact.aiThinking}</div></div>
+                  <div className="flex justify-start"><div className="bg-muted rounded-lg px-4 py-2.5 text-sm text-muted-foreground">{t.contact.aiThinking}</div></div>
                 )}
                 <div ref={chatEndRef} />
               </div>

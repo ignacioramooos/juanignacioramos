@@ -1,6 +1,5 @@
 import { useState, useRef, useCallback } from "react";
 import { motion } from "framer-motion";
-import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 const milestones = [
@@ -15,7 +14,6 @@ const milestones = [
 ];
 
 export const InteractiveTimeline = () => {
-  const { ref, isInView } = useScrollReveal();
   const { lang, t } = useLanguage();
   const [activeIdx, setActiveIdx] = useState(milestones.length - 1);
   const trackRef = useRef<HTMLDivElement>(null);
@@ -54,13 +52,20 @@ export const InteractiveTimeline = () => {
   const activeLabel = lang === "es" ? active.labelEs : active.labelEn;
 
   return (
-    <section className="py-24 px-6 bg-card/50" aria-label={t.timeline.ariaLabel}>
+    <section className="py-28 px-6 bg-card/50" aria-label={t.timeline.ariaLabel}>
       <div className="max-w-5xl mx-auto">
-        <motion.div ref={ref} initial={{ opacity: 0, y: 40 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }}>
-          <p className="text-sm tracking-[0.3em] uppercase text-muted-foreground mb-3">{t.timeline.label}</p>
-          <h2 className="font-display text-3xl sm:text-4xl font-bold mb-12">{t.timeline.title}</h2>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="flex items-baseline gap-4 mb-12">
+            <h2 className="font-display text-3xl sm:text-4xl font-bold">{t.timeline.title}</h2>
+            <span className="text-xs text-muted-foreground tracking-widest uppercase">{t.timeline.label}</span>
+          </div>
 
-          <motion.div key={activeIdx} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.25 }} className="text-center mb-10">
+          <motion.div key={activeIdx} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.2 }} className="text-center mb-10">
             <span className="text-4xl mb-3 block" role="img" aria-hidden="true">{active.icon}</span>
             <p className="font-display text-3xl font-bold mb-2">{active.year}</p>
             <p className="text-muted-foreground text-sm max-w-md mx-auto">{activeLabel}</p>

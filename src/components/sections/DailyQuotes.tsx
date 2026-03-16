@@ -1,6 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { Quote, ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { getDailyQuotes } from "@/data/quotes";
 import { useState } from "react";
 import { useLanguage } from "@/i18n/LanguageContext";
@@ -8,38 +7,62 @@ import { useLanguage } from "@/i18n/LanguageContext";
 const dailyQuotes = getDailyQuotes();
 
 export const DailyQuotes = () => {
-  const { ref, isInView } = useScrollReveal();
   const [quoteIndex, setQuoteIndex] = useState(0);
   const { t } = useLanguage();
 
   return (
-    <section id="daily-quotes" className="py-24 px-6">
-      <div className="max-w-5xl mx-auto">
-        <motion.div ref={ref} initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }}>
-          <h3 className="font-display font-semibold text-sm uppercase tracking-wider text-muted-foreground mb-6">
-            {t.quotes.title}
-          </h3>
-          <div className="relative flex items-center gap-4">
-            <button onClick={() => setQuoteIndex((prev) => (prev - 1 + dailyQuotes.length) % dailyQuotes.length)} className="p-2 rounded-full border border-border hover:bg-muted transition-colors flex-shrink-0" aria-label={t.quotes.prev}>
-              <ChevronLeft size={16} />
-            </button>
-            <div className="flex-1 overflow-hidden">
-              <AnimatePresence mode="wait">
-                <motion.blockquote key={quoteIndex} initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -30 }} transition={{ duration: 0.3 }} className="p-6 rounded-2xl bg-card border border-border text-center">
-                  <Quote size={16} className="text-muted-foreground/40 mx-auto mb-3" />
-                  <p className="text-base sm:text-lg italic text-foreground/80 leading-relaxed max-w-2xl mx-auto">"{dailyQuotes[quoteIndex].text}"</p>
-                  <p className="text-xs text-muted-foreground mt-4">{dailyQuotes[quoteIndex].context}</p>
-                </motion.blockquote>
-              </AnimatePresence>
-            </div>
-            <button onClick={() => setQuoteIndex((prev) => (prev + 1) % dailyQuotes.length)} className="p-2 rounded-full border border-border hover:bg-muted transition-colors flex-shrink-0" aria-label={t.quotes.next}>
-              <ChevronRight size={16} />
-            </button>
+    <section id="daily-quotes" className="py-28 px-6">
+      <div className="max-w-3xl mx-auto text-center">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.8 }}
+        >
+          <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground mb-8">{t.quotes.title}</p>
+
+          <div className="relative">
+            <AnimatePresence mode="wait">
+              <motion.blockquote
+                key={quoteIndex}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                <p className="font-display text-xl sm:text-2xl italic text-foreground/80 leading-relaxed">
+                  "{dailyQuotes[quoteIndex].text}"
+                </p>
+                <p className="text-xs text-muted-foreground mt-6">{dailyQuotes[quoteIndex].context}</p>
+              </motion.blockquote>
+            </AnimatePresence>
           </div>
-          <div className="flex justify-center gap-2 mt-4">
-            {dailyQuotes.map((_, i) => (
-              <button key={i} onClick={() => setQuoteIndex(i)} className={`w-2 h-2 rounded-full transition-colors ${i === quoteIndex ? "bg-foreground" : "bg-muted-foreground/30"}`} aria-label={`Quote ${i + 1}`} />
-            ))}
+
+          <div className="flex items-center justify-center gap-4 mt-8">
+            <button
+              onClick={() => setQuoteIndex((prev) => (prev - 1 + dailyQuotes.length) % dailyQuotes.length)}
+              className="p-2 rounded-full border border-border hover:bg-muted transition-colors"
+              aria-label={t.quotes.prev}
+            >
+              <ChevronLeft size={14} />
+            </button>
+            <div className="flex gap-1.5">
+              {dailyQuotes.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setQuoteIndex(i)}
+                  className={`w-1.5 h-1.5 rounded-full transition-colors ${i === quoteIndex ? "bg-foreground" : "bg-muted-foreground/20"}`}
+                  aria-label={`Quote ${i + 1}`}
+                />
+              ))}
+            </div>
+            <button
+              onClick={() => setQuoteIndex((prev) => (prev + 1) % dailyQuotes.length)}
+              className="p-2 rounded-full border border-border hover:bg-muted transition-colors"
+              aria-label={t.quotes.next}
+            >
+              <ChevronRight size={14} />
+            </button>
           </div>
         </motion.div>
       </div>

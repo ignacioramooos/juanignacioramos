@@ -15,6 +15,9 @@ const DocumentsPage = () => {
             className="w-full h-full border-0"
             title="Documents folder"
             allowFullScreen
+            referrerPolicy="strict-origin-when-cross-origin"
+            sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
+            loading="lazy"
           />
         </div>
       </main>

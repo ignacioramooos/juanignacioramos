@@ -51,6 +51,7 @@ const Index = () => {
       <Education />
       <Skills />
       <ServicesPreview />
+      <ProBono />
       <Volunteering />
       <Athletics />
       <Awards />

@@ -19,6 +19,7 @@ export interface Translations {
   serviceDetail: { allServices: string; whoItsFor: string; useCases: string; deliverables: string; pricing: string; businessFeatures: string; bundleTitle: string; bundleDesc: string; timelinesTitle: string; timelines: string[] };
   serviceForm: { title: string; subtitle: string; name: string; email: string; description: string; budget: string; selectBudget: string; deadline: string; industry: string; industryPlaceholder: string; submit: string; submitting: string; success: string; error: string };
   printQuote: { title: string; subtitle: string; material: string; weight: string; printTime: string; estimatedTotal: string; estPrintTime: string; materialCost: string; note: string };
+  proBono: { label: string; title: string; p1: string; p2: string; areas: string[]; cta: string; ctaLink: string };
   notFound: { title: string; back: string };
   common: { language: string };
 }

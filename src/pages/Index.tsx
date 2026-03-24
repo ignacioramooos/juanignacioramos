@@ -8,7 +8,6 @@ import { Education } from "@/components/sections/Education";
 import { Skills } from "@/components/sections/Skills";
 import { ServicesPreview } from "@/components/sections/ServicesPreview";
 import { ProBono } from "@/components/sections/ProBono";
-import { InteractiveTimeline } from "@/components/sections/InteractiveTimeline";
 import { Volunteering } from "@/components/sections/Volunteering";
 import { Athletics } from "@/components/sections/Athletics";
 import { Awards } from "@/components/sections/Awards";

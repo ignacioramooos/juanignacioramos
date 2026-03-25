@@ -28,7 +28,7 @@ export const Awards = () => {
   const { lang, t } = useLanguage();
 
   return (
-    <section className="py-28 px-6 bg-card/50">
+    <section className="py-28 px-6">
       <div className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0 }}

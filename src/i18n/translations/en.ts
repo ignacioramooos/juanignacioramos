@@ -51,6 +51,7 @@ export const en: Translations = {
   volunteering: { label: "Impact", title: "Volunteering & Leadership" },
   athletics: { label: "Discipline", title: "Athletics" },
   awards: { label: "Recognition", title: "Awards & Honors" },
+  featuredIn: { label: "Press", title: "Featured In" },
   quotes: { title: "In My Own Words — Today's Quote", prev: "Previous quote", next: "Next quote" },
   contact: { label: "Connect", title: "Get in Touch", namePlaceholder: "Your name", emailPlaceholder: "Your email", messagePlaceholder: "Your message", send: "Send Message", sending: "Sending...", sent: "Message sent! I'll get back to you soon.", error: "Failed to send message. Please try again.", contactInfo: "Contact Info", social: "Social", askAI: "Ask my AI Assistant", closeChat: "Close Chat", aiTitle: "AI Assistant", aiWelcome: "👋 Hi! Ask me anything about Ignacio — his skills, projects, experience, or education.", aiPlaceholder: "Type a question...", aiThinking: "Thinking..." },
   servicesPage: { label: "Professional", title: "Services", description: "From web design to drone videography, 3D printing to AI automation — I offer professional services grounded in engineering rigor and creative problem-solving.", learnMore: "Learn more" },

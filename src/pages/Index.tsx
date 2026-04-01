@@ -54,6 +54,7 @@ const Index = () => {
       <Volunteering />
       <Athletics />
       <Awards />
+      <FeaturedIn />
       <DailyQuotes />
       <Contact />
       <EasterEggs />

@@ -57,7 +57,7 @@ export const FeaturedIn = () => {
                   {article.title}
                 </h3>
                 <p className="text-sm text-muted-foreground mt-1.5 leading-relaxed">
-                  {language === "es" ? article.descriptionEs : article.description}
+                  {lang === "es" ? article.descriptionEs : article.description}
                 </p>
               </div>
               <ExternalLink className="h-4 w-4 shrink-0 mt-1.5 text-muted-foreground group-hover:text-primary transition-colors" />

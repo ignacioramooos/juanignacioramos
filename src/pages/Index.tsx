@@ -11,6 +11,7 @@ import { ProBono } from "@/components/sections/ProBono";
 import { Volunteering } from "@/components/sections/Volunteering";
 import { Athletics } from "@/components/sections/Athletics";
 import { Awards } from "@/components/sections/Awards";
+import { FeaturedIn } from "@/components/sections/FeaturedIn";
 import { DailyQuotes } from "@/components/sections/DailyQuotes";
 import { Contact } from "@/components/sections/Contact";
 import { EasterEggs } from "@/components/EasterEggs";

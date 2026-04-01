@@ -1,16 +1,26 @@
 
 
-## Fix: Remove inconsistent background color from 3 sections
+## New "Featured In" Section
 
-### Problem
-Experience, Volunteering, and Awards sections use `bg-card/50` as their background, while every other section on the landing page uses no background class (inheriting the default `bg-background`). This creates visible bands of a different shade that break the smooth visual flow.
+### What
+A clean, editorial-style section showcasing external publications where Ignacio has been featured. Placed **after Awards & Honors** and **before Daily Quotes** on the homepage.
 
-### Solution
-Remove `bg-card/50` from the `<section>` element in these 3 files:
+### Design
+- Section label: "Press" / "Prensa"
+- Title: "Featured In" / "Publicado En"
+- Card layout with:
+  - Publication logo/name ("U.S. Space & Rocket Center Foundation")
+  - Article title as a clickable link ("Now I Know With Certainty I Am Going to Be an Aerospace Engineer")
+  - Brief description (1 line)
+  - External link icon indicating it opens in a new tab
+- Framer Motion reveal animations matching existing sections
+- Responsive: single column on mobile, expandable to multi-column as more articles are added
 
-1. **`src/components/sections/Experience.tsx`** (line 100): Change `className="py-28 px-6 bg-card/50"` → `className="py-28 px-6"`
-2. **`src/components/sections/Volunteering.tsx`** (line 35): Same change
-3. **`src/components/sections/Awards.tsx`** (line 31): Same change
+### Files
+1. **Create `src/components/sections/FeaturedIn.tsx`** — New section component with the article card linking to `https://rocketcenterfoundation.org/now-i-know-with-certainty-i-am-going-to-be-an-aerospace-engineer/`
+2. **Edit `src/i18n/translations/en.ts`** — Add `featuredIn` translations (label, title)
+3. **Edit `src/i18n/translations/es.ts`** — Add Spanish translations
+4. **Edit `src/pages/Index.tsx`** — Import and place `<FeaturedIn />` between `<Awards />` and `<DailyQuotes />`
 
-No other files are touched. This is a 3-line change across 3 files.
+The data array inside the component makes it easy to add more publications later.
 

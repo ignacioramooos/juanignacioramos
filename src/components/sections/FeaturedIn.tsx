@@ -14,7 +14,7 @@ const articles = [
 ];
 
 export const FeaturedIn = () => {
-  const { t, language } = useLanguage();
+  const { t, lang } = useLanguage();
   const { ref, isInView } = useScrollReveal();
 
   return (

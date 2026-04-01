@@ -13,6 +13,7 @@ export interface Translations {
   volunteering: { label: string; title: string };
   athletics: { label: string; title: string };
   awards: { label: string; title: string };
+  featuredIn: { label: string; title: string };
   quotes: { title: string; prev: string; next: string };
   contact: { label: string; title: string; namePlaceholder: string; emailPlaceholder: string; messagePlaceholder: string; send: string; sending: string; sent: string; error: string; contactInfo: string; social: string; askAI: string; closeChat: string; aiTitle: string; aiWelcome: string; aiPlaceholder: string; aiThinking: string };
   servicesPage: { label: string; title: string; description: string; learnMore: string };

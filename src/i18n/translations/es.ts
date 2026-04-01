@@ -26,6 +26,7 @@ export const es: Translations = {
   volunteering: { label: "Impacto", title: "Voluntariado y Liderazgo" },
   athletics: { label: "Disciplina", title: "Deporte" },
   awards: { label: "Reconocimiento", title: "Premios y Honores" },
+  featuredIn: { label: "Prensa", title: "Publicado En" },
   quotes: { title: "En Mis Propias Palabras — Frase del Día", prev: "Frase anterior", next: "Siguiente frase" },
   contact: { label: "Conectar", title: "Ponete en Contacto", namePlaceholder: "Tu nombre", emailPlaceholder: "Tu email", messagePlaceholder: "Tu mensaje", send: "Enviar Mensaje", sending: "Enviando...", sent: "¡Mensaje enviado! Te responderé pronto.", error: "Error al enviar. Por favor intentá de nuevo.", contactInfo: "Información de Contacto", social: "Redes Sociales", askAI: "Preguntale a mi Asistente IA", closeChat: "Cerrar Chat", aiTitle: "Asistente IA", aiWelcome: "👋 ¡Hola! Preguntame lo que quieras sobre Ignacio — sus habilidades, proyectos, experiencia o educación.", aiPlaceholder: "Escribí una pregunta...", aiThinking: "Pensando..." },
   servicesPage: { label: "Profesional", title: "Servicios", description: "Desde diseño web hasta videografía con drones, impresión 3D y automatización con IA — ofrezco servicios profesionales basados en rigor ingenieril y resolución creativa de problemas.", learnMore: "Saber más" },

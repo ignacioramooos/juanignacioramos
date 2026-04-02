@@ -7,8 +7,8 @@ const articles = [
   {
     publication: "U.S. Space & Rocket Center Foundation",
     title: "Now I Know With Certainty I Am Going to Be an Aerospace Engineer",
-    description: "A personal essay published on the official Rocket Center Foundation website about my experience at Advanced Space Academy.",
-    descriptionEs: "Un ensayo personal publicado en el sitio oficial de la Rocket Center Foundation sobre mi experiencia en el Advanced Space Academy.",
+    description: "A thank-you letter to scholarship donors that moved the Rocket Center staff enough to feature it on their official website.",
+    descriptionEs: "Una carta de agradecimiento a los donantes de becas que conmovió al equipo del Rocket Center y fue publicada en su sitio oficial.",
     url: "https://rocketcenterfoundation.org/now-i-know-with-certainty-i-am-going-to-be-an-aerospace-engineer/",
   },
 ];
@@ -34,44 +34,17 @@ export const FeaturedIn = () => {
           </h2>
         </motion.div>
 
-        <div className="grid gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {articles.map((article, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}
-              className="rounded-xl border border-border/50 bg-card/30 overflow-hidden"
+              className="rounded-xl border border-border/50 bg-card/30 overflow-hidden flex flex-col"
             >
-              {/* Header with article info */}
-              <div className="flex items-start gap-5 p-6">
-                <div className="mt-1 flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                  <Newspaper className="h-6 w-6" />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <p className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-1">
-                    {article.publication}
-                  </p>
-                  <h3 className="text-lg font-semibold text-foreground leading-snug">
-                    {article.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground mt-1.5 leading-relaxed">
-                    {lang === "es" ? article.descriptionEs : article.description}
-                  </p>
-                </div>
-                <a
-                  href={article.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="shrink-0 mt-1.5 text-muted-foreground hover:text-primary transition-colors"
-                  aria-label="Open in new tab"
-                >
-                  <ExternalLink className="h-4 w-4" />
-                </a>
-              </div>
-
               {/* Embedded iframe */}
-              <div className="w-full border-t border-border/50" style={{ height: "500px" }}>
+              <div className="w-full" style={{ height: "220px" }}>
                 <iframe
                   src={article.url}
                   className="w-full h-full border-0"
@@ -80,6 +53,31 @@ export const FeaturedIn = () => {
                   referrerPolicy="strict-origin-when-cross-origin"
                   sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
                 />
+              </div>
+
+              {/* Article info */}
+              <div className="p-4 flex-1 flex flex-col gap-2 border-t border-border/50">
+                <div className="flex items-center gap-2">
+                  <Newspaper className="h-4 w-4 shrink-0 text-primary" />
+                  <p className="text-[10px] font-semibold tracking-widest uppercase text-muted-foreground truncate">
+                    {article.publication}
+                  </p>
+                </div>
+                <h3 className="text-sm font-semibold text-foreground leading-snug line-clamp-2">
+                  {article.title}
+                </h3>
+                <p className="text-xs text-muted-foreground leading-relaxed line-clamp-2">
+                  {lang === "es" ? article.descriptionEs : article.description}
+                </p>
+                <a
+                  href={article.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-auto inline-flex items-center gap-1.5 text-xs font-medium text-primary hover:text-primary/80 transition-colors pt-1"
+                >
+                  {lang === "es" ? "Leer artículo" : "Read article"}
+                  <ExternalLink className="h-3 w-3" />
+                </a>
               </div>
             </motion.div>
           ))}

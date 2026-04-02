@@ -26,9 +26,6 @@ export const FeaturedIn = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-xs font-semibold tracking-[0.3em] uppercase text-primary/70 mb-3 block">
-            {t.featuredIn.label}
-          </span>
           <h2 className="text-3xl md:text-4xl font-bold font-display text-foreground">
             {t.featuredIn.title}
           </h2>

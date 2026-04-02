@@ -314,8 +314,32 @@ const projects = [
 export const Projects = () => {
   const { ref, isInView } = useScrollReveal();
   const [filter, setFilter] = useState("all");
+  const [dbProjects, setDbProjects] = useState<typeof projects>([]);
 
-  const filtered = filter === "all" ? projects : projects.filter((p) => p.category === filter);
+  useEffect(() => {
+    supabase
+      .from("projects")
+      .select("*")
+      .order("display_order", { ascending: true })
+      .then(({ data }) => {
+        if (data) {
+          setDbProjects(
+            data.map((p) => ({
+              title: p.title,
+              description: p.description,
+              tags: p.tags || [],
+              category: p.category || "other",
+              ...(p.featured ? { featured: true } : {}),
+              ...(p.status ? { status: p.status } : {}),
+              ...(p.image_url ? { image_url: p.image_url } : {}),
+            }))
+          );
+        }
+      });
+  }, []);
+
+  const allProjects = [...projects, ...dbProjects];
+  const filtered = filter === "all" ? allProjects : allProjects.filter((p) => p.category === filter);
 
   return (
     <section id="projects" className="py-24 px-6 bg-background">

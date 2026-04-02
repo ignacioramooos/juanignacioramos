@@ -34,34 +34,54 @@ export const FeaturedIn = () => {
           </h2>
         </motion.div>
 
-        <div className="grid gap-6">
+        <div className="grid gap-10">
           {articles.map((article, i) => (
-            <motion.a
+            <motion.div
               key={i}
-              href={article.url}
-              target="_blank"
-              rel="noopener noreferrer"
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}
-              className="group flex items-start gap-5 rounded-xl border border-border/50 bg-card/30 p-6 transition-all hover:border-primary/30 hover:bg-card/60 hover:shadow-lg"
+              className="rounded-xl border border-border/50 bg-card/30 overflow-hidden"
             >
-              <div className="mt-1 flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                <Newspaper className="h-6 w-6" />
+              {/* Header with article info */}
+              <div className="flex items-start gap-5 p-6">
+                <div className="mt-1 flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                  <Newspaper className="h-6 w-6" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-1">
+                    {article.publication}
+                  </p>
+                  <h3 className="text-lg font-semibold text-foreground leading-snug">
+                    {article.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground mt-1.5 leading-relaxed">
+                    {lang === "es" ? article.descriptionEs : article.description}
+                  </p>
+                </div>
+                <a
+                  href={article.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="shrink-0 mt-1.5 text-muted-foreground hover:text-primary transition-colors"
+                  aria-label="Open in new tab"
+                >
+                  <ExternalLink className="h-4 w-4" />
+                </a>
               </div>
-              <div className="flex-1 min-w-0">
-                <p className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-1">
-                  {article.publication}
-                </p>
-                <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors leading-snug">
-                  {article.title}
-                </h3>
-                <p className="text-sm text-muted-foreground mt-1.5 leading-relaxed">
-                  {lang === "es" ? article.descriptionEs : article.description}
-                </p>
+
+              {/* Embedded iframe */}
+              <div className="w-full border-t border-border/50" style={{ height: "500px" }}>
+                <iframe
+                  src={article.url}
+                  className="w-full h-full border-0"
+                  title={article.title}
+                  loading="lazy"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
+                />
               </div>
-              <ExternalLink className="h-4 w-4 shrink-0 mt-1.5 text-muted-foreground group-hover:text-primary transition-colors" />
-            </motion.a>
+            </motion.div>
           ))}
         </div>
       </div>

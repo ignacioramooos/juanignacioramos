@@ -311,10 +311,20 @@ const projects = [
 }];
 
 
+interface ProjectItem {
+  title: string;
+  description: string;
+  tags: string[];
+  category: string;
+  featured?: boolean;
+  status?: string;
+  image_url?: string;
+}
+
 export const Projects = () => {
   const { ref, isInView } = useScrollReveal();
   const [filter, setFilter] = useState("all");
-  const [dbProjects, setDbProjects] = useState<typeof projects>([]);
+  const [dbProjects, setDbProjects] = useState<ProjectItem[]>([]);
 
   useEffect(() => {
     supabase

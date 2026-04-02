@@ -1,5 +1,6 @@
 import { useState, useMemo, useEffect } from "react";
 import { motion } from "framer-motion";
+import { supabase } from "@/integrations/supabase/client";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Slider } from "@/components/ui/slider";
 import { Play, RotateCcw } from "lucide-react";
@@ -310,11 +311,45 @@ const projects = [
 }];
 
 
+interface ProjectItem {
+  title: string;
+  description: string;
+  tags: string[];
+  category: string;
+  featured?: boolean;
+  status?: string;
+  image_url?: string;
+}
+
 export const Projects = () => {
   const { ref, isInView } = useScrollReveal();
   const [filter, setFilter] = useState("all");
+  const [dbProjects, setDbProjects] = useState<ProjectItem[]>([]);
 
-  const filtered = filter === "all" ? projects : projects.filter((p) => p.category === filter);
+  useEffect(() => {
+    supabase
+      .from("projects")
+      .select("*")
+      .order("display_order", { ascending: true })
+      .then(({ data }) => {
+        if (data) {
+          setDbProjects(
+            data.map((p) => ({
+              title: p.title,
+              description: p.description,
+              tags: p.tags || [],
+              category: p.category || "other",
+              ...(p.featured ? { featured: true } : {}),
+              ...(p.status ? { status: p.status } : {}),
+              ...(p.image_url ? { image_url: p.image_url } : {}),
+            }))
+          );
+        }
+      });
+  }, []);
+
+  const allProjects = [...projects, ...dbProjects];
+  const filtered = filter === "all" ? allProjects : allProjects.filter((p) => p.category === filter);
 
   return (
     <section id="projects" className="py-24 px-6 bg-background">

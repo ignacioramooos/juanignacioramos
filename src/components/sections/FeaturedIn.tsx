@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import { ExternalLink, Newspaper } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import spaceCampImg from "@/assets/space-camp.jpg";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const articles = [
   {

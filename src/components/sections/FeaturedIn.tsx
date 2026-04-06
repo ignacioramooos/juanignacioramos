@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ExternalLink, Newspaper } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import spaceCampImg from "@/assets/space-camp.jpg";
 
 const articles = [
   {
@@ -42,13 +43,11 @@ export const FeaturedIn = () => {
             >
               {/* Embedded iframe */}
               <div className="w-full" style={{ height: "220px" }}>
-                <iframe
-                  src={article.url}
-                  className="w-full h-full border-0"
-                  title={article.title}
+                <img
+                  src={spaceCampImg}
+                  alt={article.title}
+                  className="w-full h-full object-cover"
                   loading="lazy"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
                 />
               </div>
 

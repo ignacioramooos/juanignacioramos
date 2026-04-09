@@ -45,19 +45,19 @@ export const EasterEggs = () => {
   }, []);
 
   // Secret click on footer year
+  const [spin, setSpin] = useState(false);
+
   const handleFooterClick = useCallback(() => {
+    if (spin) return;
     setClickCount((c) => {
       if (c + 1 >= 5) {
-        document.body.style.transition = "transform 1s ease";
-        document.body.style.transform = "rotate(360deg)";
-        setTimeout(() => {
-          document.body.style.transform = "";
-        }, 1000);
+        setSpin(true);
+        setTimeout(() => setSpin(false), 1000);
         return 0;
       }
       return c + 1;
     });
-  }, []);
+  }, [spin]);
 
   return (
     <>

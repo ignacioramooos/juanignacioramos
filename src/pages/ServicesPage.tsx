@@ -44,7 +44,9 @@ const ServicesPage = () => {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service, i) => (
-              <motion.div key={service.slug} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.05 * i, duration: 0.5 }}>
+              <motion.div key={service.slug} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.05 * i, duration: 0.5 }}
+                {...(service.slug === "investment-research" ? { "data-easter-egg": "investment-card" } : {})}
+              >
                 <Link
                   to={`/services/${service.slug}`}
                   className="group block p-6 rounded-2xl bg-card border border-border hover:border-foreground/20 transition-all hover:-translate-y-1 h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"

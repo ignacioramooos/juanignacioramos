@@ -1,52 +1,211 @@
-import { useEffect, useState, useCallback } from "react";
+/**
+ * EasterEggs.tsx
+ *
+ * ═══════════════════════════════════════════════════════════
+ *  SETUP — add these data attributes in your other components:
+ *
+ *  Header name element:
+ *    <span data-easter-egg="header-name">Juan Ignacio Ramos</span>
+ *
+ *  Investment Research service card:
+ *    <div data-easter-egg="investment-card"> ... </div>
+ *
+ * ═══════════════════════════════════════════════════════════
+ *
+ *  FULL LIST OF EASTER EGGS:
+ *
+ *  1. Konami Code (↑↑↓↓←→←→BA)
+ *     → 80 rockets fly up the screen + "Aerospace Mode: ONLINE" banner
+ *
+ *  2. Footer year — click 5×
+ *     → entire page does a 360° spin
+ *
+ *  3. Type "bear" or "red" anywhere
+ *     → Investment Research card crashes down then bounces back to ATH
+ *     → "📉 MARKET CRASH" toast appears at the top
+ *
+ *  4. Hover over your name in the header for 3 seconds
+ *     → A rocket launches from the bottom of the screen to the top
+ *       with a smoke trail
+ *
+ *  5. Console Easter Egg (passive — always active)
+ *     → Opening DevTools reveals ASCII art + GitHub link
+ *
+ * ═══════════════════════════════════════════════════════════
+ */
+
+import { useEffect, useState, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-// Konami code: ↑ ↑ ↓ ↓ ← → ← → B A
-const KONAMI = ["ArrowUp", "ArrowUp", "ArrowDown", "ArrowDown", "ArrowLeft", "ArrowRight", "ArrowLeft", "ArrowRight", "b", "a"];
+// ─── Constants ────────────────────────────────────────────────────────────────
 
-const Particle = ({ delay }: { delay: number }) => {
+const KONAMI = [
+  "ArrowUp", "ArrowUp", "ArrowDown", "ArrowDown",
+  "ArrowLeft", "ArrowRight", "ArrowLeft", "ArrowRight",
+  "b", "a",
+];
+
+const CONSOLE_ART = `
+%c
+  🚀  Hey, I see you peeking in here!
+  ─────────────────────────────────────────────
+  Respect. A fellow dev.
+  Check the source on GitHub instead 👇
+  https://github.com/juanignaciorms
+  ─────────────────────────────────────────────
+`;
+
+// ─── Sub-components ───────────────────────────────────────────────────────────
+
+/** Single rocket for the Konami storm */
+const KonamiRocket = ({ delay }: { delay: number }) => {
   const x = Math.random() * 100;
-  const size = Math.random() * 3 + 1;
+  const size = Math.random() * 4 + 8;
 
   return (
     <motion.div
-      className="fixed rounded-full bg-foreground/30 pointer-events-none"
-      style={{ width: size, height: size, left: `${x}%` }}
-      initial={{ bottom: -10, opacity: 0 }}
-      animate={{ bottom: "110%", opacity: [0, 1, 1, 0] }}
-      transition={{ duration: 3 + Math.random() * 2, delay, ease: "easeOut" }}
-    />
+      className="fixed pointer-events-none"
+      style={{ left: `${x}%`, bottom: -20 }}
+      initial={{ y: 0, opacity: 0, rotate: 0 }}
+      animate={{ y: "-130vh", opacity: [0, 1, 1, 0], rotate: [0, 360] }}
+      transition={{
+        duration: 8 + Math.random() * 4,
+        delay: delay * 2,
+        ease: "easeOut",
+      }}
+    >
+      <span style={{ fontSize: `${size}px` }}>🚀</span>
+    </motion.div>
   );
 };
 
-export const EasterEggs = () => {
-  const [konamiProgress, setKonamiProgress] = useState(0);
-  const [showParticles, setShowParticles] = useState(false);
-  const [clickCount, setClickCount] = useState(0);
+/** Smoke puff for the name-hover rocket trail */
+const SmokePuff = ({ index }: { index: number }) => (
+  <motion.div
+    className="absolute left-1/2 -translate-x-1/2 rounded-full bg-muted-foreground/40 pointer-events-none"
+    style={{ width: 8 + index * 4, height: 8 + index * 4, bottom: -index * 14 }}
+    initial={{ opacity: 0.7, scale: 1 }}
+    animate={{ opacity: 0, scale: 2.5, y: 20 }}
+    transition={{ duration: 1.2, delay: index * 0.08, ease: "easeOut" }}
+  />
+);
 
-  // Konami code listener
+// ─── Main component ───────────────────────────────────────────────────────────
+
+export const EasterEggs = () => {
+  // 1. Konami
+  const [konamiProgress, setKonamiProgress] = useState(0);
+  const [showKonami, setShowKonami] = useState(false);
+
+  // 2. Footer click counter
+  const [clickCount, setClickCount] = useState(0);
+  const [spin, setSpin] = useState(false);
+
+  // 3. Market crash
+  const [showCrash, setShowCrash] = useState(false);
+  const crashLocked = useRef(false);
+
+  // 4. Name hover rocket
+  const [showNameRocket, setShowNameRocket] = useState(false);
+  const nameHoverTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // ── 5. Console Easter Egg ────────────────────────────────────────────────
+  useEffect(() => {
+    console.log(
+      CONSOLE_ART,
+      "color: #7c3aed; font-size: 13px; font-weight: bold; font-family: monospace;"
+    );
+  }, []);
+
+  // ── 1. Konami code ────────────────────────────────────────────────────────
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
-      setKonamiProgress((prev) => {
-        if (e.key === KONAMI[prev]) {
-          const next = prev + 1;
-          if (next === KONAMI.length) {
-            setShowParticles(true);
-            setTimeout(() => setShowParticles(false), 5000);
-            return 0;
-          }
-          return next;
+      const pressed = e.key.toLowerCase();
+      const target = KONAMI[konamiProgress].toLowerCase();
+
+      if (pressed === target) {
+        const next = konamiProgress + 1;
+        if (next === KONAMI.length) {
+          setShowKonami(true);
+          setTimeout(() => setShowKonami(false), 15000);
+          setKonamiProgress(0);
+          return;
         }
-        return e.key === KONAMI[0] ? 1 : 0;
-      });
+        setKonamiProgress(next);
+      } else {
+        setKonamiProgress(pressed === KONAMI[0].toLowerCase() ? 1 : 0);
+      }
     };
     window.addEventListener("keydown", handler);
     return () => window.removeEventListener("keydown", handler);
+  }, [konamiProgress]);
+
+  // ── 3. Typed word detection ("bear" / "red") ──────────────────────────────
+  const triggerMarketCrash = useCallback(() => {
+    const card = document.querySelector<HTMLElement>('[data-easter-egg="investment-card"]');
+    if (!card) return;
+
+    crashLocked.current = true;
+    setShowCrash(true);
+
+    // Phase 1 — crash down
+    card.style.transition = "transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.3s";
+    card.style.transform = "translateY(220px) rotate(-6deg) scale(0.95)";
+    card.style.filter = "brightness(0.7) saturate(2)";
+
+    // Phase 2 — bounce back to ATH
+    setTimeout(() => {
+      card.style.transition = "transform 1s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.6s";
+      card.style.transform = "translateY(0px) rotate(0deg) scale(1)";
+      card.style.filter = "";
+    }, 1300);
+
+    // Cleanup
+    setTimeout(() => {
+      card.style.transition = "";
+      setShowCrash(false);
+      crashLocked.current = false;
+    }, 2600);
   }, []);
 
-  // Secret click on footer year
-  const [spin, setSpin] = useState(false);
+  useEffect(() => {
+    let buffer = "";
+    const handler = (e: KeyboardEvent) => {
+      if (e.key.length !== 1) return;
+      buffer = (buffer + e.key.toLowerCase()).slice(-6);
+      if (!crashLocked.current && (buffer.includes("bear") || buffer.includes("red"))) {
+        buffer = "";
+        triggerMarketCrash();
+      }
+    };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, [triggerMarketCrash]);
 
+  // ── 4. Name hover — wire up listener ──────────────────────────────────────
+  const handleNameEnter = useCallback(() => {
+    nameHoverTimer.current = setTimeout(() => {
+      setShowNameRocket(true);
+      setTimeout(() => setShowNameRocket(false), 4000);
+    }, 3000);
+  }, []);
+
+  const handleNameLeave = useCallback(() => {
+    if (nameHoverTimer.current) clearTimeout(nameHoverTimer.current);
+  }, []);
+
+  useEffect(() => {
+    const el = document.querySelector<HTMLElement>('[data-easter-egg="header-name"]');
+    if (!el) return;
+    el.addEventListener("mouseenter", handleNameEnter);
+    el.addEventListener("mouseleave", handleNameLeave);
+    return () => {
+      el.removeEventListener("mouseenter", handleNameEnter);
+      el.removeEventListener("mouseleave", handleNameLeave);
+    };
+  }, [handleNameEnter, handleNameLeave]);
+
+  // ── 2. Footer year click ──────────────────────────────────────────────────
   const handleFooterClick = useCallback(() => {
     if (spin) return;
     setClickCount((c) => {
@@ -59,36 +218,76 @@ export const EasterEggs = () => {
     });
   }, [spin]);
 
+  // ── Render ────────────────────────────────────────────────────────────────
   return (
     <>
-      {/* Particle effect from Konami code */}
+      {/* ── Easter Egg 1: Konami rocket storm ─────────────────────────────── */}
       <AnimatePresence>
-        {showParticles && (
+        {showKonami && (
           <div className="fixed inset-0 z-[9999] pointer-events-none overflow-hidden">
-            {[...Array(50)].map((_, i) => (
-              <Particle key={i} delay={i * 0.08} />
+            {[...Array(80)].map((_, i) => (
+              <KonamiRocket key={i} delay={i * 0.15} />
             ))}
             <motion.p
-              initial={{ opacity: 0, scale: 0.5 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-display text-2xl font-bold text-foreground"
+              initial={{ opacity: 0, scale: 0.5, y: -50 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              transition={{ delay: 1, duration: 1 }}
+              className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-display text-3xl font-bold text-foreground bg-background/80 p-6 rounded-full shadow-xl whitespace-nowrap"
             >
-              🚀 Aerospace Mode Activated
+              🚀 Aerospace Mode: ONLINE
             </motion.p>
           </div>
         )}
       </AnimatePresence>
 
-      {/* Footer with secret click */}
-      <footer className={`py-8 px-6 border-t border-border transition-transform duration-1000 ${spin ? "rotate-[360deg]" : ""}`}>
+      {/* ── Easter Egg 3: Market crash toast ──────────────────────────────── */}
+      <AnimatePresence>
+        {showCrash && (
+          <motion.div
+            initial={{ opacity: 0, y: -40, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -40, scale: 0.9 }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            className="fixed top-6 left-1/2 -translate-x-1/2 z-[9999] bg-destructive text-destructive-foreground px-6 py-2.5 rounded-full text-sm font-semibold shadow-2xl pointer-events-none flex items-center gap-2"
+          >
+            📉 MARKET CRASH — buying the dip...
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* ── Easter Egg 4: Name-hover rocket launch ────────────────────────── */}
+      <AnimatePresence>
+        {showNameRocket && (
+          <motion.div
+            className="fixed left-1/2 z-[9999] pointer-events-none text-4xl select-none"
+            style={{ bottom: 0, x: "-50%" }}
+            initial={{ y: 0, opacity: 1 }}
+            animate={{ y: "-115vh", opacity: [1, 1, 1, 0] }}
+            transition={{ duration: 3.2, ease: [0.2, 0, 0.8, 1] }}
+          >
+            🚀
+            {[...Array(10)].map((_, i) => (
+              <SmokePuff key={i} index={i} />
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* ── Footer (Easter Egg 2 trigger) ─────────────────────────────────── */}
+      <footer className={`py-8 px-6 border-t border-border mt-auto transition-transform duration-1000 ${spin ? "rotate-[360deg]" : ""}`}>
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
           <p>
-            © <span onClick={handleFooterClick} className="cursor-default select-none">2026</span> Juan Ignacio Ramos
+            ©{" "}
+            <span
+              onClick={handleFooterClick}
+              className="cursor-default select-none font-medium hover:text-foreground transition-colors"
+            >
+              2026
+            </span>{" "}
+            Juan Ignacio Ramos
           </p>
-          <p className="text-xs">
-            Built with passion · Montevideo, Uruguay
-          </p>
+          <p className="text-xs">Built with passion · Montevideo, Uruguay</p>
         </div>
       </footer>
     </>

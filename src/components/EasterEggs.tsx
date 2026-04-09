@@ -15,27 +15,26 @@
  *  FULL LIST OF EASTER EGGS:
  *
  *  1. Konami Code (↑↑↓↓←→←→BA)
- *     → 80 rockets fly up the screen + "Aerospace Mode: ONLINE" banner
+ *     → 80 rockets fly up the screen (pure visual, no text)
  *
  *  2. Footer year — click 5×
  *     → entire page does a 360° spin
  *
  *  3. Type "bear" or "red" anywhere
- *     → Investment Research card crashes down then bounces back to ATH
- *     → "📉 MARKET CRASH" toast appears at the top
+ *     → Investment Research card crashes down then bounces back
  *
  *  4. Hover over your name in the header for 3 seconds
- *     → A rocket launches from the bottom of the screen to the top
- *       with a smoke trail
+ *     → A rocket launches from bottom to top with smoke trail
  *
  *  5. Console Easter Egg (passive — always active)
- *     → Opening DevTools reveals ASCII art + GitHub link
+ *     → Opening DevTools reveals ASCII art + challenge
  *
  * ═══════════════════════════════════════════════════════════
  */
 
 import { useEffect, useState, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Rocket } from "lucide-react";
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 
@@ -53,6 +52,7 @@ const CONSOLE_ART = `
   Aca te dejo el url del repo: 👇
   https://github.com/ignacioramooos/juanignacioramos.git
   ─────────────────────────────────────────────
+  De paso te propongo un reto: ¿podes encontrar todos los easter eggs?
 `;
 
 // ─── Sub-components ───────────────────────────────────────────────────────────
@@ -60,7 +60,7 @@ const CONSOLE_ART = `
 /** Single rocket for the Konami storm */
 const KonamiRocket = ({ delay }: { delay: number }) => {
   const x = Math.random() * 100;
-  const size = Math.random() * 4 + 8;
+  const size = Math.random() * 4 + 8; // 8–12px
 
   return (
     <motion.div
@@ -74,7 +74,7 @@ const KonamiRocket = ({ delay }: { delay: number }) => {
         ease: "easeOut",
       }}
     >
-      <span style={{ fontSize: `${size}px` }}>🚀</span>
+      <Rocket size={size} className="text-foreground -rotate-45" />
     </motion.div>
   );
 };
@@ -148,19 +148,16 @@ export const EasterEggs = () => {
     crashLocked.current = true;
     setShowCrash(true);
 
-    // Phase 1 — crash down
     card.style.transition = "transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.3s";
     card.style.transform = "translateY(220px) rotate(-6deg) scale(0.95)";
     card.style.filter = "brightness(0.7) saturate(2)";
 
-    // Phase 2 — bounce back to ATH
     setTimeout(() => {
       card.style.transition = "transform 1s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.6s";
       card.style.transform = "translateY(0px) rotate(0deg) scale(1)";
       card.style.filter = "";
     }, 1300);
 
-    // Cleanup
     setTimeout(() => {
       card.style.transition = "";
       setShowCrash(false);
@@ -221,38 +218,14 @@ export const EasterEggs = () => {
   // ── Render ────────────────────────────────────────────────────────────────
   return (
     <>
-      {/* ── Easter Egg 1: Konami rocket storm ─────────────────────────────── */}
+      {/* ── Easter Egg 1: Konami rocket storm (pure visual) ───────────────── */}
       <AnimatePresence>
         {showKonami && (
           <div className="fixed inset-0 z-[9999] pointer-events-none overflow-hidden">
             {[...Array(80)].map((_, i) => (
               <KonamiRocket key={i} delay={i * 0.15} />
             ))}
-            <motion.p
-              initial={{ opacity: 0, scale: 0.5, y: -50 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.8 }}
-              transition={{ delay: 1, duration: 1 }}
-              className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-display text-3xl font-bold text-foreground bg-background/80 p-6 rounded-full shadow-xl whitespace-nowrap"
-            >
-              🚀 Aerospace Mode: ONLINE
-            </motion.p>
           </div>
-        )}
-      </AnimatePresence>
-
-      {/* ── Easter Egg 3: Market crash toast ──────────────────────────────── */}
-      <AnimatePresence>
-        {showCrash && (
-          <motion.div
-            initial={{ opacity: 0, y: -40, scale: 0.9 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -40, scale: 0.9 }}
-            transition={{ type: "spring", stiffness: 300, damping: 20 }}
-            className="fixed top-6 left-1/2 -translate-x-1/2 z-[9999] bg-destructive text-destructive-foreground px-6 py-2.5 rounded-full text-sm font-semibold shadow-2xl pointer-events-none flex items-center gap-2"
-          >
-            📉 MARKET CRASH — buying the dip...
-          </motion.div>
         )}
       </AnimatePresence>
 
@@ -260,13 +233,13 @@ export const EasterEggs = () => {
       <AnimatePresence>
         {showNameRocket && (
           <motion.div
-            className="fixed left-1/2 z-[9999] pointer-events-none text-4xl select-none"
+            className="fixed left-1/2 z-[9999] pointer-events-none select-none"
             style={{ bottom: 0, x: "-50%" }}
             initial={{ y: 0, opacity: 1 }}
             animate={{ y: "-115vh", opacity: [1, 1, 1, 0] }}
             transition={{ duration: 3.2, ease: [0.2, 0, 0.8, 1] }}
           >
-            🚀
+            <Rocket size={24} className="text-foreground -rotate-45" />
             {[...Array(10)].map((_, i) => (
               <SmokePuff key={i} index={i} />
             ))}

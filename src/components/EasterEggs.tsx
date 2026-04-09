@@ -81,7 +81,7 @@ export const EasterEggs = () => {
       </AnimatePresence>
 
       {/* Footer with secret click */}
-      <footer className="py-8 px-6 border-t border-border">
+      <footer className={`py-8 px-6 border-t border-border transition-transform duration-1000 ${spin ? "rotate-[360deg]" : ""}`}>
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
           <p>
             © <span onClick={handleFooterClick} className="cursor-default select-none">2026</span> Juan Ignacio Ramos

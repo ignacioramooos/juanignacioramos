@@ -47,11 +47,11 @@ const KONAMI = [
 
 const CONSOLE_ART = `
 %c
-  🚀  Hey, I see you peeking in here!
+ Holaaa, veo que echas un ojo por aca!
   ─────────────────────────────────────────────
-  Respect. A fellow dev.
-  Check the source on GitHub instead 👇
-  https://github.com/juanignaciorms
+  Esta muy bien. Otro fellow dev.
+  Aca te dejo el url del repo: 👇
+  https://github.com/ignacioramooos/juanignacioramos.git
   ─────────────────────────────────────────────
 `;
 

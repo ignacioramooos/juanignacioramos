@@ -45,19 +45,19 @@ export const EasterEggs = () => {
   }, []);
 
   // Secret click on footer year
+  const [spin, setSpin] = useState(false);
+
   const handleFooterClick = useCallback(() => {
+    if (spin) return;
     setClickCount((c) => {
       if (c + 1 >= 5) {
-        document.body.style.transition = "transform 1s ease";
-        document.body.style.transform = "rotate(360deg)";
-        setTimeout(() => {
-          document.body.style.transform = "";
-        }, 1000);
+        setSpin(true);
+        setTimeout(() => setSpin(false), 1000);
         return 0;
       }
       return c + 1;
     });
-  }, []);
+  }, [spin]);
 
   return (
     <>
@@ -81,7 +81,7 @@ export const EasterEggs = () => {
       </AnimatePresence>
 
       {/* Footer with secret click */}
-      <footer className="py-8 px-6 border-t border-border">
+      <footer className={`py-8 px-6 border-t border-border transition-transform duration-1000 ${spin ? "rotate-[360deg]" : ""}`}>
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
           <p>
             © <span onClick={handleFooterClick} className="cursor-default select-none">2026</span> Juan Ignacio Ramos

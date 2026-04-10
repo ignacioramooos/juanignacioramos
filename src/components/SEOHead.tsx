@@ -18,7 +18,7 @@ export const SEOHead = ({
 }: SEOHeadProps) => {
   const location = useLocation();
   const currentPath = path || location.pathname;
-  const canonicalUrl = `https://juanignacioramos.lovable.app${currentPath}`;
+  const canonicalUrl = `https://juanignacioramos.com${currentPath}`;
 
   useEffect(() => {
     // Update document title

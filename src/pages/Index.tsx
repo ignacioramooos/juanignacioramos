@@ -28,7 +28,7 @@ const Index = () => {
           "@type": "Person",
           name: "Juan Ignacio Ramos",
           jobTitle: "Aspiring Aerospace Engineer",
-          url: "https://juanignacioramos.lovable.app",
+          url: "https://juanignacioramos.com",
           sameAs: [
             "https://www.linkedin.com/in/ignacio-ramos-8361a52b6/",
             "https://instagram.com/ignacio.ramooos",

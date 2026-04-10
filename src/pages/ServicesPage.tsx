@@ -20,7 +20,7 @@ const ServicesPage = () => {
         "@type": "Service",
         name: s.title,
         description: s.shortDescription,
-        url: `https://juanignacioramos.lovable.app/services/${s.slug}`,
+        url: `https://juanignacioramos.com/services/${s.slug}`,
         provider: { "@type": "Person", name: "Juan Ignacio Ramos" },
       },
     })),

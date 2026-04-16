@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { LanguageProvider } from "@/i18n/LanguageContext";
 import { StarfieldBackground } from "@/components/StarfieldBackground";
@@ -23,12 +23,31 @@ import ServicesPage from "./pages/ServicesPage";
 import ServiceDetailPage from "./pages/ServiceDetailPage";
 import LabPage from "./pages/LabPage";
 import IdeasPage from "./pages/IdeasPage";
+import GalleryPage from "./pages/GalleryPage";
 import { MobileBottomNav } from "@/components/MobileBottomNav";
 
 const queryClient = new QueryClient();
 
+const isGallerySubdomain = () =>
+  typeof window !== "undefined" && window.location.hostname.startsWith("gallery.");
+
 const AnimatedRoutes = () => {
   const location = useLocation();
+  const galleryHost = isGallerySubdomain();
+
+  // gallery.juanignacioramos.com → only shows the gallery
+  if (galleryHost) {
+    return (
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
+          <Route path="/login" element={<PageTransition><LoginPage /></PageTransition>} />
+          <Route path="/admin" element={<ProtectedRoute><AdminPage /></ProtectedRoute>} />
+          <Route path="*" element={<PageTransition><GalleryPage /></PageTransition>} />
+        </Routes>
+      </AnimatePresence>
+    );
+  }
+
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
@@ -43,6 +62,8 @@ const AnimatedRoutes = () => {
         <Route path="/services/:slug" element={<PageTransition><ServiceDetailPage /></PageTransition>} />
         <Route path="/lab" element={<PageTransition><LabPage /></PageTransition>} />
         <Route path="/ideas" element={<PageTransition><IdeasPage /></PageTransition>} />
+        {/* Gallery is only accessible via gallery.juanignacioramos.com */}
+        <Route path="/gallery" element={<Navigate to="/" replace />} />
         <Route path="/login" element={<PageTransition><LoginPage /></PageTransition>} />
         <Route path="/admin" element={<ProtectedRoute><AdminPage /></ProtectedRoute>} />
         <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
@@ -51,22 +72,25 @@ const AnimatedRoutes = () => {
   );
 };
 
-const App = () => (
-  <ThemeProvider>
-    <LanguageProvider>
-      <StarfieldBackground />
-      <QueryClientProvider client={queryClient}>
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <BrowserRouter>
-            <AnimatedRoutes />
-            <MobileBottomNav />
-          </BrowserRouter>
-        </TooltipProvider>
-      </QueryClientProvider>
-    </LanguageProvider>
-  </ThemeProvider>
-);
+const App = () => {
+  const galleryHost = isGallerySubdomain();
+  return (
+    <ThemeProvider>
+      <LanguageProvider>
+        {!galleryHost && <StarfieldBackground />}
+        <QueryClientProvider client={queryClient}>
+          <TooltipProvider>
+            <Toaster />
+            <Sonner />
+            <BrowserRouter>
+              <AnimatedRoutes />
+              {!galleryHost && <MobileBottomNav />}
+            </BrowserRouter>
+          </TooltipProvider>
+        </QueryClientProvider>
+      </LanguageProvider>
+    </ThemeProvider>
+  );
+};
 
 export default App;

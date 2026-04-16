@@ -5,6 +5,7 @@ import { BlogAdmin } from "@/components/admin/BlogAdmin";
 import { ProjectsAdmin } from "@/components/admin/ProjectsAdmin";
 import { LabAdmin } from "@/components/admin/LabAdmin";
 import { IdeasAdmin } from "@/components/admin/IdeasAdmin";
+import { GalleryAdmin } from "@/components/admin/GalleryAdmin";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
 import { useNavigate } from "react-router-dom";
@@ -40,6 +41,7 @@ const AdminPage = () => {
               <TabsTrigger value="projects">Projects</TabsTrigger>
               <TabsTrigger value="lab">Lab</TabsTrigger>
               <TabsTrigger value="ideas">Ideas</TabsTrigger>
+              <TabsTrigger value="gallery">Gallery</TabsTrigger>
             </TabsList>
             <TabsContent value="colleges">
               <CollegesAdmin />
@@ -55,6 +57,9 @@ const AdminPage = () => {
             </TabsContent>
             <TabsContent value="ideas">
               <IdeasAdmin />
+            </TabsContent>
+            <TabsContent value="gallery">
+              <GalleryAdmin />
             </TabsContent>
           </Tabs>
         </div>

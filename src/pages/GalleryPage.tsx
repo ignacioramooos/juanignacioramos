@@ -20,6 +20,11 @@ const GalleryPage = () => {
   const [selected, setSelected] = useState<GalleryImage | null>(null);
 
   useEffect(() => {
+    const meta = document.createElement("meta");
+    meta.name = "robots";
+    meta.content = "noindex, nofollow";
+    document.head.appendChild(meta);
+
     supabase
       .from("gallery_images")
       .select("id,title,description,image_url,taken_at,published_at,width,height")
@@ -29,6 +34,10 @@ const GalleryPage = () => {
         setImages((data as GalleryImage[]) ?? []);
         setLoading(false);
       });
+
+    return () => {
+      meta.remove();
+    };
   }, []);
 
   return (

@@ -30,7 +30,7 @@ const Index = () => {
           jobTitle: "Aspiring Aerospace Engineer",
           url: "https://juanignacioramos.com",
           sameAs: [
-            "https://www.linkedin.com/in/ignacio-ramos-8361a52b6/",
+            "https://www.linkedin.com/in/juanignacioramos1/",
             "https://instagram.com/ignacio.ramooos",
           ],
           address: {

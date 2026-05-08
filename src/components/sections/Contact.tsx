@@ -151,7 +151,7 @@ export const Contact = () => {
               <div>
                 <p className="text-sm font-medium mb-4">{t.contact.social}</p>
                 <div className="space-y-3">
-                  <a href="https://www.linkedin.com/in/ignacio-ramos-8361a52b6/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors"><Linkedin size={16} /> LinkedIn</a>
+                  <a href="https://www.linkedin.com/in/juanignacioramos1/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors"><Linkedin size={16} /> LinkedIn</a>
                   <a href="https://instagram.com/ignacio.ramooos" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors"><Instagram size={16} /> @ignacio.ramooos</a>
                 </div>
               </div>

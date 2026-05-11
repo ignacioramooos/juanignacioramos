@@ -10,8 +10,8 @@ interface SEOHeadProps {
 }
 
 export const SEOHead = ({
-  title = "Juan Ignacio Ramos — Aspiring Aerospace Engineer",
-  description = "Portfolio of Juan Ignacio Ramos — Aspiring Aerospace Engineer from Montevideo, Uruguay. French BAC Mention Très Bien, Space Academy Scholar, MUN Secretary General.",
+  title = "Juan Ignacio Ramos - Portfolio",
+  description = "Juan Ignacio Ramos is an aspiring aerospace engineer from Montevideo, Uruguay. Portfolio highlights include French BAC Mention Très Bien, Advanced Space Academy Scholar, and MUN Secretary General.",
   path,
   type = "website",
   jsonLd,

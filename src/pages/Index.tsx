@@ -21,13 +21,14 @@ const Index = () => {
   return (
     <main className="min-h-screen bg-background text-foreground">
       <SEOHead
-        title="Juan Ignacio Ramos — Aspiring Aerospace Engineer"
-        description="Portfolio of Juan Ignacio Ramos — Aspiring Aerospace Engineer from Montevideo, Uruguay. French BAC Mention Très Bien, Space Academy Scholar, MUN Secretary General."
+        title="Juan Ignacio Ramos - Portfolio"
+        description="Juan Ignacio Ramos is an aspiring aerospace engineer from Montevideo, Uruguay. Explore his portfolio, aerospace projects, leadership experience, French BAC Mention Très Bien, and Advanced Space Academy scholarship."
         jsonLd={{
           "@context": "https://schema.org",
           "@type": "Person",
           name: "Juan Ignacio Ramos",
           jobTitle: "Aspiring Aerospace Engineer",
+          description: "Juan Ignacio Ramos is an aspiring aerospace engineer from Montevideo, Uruguay.",
           url: "https://juanignacioramos.com",
           sameAs: [
             "https://www.linkedin.com/in/juanignacioramos1/",
@@ -38,6 +39,13 @@ const Index = () => {
             addressLocality: "Montevideo",
             addressCountry: "UY",
           },
+          knowsAbout: [
+            "Aerospace engineering",
+            "Leadership",
+            "Model United Nations",
+            "Engineering simulations",
+            "Web development",
+          ],
           knowsLanguage: ["Spanish", "French", "English", "Portuguese"],
         }}
       />

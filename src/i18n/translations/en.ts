@@ -28,16 +28,16 @@ export interface Translations {
 export const en: Translations = {
   nav: { portfolio: "Portfolio", projects: "Projects", services: "Services", colleges: "Colleges", blog: "Blog", documents: "Documents", lab: "Lab", ideas: "Ideas", contact: "Contact", toggleTheme: "Toggle theme (Ctrl+D)" },
   mobileNav: { home: "Home", projects: "Projects", services: "Services", explore: "Explore", contact: "Contact" },
-  hero: { location: "Montevideo, Uruguay", tagline: "Building the path to aerospace engineering in Uruguay", subtitle: "Aspiring Aerospace Engineer · Learner · Problem Solver", exploreWork: "Explore My Work", servicesOffer: "Services I Offer", getInTouch: "Get in Touch", pills: ["Aerospace", "Systems Thinking", "Leadership", "Real-world Impact"] },
+  hero: { location: "Montevideo, Uruguay", tagline: "Juan Ignacio Ramos is an aspiring aerospace engineer from Montevideo, Uruguay.", subtitle: "French BAC Mention Très Bien · Advanced Space Academy Scholar · MUN Secretary General · Physical & Mathematical Engineering", exploreWork: "Explore My Work", servicesOffer: "Services I Offer", getInTouch: "Get in Touch", pills: ["Aspiring Aerospace Engineer", "Montevideo, Uruguay", "Advanced Space Academy Scholar", "MUN Secretary General"] },
   highlights: { spaceAcademy: "Advanced Space Academy Scholar", spaceAcademyDetail: "Huntsville, Alabama", bac: 'French BAC "Mention Très Bien"', bacDetail: "Top 10–15%", mun: "MUN Secretary General", munDetail: "International leadership", waterPolo: "National Water Polo Pre-selection", waterPoloDetail: "Elite discipline" },
   about: {
-    label: "About Me", title: "Mind & Hand", motto: "Mens et Manus",
+    label: "About Me", title: "About Juan Ignacio Ramos", motto: "Aspiring Aerospace Engineer · Montevideo, Uruguay",
     p1: "I'm an aspiring Aerospace Engineer from Montevideo, Uruguay, with a documented record of managing high-stakes logistical projects and developing complex technical simulations. I graduated with the French Baccalaureate \"Mention Très Bien\" (Highest Honors: top 10-15%) and received the Advanced Space Academy Scholarship in Huntsville, Alabama.",
     p2: "My expertise spans fiduciary management of 1,380,000+ UYU (~$35,000 USD), technical modeling with Excel and 6-DOF simulations, web development, and international leadership as Model UN Secretary General. I'm fluent in four languages and guided by the \"Mens et Manus\" principle, applying both mind and hand to solve complex challenges. (More about my expertise below).",
     p3: "Currently enrolled in Physical & Mathematical Engineering at Universidad de la República (UdelaR), I'm building a rigorous quantitative foundation for my goal: to promote an aerospace industry in Uruguay and design space vehicles.",
     stats: { languages: "Languages", languagesDesc: "Spanish · French · English · Portuguese", usdManaged: "USD Managed", usdManagedDesc: "Event operations & logistics", attendeesLed: "Attendees Led", attendeesLedDesc: "Across events I organized", keyHonors: "Key Honors", keyHonorsDesc: "BAC Honors · Space Academy · MUN SG" },
   },
-  drives: { label: "Purpose", title: "What Drives Me", items: [
+  drives: { label: "Purpose", title: "What Drives My Aerospace Engineering Path", items: [
     { title: "Building an aerospace future in South America", desc: "Pioneering the path where none exists yet." },
     { title: "Applying engineering to humanitarian challenges", desc: "From drone surveys for housing to infrastructure solutions." },
     { title: "Designing systems that combine sustainability and performance", desc: "Waste-to-filament, circular economy, real impact." },

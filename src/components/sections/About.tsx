@@ -41,7 +41,27 @@ const CountUp = ({ end, suffix = "", duration = 2 }: { end: number; suffix?: str
 };
 
 export const About = () => {
-  const { t } = useLanguage();
+  const { lang, t } = useLanguage();
+
+  const intro = lang === "es" ? (
+    <>
+      <p>
+        <strong>Juan Ignacio Ramos</strong> es un <strong>aspirante a ingeniero aeroespacial</strong> de Montevideo, Uruguay. Su recorrido combina simulaciones técnicas, liderazgo internacional y proyectos de ingeniería con impacto real.
+      </p>
+      <p>
+        Se graduó con el <strong>Bachillerato Francés Mention Très Bien</strong>, recibió la beca <strong>Advanced Space Academy</strong> y hoy estudia Ingeniería Físico Matemática en la UdelaR.
+      </p>
+    </>
+  ) : (
+    <>
+      <p>
+        <strong>Juan Ignacio Ramos</strong> is an <strong>aspiring aerospace engineer</strong> from Montevideo, Uruguay. His path combines technical simulations, international leadership, and engineering projects with real-world impact.
+      </p>
+      <p>
+        He graduated with <strong>French BAC Mention Très Bien</strong>, earned the <strong>Advanced Space Academy</strong> scholarship, and is currently studying Physical & Mathematical Engineering at UdelaR.
+      </p>
+    </>
+  );
 
   const stats = [
     { value: 4, suffix: "", label: t.about.stats.languages, desc: t.about.stats.languagesDesc },
@@ -63,13 +83,28 @@ export const About = () => {
             <h2 className="font-display text-3xl sm:text-4xl font-bold">{t.about.title}</h2>
             <span className="text-sm text-muted-foreground">· {getAge()}</span>
           </div>
-          <p className="font-display text-lg italic text-muted-foreground mb-10 tracking-wide">{t.about.motto}</p>
+          <p className="font-display text-lg italic text-muted-foreground mb-8 tracking-wide">{t.about.motto}</p>
 
           <div className="grid lg:grid-cols-5 gap-12">
             <div className="lg:col-span-3 space-y-5 text-muted-foreground leading-relaxed">
-              <p>{t.about.p1}</p>
-              <p>{t.about.p2}</p>
-              <p>{t.about.p3}</p>
+              {intro}
+
+              <ul className="grid gap-2 sm:grid-cols-3 text-sm">
+                {(lang === "es"
+                  ? ["Bachillerato Francés Mention Très Bien", "Advanced Space Academy Scholar", "Secretario General MUN"]
+                  : ["French BAC Mention Très Bien", "Advanced Space Academy Scholar", "MUN Secretary General"]
+                ).map((item) => (
+                  <li key={item} className="rounded-full border border-border bg-card px-4 py-2 text-center text-foreground/80">
+                    <strong>{item}</strong>
+                  </li>
+                ))}
+              </ul>
+
+              <p>
+                {lang === "es"
+                  ? "Actualmente, construye una base cuantitativa rigurosa en Ingeniería Físico Matemática para impulsar el desarrollo aeroespacial en Uruguay."
+                  : "He is currently building a rigorous quantitative foundation through Physical & Mathematical Engineering to help grow aerospace opportunities in Uruguay."}
+              </p>
             </div>
 
             <div className="lg:col-span-2 grid grid-cols-2 gap-4">

@@ -3,7 +3,17 @@ import { ChevronDown, Mail } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 export const Hero = () => {
-  const { t } = useLanguage();
+  const { lang, t } = useLanguage();
+
+  const intro = lang === "es" ? (
+    <>
+      Soy <strong>Juan Ignacio Ramos</strong>, un <strong>aspirante a ingeniero aeroespacial</strong> de Montevideo, Uruguay. Mi trabajo combina proyectos técnicos, liderazgo y pensamiento sistémico con foco en resultados reales.
+    </>
+  ) : (
+    <>
+      I’m <strong>Juan Ignacio Ramos</strong>, an <strong>aspiring aerospace engineer</strong> from Montevideo, Uruguay. My work combines technical projects, leadership, and systems thinking with a focus on real-world results.
+    </>
+  );
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -32,13 +42,13 @@ export const Hero = () => {
         <div className="relative">
           <div className="absolute inset-0 -inset-x-8 -inset-y-4 backdrop-blur-sm bg-background/30 rounded-3xl" />
           <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7, duration: 0.8 }} className="relative font-display font-bold tracking-tight mb-3">
-            <span data-easter-egg="header-name" className="block text-6xl sm:text-8xl lg:text-9xl">Juan Ignacio</span>
-            <span className="block text-6xl sm:text-8xl lg:text-9xl bg-gradient-to-r from-muted-foreground/70 via-muted-foreground/50 to-muted-foreground/30 bg-clip-text text-center font-bold text-[#8c8c8c]">Ramos</span>
+            <span data-easter-egg="header-name" className="block text-5xl sm:text-7xl lg:text-8xl">Juan Ignacio Ramos</span>
+            <span className="block text-3xl sm:text-5xl lg:text-6xl text-muted-foreground mt-2">Aspiring <strong className="text-foreground">Aerospace Engineer</strong></span>
           </motion.h1>
         </div>
 
-        <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.1 }} className="text-base sm:text-lg text-muted-foreground max-w-lg mx-auto mb-4 font-medium">
-          {t.hero.tagline}
+        <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.1 }} className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto mb-4 font-medium leading-relaxed">
+          {intro}
         </motion.p>
 
         <motion.div initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.25 }} className="flex flex-wrap justify-center gap-2 mb-3">

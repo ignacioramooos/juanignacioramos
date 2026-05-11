@@ -3,16 +3,16 @@ import type { Translations } from "./en";
 export const es: Translations = {
   nav: { portfolio: "Portafolio", projects: "Proyectos", services: "Servicios", colleges: "Universidades", blog: "Blog", documents: "Documentos", lab: "Laboratorio", ideas: "Ideas", contact: "Contacto", toggleTheme: "Cambiar tema (Ctrl+D)" },
   mobileNav: { home: "Inicio", projects: "Proyectos", services: "Servicios", explore: "Explorar", contact: "Contacto" },
-  hero: { location: "Montevideo, Uruguay", tagline: "Construyendo el camino hacia la ingeniería aeroespacial en Uruguay", subtitle: "Aspirante a Ingeniero Aeroespacial · Aprendiz · Solucionador de Problemas", exploreWork: "Explorar mi Trabajo", servicesOffer: "Servicios que Ofrezco", getInTouch: "Contacto", pills: ["Aeroespacial", "Pensamiento Sistémico", "Liderazgo", "Impacto Real"] },
+  hero: { location: "Montevideo, Uruguay", tagline: "Juan Ignacio Ramos es un aspirante a ingeniero aeroespacial de Montevideo, Uruguay.", subtitle: "Bachillerato Francés Mention Très Bien · Beca Advanced Space Academy · Secretario General MUN · Ingeniería Físico Matemática", exploreWork: "Explorar mi Trabajo", servicesOffer: "Servicios que Ofrezco", getInTouch: "Contacto", pills: ["Aspirante a Ingeniero Aeroespacial", "Montevideo, Uruguay", "Beca Advanced Space Academy", "Secretario General MUN"] },
   highlights: { spaceAcademy: "Becario Advanced Space Academy", spaceAcademyDetail: "Huntsville, Alabama", bac: 'BAC Francés "Mention Très Bien"', bacDetail: "Top 10–15%", mun: "Secretario General MUN", munDetail: "Liderazgo internacional", waterPolo: "Pre-selección Nacional de Waterpolo", waterPoloDetail: "Disciplina de élite" },
   about: {
-    label: "Sobre Mí", title: "Mente y Mano", motto: "Mens et Manus",
+    label: "Sobre Mí", title: "Sobre Juan Ignacio Ramos", motto: "Aspirante a Ingeniero Aeroespacial · Montevideo, Uruguay",
     p1: "Soy un aspirante a Ingeniero Aeroespacial de Montevideo, Uruguay, con un historial documentado de gestión de proyectos logísticos de alto impacto y desarrollo de simulaciones técnicas complejas. Me gradué con el Baccalauréat Français \"Mention Très Bien\" (Honores Máximos: top 10-15%) y recibí la beca del Advanced Space Academy en Huntsville, Alabama.",
     p2: "Mi experiencia abarca la gestión fiduciaria de más de 1.380.000 UYU (~$35.000 USD), modelado técnico con Excel y simulaciones 6-DOF, desarrollo web y liderazgo internacional como Secretario General de Model UN. Hablo cuatro idiomas con fluidez y me guío por el principio \"Mens et Manus\", aplicando mente y mano para resolver desafíos complejos. (Más sobre mi experiencia debajo).",
     p3: "Actualmente cursando Ingeniería Físico Matemática en la Universidad de la República (UdelaR), estoy construyendo una base cuantitativa rigurosa para mi objetivo: promover una industria aeroespacial en Uruguay y diseñar vehículos espaciales.",
     stats: { languages: "Idiomas", languagesDesc: "Español · Francés · Inglés · Portugués", usdManaged: "USD Gestionados", usdManagedDesc: "Operaciones y logística de eventos", attendeesLed: "Asistentes Liderados", attendeesLedDesc: "En eventos que organicé", keyHonors: "Honores Clave", keyHonorsDesc: "BAC Honores · Space Academy · MUN SG" },
   },
-  drives: { label: "Propósito", title: "Lo que me Impulsa", items: [
+  drives: { label: "Propósito", title: "Lo que impulsa mi camino en la ingeniería aeroespacial", items: [
     { title: "Construir un futuro aeroespacial en Sudamérica", desc: "Abriendo camino donde aún no existe." },
     { title: "Aplicar ingeniería a desafíos humanitarios", desc: "Desde relevamientos con drones hasta soluciones de infraestructura." },
     { title: "Diseñar sistemas que combinen sostenibilidad y rendimiento", desc: "Residuos a filamento, economía circular, impacto real." },

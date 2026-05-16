@@ -5,6 +5,7 @@ import { Navbar } from "@/components/Navbar";
 import { supabase } from "@/integrations/supabase/client";
 import { Calendar } from "lucide-react";
 import { BlurImage } from "@/components/ui/blur-image";
+import { SEOHead } from "@/components/SEOHead";
 
 interface BlogPost {
   id: string;
@@ -33,6 +34,10 @@ const BlogPage = () => {
 
   return (
     <main className="min-h-screen bg-background text-foreground">
+      <SEOHead
+        title="Blog — Juan Ignacio Ramos"
+        description="Essays, updates, and engineering notes from Juan Ignacio Ramos on aerospace, leadership, and the journey from Montevideo to university."
+      />
       <Navbar />
       <div className="pt-24 pb-16 px-6">
         <div className="max-w-4xl mx-auto">

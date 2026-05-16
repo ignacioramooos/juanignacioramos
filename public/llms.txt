@@ -1,0 +1,22 @@
+# Juan Ignacio Ramos
+
+> Portfolio of Juan Ignacio Ramos — an 18-year-old aspiring aerospace engineer from Montevideo, Uruguay. French BAC Mention Très Bien, Advanced Space Academy Scholar, and MUN Secretary General.
+
+Mission-driven "Mind and Hand" portfolio covering aerospace engineering projects, simulations, leadership, writing, and services.
+
+## Pages
+
+- [Home](/): Overview, hero, highlights, about, experience, education, awards, and contact.
+- [Projects](/projects): Engineering builds, simulations (including a 6-DOF rocket simulator), and software work.
+- [Services](/services): Offerings — web design, drone videography, investment research, event organization, collaborative research, spreadsheet systems, AI automation, and 3D printing.
+- [3D Printing](/services/3d-printing): Custom 3D-printed parts with an interactive quote estimator.
+- [Lab](/lab): Ongoing research and experimentation notes.
+- [Ideas](/ideas): Curated short-form ideas and concepts.
+- [Blog](/blog): Essays, updates, and engineering notes.
+- [Colleges](/colleges): Transparent college admissions journey with acceptances, cost of attendance, and financial aid.
+- [Documents](/documents): Acceptance letters, certificates, and supporting documents.
+- [Contact](/contact): Get in touch for collaborations, mentorship, or project requests.
+
+## Optional
+
+- [Gallery](https://gallery.juanignacioramos.com/): Photo gallery hosted on the gallery subdomain.

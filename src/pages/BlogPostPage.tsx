@@ -42,6 +42,23 @@ const BlogPostPage = () => {
           title={`${post.title} — Juan Ignacio Ramos`}
           description={post.content.slice(0, 155).replace(/\s+/g, " ").trim()}
           type="article"
+          jsonLd={{
+            "@context": "https://schema.org",
+            "@type": "Article",
+            headline: post.title,
+            datePublished: post.created_at,
+            dateModified: post.created_at,
+            ...(post.cover_image_url ? { image: post.cover_image_url } : {}),
+            mainEntityOfPage: {
+              "@type": "WebPage",
+              "@id": `https://juanignacioramos.com/blog/${post.slug}`,
+            },
+            author: {
+              "@type": "Person",
+              name: "Juan Ignacio Ramos",
+              url: "https://juanignacioramos.com",
+            },
+          }}
         />
       )}
       <Navbar />

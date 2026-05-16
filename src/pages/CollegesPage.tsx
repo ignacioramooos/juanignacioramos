@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { supabase } from "@/integrations/supabase/client";
+import { SEOHead } from "@/components/SEOHead";
 import { MapPin, DollarSign, GraduationCap } from "lucide-react";
 
 interface College {
@@ -41,6 +42,10 @@ const CollegesPage = () => {
 
   return (
     <main className="min-h-screen bg-background text-foreground">
+      <SEOHead
+        title="College Acceptances — Juan Ignacio Ramos"
+        description="A transparent look at Juan Ignacio Ramos's college admissions journey, including acceptances, cost of attendance, and financial aid offers."
+      />
       <Navbar />
       <div className="pt-24 pb-16 px-6">
         <div className="max-w-5xl mx-auto">

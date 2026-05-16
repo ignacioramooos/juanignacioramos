@@ -5,6 +5,7 @@ import { supabase } from "@/integrations/supabase/client";
 import ReactMarkdown from "react-markdown";
 import { ArrowLeft, Calendar } from "lucide-react";
 import { BlurImage } from "@/components/ui/blur-image";
+import { SEOHead } from "@/components/SEOHead";
 
 interface BlogPost {
   id: string;
@@ -36,6 +37,13 @@ const BlogPostPage = () => {
 
   return (
     <main className="min-h-screen bg-background text-foreground">
+      {post && (
+        <SEOHead
+          title={`${post.title} — Juan Ignacio Ramos`}
+          description={post.content.slice(0, 155).replace(/\s+/g, " ").trim()}
+          type="article"
+        />
+      )}
       <Navbar />
       <div className="pt-24 pb-16 px-6">
         <div className="max-w-3xl mx-auto">

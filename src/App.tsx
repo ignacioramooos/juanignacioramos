@@ -26,6 +26,7 @@ import IdeasPage from "./pages/IdeasPage";
 import GalleryPage from "./pages/GalleryPage";
 import { MobileBottomNav } from "@/components/MobileBottomNav";
 import { BuyMeGas } from "@/components/BuyMeGas";
+import BuyGasPage from "./pages/BuyGasPage";
 
 const queryClient = new QueryClient();
 

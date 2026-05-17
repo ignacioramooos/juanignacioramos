@@ -26,6 +26,7 @@ import IdeasPage from "./pages/IdeasPage";
 import GalleryPage from "./pages/GalleryPage";
 import { MobileBottomNav } from "@/components/MobileBottomNav";
 import { BuyMeGas } from "@/components/BuyMeGas";
+import BuyGasPage from "./pages/BuyGasPage";
 
 const queryClient = new QueryClient();
 
@@ -63,6 +64,7 @@ const AnimatedRoutes = () => {
         <Route path="/services/:slug" element={<PageTransition><ServiceDetailPage /></PageTransition>} />
         <Route path="/lab" element={<PageTransition><LabPage /></PageTransition>} />
         <Route path="/ideas" element={<PageTransition><IdeasPage /></PageTransition>} />
+        <Route path="/buygas" element={<PageTransition><BuyGasPage /></PageTransition>} />
         {/* Gallery is only accessible via gallery.juanignacioramos.com */}
         <Route path="/gallery" element={<Navigate to="/" replace />} />
         <Route path="/login" element={<PageTransition><LoginPage /></PageTransition>} />

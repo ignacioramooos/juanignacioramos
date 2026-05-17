@@ -28,15 +28,15 @@ Deno.serve(async (req) => {
     const passengers = Number(body?.passengers);
     const origin = typeof body?.origin === 'string' ? body.origin : 'https://juanignacioramos.com';
 
-    if (!Number.isFinite(kilometers) || kilometers < 0.1 || kilometers > 500) {
-      return new Response(JSON.stringify({ error: 'Kilometers must be between 0.1 and 500.' }), {
+    if (!Number.isFinite(kilometers) || kilometers < 0.1 || kilometers > 150) {
+      return new Response(JSON.stringify({ error: 'Kilometers must be between 0.1 and 150.' }), {
         status: 400,
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
       });
     }
 
-    if (!Number.isFinite(passengers) || passengers < 2) {
-      return new Response(JSON.stringify({ error: 'Passengers must be at least 2.' }), {
+    if (!Number.isFinite(passengers) || passengers < 1) {
+      return new Response(JSON.stringify({ error: 'Passengers must be at least 1.' }), {
         status: 400,
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
       });

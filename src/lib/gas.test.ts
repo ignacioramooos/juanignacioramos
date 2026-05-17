@@ -18,11 +18,11 @@ describe("gas checkout pricing", () => {
 
   it("keeps checkout amounts inside supported bounds", () => {
     expect(calculateGasCheckout(-10).kilometers).toBe(0.1);
-    expect(calculateGasCheckout(999).kilometers).toBe(500);
+    expect(calculateGasCheckout(999).kilometers).toBe(150);
   });
 
-  it("keeps passenger count at a minimum of 2", () => {
-    expect(normalizePassengers(1)).toBe(2);
+  it("keeps passenger count at a minimum of 1", () => {
+    expect(normalizePassengers(0)).toBe(1);
     expect(normalizePassengers(3.4)).toBe(3);
   });
 });

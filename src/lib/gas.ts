@@ -1,20 +1,21 @@
 export const GAS_KM_PER_LITER = 12;
 export const GAS_PRICE_PER_LITER_UYU = 88.03;
 export const GAS_SERVICE_FEE_UYU = 5;
+export const GAS_MAX_KILOMETERS = 150;
 
 const roundToCents = (value: number) => Math.round(value * 100) / 100;
 
 export const normalizeKilometers = (value: number) => {
   if (!Number.isFinite(value)) return 0.1;
-  return Math.min(500, Math.max(0.1, Math.round(value * 10) / 10));
+  return Math.min(GAS_MAX_KILOMETERS, Math.max(0.1, Math.round(value * 10) / 10));
 };
 
 export const normalizePassengers = (value: number) => {
-  if (!Number.isFinite(value)) return 2;
-  return Math.max(2, Math.round(value));
+  if (!Number.isFinite(value)) return 1;
+  return Math.max(1, Math.round(value));
 };
 
-export const calculateGasCheckout = (kilometers: number, passengers = 2) => {
+export const calculateGasCheckout = (kilometers: number, passengers = 1) => {
   const normalizedKilometers = normalizeKilometers(kilometers);
   const normalizedPassengers = normalizePassengers(passengers);
   const liters = normalizedKilometers / GAS_KM_PER_LITER;

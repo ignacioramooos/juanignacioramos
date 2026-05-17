@@ -115,10 +115,7 @@ Deno.serve(async (req) => {
       JSON.stringify({
         checkoutUrl: preference.init_point,
         preferenceId: preference.id,
-        kilometers,
-        passengers,
-        liters: roundToCents(liters),
-        totalUyu,
+        ...responseExtras,
       }),
       { status: 200, headers: { ...corsHeaders, 'Content-Type': 'application/json' } },
     );

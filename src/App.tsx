@@ -64,6 +64,7 @@ const AnimatedRoutes = () => {
         <Route path="/services/:slug" element={<PageTransition><ServiceDetailPage /></PageTransition>} />
         <Route path="/lab" element={<PageTransition><LabPage /></PageTransition>} />
         <Route path="/ideas" element={<PageTransition><IdeasPage /></PageTransition>} />
+        <Route path="/buygas" element={<PageTransition><BuyGasPage /></PageTransition>} />
         {/* Gallery is only accessible via gallery.juanignacioramos.com */}
         <Route path="/gallery" element={<Navigate to="/" replace />} />
         <Route path="/login" element={<PageTransition><LoginPage /></PageTransition>} />

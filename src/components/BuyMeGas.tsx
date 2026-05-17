@@ -51,19 +51,21 @@ export const BuyMeGas = () => {
     setCheckingOut(true);
 
     try {
-      const response = await fetch(preferenceEndpoint, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          kilometers: checkout.kilometers,
-          passengers: checkout.passengers,
-          origin: window.location.origin,
-        }),
-      });
-      const data = (await response.json().catch(() => ({}))) as PreferenceResponse & { error?: string };
+      const { data, error } = await supabase.functions.invoke<PreferenceResponse & { error?: string }>(
+        "mercadopago-preference",
+        {
+          body: {
+            kilometers: checkout.kilometers,
+            passengers: checkout.passengers,
+            origin: window.location.origin,
+          },
+        },
+      );
 
-      if (!response.ok) throw new Error(data.error ?? "Could not create Mercado Pago checkout.");
+      if (error) throw new Error(error.message ?? "Could not create Mercado Pago checkout.");
+      if (data?.error) throw new Error(data.error);
       if (!data?.checkoutUrl) throw new Error("Mercado Pago did not return a checkout URL.");
+
 
       window.location.assign(data.checkoutUrl);
     } catch (error) {

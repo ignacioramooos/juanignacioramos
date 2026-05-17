@@ -25,6 +25,7 @@ import LabPage from "./pages/LabPage";
 import IdeasPage from "./pages/IdeasPage";
 import GalleryPage from "./pages/GalleryPage";
 import { MobileBottomNav } from "@/components/MobileBottomNav";
+import { BuyMeGas } from "@/components/BuyMeGas";
 
 const queryClient = new QueryClient();
 
@@ -85,6 +86,7 @@ const App = () => {
             <BrowserRouter>
               <AnimatedRoutes />
               {!galleryHost && <MobileBottomNav />}
+              {!galleryHost && <BuyMeGas />}
             </BrowserRouter>
           </TooltipProvider>
         </QueryClientProvider>

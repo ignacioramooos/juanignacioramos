@@ -1,5 +1,10 @@
 import { describe, expect, it } from "vitest";
-import { calculateGasCheckout, normalizeKilometers, normalizePassengers } from "./gas";
+import {
+  calculateGasCheckout,
+  normalizeCustomAmount,
+  normalizeKilometers,
+  normalizePassengers,
+} from "./gas";
 
 describe("gas checkout pricing", () => {
   it("calculates liters and split UYU total from kilometers and passengers", () => {

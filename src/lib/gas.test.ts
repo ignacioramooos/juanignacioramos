@@ -1,12 +1,14 @@
 import { describe, expect, it } from "vitest";
-import { calculateGasCheckout, normalizeKilometers } from "./gas";
+import { calculateGasCheckout, normalizeKilometers, normalizePassengers } from "./gas";
 
 describe("gas checkout pricing", () => {
-  it("calculates liters and UYU total from kilometers", () => {
-    expect(calculateGasCheckout(12)).toEqual({
+  it("calculates liters and split UYU total from kilometers and passengers", () => {
+    expect(calculateGasCheckout(12, 2)).toEqual({
       kilometers: 12,
+      passengers: 2,
       liters: 1,
-      totalUyu: 93.03,
+      gasTotalUyu: 93.03,
+      totalUyu: 49.02,
     });
   });
 
@@ -17,5 +19,10 @@ describe("gas checkout pricing", () => {
   it("keeps checkout amounts inside supported bounds", () => {
     expect(calculateGasCheckout(-10).kilometers).toBe(0.1);
     expect(calculateGasCheckout(999).kilometers).toBe(500);
+  });
+
+  it("keeps passenger count at a minimum of 2", () => {
+    expect(normalizePassengers(1)).toBe(2);
+    expect(normalizePassengers(3.4)).toBe(3);
   });
 });

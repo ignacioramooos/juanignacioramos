@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { Fuel, Loader2, X } from "lucide-react";
+import { Fuel, Loader2, Users, X } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import {
@@ -14,7 +14,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
-import { calculateGasCheckout, normalizeKilometers } from "@/lib/gas";
+import { calculateGasCheckout, normalizeKilometers, normalizePassengers } from "@/lib/gas";
 
 type PreferenceResponse = {
   checkoutUrl?: string;
@@ -31,13 +31,19 @@ const preferenceEndpoint = import.meta.env.VITE_MERCADOPAGO_PREFERENCE_URL ?? "/
 export const BuyMeGas = () => {
   const [open, setOpen] = useState(false);
   const [kilometers, setKilometers] = useState(12);
+  const [passengers, setPassengers] = useState(2);
   const [checkingOut, setCheckingOut] = useState(false);
 
-  const checkout = useMemo(() => calculateGasCheckout(kilometers), [kilometers]);
+  const checkout = useMemo(() => calculateGasCheckout(kilometers, passengers), [kilometers, passengers]);
 
   const handleKilometerInput = (value: string) => {
     const parsed = Number(value);
     setKilometers(normalizeKilometers(parsed));
+  };
+
+  const handlePassengerInput = (value: string) => {
+    const parsed = Number(value);
+    setPassengers(normalizePassengers(parsed));
   };
 
   const startCheckout = async () => {
@@ -50,6 +56,7 @@ export const BuyMeGas = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           kilometers: checkout.kilometers,
+          passengers: checkout.passengers,
           origin: window.location.origin,
         }),
       });
@@ -95,12 +102,12 @@ export const BuyMeGas = () => {
             buy me gas
           </DrawerTitle>
           <DrawerDescription>
-            Choose the kilometers. The checkout is calculated in Uruguayan pesos.
+            Choose the kilometers and passengers. The checkout is calculated in Uruguayan pesos.
           </DrawerDescription>
         </DrawerHeader>
 
         <div className="space-y-6 px-4 pb-2">
-          <div className="space-y-3">
+          <div className="space-y-4">
             <div className="flex items-center justify-between gap-4">
               <Label htmlFor="gas-kilometers" className="text-sm font-medium">
                 Kilometers
@@ -129,9 +136,26 @@ export const BuyMeGas = () => {
               step={0.1}
               value={[checkout.kilometers]}
             />
+
+            <div className="flex items-center justify-between gap-4 rounded-lg border border-border bg-card px-4 py-3">
+              <Label htmlFor="gas-passengers" className="flex items-center gap-2 text-sm font-medium">
+                <Users className="h-4 w-4" aria-hidden="true" />
+                Passengers
+              </Label>
+              <Input
+                id="gas-passengers"
+                inputMode="numeric"
+                min={2}
+                onChange={(event) => handlePassengerInput(event.target.value)}
+                step={1}
+                type="number"
+                value={checkout.passengers}
+                className="h-9 w-20 text-right"
+              />
+            </div>
           </div>
 
-          <div className="grid grid-cols-3 gap-3 rounded-lg border border-border bg-card p-4">
+          <div className="grid grid-cols-2 gap-3 rounded-lg border border-border bg-card p-4 sm:grid-cols-4">
             <div>
               <p className="text-xs text-muted-foreground">Distance</p>
               <p className="mt-1 text-base font-semibold">{checkout.kilometers.toFixed(1)} km</p>
@@ -141,7 +165,11 @@ export const BuyMeGas = () => {
               <p className="mt-1 text-base font-semibold">{checkout.liters.toFixed(2)} L</p>
             </div>
             <div>
-              <p className="text-xs text-muted-foreground">Total</p>
+              <p className="text-xs text-muted-foreground">Passengers</p>
+              <p className="mt-1 text-base font-semibold">{checkout.passengers}</p>
+            </div>
+            <div>
+              <p className="text-xs text-muted-foreground">Your total</p>
               <p className="mt-1 text-base font-semibold">{currencyFormatter.format(checkout.totalUyu)}</p>
             </div>
           </div>

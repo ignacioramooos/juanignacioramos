@@ -5,13 +5,17 @@ const MAX_KILOMETERS = 500;
 
 const roundToCents = (value) => Math.round(value * 100) / 100;
 const roundToTenth = (value) => Math.round(value * 10) / 10;
+const normalizePassengers = (value) => Math.max(2, Math.round(value));
 
-const calculateTotalUyu = (kilometers) => {
+const calculateTotalUyu = (kilometers, passengers) => {
   const normalizedKilometers = roundToTenth(kilometers);
+  const normalizedPassengers = normalizePassengers(passengers);
   const liters = normalizedKilometers / GAS_KM_PER_LITER;
-  const totalUyu = roundToCents(liters * GAS_PRICE_PER_LITER_UYU + GAS_SERVICE_FEE_UYU);
+  const gasTotal = liters * GAS_PRICE_PER_LITER_UYU + GAS_SERVICE_FEE_UYU;
+  const gasTotalUyu = roundToCents(gasTotal);
+  const totalUyu = roundToCents((gasTotal - GAS_SERVICE_FEE_UYU) / normalizedPassengers + GAS_SERVICE_FEE_UYU);
 
-  return { normalizedKilometers, liters, totalUyu };
+  return { normalizedKilometers, normalizedPassengers, liters, gasTotalUyu, totalUyu };
 };
 
 const getAccessToken = async () => {
@@ -52,12 +56,20 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: "Kilometers must be between 0.1 and 500." });
     }
 
+    const passengers = Number(req.body?.passengers);
+    if (!Number.isFinite(passengers) || passengers < 2) {
+      return res.status(400).json({ error: "Passengers must be at least 2." });
+    }
+
     const accessToken = await getAccessToken();
     if (!accessToken) {
       return res.status(500).json({ error: "Mercado Pago credentials are not configured." });
     }
 
-    const { normalizedKilometers, liters, totalUyu } = calculateTotalUyu(kilometers);
+    const { normalizedKilometers, normalizedPassengers, liters, gasTotalUyu, totalUyu } = calculateTotalUyu(
+      kilometers,
+      passengers,
+    );
     const origin = typeof req.body?.origin === "string" ? req.body.origin : "https://juanignacioramos.com";
 
     const preferenceResponse = await fetch("https://api.mercadopago.com/checkout/preferences", {
@@ -70,8 +82,8 @@ export default async function handler(req, res) {
         items: [
           {
             id: "buy-me-gas",
-            title: `Buy me gas - ${normalizedKilometers.toFixed(1)} km`,
-            description: `${liters.toFixed(2)} liters at UYU ${GAS_PRICE_PER_LITER_UYU.toFixed(2)} plus UYU ${GAS_SERVICE_FEE_UYU.toFixed(2)} fee`,
+            title: `Buy me gas - ${normalizedKilometers.toFixed(1)} km split`,
+            description: `${liters.toFixed(2)} liters split between ${normalizedPassengers} passengers`,
             quantity: 1,
             currency_id: "UYU",
             unit_price: totalUyu,
@@ -85,7 +97,9 @@ export default async function handler(req, res) {
         auto_return: "approved",
         metadata: {
           kilometers: normalizedKilometers,
+          passengers: normalizedPassengers,
           liters: roundToCents(liters),
+          gas_total_uyu: gasTotalUyu,
           total_uyu: totalUyu,
         },
       }),
@@ -106,7 +120,9 @@ export default async function handler(req, res) {
       checkoutUrl,
       preferenceId: preference.id,
       kilometers: normalizedKilometers,
+      passengers: normalizedPassengers,
       liters: roundToCents(liters),
+      gasTotalUyu,
       totalUyu,
     });
   } catch (error) {

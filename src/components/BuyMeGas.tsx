@@ -15,6 +15,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
 import { calculateGasCheckout, normalizeKilometers, normalizePassengers } from "@/lib/gas";
+import { supabase } from "@/integrations/supabase/client";
 
 type PreferenceResponse = {
   checkoutUrl?: string;
@@ -26,7 +27,6 @@ const currencyFormatter = new Intl.NumberFormat("es-UY", {
   currency: "UYU",
   minimumFractionDigits: 2,
 });
-const preferenceEndpoint = import.meta.env.VITE_MERCADOPAGO_PREFERENCE_URL ?? "/api/mercadopago-preference";
 
 export const BuyMeGas = () => {
   const [open, setOpen] = useState(false);

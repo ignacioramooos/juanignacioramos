@@ -1,26 +1,43 @@
+## Add custom amount to Buy Me Gas
 
+### What changes
 
-## New "Featured In" Section
+1. **Two checkout modes on `/buygas`**: existing km/passenger calculator + a new "custom amount" input (UYU). User picks which mode to pay with via a tab or toggle.
+2. **URL prefill**: `/buygas/:amount` (e.g. `/buygas/20`, `/buygas/100`) opens the page with the custom-amount tab active and the amount prefilled. `/buygas` (no amount) opens normally with custom amount blank/0.
+3. **Edge function** accepts either `{ kilometers, passengers }` OR `{ customAmountUyu }` and builds the Mercado Pago preference with the right unit price + title.
 
-### What
-A clean, editorial-style section showcasing external publications where Ignacio has been featured. Placed **after Awards & Honors** and **before Daily Quotes** on the homepage.
+### UX
 
-### Design
-- Section label: "Press" / "Prensa"
-- Title: "Featured In" / "Publicado En"
-- Card layout with:
-  - Publication logo/name ("U.S. Space & Rocket Center Foundation")
-  - Article title as a clickable link ("Now I Know With Certainty I Am Going to Be an Aerospace Engineer")
-  - Brief description (1 line)
-  - External link icon indicating it opens in a new tab
-- Framer Motion reveal animations matching existing sections
-- Responsive: single column on mobile, expandable to multi-column as more articles are added
+- Tabs at top of the checkout card: **"Split a ride"** (current km calculator) | **"Custom amount"** (single UYU input).
+- When the URL contains an amount param, the Custom tab is auto-selected and the input is prefilled.
+- Custom amount minimum 1 UYU, maximum 50000 UYU (sanity bound), rounded to 2 decimals.
+- Checkout button uses the active tab's total.
 
-### Files
-1. **Create `src/components/sections/FeaturedIn.tsx`** — New section component with the article card linking to `https://rocketcenterfoundation.org/now-i-know-with-certainty-i-am-going-to-be-an-aerospace-engineer/`
-2. **Edit `src/i18n/translations/en.ts`** — Add `featuredIn` translations (label, title)
-3. **Edit `src/i18n/translations/es.ts`** — Add Spanish translations
-4. **Edit `src/pages/Index.tsx`** — Import and place `<FeaturedIn />` between `<Awards />` and `<DailyQuotes />`
+### Technical details
 
-The data array inside the component makes it easy to add more publications later.
+**Routing (`src/App.tsx`)**
+- Add `<Route path="/buygas/:amount?" element={...} />` so `/buygas` and `/buygas/123` both render `BuyGasPage`.
 
+**`src/pages/BuyGasPage.tsx`**
+- Read `useParams<{ amount?: string }>()`; parse to number, clamp, set as initial `customAmount` and force `mode = "custom"` when present.
+- Add `mode` state (`"split" | "custom"`) using shadcn `Tabs`.
+- New input field for custom UYU amount; reuse existing breakdown card for split mode.
+- `startCheckout` posts either `{ kilometers, passengers }` or `{ customAmountUyu }` to the edge function.
+
+**`src/lib/gas.ts`**
+- Add `CUSTOM_AMOUNT_MIN = 1`, `CUSTOM_AMOUNT_MAX = 50000`, helper `normalizeCustomAmount(value)`.
+
+**`supabase/functions/mercadopago-preference/index.ts`**
+- Branch on payload: if `customAmountUyu` is a finite number ≥ 1 and ≤ 50000, use it directly as `unit_price` with title `"Buy me gas"`. Otherwise keep current km/passenger validation + calculation.
+- Return `{ checkoutUrl, preferenceId, totalUyu }` in both branches.
+
+**Tests (`src/lib/gas.test.ts`)**
+- Add cases for `normalizeCustomAmount` (clamping, rounding, non-finite → min).
+
+### Files touched
+
+- `src/App.tsx` (route param)
+- `src/pages/BuyGasPage.tsx` (tabs + custom input + param parsing)
+- `src/lib/gas.ts` (custom amount helpers)
+- `src/lib/gas.test.ts` (new tests)
+- `supabase/functions/mercadopago-preference/index.ts` (accept custom amount branch)

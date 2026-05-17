@@ -1,5 +1,10 @@
 import { describe, expect, it } from "vitest";
-import { calculateGasCheckout, normalizeKilometers, normalizePassengers } from "./gas";
+import {
+  calculateGasCheckout,
+  normalizeCustomAmount,
+  normalizeKilometers,
+  normalizePassengers,
+} from "./gas";
 
 describe("gas checkout pricing", () => {
   it("calculates liters and split UYU total from kilometers and passengers", () => {
@@ -24,5 +29,12 @@ describe("gas checkout pricing", () => {
   it("keeps passenger count at a minimum of 1", () => {
     expect(normalizePassengers(0)).toBe(1);
     expect(normalizePassengers(3.4)).toBe(3);
+  });
+
+  it("clamps and rounds custom amounts", () => {
+    expect(normalizeCustomAmount(0)).toBe(1);
+    expect(normalizeCustomAmount(100.456)).toBe(100.46);
+    expect(normalizeCustomAmount(99999)).toBe(50000);
+    expect(normalizeCustomAmount(Number.NaN)).toBe(1);
   });
 });

@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 
 export const BuyMeGas = () => {
   const { pathname } = useLocation();
-  if (pathname === "/buygas" || pathname.startsWith("/admin") || pathname === "/login") {
+  if (pathname.startsWith("/buygas") || pathname.startsWith("/admin") || pathname === "/login") {
     return null;
   }
   return (

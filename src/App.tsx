@@ -26,7 +26,6 @@ import IdeasPage from "./pages/IdeasPage";
 import GalleryPage from "./pages/GalleryPage";
 import ProfilePage from "./pages/ProfilePage";
 import { MobileBottomNav } from "@/components/MobileBottomNav";
-import { BuyMeGas } from "@/components/BuyMeGas";
 import BuyGasPage from "./pages/BuyGasPage";
 
 const queryClient = new QueryClient();
@@ -91,7 +90,6 @@ const App = () => {
             <BrowserRouter>
               <AnimatedRoutes />
               {!galleryHost && <MobileBottomNav />}
-              {!galleryHost && <BuyMeGas />}
             </BrowserRouter>
           </TooltipProvider>
         </QueryClientProvider>

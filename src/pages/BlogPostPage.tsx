@@ -5,6 +5,8 @@ import { supabase } from "@/integrations/supabase/client";
 import ReactMarkdown from "react-markdown";
 import { ArrowLeft, Calendar } from "lucide-react";
 import { SEOHead } from "@/components/SEOHead";
+import { BlurImage } from "@/components/ui/blur-image";
+import { getCoverFrame, getFrameFromTitle, getPublicContent } from "@/lib/blogImages";
 
 interface BlogPost {
   id: string;
@@ -16,7 +18,7 @@ interface BlogPost {
 }
 
 const blogImageClass =
-  "relative z-20 mx-auto block h-auto max-h-none max-w-full rounded-2xl border border-border/60 bg-white object-contain opacity-100 shadow-sm [filter:none] [mix-blend-mode:normal]";
+  "relative z-20 mx-auto block h-auto max-h-none max-w-full rounded-2xl object-contain opacity-100 shadow-sm [filter:none] [mix-blend-mode:normal]";
 
 const BlogPostPage = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -42,7 +44,7 @@ const BlogPostPage = () => {
       {post && (
         <SEOHead
           title={`${post.title} — Juan Ignacio Ramos`}
-          description={post.content.slice(0, 155).replace(/\s+/g, " ").trim()}
+          description={getPublicContent(post.content).slice(0, 155).replace(/\s+/g, " ").trim()}
           type="article"
           jsonLd={{
             "@context": "https://schema.org",
@@ -77,13 +79,21 @@ const BlogPostPage = () => {
           ) : (
             <article className="relative z-10">
               {post.cover_image_url && (
-                <div className="relative z-20 -mx-4 mb-8 rounded-2xl bg-white sm:-mx-12 lg:-mx-28">
+                getCoverFrame(post) === "cover" ? (
+                  <BlurImage
+                    src={post.cover_image_url}
+                    alt={post.title}
+                    className="relative z-20 rounded-2xl mb-8 h-64 sm:h-80"
+                  />
+                ) : (
+                <div className="relative z-20 -mx-4 mb-8 rounded-2xl sm:-mx-12 lg:-mx-28">
                   <img
                     src={post.cover_image_url}
                     alt={post.title}
                     className={blogImageClass}
                   />
                 </div>
+                )
               )}
               <h1 className="font-display text-3xl sm:text-4xl font-bold mb-3">{post.title}</h1>
               <div className="flex items-center gap-1.5 text-sm text-muted-foreground mb-8">
@@ -93,20 +103,34 @@ const BlogPostPage = () => {
               <div className="prose prose-sm dark:prose-invert max-w-none">
                 <ReactMarkdown
                   components={{
-                    img: ({ alt, src, title }) => (
-                      <span className="not-prose relative z-20 -mx-4 my-8 block rounded-2xl bg-white sm:-mx-12 lg:-mx-28">
-                        <img
-                          src={src ?? ""}
-                          alt={alt ?? ""}
-                          title={title}
-                          className={blogImageClass}
-                          loading="lazy"
-                        />
-                      </span>
-                    ),
+                    img: ({ alt, src, title }) => {
+                      const frame = getFrameFromTitle(title);
+
+                      return frame === "cover" ? (
+                        <span className="not-prose relative z-20 my-8 block h-64 overflow-hidden rounded-2xl sm:h-80">
+                          <img
+                            src={src ?? ""}
+                            alt={alt ?? ""}
+                            title={title}
+                            className="h-full w-full object-cover opacity-100 shadow-sm [filter:none] [mix-blend-mode:normal]"
+                            loading="lazy"
+                          />
+                        </span>
+                      ) : (
+                        <span className="not-prose relative z-20 -mx-4 my-8 block rounded-2xl sm:-mx-12 lg:-mx-28">
+                          <img
+                            src={src ?? ""}
+                            alt={alt ?? ""}
+                            title={title}
+                            className={blogImageClass}
+                            loading="lazy"
+                          />
+                        </span>
+                      );
+                    },
                   }}
                 >
-                  {post.content}
+                  {getPublicContent(post.content)}
                 </ReactMarkdown>
               </div>
             </article>

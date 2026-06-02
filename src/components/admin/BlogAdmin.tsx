@@ -5,6 +5,15 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import { Copy, Eye, EyeOff, ImagePlus, Plus, Save, Trash2 } from "lucide-react";
+import {
+  formatMarkdownImage,
+  getCoverFrame,
+  getPostImages,
+  setCoverFrame,
+  setMarkdownImageFrame,
+  type BlogImageMeta,
+  type ImageFrame,
+} from "@/lib/blogImages";
 
 interface BlogPost {
   id: string;
@@ -16,13 +25,6 @@ interface BlogPost {
   created_at: string;
   updated_at: string;
 }
-
-interface BlogImage {
-  alt: string;
-  url: string;
-}
-
-const markdownImagePattern = /!\[([^\]]*)\]\(([^)\s]+)(?:\s+"[^"]*")?\)/g;
 
 const getImageAlt = (fileName: string) =>
   fileName
@@ -36,21 +38,6 @@ const getSafeFileName = (fileName: string) =>
     .trim()
     .replace(/[^a-zA-Z0-9._-]+/g, "-")
     .replace(/^-+|-+$/g, "") || "image";
-
-const getPostImages = (post: BlogPost): BlogImage[] => {
-  const images = new Map<string, BlogImage>();
-
-  if (post.cover_image_url) {
-    images.set(post.cover_image_url, { alt: `${post.title} cover`, url: post.cover_image_url });
-  }
-
-  for (const match of post.content.matchAll(markdownImagePattern)) {
-    const [, alt, url] = match;
-    images.set(url, { alt: alt || post.title || "Blog image", url });
-  }
-
-  return Array.from(images.values());
-};
 
 export const BlogAdmin = () => {
   const [posts, setPosts] = useState<BlogPost[]>([]);
@@ -148,7 +135,7 @@ export const BlogAdmin = () => {
     });
   };
 
-  const uploadBlogImage = async (postId: string, file: File) => {
+  const uploadBlogImage = async (postId: string, file: File): Promise<BlogImageMeta> => {
     const uniquePart = typeof crypto !== "undefined" && "randomUUID" in crypto
       ? crypto.randomUUID()
       : Math.random().toString(36).slice(2);
@@ -156,7 +143,7 @@ export const BlogAdmin = () => {
     const { error } = await supabase.storage.from("blog-images").upload(path, file, { upsert: false });
     if (error) throw error;
     const { data: { publicUrl } } = supabase.storage.from("blog-images").getPublicUrl(path);
-    return { alt: getImageAlt(file.name), url: publicUrl };
+    return { alt: getImageAlt(file.name), frame: "contain", url: publicUrl };
   };
 
   const uploadCoverImage = async (postId: string, file: File) => {
@@ -174,14 +161,14 @@ export const BlogAdmin = () => {
     if (files.length === 0) return;
 
     try {
-      const uploads: BlogImage[] = [];
+      const uploads: BlogImageMeta[] = [];
       for (const file of files) {
         uploads.push(await uploadBlogImage(post.id, file));
       }
 
       insertIntoContent(
         post.id,
-        uploads.map((image) => `![${image.alt}](${image.url})`).join("\n\n"),
+        uploads.map((image) => formatMarkdownImage(image, "contain")).join("\n\n"),
       );
       toast.success(`${uploads.length} image${uploads.length === 1 ? "" : "s"} uploaded - remember to save`);
     } catch (error) {
@@ -192,6 +179,19 @@ export const BlogAdmin = () => {
   const copyUrl = async (url: string) => {
     await navigator.clipboard.writeText(url);
     toast.success("Image URL copied");
+  };
+
+  const updateCoverFrame = (post: BlogPost, frame: ImageFrame) => {
+    update(post.id, "content", setCoverFrame(post.content, frame));
+  };
+
+  const updateInlineImageFrame = (post: BlogPost, image: BlogImageMeta, frame: ImageFrame) => {
+    if (image.url === post.cover_image_url) {
+      updateCoverFrame(post, frame);
+      return;
+    }
+
+    update(post.id, "content", setMarkdownImageFrame(post.content, image.url, frame));
   };
 
   if (loading) return <p className="text-muted-foreground">Loading...</p>;
@@ -229,6 +229,25 @@ export const BlogAdmin = () => {
                 />
               </label>
             </div>
+            {post.cover_image_url && (
+              <div className="flex flex-wrap items-center gap-2 text-sm">
+                <span className="text-xs font-medium text-muted-foreground">Cover framing</span>
+                <Button
+                  size="sm"
+                  variant={getCoverFrame(post) === "cover" ? "default" : "outline"}
+                  onClick={() => updateCoverFrame(post, "cover")}
+                >
+                  Crop
+                </Button>
+                <Button
+                  size="sm"
+                  variant={getCoverFrame(post) === "contain" ? "default" : "outline"}
+                  onClick={() => updateCoverFrame(post, "contain")}
+                >
+                  Full image
+                </Button>
+              </div>
+            )}
             <div className="space-y-2">
               <div className="flex flex-wrap items-center justify-between gap-2">
                 <label className="text-xs font-medium text-muted-foreground">Content</label>
@@ -269,13 +288,22 @@ export const BlogAdmin = () => {
                 <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
                   {postImages.map((image) => (
                     <div key={image.url} className="overflow-hidden rounded-lg border border-border bg-background">
-                      <img src={image.url} alt={image.alt} className="h-40 w-full bg-white object-contain opacity-100 [filter:none] [mix-blend-mode:normal]" loading="lazy" />
+                      <img src={image.url} alt={image.alt} className="h-40 w-full object-contain opacity-100 [filter:none] [mix-blend-mode:normal]" loading="lazy" />
                       <div className="flex flex-wrap gap-2 p-2">
-                        <Button size="sm" variant="outline" onClick={() => insertIntoContent(post.id, `![${image.alt}](${image.url})`)}>
-                          <ImagePlus size={14} /> Insert
+                        <Button size="sm" variant="outline" onClick={() => insertIntoContent(post.id, formatMarkdownImage(image, "contain"))}>
+                          <ImagePlus size={14} /> Insert full
+                        </Button>
+                        <Button size="sm" variant="outline" onClick={() => insertIntoContent(post.id, formatMarkdownImage(image, "cover"))}>
+                          <ImagePlus size={14} /> Insert crop
                         </Button>
                         <Button size="sm" variant="outline" onClick={() => update(post.id, "cover_image_url", image.url)}>
                           Cover
+                        </Button>
+                        <Button size="sm" variant={image.frame === "cover" ? "default" : "outline"} onClick={() => updateInlineImageFrame(post, image, "cover")}>
+                          Crop
+                        </Button>
+                        <Button size="sm" variant={image.frame === "contain" ? "default" : "outline"} onClick={() => updateInlineImageFrame(post, image, "contain")}>
+                          Full
                         </Button>
                         <Button size="sm" variant="ghost" onClick={() => copyUrl(image.url)}>
                           <Copy size={14} />

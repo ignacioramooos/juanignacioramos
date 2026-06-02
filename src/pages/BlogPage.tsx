@@ -4,7 +4,9 @@ import { motion } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { supabase } from "@/integrations/supabase/client";
 import { Calendar } from "lucide-react";
+import { BlurImage } from "@/components/ui/blur-image";
 import { SEOHead } from "@/components/SEOHead";
+import { getCoverFrame, getPublicContent } from "@/lib/blogImages";
 
 interface BlogPost {
   id: string;
@@ -16,8 +18,8 @@ interface BlogPost {
 }
 
 const getPostExcerpt = (content: string) =>
-  content
-    .replace(/!\[[^\]]*\]\([^)]+\)/g, "")
+  getPublicContent(content)
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, "")
     .replace(/[#>*_`[\]()]/g, "")
     .replace(/\s+/g, " ")
     .trim();
@@ -69,12 +71,19 @@ const BlogPage = () => {
                     to={`/blog/${post.slug}`}
                     className="group block p-6 rounded-2xl bg-card border border-border hover:border-foreground/20 transition-all hover:-translate-y-1 relative z-[1]"
                   >
-                    {post.cover_image_url && (
-                      <div className="mb-4 overflow-hidden rounded-xl border border-border/60 bg-white">
+                    {post.cover_image_url && getCoverFrame(post) === "cover" && (
+                      <BlurImage
+                        src={post.cover_image_url}
+                        alt={post.title}
+                        className="rounded-xl mb-4 h-48"
+                      />
+                    )}
+                    {post.cover_image_url && getCoverFrame(post) === "contain" && (
+                      <div className="mb-4 overflow-hidden rounded-xl">
                         <img
                           src={post.cover_image_url}
                           alt={post.title}
-                          className="block h-auto max-h-[34rem] w-full object-contain opacity-100 [filter:none] [mix-blend-mode:normal]"
+                          className="block h-auto w-full object-contain opacity-100 [filter:none] [mix-blend-mode:normal]"
                           loading="lazy"
                         />
                       </div>

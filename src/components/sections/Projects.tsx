@@ -291,10 +291,10 @@ const projects = [
   category: "engineering"
 },
 {
-  title: "Agora AI Platform",
-  description: "React-based platform presenting multi-perspective discourse on controversial topics using AI-generated personas: a proponent, an opponent, and a moderator. Full-stack integration with Vonage Video SDK.",
-  tags: ["React", "Vonage SDK", "AI", "Full-Stack"],
-  status: "In Development",
+  title: "Foro Agora",
+  description: "Co-founded an AI-assisted civic discussion platform for structured debate and public reasoning. Foro Agora brings multiple perspectives into one forum through AI personas, moderated argument maps, and video-enabled conversation.",
+  tags: ["Civic Tech", "AI", "React", "Vonage SDK"],
+  status: "Co-founder",
   category: "software"
 },
 {

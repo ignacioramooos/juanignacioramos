@@ -6,6 +6,22 @@ import { useLanguage } from "@/i18n/LanguageContext";
 const experiences = [
   {
     year: "2026",
+    role: "Co-founder", roleEs: "Co-fundador",
+    org: "Foro Agora", orgEs: "Foro Agora",
+    location: "Montevideo, Uruguay", locationEs: "Montevideo, Uruguay",
+    details: [
+      "Co-founding an AI-assisted civic discussion platform focused on structured debate and public reasoning.",
+      "Building the product around multi-perspective conversations, AI personas, moderated argument maps, and video-enabled discussion.",
+      "Combining product strategy, full-stack development, and public communication as the project moves from concept into launch.",
+    ],
+    detailsEs: [
+      "Co-fundando una plataforma civica asistida por IA enfocada en debate estructurado y razonamiento publico.",
+      "Construyendo el producto alrededor de conversaciones multi-perspectiva, personas IA, mapas de argumentos moderados y discusion por video.",
+      "Combinando estrategia de producto, desarrollo full-stack y comunicacion publica mientras el proyecto avanza del concepto al lanzamiento.",
+    ],
+  },
+  {
+    year: "2026",
     role: "SAT Tutor (March Bootcamp)", roleEs: "Tutor SAT (Bootcamp de Marzo)",
     org: "Schoolhouse.world (College Board Partner)", orgEs: "Schoolhouse.world (Socio de College Board)",
     location: "Remote", locationEs: "Remoto",

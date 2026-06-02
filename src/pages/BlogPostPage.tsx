@@ -16,7 +16,7 @@ interface BlogPost {
 }
 
 const blogImageClass =
-  "mx-auto block h-auto max-h-none max-w-full rounded-2xl border border-border/60 bg-white object-contain opacity-100 shadow-sm [filter:none] [mix-blend-mode:normal]";
+  "relative z-20 mx-auto block h-auto max-h-none max-w-full rounded-2xl border border-border/60 bg-white object-contain opacity-100 shadow-sm [filter:none] [mix-blend-mode:normal]";
 
 const BlogPostPage = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -38,7 +38,7 @@ const BlogPostPage = () => {
   }, [slug]);
 
   return (
-    <main className="min-h-screen bg-background text-foreground">
+    <main className="relative z-10 min-h-screen bg-background text-foreground">
       {post && (
         <SEOHead
           title={`${post.title} — Juan Ignacio Ramos`}
@@ -75,9 +75,9 @@ const BlogPostPage = () => {
           ) : !post ? (
             <p className="text-muted-foreground">Post not found.</p>
           ) : (
-            <article>
+            <article className="relative z-10">
               {post.cover_image_url && (
-                <div className="-mx-4 mb-8 sm:-mx-12 lg:-mx-28">
+                <div className="relative z-20 -mx-4 mb-8 rounded-2xl bg-white sm:-mx-12 lg:-mx-28">
                   <img
                     src={post.cover_image_url}
                     alt={post.title}
@@ -94,7 +94,7 @@ const BlogPostPage = () => {
                 <ReactMarkdown
                   components={{
                     img: ({ alt, src, title }) => (
-                      <span className="not-prose -mx-4 my-8 block sm:-mx-12 lg:-mx-28">
+                      <span className="not-prose relative z-20 -mx-4 my-8 block rounded-2xl bg-white sm:-mx-12 lg:-mx-28">
                         <img
                           src={src ?? ""}
                           alt={alt ?? ""}

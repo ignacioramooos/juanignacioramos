@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { supabase } from "@/integrations/supabase/client";
 import { Calendar } from "lucide-react";
-import { BlurImage } from "@/components/ui/blur-image";
 import { SEOHead } from "@/components/SEOHead";
 
 interface BlogPost {
@@ -40,7 +39,7 @@ const BlogPage = () => {
   }, []);
 
   return (
-    <main className="min-h-screen bg-background text-foreground">
+    <main className="relative z-10 min-h-screen bg-background text-foreground">
       <SEOHead
         title="Blog — Juan Ignacio Ramos"
         description="Essays, updates, and engineering notes from Juan Ignacio Ramos on aerospace, leadership, and the journey from Montevideo to university."
@@ -71,11 +70,14 @@ const BlogPage = () => {
                     className="group block p-6 rounded-2xl bg-card border border-border hover:border-foreground/20 transition-all hover:-translate-y-1 relative z-[1]"
                   >
                     {post.cover_image_url && (
-                      <BlurImage
-                        src={post.cover_image_url}
-                        alt={post.title}
-                        className="rounded-xl mb-4 h-48 bg-white"
-                      />
+                      <div className="mb-4 overflow-hidden rounded-xl border border-border/60 bg-white">
+                        <img
+                          src={post.cover_image_url}
+                          alt={post.title}
+                          className="block h-auto max-h-[34rem] w-full object-contain opacity-100 [filter:none] [mix-blend-mode:normal]"
+                          loading="lazy"
+                        />
+                      </div>
                     )}
                     <h2 className="font-display text-xl font-semibold group-hover:text-foreground/80 transition-colors">
                       {post.title}

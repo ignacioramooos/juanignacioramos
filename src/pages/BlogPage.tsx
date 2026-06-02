@@ -16,6 +16,13 @@ interface BlogPost {
   created_at: string;
 }
 
+const getPostExcerpt = (content: string) =>
+  content
+    .replace(/!\[[^\]]*\]\([^)]+\)/g, "")
+    .replace(/[#>*_`[\]()]/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+
 const BlogPage = () => {
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
@@ -67,7 +74,7 @@ const BlogPage = () => {
                       <BlurImage
                         src={post.cover_image_url}
                         alt={post.title}
-                        className="rounded-xl mb-4 h-48"
+                        className="rounded-xl mb-4 h-48 bg-white"
                       />
                     )}
                     <h2 className="font-display text-xl font-semibold group-hover:text-foreground/80 transition-colors">
@@ -77,9 +84,11 @@ const BlogPage = () => {
                       <Calendar size={12} />
                       {new Date(post.created_at).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}
                     </div>
-                    <p className="text-sm text-muted-foreground mt-3 line-clamp-2">
-                      {post.content.slice(0, 200)}...
-                    </p>
+                    {getPostExcerpt(post.content) && (
+                      <p className="text-sm text-muted-foreground mt-3 line-clamp-2">
+                        {getPostExcerpt(post.content).slice(0, 200)}...
+                      </p>
+                    )}
                   </Link>
                 </motion.div>
               ))}

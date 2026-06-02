@@ -25,7 +25,7 @@ export const BlurImage = ({ src, alt, className, ...props }: BlurImageProps) => 
         alt={alt}
         onLoad={() => setLoaded(true)}
         className={cn(
-          "w-full h-full object-cover transition-all duration-500",
+          "w-full h-full object-cover opacity-100 transition-all duration-500 [filter:none] [mix-blend-mode:normal]",
           loaded ? "blur-0 scale-100" : "blur-md scale-105"
         )}
         {...props}

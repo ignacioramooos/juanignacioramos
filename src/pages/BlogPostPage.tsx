@@ -4,7 +4,6 @@ import { Navbar } from "@/components/Navbar";
 import { supabase } from "@/integrations/supabase/client";
 import ReactMarkdown from "react-markdown";
 import { ArrowLeft, Calendar } from "lucide-react";
-import { BlurImage } from "@/components/ui/blur-image";
 import { SEOHead } from "@/components/SEOHead";
 
 interface BlogPost {
@@ -15,6 +14,9 @@ interface BlogPost {
   cover_image_url: string | null;
   created_at: string;
 }
+
+const blogImageClass =
+  "mx-auto block h-auto max-h-none max-w-full rounded-2xl border border-border/60 bg-white object-contain opacity-100 shadow-sm [filter:none] [mix-blend-mode:normal]";
 
 const BlogPostPage = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -75,11 +77,13 @@ const BlogPostPage = () => {
           ) : (
             <article>
               {post.cover_image_url && (
-                <BlurImage
-                  src={post.cover_image_url}
-                  alt={post.title}
-                  className="rounded-2xl mb-8 h-64 sm:h-80"
-                />
+                <div className="-mx-4 mb-8 sm:-mx-12 lg:-mx-28">
+                  <img
+                    src={post.cover_image_url}
+                    alt={post.title}
+                    className={blogImageClass}
+                  />
+                </div>
               )}
               <h1 className="font-display text-3xl sm:text-4xl font-bold mb-3">{post.title}</h1>
               <div className="flex items-center gap-1.5 text-sm text-muted-foreground mb-8">
@@ -87,7 +91,23 @@ const BlogPostPage = () => {
                 {new Date(post.created_at).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}
               </div>
               <div className="prose prose-sm dark:prose-invert max-w-none">
-                <ReactMarkdown>{post.content}</ReactMarkdown>
+                <ReactMarkdown
+                  components={{
+                    img: ({ alt, src, title }) => (
+                      <span className="not-prose -mx-4 my-8 block sm:-mx-12 lg:-mx-28">
+                        <img
+                          src={src ?? ""}
+                          alt={alt ?? ""}
+                          title={title}
+                          className={blogImageClass}
+                          loading="lazy"
+                        />
+                      </span>
+                    ),
+                  }}
+                >
+                  {post.content}
+                </ReactMarkdown>
               </div>
             </article>
           )}

@@ -24,6 +24,7 @@ import ServiceDetailPage from "./pages/ServiceDetailPage";
 import LabPage from "./pages/LabPage";
 import IdeasPage from "./pages/IdeasPage";
 import GalleryPage from "./pages/GalleryPage";
+import ProfilePage from "./pages/ProfilePage";
 import { MobileBottomNav } from "@/components/MobileBottomNav";
 import { BuyMeGas } from "@/components/BuyMeGas";
 import BuyGasPage from "./pages/BuyGasPage";
@@ -55,6 +56,7 @@ const AnimatedRoutes = () => {
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<PageTransition><Index /></PageTransition>} />
         <Route path="/contact" element={<PageTransition><ContactPage /></PageTransition>} />
+        <Route path="/profile" element={<PageTransition><ProfilePage /></PageTransition>} />
         <Route path="/projects" element={<PageTransition><ProjectsPage /></PageTransition>} />
         <Route path="/colleges" element={<PageTransition><CollegesPage /></PageTransition>} />
         <Route path="/blog" element={<PageTransition><BlogPage /></PageTransition>} />

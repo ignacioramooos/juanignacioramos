@@ -24,6 +24,7 @@ export const Navbar = () => {
     { label: t.volunteering.title, href: "/#volunteering" },
     { label: t.athletics.title, href: "/#athletics" },
     { label: t.awards.title, href: "/#awards" },
+    { label: "Profile", href: "/profile" },
   ];
 
   const projectsGroup = [

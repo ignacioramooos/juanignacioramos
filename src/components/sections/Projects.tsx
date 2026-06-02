@@ -291,6 +291,13 @@ const projects = [
   category: "engineering"
 },
 {
+  title: "Cor Ad Cor",
+  description: "Active-development peer-to-peer emotional wellness platform with journaling modes, real-time listening sessions, listener formation, multilingual UI, dashboard widgets, and crisis-safety workflows. Built as a serious product architecture, not a static concept.",
+  tags: ["React", "TypeScript", "Supabase", "i18n", "Real-time"],
+  status: "Active development",
+  category: "software"
+},
+{
   title: "Foro Agora",
   description: "Co-founded an AI-assisted civic discussion platform for structured debate and public reasoning. Foro Agora brings multiple perspectives into one forum through AI personas, moderated argument maps, and video-enabled conversation.",
   tags: ["Civic Tech", "AI", "React", "Vonage SDK"],

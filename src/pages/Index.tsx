@@ -16,6 +16,7 @@ import { DailyQuotes } from "@/components/sections/DailyQuotes";
 import { Contact } from "@/components/sections/Contact";
 import { EasterEggs } from "@/components/EasterEggs";
 import { SEOHead } from "@/components/SEOHead";
+import { personJsonLd, websiteJsonLd } from "@/data/profile";
 
 const Index = () => {
   return (
@@ -23,30 +24,20 @@ const Index = () => {
       <SEOHead
         title="Juan Ignacio Ramos - Portfolio"
         description="Juan Ignacio Ramos is an aspiring aerospace engineer from Montevideo, Uruguay. Explore his portfolio, aerospace projects, leadership experience, French BAC Mention Très Bien, and Advanced Space Academy scholarship."
+        keywords="Juan Ignacio Ramos, aspiring aerospace engineer, aerospace engineering student Uruguay, Advanced Space Academy Scholar, French BAC Mention Tres Bien, MUN Secretary General, Cor Ad Cor, Foro Agora, rocketry simulation, Montevideo engineering student"
         jsonLd={{
           "@context": "https://schema.org",
-          "@type": "Person",
-          name: "Juan Ignacio Ramos",
-          jobTitle: "Aspiring Aerospace Engineer",
-          description: "Juan Ignacio Ramos is an aspiring aerospace engineer from Montevideo, Uruguay.",
-          url: "https://juanignacioramos.com",
-          sameAs: [
-            "https://www.linkedin.com/in/juanignacioramos1/",
-            "https://instagram.com/ignacio.ramooos",
+          "@graph": [
+            personJsonLd,
+            websiteJsonLd,
+            {
+              "@type": "ProfilePage",
+              "@id": "https://juanignacioramos.com/#profile-page",
+              url: "https://juanignacioramos.com/",
+              name: "Juan Ignacio Ramos - Portfolio",
+              mainEntity: { "@id": "https://juanignacioramos.com/#person" },
+            },
           ],
-          address: {
-            "@type": "PostalAddress",
-            addressLocality: "Montevideo",
-            addressCountry: "UY",
-          },
-          knowsAbout: [
-            "Aerospace engineering",
-            "Leadership",
-            "Model United Nations",
-            "Engineering simulations",
-            "Web development",
-          ],
-          knowsLanguage: ["Spanish", "French", "English", "Portuguese"],
         }}
       />
       <Navbar />

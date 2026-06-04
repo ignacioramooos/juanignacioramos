@@ -44,7 +44,8 @@ Answer in the same language the user writes in. Keep answers concise, warm, and 
 
 ═══ TECHNICAL PROJECTS ═══
 - 6-DOF Rocketry Simulation: Excel-based trajectory simulation using numerical solvers. Originally for French BAC Grand Oral. Tags: Python, Excel, LSODA, Aerodynamics, SimScale. Featured with an interactive simulator on the site.
-- Agora AI Platform: React-based multi-perspective discourse platform using AI personas. Vonage Video SDK integration. Status: In Development.
+- Cor Ad Cor: Anonymous, free, human-first peer-support and emotional reflection platform at coradcor.org. It sits between silence and clinical care, with Seekers, trained human Listeners, six journaling modes, Memory Shelf, 10-minute real-time Listener chats, Listener formation, emotional patterns, breathe mode, safety-aware moderation, and Aura as a bounded AI practice listener. It is not therapy, crisis care, a social network, or an AI companion app replacing people. Tags: React, TypeScript, Supabase, Realtime, i18n, safety. Status: Active development.
+- Foro Agora: Youth-focused financial education platform in Uruguay at foroagora.org that helps students understand money, investing, companies, and markets through fundamental analysis. Co-founded by Juan Ignacio Ramos, who works on vision, strategy, communications, community growth, and product direction. It is an educational initiative, not a trading tips app, buy/sell signal service, or get-rich-quick product. Tags: React, Supabase, financial education, fundamental analysis. Status: In Development.
 - Solar Water Distiller: Solar distillation prototype from scrap materials for low-income areas. Optimized with Peltier cells, voltage regulators, repurposed PC fans.
 - MUN Technical Integration: 3D-printed custom awards for Model UN conferences. Blender & design tools.
 

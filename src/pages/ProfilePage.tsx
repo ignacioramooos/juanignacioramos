@@ -44,7 +44,7 @@ const ProfilePage = () => {
         title="Juan Ignacio Ramos - Aspiring Aerospace Engineer"
         description={canonicalProfile.shortBio}
         path="/profile"
-        keywords="Juan Ignacio Ramos, Ignacio Ramos, aspiring aerospace engineer, Advanced Space Academy Scholar, French BAC Mention Tres Bien, Cor Ad Cor, Foro Agora, aerospace portfolio"
+        keywords="Juan Ignacio Ramos, Ignacio Ramos, aspiring aerospace engineer, Advanced Space Academy Scholar, French BAC Mention Tres Bien, Cor Ad Cor peer support, Foro Agora, aerospace portfolio"
         jsonLd={profileJsonLd}
       />
       <Navbar />
@@ -92,6 +92,17 @@ const ProfilePage = () => {
                         </span>
                       </div>
                       <p className="text-sm text-muted-foreground leading-relaxed">{project.description}</p>
+                      {project.url && (
+                        <a
+                          href={project.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="mt-3 inline-flex items-center gap-1.5 text-xs font-medium text-foreground hover:text-foreground/70 transition-colors"
+                        >
+                          Visit project
+                          <ExternalLink size={12} />
+                        </a>
+                      )}
                     </article>
                   ))}
                 </div>

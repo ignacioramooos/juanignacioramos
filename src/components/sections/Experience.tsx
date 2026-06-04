@@ -10,14 +10,14 @@ const experiences = [
     org: "Foro Agora", orgEs: "Foro Agora",
     location: "Montevideo, Uruguay", locationEs: "Montevideo, Uruguay",
     details: [
-      "Co-founding an AI-assisted civic discussion platform focused on structured debate and public reasoning.",
-      "Building the product around multi-perspective conversations, AI personas, moderated argument maps, and video-enabled discussion.",
-      "Combining product strategy, full-stack development, and public communication as the project moves from concept into launch.",
+      "Co-founding a youth-focused financial education platform in Uruguay that helps students understand money, investing, companies, and markets through fundamental analysis.",
+      "Shaping Foro Agora as an educational community rather than a trading tips product, with learning content, events, resources, and student tools.",
+      "Leading product vision, strategy, communications, and community growth alongside the founding team.",
     ],
     detailsEs: [
-      "Co-fundando una plataforma civica asistida por IA enfocada en debate estructurado y razonamiento publico.",
-      "Construyendo el producto alrededor de conversaciones multi-perspectiva, personas IA, mapas de argumentos moderados y discusion por video.",
-      "Combinando estrategia de producto, desarrollo full-stack y comunicacion publica mientras el proyecto avanza del concepto al lanzamiento.",
+      "Co-fundando una plataforma de educacion financiera para jovenes en Uruguay, enfocada en dinero, inversion, empresas y mercados mediante analisis fundamental.",
+      "Construyendo Foro Agora como una comunidad educativa, no como un producto de consejos de trading, con contenidos, eventos, recursos y herramientas para estudiantes.",
+      "Liderando vision de producto, estrategia, comunicacion y crecimiento de comunidad junto al equipo fundador.",
     ],
   },
   {

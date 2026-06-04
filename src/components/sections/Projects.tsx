@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { supabase } from "@/integrations/supabase/client";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Slider } from "@/components/ui/slider";
-import { Play, RotateCcw } from "lucide-react";
+import { ExternalLink, Play, RotateCcw } from "lucide-react";
 import {
   LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip,
   AreaChart, Area, ResponsiveContainer, ComposedChart, Bar, Legend } from
@@ -292,16 +292,18 @@ const projects = [
 },
 {
   title: "Cor Ad Cor",
-  description: "Active-development peer-to-peer emotional wellness platform with journaling modes, real-time listening sessions, listener formation, multilingual UI, dashboard widgets, and crisis-safety workflows. Built as a serious product architecture, not a static concept.",
-  tags: ["React", "TypeScript", "Supabase", "i18n", "Real-time"],
+  description: "Active-development anonymous peer-support and emotional reflection platform. Cor ad Cor is a free, human-first space between silence and clinical care, with journaling, trained Listener sessions, formation, emotional patterns, breathing tools, safety-aware moderation, and Aura as a bounded practice listener rather than a replacement for people.",
+  tags: ["React", "TypeScript", "Supabase", "Realtime", "Safety"],
   status: "Active development",
+  url: "https://coradcor.org",
   category: "software"
 },
 {
   title: "Foro Agora",
-  description: "Co-founded an AI-assisted civic discussion platform for structured debate and public reasoning. Foro Agora brings multiple perspectives into one forum through AI personas, moderated argument maps, and video-enabled conversation.",
-  tags: ["Civic Tech", "AI", "React", "Vonage SDK"],
+  description: "Co-founded a youth-focused financial education platform in Uruguay that teaches money, investing, companies, and markets through fundamental analysis. Built around serious learning, local context, and community rather than trading tips or buy/sell signals.",
+  tags: ["Financial Education", "React", "Supabase", "Fundamental Analysis"],
   status: "Co-founder",
+  url: "https://foroagora.org",
   category: "software"
 },
 {
@@ -325,6 +327,7 @@ interface ProjectItem {
   category: string;
   featured?: boolean;
   status?: string;
+  url?: string;
   image_url?: string;
 }
 
@@ -425,6 +428,18 @@ export const Projects = () => {
                     </span>
                 )}
                 </div>
+                {project.url && (
+                  <a
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-5 inline-flex items-center gap-1.5 text-xs font-medium text-foreground hover:text-foreground/70 transition-colors"
+                    aria-label={`Visit ${project.title}`}
+                  >
+                    Visit project
+                    <ExternalLink size={12} />
+                  </a>
+                )}
               </motion.div>
             )}
           </div>

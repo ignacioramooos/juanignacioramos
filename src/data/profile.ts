@@ -8,9 +8,9 @@ export const canonicalProfile = {
   image: "https://juanignacioramos.com/favicon.png",
   email: "contact@juanignacioramos.com",
   description:
-    "Juan Ignacio Ramos is an aspiring aerospace engineer from Montevideo, Uruguay, building a public portfolio across aerospace simulations, software products, civic technology, leadership, and service.",
+    "Juan Ignacio Ramos is an aspiring aerospace engineer from Montevideo, Uruguay, building a public portfolio across aerospace simulations, software products, peer support, financial education, leadership, and service.",
   shortBio:
-    "Aspiring aerospace engineer from Montevideo, Uruguay. Advanced Space Academy Scholar, French BAC Mention Tres Bien graduate, MUN Secretary General, and builder of aerospace, civic technology, and social impact software projects.",
+    "Aspiring aerospace engineer from Montevideo, Uruguay. Advanced Space Academy Scholar, French BAC Mention Tres Bien graduate, MUN Secretary General, and builder of aerospace, peer-support, financial education, and social impact software projects.",
   sameAs: [
     "https://www.linkedin.com/in/juanignacioramos1/",
     "https://github.com/ignacioramooos",
@@ -22,8 +22,10 @@ export const canonicalProfile = {
     "Rocket trajectory simulation",
     "Engineering mathematics",
     "Model United Nations",
-    "Civic technology",
+    "Financial education",
+    "Fundamental analysis",
     "Peer support platforms",
+    "Emotional reflection tools",
     "Web development",
     "3D printing",
     "Drone surveying",
@@ -50,7 +52,7 @@ export const canonicalProfile = {
     "Co-Secretary General of LFMUN 2025 after a four-year Model UN progression from delegate to leadership.",
     "Managed 1,382,000+ UYU in student event operations and logistics.",
     "Built and documented a 6-DOF model rocketry trajectory simulator.",
-    "Developing Cor Ad Cor, a peer-to-peer emotional wellness platform with journaling, real-time chat, listener training, multilingual support, and crisis-safety workflows.",
+    "Developing Cor Ad Cor, an anonymous peer-support and emotional reflection platform with journaling, real-time Listener sessions, formation, multilingual support, and crisis-safety workflows.",
   ],
   projects: [
     {
@@ -64,15 +66,15 @@ export const canonicalProfile = {
       name: "Cor Ad Cor",
       status: "Active development",
       description:
-        "Peer-to-peer emotional wellness platform with journaling modes, real-time listening sessions, listener formation, dashboard widgets, multilingual UI, and crisis detection.",
-      url: "https://github.com/ignacioramooos/cor-ad-cor-v2",
+        "Anonymous, free, human-first peer-support and emotional reflection platform between silence and clinical care, with journaling, trained Listener sessions, formation, patterns, breathing tools, and safety-aware moderation.",
+      url: "https://coradcor.org",
     },
     {
       name: "Foro Agora",
       status: "Co-founder",
       description:
-        "AI-assisted civic discussion platform focused on structured debate, public reasoning, AI personas, moderated argument maps, and video-enabled conversation.",
-      url: "https://juanignacioramos.com/projects",
+        "Youth-focused financial education platform in Uruguay that helps students understand money, investing, companies, and markets through fundamental analysis.",
+      url: "https://foroagora.org",
     },
     {
       name: "Solar Water Distiller",

@@ -1,0 +1,64 @@
+Daily opportunity scout - 2026-06-04 (resend)
+
+This is a delivery-safe resend. The full 90-lead report was generated locally at:
+C:\Users\ignac\OneDrive\Documents\GitHub\juanignacioramos\reports\opportunity-scout-2026-06-04.txt
+
+Why this resend is shorter:
+The first full mailing-list send was blocked because one recipient address is not verified in Cloudflare Email Routing. The individual Worker sends accepted Ignacio and Maca, but this shorter resend reduces link density and should be easier for inbox filters to accept.
+
+Highest-priority actions
+
+1. IAC 2026 Late Breaking Abstracts
+Deadline: 2026-06-10
+Why it matters: urgent aerospace/space research submission window; possible angle from rocketry simulation, propulsion modeling, mission design, or space applications.
+Link: https://www.iafastro.org/news/call-for-iac-2026-late-breaking-abstract-lba-is-open.html
+
+2. John Locke Institute Global Essay Prize
+Late-entry deadlines: 2026-06-07 or 2026-06-21
+Why it matters: strong philosophy/policy/economics/science-writing signal; a good complement to aerospace ambition.
+Link: https://www.johnlockeinstitute.com/essay-competition?lang=en
+
+3. FING/Udelar mobility and local academic calls
+Deadline: one internal call listed for 2026-06-10 at 12:00; check FING page now.
+Why it matters: practical regional engineering mobility and scholarship surface.
+Link: https://www.fing.edu.uy/es/comunicacion/becas
+
+4. PolyU International Future Challenge 2026
+Deadline: 2026-06-14
+Why it matters: good technical entrepreneurship fit for hardware, climate, aerospace-adjacent, civic-tech, or education ideas.
+Link: https://www.polyu.edu.hk/kteo/competitions-and-events/polyu-ifc/polyu-ifc-2026/?sc_lang=en
+
+5. EU-LAC Digital Accelerator
+Deadline: 2026-06-12
+Why it matters: useful if any Ignacio project becomes a real startup/partnership, especially civic tech or education tech.
+Link: https://www.gub.uy/agencia-uruguaya-cooperacion-internacional/comunicacion/convocatorias/eu-lac-digital-accelerator-convoca-corporaciones-startup-integrar
+
+6. International Summer School in Earth Observation
+Dates: 2026-07-06 to 2026-07-10
+Why it matters: strong satellite, Earth observation, climate, and space-infrastructure bridge.
+Link: https://www.irsps.eu/international-summer-school-in-earth-observation/
+
+7. IEEE GRSS Summer School on Remote Sensing
+Dates: 2026-07-23 to 2026-07-25
+Why it matters: aerospace-adjacent technical depth in microwave/optical modeling and satellite sensing.
+Link: https://www.grss-ieee.org/event/2026-ieee-grss-summer-school-on-microwave-and-optical-modeling-for-remote-sensing/
+
+8. Global Wellness Summit Shark Tank of Wellness
+Deadline: 2026-06-30
+Why it matters: bridge between athlete performance, recovery, cooling prototypes, wellness, and entrepreneurship.
+Link: https://www.globalwellnesssummit.com/2026-shark-tank-student-competition/
+
+9. IEEE Computer Society Global Student Challenge
+Registration deadline: 2026-06-28
+Why it matters: solid technical challenge if framed around data, science, aerospace, climate, or education.
+Link: https://www.computer.org/publications/tech-news/events/global-student-challenge-2026
+
+10. EducationUSA Uruguay Opportunity Funds 2026
+Deadline: check AUCI/EducationUSA current call.
+Why it matters: directly relevant to U.S. undergraduate study and aerospace-engineering pathways.
+Link: https://www.gub.uy/agencia-uruguaya-cooperacion-internacional/comunicacion/convocatorias/programa-fondos-oportunidad-2026
+
+Delivery status after repair
+- The local helper now sends through the Worker one recipient at a time.
+- This prevents one unverified destination from blocking the verified recipients.
+- Cloudflare still needs valentinaoundjian@gmail.com verified as an Email Routing destination, or a Brevo fallback must be configured with BREVO_API_KEY/SENDINBLUE_API_KEY and OPPORTUNITY_SCOUT_FROM_EMAIL.

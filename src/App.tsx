@@ -16,6 +16,7 @@ import ProjectsPage from "./pages/ProjectsPage";
 import CollegesPage from "./pages/CollegesPage";
 import BlogPage from "./pages/BlogPage";
 import BlogPostPage from "./pages/BlogPostPage";
+import SpaceCampAnniversaryPage from "./pages/SpaceCampAnniversaryPage";
 import LoginPage from "./pages/LoginPage";
 import AdminPage from "./pages/AdminPage";
 import DocumentsPage from "./pages/DocumentsPage";
@@ -59,6 +60,7 @@ const AnimatedRoutes = () => {
         <Route path="/projects" element={<PageTransition><ProjectsPage /></PageTransition>} />
         <Route path="/colleges" element={<PageTransition><CollegesPage /></PageTransition>} />
         <Route path="/blog" element={<PageTransition><BlogPage /></PageTransition>} />
+        <Route path="/blog/space-camp-un-ano" element={<PageTransition><SpaceCampAnniversaryPage /></PageTransition>} />
         <Route path="/blog/:slug" element={<PageTransition><BlogPostPage /></PageTransition>} />
         <Route path="/documents" element={<PageTransition><DocumentsPage /></PageTransition>} />
         <Route path="/services" element={<PageTransition><ServicesPage /></PageTransition>} />

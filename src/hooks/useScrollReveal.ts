@@ -1,11 +1,13 @@
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 
-export const useScrollReveal = (options?: { once?: boolean; margin?: string }) => {
-  const ref = useRef(null);
+type UseInViewOptions = NonNullable<Parameters<typeof useInView>[1]>;
+
+export const useScrollReveal = (options?: Pick<UseInViewOptions, "once" | "margin">) => {
+  const ref = useRef<HTMLElement | null>(null);
   const isInView = useInView(ref, {
     once: options?.once ?? true,
-    margin: (options?.margin ?? "-100px") as any,
+    margin: options?.margin ?? "-100px",
   });
   return { ref, isInView };
 };

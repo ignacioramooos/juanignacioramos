@@ -108,8 +108,9 @@ export const GalleryAdmin = () => {
       setTakenAt("");
       if (fileRef.current) fileRef.current.value = "";
       load();
-    } catch (err: any) {
-      toast.error(err.message || "Error al subir");
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : "Error al subir";
+      toast.error(message);
     } finally {
       setUploading(false);
     }

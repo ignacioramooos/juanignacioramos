@@ -2,6 +2,7 @@ import {
   Globe, Camera, TrendingUp, CalendarDays, Users, Sheet,
   Bot, Printer, Video, Box
 } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
 export interface ServiceData {
   slug: string;
@@ -9,7 +10,7 @@ export interface ServiceData {
   titleEs: string;
   shortDescription: string;
   shortDescriptionEs: string;
-  icon: any;
+  icon: LucideIcon;
   description: string;
   descriptionEs: string;
   whoItsFor: string[];

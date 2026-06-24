@@ -1,0 +1,31 @@
+{
+  "$schema": "../../node_modules/wrangler/config-schema.json",
+  "name": "daily-opportunity-scout-email",
+  "main": "src/index.js",
+  "compatibility_date": "2026-06-02",
+  "workers_dev": true,
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  },
+  "send_email": [
+    {
+      "name": "EMAIL",
+      "remote": true,
+      "allowed_destination_addresses": [
+        "ignacio@juanignacioramos.com",
+        "macagutierrez71@gmail.com",
+        "valentinaoundjian@gmail.com"
+      ],
+      "allowed_sender_addresses": [
+        "opportunities@juanignacioramos.com",
+        "noreply@juanignacioramos.com",
+        "ignacio@juanignacioramos.com"
+      ]
+    }
+  ],
+  "vars": {
+    "OPPORTUNITY_SCOUT_FROM": "opportunities@juanignacioramos.com",
+    "OPPORTUNITY_SCOUT_TO": "ignacio@juanignacioramos.com, macagutierrez71@gmail.com, valentinaoundjian@gmail.com"
+  }
+}

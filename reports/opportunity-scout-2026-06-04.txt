@@ -1,0 +1,1040 @@
+Daily opportunity scout - 2026-06-04
+
+Prepared for Ignacio Ramos
+Recipients: ignacio@juanignacioramos.com, macagutierrez71@gmail.com, valentinaoundjian@gmail.com
+
+Opening summary
+Today's strongest opportunities cluster around space conference participation, aerospace/remote-sensing summer schools, Uruguay/LatAm mobility and science outreach, student entrepreneurship competitions, and a few high-upside humanities/public-policy programs. The most urgent items are IAC 2026 Late Breaking Abstracts (June 10), FING/ESCALA-related internal mobility items (June 10/nearby), John Locke late essay entry (June 7/21), PolyU/HKU/HKUST entrepreneurship deadlines (June 14/21/July 14), EU-LAC Digital Accelerator (June 12), and several June/July science-engineering schools/events.
+
+Exploration balance
+- Aerospace / space / aviation: 18
+- Science / engineering / math / climate / hardware: 16
+- Humanities / philosophy / policy / international relations: 8
+- Finance / business / entrepreneurship / leadership: 8
+- Athletics / sports science / water polo: 7
+- CS / AI / data / open technical communities: 7
+- Uruguay / LatAm / culture / language / exchange: 9
+- Wildcards / outside-the-map / cross-disciplinary bridges: 8
+
+Top 10 strongest picks
+
+1. IAC 2026 Late Breaking Abstracts
+Category: Aerospace, Space, Research, Conference
+Organizer/source: International Astronautical Federation
+Date/deadline: submission window 2026-05-27 to 2026-06-10, 23:59 CEST; IAC 2026 is 2026-10-05 to 2026-10-09
+Location/remote: Antalya, Turkiye; submission online
+Eligibility/fit notes: for new and significant space-sector findings; a concise 150-word abstract. Strong if Ignacio can package rocketry simulation, propulsion modeling, mission design, policy, or space applications work.
+Why it may interest/expand Ignacio: top-tier aerospace venue with a narrow urgent window; even an interactive presentation attempt builds a serious aerospace research habit.
+Confidence: High
+Tags: Aerospace, Astronautics, Research, Conference, Deadline, English
+Link: https://www.iafastro.org/news/call-for-iac-2026-late-breaking-abstract-lba-is-open.html
+
+2. IAC 2026 registration / student sponsorship watch
+Category: Aerospace, Space, Networking, Scholarship
+Organizer/source: IAF / ISEB
+Date/deadline: IAC 2026 runs 2026-10-05 to 2026-10-09; presenting-author registration deadline listed as 2026-09-07; ISEB sponsorship page should be monitored
+Location/remote: Antalya, Turkiye
+Eligibility/fit notes: ISEB opportunities vary by agency/country; some are citizenship-specific. Worth watching for any non-US/international routes or press/volunteer angles.
+Why it may interest/expand Ignacio: a global space-sector gateway beyond classroom aerospace.
+Confidence: High for event; Medium for eligibility
+Tags: Aerospace, Space Policy, Scholarship, Networking, Watchlist
+Links: https://www.iafastro.org/events/iac/international-astronautical-congress-2026/ and https://iseb.space/student-sponsorship-opportunities/
+
+3. ESA Academy opportunities watchlist: REXUS/BEXUS, Design Booster, test opportunities
+Category: Aerospace, Rocketry, CubeSat, Hands-on Projects
+Organizer/source: European Space Agency
+Date/deadline: next REXUS/BEXUS cycle expected summer 2026; experiments next cycle expected Q3 2026; Design Booster expected May 2026 per ESA page
+Location/remote: ESA Academy / Europe, with project-specific formats
+Eligibility/fit notes: generally for university students from ESA Member States and eligible cooperating states; Uruguay eligibility is likely limited unless enrolled in an eligible institution, but it is an excellent roadmap source.
+Why it may interest/expand Ignacio: shows what serious student spacecraft/rocket teams build and how applications are framed.
+Confidence: High for watchlist; Medium/Low for direct eligibility from Uruguay
+Tags: Aerospace, Rocketry, CubeSat, Hardware, Watchlist
+Link: https://www.esa.int/Education/ESA_Academy/Current_opportunities_for_university_students
+
+4. NL Space Campus Summer School
+Category: Aerospace, Space, Entrepreneurship, Interdisciplinary
+Organizer/source: NL Space Campus / Leiden-Delft-Erasmus ecosystem
+Date/deadline: 2026-07-05 to 2026-07-10
+Location/remote: Netherlands
+Eligibility/fit notes: open to students who completed at least one year and young professionals up to age 30; European-institution language appears on the page, so verify eligibility before applying.
+Why it may interest/expand Ignacio: blends space technology, business, law, instrumentation, and multidisciplinary team challenge work.
+Confidence: Medium
+Tags: Aerospace, Entrepreneurship, Policy, Engineering, Cross-disciplinary
+Link: https://www.nlspacecampus.eu/lde-nlspacecampus-summerschool/
+
+5. International Summer School in Earth Observation
+Category: Space Applications, Remote Sensing, Climate, Engineering
+Organizer/source: International Research School of Planetary Sciences / Leonardo
+Date/deadline: 2026-07-06 to 2026-07-10
+Location/remote: Fucino Space Centre, Italy
+Eligibility/fit notes: aimed at students, early-career researchers, young professionals, and scientists interested in EO/satellite data.
+Why it may interest/expand Ignacio: bridges satellites, climate monitoring, geospatial data, and real space infrastructure.
+Confidence: High
+Tags: Aerospace, Remote Sensing, Climate, Earth Observation, Research
+Link: https://www.irsps.eu/international-summer-school-in-earth-observation/
+
+6. IEEE GRSS Summer School on Microwave and Optical Modeling for Remote Sensing
+Category: Remote Sensing, Engineering, Earth Observation
+Organizer/source: IEEE Geoscience and Remote Sensing Society
+Date/deadline: 2026-07-23 to 2026-07-25
+Location/remote: check event page for venue/registration details
+Eligibility/fit notes: for future remote-sensing scientists; likely best for advanced undergrad/grad-level interest.
+Why it may interest/expand Ignacio: satellite sensing connects aerospace with physics, electromagnetics, climate, and data.
+Confidence: High
+Tags: Aerospace, Physics, Remote Sensing, IEEE, Engineering
+Link: https://www.grss-ieee.org/event/2026-ieee-grss-summer-school-on-microwave-and-optical-modeling-for-remote-sensing/
+
+7. FING/Udelar ESCALA mobility and regional academic calls
+Category: Uruguay, LatAm, Engineering, Exchange
+Organizer/source: Facultad de Ingenieria, Udelar / AUGM
+Date/deadline: internal closing noted as 2026-06-10 at 12:00 for one posted call; related mobility pages show other internal dates
+Location/remote: Uruguay / AUGM universities
+Eligibility/fit notes: for Udelar/FING students, often by degree level and faculty endorsement.
+Why it may interest/expand Ignacio: practical regional exchange path in engineering without defaulting to the US/Europe.
+Confidence: High if enrolled/eligible at Udelar; otherwise watchlist
+Tags: Uruguay, LatAm, Engineering, Exchange, Scholarship
+Link: https://www.fing.edu.uy/es/comunicacion/becas
+
+8. John Locke Institute Global Essay Prize
+Category: Philosophy, Politics, Economics, Science & Technology, Writing
+Organizer/source: John Locke Institute
+Date/deadline: late-entry extension options 2026-06-07 or 2026-06-21; shortlist 2026-07-07
+Location/remote: remote submission
+Eligibility/fit notes: open internationally; categories include Philosophy, Politics, Public Policy, Economics, International Relations, and Science & Technology.
+Why it may interest/expand Ignacio: a high-signal way to combine aerospace ambition with ethics, policy, economics, or philosophy of science.
+Confidence: High
+Tags: Philosophy, Policy, Economics, Writing, International, Deadline
+Link: https://www.johnlockeinstitute.com/essay-competition?lang=en
+
+9. PolyU International Future Challenge 2026
+Category: Entrepreneurship, Engineering, Innovation
+Organizer/source: Hong Kong Polytechnic University
+Date/deadline: application deadline 2026-06-14, 23:59
+Location/remote: application online; competition stages vary
+Eligibility/fit notes: open to all, not only PolyU members.
+Why it may interest/expand Ignacio: strong venue for hardware, climate, aerospace-adjacent, or civic-tech venture ideas.
+Confidence: High
+Tags: Entrepreneurship, Hardware, Climate, Engineering, Deadline
+Link: https://www.polyu.edu.hk/kteo/competitions-and-events/polyu-ifc/polyu-ifc-2026/?sc_lang=en
+
+10. Global Wellness Summit Shark Tank of Wellness
+Category: Entrepreneurship, Sports Science, Health, Wellness
+Organizer/source: Global Wellness Summit
+Date/deadline: submit by 2026-06-30
+Location/remote: global student competition
+Eligibility/fit notes: university student ideas in wellness.
+Why it may interest/expand Ignacio: a bridge between athlete performance, recovery, Peltier/cooling prototypes, wearable ideas, and entrepreneurship.
+Confidence: High
+Tags: Sports Science, Entrepreneurship, Hardware, Health, Wildcard
+Link: https://www.globalwellnesssummit.com/2026-shark-tank-student-competition/
+
+Aerospace, space, aviation, rocketry, satellites
+
+11. NASA OSTEM internships watchlist
+Category: Aerospace, Internship, Research
+Organizer/source: NASA
+Date/deadline: Fall 2026 deadline was 2026-05-22; future sessions should be monitored
+Location/remote: NASA centers / some virtual or hybrid projects vary
+Eligibility/fit notes: U.S. citizenship required for OSTEM; not directly open to Ignacio unless citizenship status changes, but project listings are useful models.
+Why it may interest/expand Ignacio: benchmark for what aerospace internship projects expect.
+Confidence: High for program facts; Low for direct eligibility
+Tags: Aerospace, Internship, Watchlist
+Link: https://www.nasa.gov/education/interns/index.html
+
+12. NASA International Internship pathways watch
+Category: Aerospace, International Internship
+Organizer/source: NASA
+Date/deadline: sessions are spring/summer/fall; country-specific availability
+Location/remote: NASA centers
+Eligibility/fit notes: depends on participating country agreements; Uruguay availability needs direct confirmation.
+Why it may interest/expand Ignacio: possible long-horizon path if Uruguay/partner channels appear.
+Confidence: Medium
+Tags: Aerospace, International, Internship, Watchlist
+Link: https://www.nasa.gov/learning-resources/internship-programs/nasa-international-intern-opportunities-for-students/
+
+13. NASA Fatigue Countermeasures Laboratory internship interest form
+Category: Aerospace Medicine, Human Performance, Research
+Organizer/source: NASA Ames / San Jose State-related form
+Date/deadline: 10-12 week summer internships; 2026 page says a full internship is unlikely but form can be filled for future information
+Location/remote: likely California / NASA Ames context
+Eligibility/fit notes: no prior experience necessary per page; exact eligibility should be verified.
+Why it may interest/expand Ignacio: aerospace plus sleep, performance, and athlete science.
+Confidence: Medium
+Tags: Space Medicine, Sports Science, Research, Wildcard
+Link: https://www.nasa.gov/human-systems-integration-division/human-performance/fatigue-countermeasures-laboratory/
+
+14. AIAA Design Competitions 2026/2027 watch
+Category: Aerospace, Aircraft Design, Competition
+Organizer/source: AIAA
+Date/deadline: 2026 cycle listed; next RFPs should be watched for 2027
+Location/remote: team design work plus forum/travel possibilities
+Eligibility/fit notes: AIAA student members; usually university teams.
+Why it may interest/expand Ignacio: aircraft design, aerodynamics, systems engineering, and formal technical reporting.
+Confidence: High
+Tags: Aeronautics, Engineering, CAD, Competition
+Link: https://www.aiaa.org/get-involved/university-students/design-competitions/
+
+15. AIAA Design/Build/Fly competition watch
+Category: Aviation, Aerospace, Design-Build-Fly
+Organizer/source: AIAA
+Date/deadline: 2026 competition took place 2026-04-16 to 2026-04-19; monitor next season
+Location/remote: Wichita, Kansas for 2026; future TBD
+Eligibility/fit notes: university student teams.
+Why it may interest/expand Ignacio: practical UAV/aircraft build path parallel to rocketry.
+Confidence: High
+Tags: Aviation, CAD, Hardware, Competition, Watchlist
+Link: https://aiaa.org/dbf/
+
+16. CanSat International Competition watch
+Category: Aerospace, Satellite, Systems Engineering
+Organizer/source: CanSat / UAH Space Hardware Club
+Date/deadline: annual cycle opens around late summer; 2026 selection already occurred
+Location/remote: design reviews remote plus launch competition
+Eligibility/fit notes: team-based; international teams participate.
+Why it may interest/expand Ignacio: direct bridge from 3D-printed rockets/simulations to payload systems, telemetry, and mission reviews.
+Confidence: High
+Tags: CubeSat, Hardware, Systems, Competition, Watchlist
+Link: https://space.uah.edu/programs/autosat/cansat
+
+17. NASA Student Launch Challenge watch
+Category: Rocketry, Aerospace, Competition
+Organizer/source: NASA Marshall / NASA OSTEM
+Date/deadline: 2026 proposal period already opened in 2025; monitor 2027 handbook
+Location/remote: U.S. launch challenge with milestones
+Eligibility/fit notes: middle school, high school, and college teams; likely U.S.-centric.
+Why it may interest/expand Ignacio: provides a serious milestone model for a future Uruguayan rocketry team.
+Confidence: Medium
+Tags: Rocketry, Propulsion, Student Team, Watchlist
+Link: https://www.nasa.gov/centers-and-facilities/marshall/nasa-accepts-proposals-for-2026-student-launch-challenge/
+
+18. International Rocket Engineering Competition / Spaceport America Cup watch
+Category: Rocketry, Propulsion, Student Competition
+Organizer/source: Experimental Sounding Rocket Association / IREC ecosystem
+Date/deadline: 2026 event referenced for mid-June; monitor next cycle
+Location/remote: United States
+Eligibility/fit notes: university student teams; international participation historically common.
+Why it may interest/expand Ignacio: the natural "serious rocketry team" target if he starts or joins a university team.
+Confidence: Medium
+Tags: Rocketry, Propulsion, Hardware, Student Team
+Link: https://spaceportamericacup.com/
+
+19. American Rocketry Challenge 2027 interest
+Category: Rocketry, STEM Competition
+Organizer/source: American Rocketry Challenge
+Date/deadline: 2026 registration closed; 2027 interest form open
+Location/remote: U.S.-based
+Eligibility/fit notes: grades 6-12, U.S.-oriented; likely not direct fit, but rules are useful.
+Why it may interest/expand Ignacio: mission constraints can inspire local rocketry challenge design.
+Confidence: High for watchlist; Low for direct eligibility
+Tags: Rocketry, Education, Competition, Watchlist
+Link: https://www.ukroc.com/ and https://rocketrychallenge.smapply.io/prog/2026_american_rocketry_challenge/
+
+20. NSS International Space Development Conference 2026
+Category: Space, Conference, Student Settlement Contest
+Organizer/source: National Space Society
+Date/deadline: ISDC schedule includes 2026-06-04 to 2026-06-07 programming
+Location/remote: United States; check registration status
+Eligibility/fit notes: student programming and space settlement presentations.
+Why it may interest/expand Ignacio: broader space settlement, policy, and advocacy beyond propulsion.
+Confidence: Medium
+Tags: Space, Policy, Student, Conference
+Link: https://isdc.nss.org/wp-content/uploads/2026/04/ISDC-2026-Sunday-SCHEDULE-4-23-26.pdf
+
+21. IEEE SPACE Conference 2026
+Category: Aerospace, Defense, Space Engineering
+Organizer/source: IEEE
+Date/deadline: conference brochure lists 2026 details and student registration; refunds after 2026-06-01 restricted
+Location/remote: check brochure/event page
+Eligibility/fit notes: student registration available.
+Why it may interest/expand Ignacio: aerospace/defense/space technical talks with engineering depth.
+Confidence: Medium
+Tags: Aerospace, IEEE, Defense, Engineering
+Link: https://ieeespace.org/wp-content/uploads/2026/05/IEEE-SPACE-2026-Conference-Brochure_rev_12.05.26.pdf
+
+22. SGAC membership and Space Generation Congress 2026 watch
+Category: Space Policy, Youth Leadership, Networking
+Organizer/source: Space Generation Advisory Council
+Date/deadline: SGC 2026 is connected to IAC 2026 in Antalya; organizing-team deadlines passed, delegate/scholarship updates should be monitored
+Location/remote: Antalya, Turkiye
+Eligibility/fit notes: SGAC membership is free and open to ages 18-35.
+Why it may interest/expand Ignacio: a practical entry into international space policy and young-professional networks.
+Confidence: Medium
+Tags: Space Policy, Leadership, International, Watchlist
+Link: https://spacegeneration.org/sgac-is-looking-for-a-sgc-organising-team
+
+23. SGAC South American Space Generation Workshop watch
+Category: Space, LatAm, Policy, Community
+Organizer/source: SGAC
+Date/deadline: SA-SGW 2026 applications were February; monitor for next South American cycle and volunteer openings
+Location/remote: South America
+Eligibility/fit notes: SGAC members aged 18-35; regional fit is strong.
+Why it may interest/expand Ignacio: one of the best regional space-community gateways for Uruguay.
+Confidence: High as a future source
+Tags: Aerospace, LatAm, Space Policy, Community
+Link: https://spacegeneration.org/10th-sa-sgw-2026-home/application-and-registration
+
+24. Space Foundation / Space Symposium New Generation watch
+Category: Space Industry, Networking
+Organizer/source: Space Foundation / SGFF
+Date/deadline: 2026 SGFF/Symposium passed in April; monitor late-2026 calls for 2027
+Location/remote: Colorado Springs, United States
+Eligibility/fit notes: many scholarships are SGAC volunteer or country-specific.
+Why it may interest/expand Ignacio: space industry exposure and global network; useful long-horizon goal.
+Confidence: Medium
+Tags: Aerospace, Networking, Scholarship, Watchlist
+Link: https://spacegeneration.org/sgff-2026/2026-sgff-scholarships
+
+25. Press accreditation angle for IAC 2026
+Category: Space Journalism, Science Communication, Conference
+Organizer/source: IAF
+Date/deadline: press accreditation may close one week before IAC or earlier if full
+Location/remote: Antalya, Turkiye
+Eligibility/fit notes: for active journalists/news organizations; speculative unless Ignacio publishes or partners with a recognized outlet.
+Expansion logic: opens a science-communication route into aerospace without requiring formal accepted research.
+Confidence: Medium/Low
+Tags: Aerospace, Journalism, Outside the Map, Writing
+Link: https://www.iafastro.org/events/iac/international-astronautical-congress-2026/media/press-accreditation.html
+
+Science, engineering, math, climate, water, hardware
+
+26. SORBETTO International Summer School on atmospheric observation
+Category: Atmospheric Science, Remote Sensing, Climate
+Organizer/source: CNR-ISAC
+Date/deadline: registration deadline 2026-06-20; school 2026-09-14 to 2026-09-18
+Location/remote: Rome, Italy
+Eligibility/fit notes: researchers, PhD students, professionals; early-stage fit may be speculative.
+Why it may interest/expand Ignacio: atmospheric sensing connects aerospace, climate, instrumentation, and fluid mechanics.
+Confidence: High
+Tags: Climate, Remote Sensing, Physics, Instrumentation, Deadline
+Link: https://www.isac.cnr.it/en/event/sorbetto-4a-international-summer-school/
+
+27. JPL Center for Climate Sciences Summer School
+Category: Satellite Climate Science, Remote Sensing
+Organizer/source: NASA JPL / Caltech KISS
+Date/deadline: virtual 2026-07-08 to 2026-07-09; in-person 2026-07-13 to 2026-07-17
+Location/remote: virtual plus Pasadena, California
+Eligibility/fit notes: check application status/eligibility; likely advanced students.
+Why it may interest/expand Ignacio: satellite observations applied to climate models, a high-value space/climate bridge.
+Confidence: Medium
+Tags: Climate, NASA, Remote Sensing, Aerospace
+Link: https://climatesciences.jpl.nasa.gov/events/summer-school/about/
+
+28. Integrated Sensing and Communications Summer School
+Category: Electrical Engineering, Radar, Remote Sensing, Space Systems
+Organizer/source: University of Luxembourg SnT
+Date/deadline: 2026-06-30 to 2026-07-03
+Location/remote: Luxembourg
+Eligibility/fit notes: advanced engineering students/researchers; check registration.
+Why it may interest/expand Ignacio: radar/sensing/communications apply to spacecraft, aircraft, drones, and 6G systems.
+Confidence: High
+Tags: Engineering, Aerospace, Radar, Communications, Cross-disciplinary
+Link: https://www.uni.lu/snt-en/research-groups/sparc/2026-summer-school-on-integrated-sensing-and-communications-a-sensing-centric-approach/
+
+29. C3SAR Summer School: Cloud 3D Structure and Radiation
+Category: Atmospheric Physics, Climate, Remote Sensing
+Organizer/source: C3SAR
+Date/deadline: school 2026-07-06 to 2026-07-12; application deadline was 2026-04-13
+Location/remote: Germany
+Eligibility/fit notes: primarily PhD students; watchlist/learning source.
+Why it may interest/expand Ignacio: cloud physics, radiation, and remote sensing stretch aerospace into climate science.
+Confidence: Medium
+Tags: Physics, Climate, Remote Sensing, Watchlist
+Link: https://c3sar.de/summer-school/
+
+30. SIAM Gene Golub Summer School 2026
+Category: Applied Math, Computational Science
+Organizer/source: SIAM
+Date/deadline: 2026-07-27 to 2026-08-07
+Location/remote: Duke University, North Carolina
+Eligibility/fit notes: primarily graduate students in math/computer science; check letter-of-intent status.
+Why it may interest/expand Ignacio: high-level numerical methods relevant to fluid mechanics, trajectories, controls, and simulations.
+Confidence: High
+Tags: Math, Simulation, Engineering, HPC
+Link: https://www.siam.org/programs-initiatives/programs/gene-golub-siam-summer-school/
+
+31. Institute of Physics Superconductivity Summer School
+Category: Physics, Materials, Engineering
+Organizer/source: Institute of Physics
+Date/deadline: starts 2026-07-06
+Location/remote: Wolfson College, University of Oxford
+Eligibility/fit notes: early-career researchers, postgraduate students, engineers, business professionals.
+Why it may interest/expand Ignacio: a non-obvious physics area with aerospace-relevant applications in power, magnets, sensors, and advanced transport.
+Confidence: High
+Tags: Physics, Engineering, Materials, Outside the Map
+Link: https://www.iop.org/events/9th-superconductivity-summer-school
+
+32. UCL Maths in Action Summer School
+Category: Mathematics, Pre-university
+Organizer/source: University College London
+Date/deadline: 2026-07-20 to 2026-07-24; application deadline 2026-06-02
+Location/remote: London, UK
+Eligibility/fit notes: current Year 12 UK framing; likely not direct fit, but useful model.
+Why it may interest/expand Ignacio: applied math enrichment close to aerospace foundations.
+Confidence: Medium/Low direct fit
+Tags: Math, Engineering Prep, Watchlist
+Link: https://www.ucl.ac.uk/mathematical-physical-sciences/events/2026/jul/year-12-maths-summer-school-maths-action
+
+33. International Remote Sensing Summer School: mountain river systems
+Category: Remote Sensing, Water, Climate
+Organizer/source: UPJS and European partners
+Date/deadline: 2026-07-19 to 2026-07-24; application deadline was 2026-03-31
+Location/remote: Stara Lesna, Slovakia plus online component
+Eligibility/fit notes: MSc, PhD, young researchers; watch future cycles.
+Why it may interest/expand Ignacio: water systems plus satellite/proximal sensing fits social-impact engineering.
+Confidence: Medium
+Tags: Water, Climate, Remote Sensing, Research
+Link: https://www.ingv.it/en/urp-press/Press-office/News/Young-researchers-kick-off-the-2026-International-Remote-Sensing-Summer-School
+
+34. International Remote Sensing Summer School: cryosphere
+Category: Remote Sensing, Climate, Field Science
+Organizer/source: Fondazione Montagna sicura / INGV / University of Cagliari
+Date/deadline: 2026-09-07 to 2026-09-11
+Location/remote: Italy
+Eligibility/fit notes: students and researchers; verify current application status.
+Why it may interest/expand Ignacio: drones, UAV sensing, cryosphere, and field instrumentation are close to aerospace hardware.
+Confidence: Medium
+Tags: Climate, Drones, Remote Sensing, Fieldwork
+Link: https://www.fondazionemontagnasicura.org/progetti-in-corso/international-remote-sensing-summer-school-2026
+
+35. Petnica International Science Camp 2026
+Category: Science Research, Exploration
+Organizer/source: Petnica Science Center
+Date/deadline: Session I 2026-07-05 to 2026-07-13 per public listing; verify application immediately
+Location/remote: Serbia
+Eligibility/fit notes: high-school students aged 15-19.
+Expansion logic: research-camp environment outside the usual aerospace lane; useful for scientific maturity and international peer network.
+Confidence: Medium
+Tags: Science, Research, International, Wildcard
+Link: https://petnica.rs/
+
+36. Scientific Machine Learning Summer School 2026
+Category: Scientific Computing, ML, Physics/Engineering
+Organizer/source: Petnica Science Center listing/community announcements
+Date/deadline: public posts in early June said about one week left to apply; verify now
+Location/remote: Serbia
+Eligibility/fit notes: international summer school for scientific ML; exact eligibility must be verified on primary page.
+Why it may interest/expand Ignacio: simulations plus ML for physics and engineering without making AI the center.
+Confidence: Medium
+Tags: Physics, Engineering, AI for Science, Simulation
+Link: https://petnica.rs/
+
+37. Semana de la Ciencia y la Tecnologia Uruguay
+Category: Uruguay, Science Outreach, Volunteering
+Organizer/source: Semana CyT Uruguay
+Date/deadline: 2026 calendar active; divulgador call found from Facultad de Ciencias
+Location/remote: Uruguay, multiple venues
+Eligibility/fit notes: public science outreach roles/events; check current calendar.
+Why it may interest/expand Ignacio: science communication and local network building around physics/engineering.
+Confidence: High
+Tags: Uruguay, Science, Service, Education, Local
+Links: https://semanacyt.org.uy/ and https://www.fcien.edu.uy/images/2026/CONVOCATORIA_a_DIVULGADORES_para_participar_de_la_Semana_de_la_Ciencia_y_la_Tecnolog%C3%ADa_2026.pdf
+
+38. XVI Congreso Nacional de Microbiologia + Jovenes Investigadores
+Category: Biology, Science, Uruguay, Outside the Map
+Organizer/source: Sociedad Uruguaya de Microbiologia / Udelar Indico
+Date/deadline: 2026-07-22 to 2026-07-24; application currently open per page
+Location/remote: Montevideo, Uruguay
+Eligibility/fit notes: researchers/students; not a core fit but locally accessible.
+Expansion logic: opens biology/medicine/science-community direction; useful for astrobiology, life-support, water, and public-health curiosity.
+Confidence: High
+Tags: Uruguay, Biology, Science, Outside the Map
+Link: https://eventos.udelar.edu.uy/event/11/
+
+39. FING Maraton Interdisciplinaria
+Category: Education, AI, Engineering, Interdisciplinary
+Organizer/source: Facultad de Ingenieria, Udelar
+Date/deadline: registrations open until 2026-06-15
+Location/remote: Uruguay / FING
+Eligibility/fit notes: students exploring active-learning, AI, and educational contexts.
+Why it may interest/expand Ignacio: bridges engineering, AI, and education/service through local university ecosystem.
+Confidence: High
+Tags: Uruguay, Engineering, Education, AI, Deadline
+Link: https://www.fing.edu.uy/es/node/52791
+
+40. CTFM / ANII forestry-wood sector scholarships watch
+Category: Engineering, Materials, Sustainability, Uruguay
+Organizer/source: CTFM / ANII via FING
+Date/deadline: 2026 call listed as open on FING becas page; verify exact closing date
+Location/remote: Uruguay / possible external study
+Eligibility/fit notes: likely sector-specific and may target graduate study.
+Why it may interest/expand Ignacio: materials, circular economy, CAD/manufacturing, and sustainability beyond aerospace.
+Confidence: Medium
+Tags: Uruguay, Materials, Climate, Scholarship, Outside the Map
+Link: https://www.fing.edu.uy/es/comunicacion/becas
+
+41. CERN student and summer programs watch
+Category: Physics, Engineering, Research
+Organizer/source: CERN
+Date/deadline: annual cycles vary; monitor late 2026/early 2027
+Location/remote: Switzerland/France
+Eligibility/fit notes: many programs are open internationally by degree stage; deadlines may have passed for 2026.
+Why it may interest/expand Ignacio: rigorous physics/engineering instrumentation pathway adjacent to aerospace.
+Confidence: Medium
+Tags: Physics, Engineering, Research, Watchlist
+Link: https://careers.cern/students
+
+Humanities, philosophy, policy, diplomacy, writing
+
+42. Magna Charta Observatory Student Essay Competition 2026
+Category: Humanities, Higher Education, Essay
+Organizer/source: International Association of Universities / Magna Charta Observatory
+Date/deadline: submission deadline 2026-07-13
+Location/remote: remote submission
+Eligibility/fit notes: students worldwide.
+Expansion logic: asks how humanities shape access and belonging in higher education; good for a technically-minded student to clarify education values.
+Confidence: High
+Tags: Humanities, Essay, Leadership, International, Deadline
+Link: https://iau.global/news/mco-2026-student-competition
+
+43. Minds Underground Philosophy Essay Competition
+Category: Philosophy, Writing, Critical Thinking
+Organizer/source: Minds Underground
+Date/deadline: 2026 competition page active; verify closing date on entry portal
+Location/remote: remote
+Eligibility/fit notes: targeted at Year 12 and ambitious younger/re-applicant students; international entries welcome.
+Why it may interest/expand Ignacio: formal philosophical writing complements science/engineering judgment.
+Confidence: Medium
+Tags: Philosophy, Writing, Humanities
+Link: https://www.mindsunderground.com/philosophy-competition
+
+44. UNISCA Summer Academy 2026
+Category: International Relations, Model UN, Policy
+Organizer/source: University of Amsterdam
+Date/deadline: 2026-06-29 to 2026-07-10
+Location/remote: Amsterdam, Netherlands
+Eligibility/fit notes: proof of 60 ECTS, CV, motivation letter; for university students.
+Why it may interest/expand Ignacio: academic MUN with lectures and diplomacy, stronger than a casual conference.
+Confidence: High
+Tags: Model UN, Policy, International Relations, Europe
+Link: https://www.uva.nl/en/programmes/summer-courses/unisca-summer-academy/unisca-summer-academy.html
+
+45. MUN Academy Summer Camp at CU Boulder
+Category: Model UN, Leadership, Public Speaking
+Organizer/source: MUN Academy
+Date/deadline: 2026-07-12 to 2026-07-24
+Location/remote: Boulder, Colorado, United States
+Eligibility/fit notes: high-school students; paid program.
+Why it may interest/expand Ignacio: intensive diplomacy and debate training tied to global issues.
+Confidence: High
+Tags: Model UN, Leadership, Diplomacy, English
+Link: https://mun.academy/
+
+46. EELISA Model United Nations Academy Vienna
+Category: International Relations, Diplomacy, Policy
+Organizer/source: EELISA
+Date/deadline: training weekend begins 2026-06-13 to 2026-06-14; study trip/workshops included
+Location/remote: hybrid plus Vienna
+Eligibility/fit notes: likely for EELISA alliance students; verify if external participation is possible.
+Expansion logic: combines MUN with expert talks around UN institutions.
+Confidence: Medium/Low direct eligibility
+Tags: Model UN, Europe, Policy, Cross-cultural
+Link: https://www.gtk.bme.hu/en/2026/05/26/eelisa-model-united-nations-academy-vienna-2026/
+
+47. Global Citizens Model United Nations New York
+Category: Model UN, Diplomacy
+Organizer/source: GCMUN
+Date/deadline: June 2026 program listed
+Location/remote: New York, United States
+Eligibility/fit notes: students worldwide; verify remaining registration and cost.
+Why it may interest/expand Ignacio: international diplomacy simulation in New York with mission/workshop programming.
+Confidence: Medium
+Tags: Model UN, International Relations, Leadership
+Link: https://www.gcmun.com/
+
+48. Critical Thinking Conference 2026
+Category: Philosophy, Education, Public Reasoning
+Organizer/source: Foundation for Critical Thinking community listing
+Date/deadline: 2026-07-19 to 2026-07-24
+Location/remote: check event page
+Eligibility/fit notes: broad audience; verify student pricing.
+Expansion logic: high-upside for reasoning, debate, essay writing, and leadership clarity.
+Confidence: Medium
+Tags: Philosophy, Debate, Humanities, Wildcard
+Link: https://www.criticalthinking.org/
+
+49. International Law Fellowship Programme watch
+Category: Law, Diplomacy, International Relations
+Organizer/source: United Nations Office of Legal Affairs
+Date/deadline: 2026 fellowship deadline was 2026-03-30; programme 2026-06-29 to 2026-07-31
+Location/remote: Netherlands
+Eligibility/fit notes: usually for legal professionals/government academics; not current direct fit.
+Expansion logic: watch as a future direction if space law, aviation law, or international institutions become serious.
+Confidence: Medium/Low direct fit
+Tags: Law, Diplomacy, Space Policy, Outside the Map
+Link: https://legal.un.org/poa/ilfp/
+
+Finance, business, entrepreneurship, leadership
+
+50. EU-LAC Digital Accelerator corporate-startup alliances
+Category: Entrepreneurship, LatAm, Digital Innovation
+Organizer/source: AUCI / EU-LAC Digital Accelerator
+Date/deadline: call #5 open 2026-02-06 to 2026-06-12
+Location/remote: EU-Latin America/Caribbean collaboration
+Eligibility/fit notes: for corporations and startups forming alliances; may be more company-stage than student-stage.
+Why it may interest/expand Ignacio: useful if Foro Agora/Cor Ad Cor or another venture becomes an actual startup partnership.
+Confidence: High
+Tags: LatAm, Entrepreneurship, Civic Tech, Deadline
+Link: https://www.gub.uy/agencia-uruguaya-cooperacion-internacional/comunicacion/convocatorias/eu-lac-digital-accelerator-convoca-corporaciones-startup-integrar
+
+51. HKU International Techno-Entrepreneurship Challenge
+Category: Entrepreneurship, Tech Transfer, Innovation
+Organizer/source: University of Hong Kong
+Date/deadline: extended deadline 2026-06-21, 16:00 HK time; July-August stages
+Location/remote: global/competition zones
+Eligibility/fit notes: applicants must be HKU students/staff/alumni or nominated by one; eligibility requires a connection.
+Why it may interest/expand Ignacio: if he can find an HKU nominator, strong for aerospace/climate/hardware venture ideas.
+Confidence: Medium
+Tags: Entrepreneurship, Engineering, Hardware, Deadline
+Link: https://icb.hku.hk/en/innovalley
+
+52. HKUST-Sino One Million Dollar Entrepreneurship Competition: International Student Track
+Category: Entrepreneurship, Student Startup
+Organizer/source: HKUST Entrepreneurship Center
+Date/deadline: application deadline 2026-07-14
+Location/remote: Hong Kong / international track
+Eligibility/fit notes: students from global universities invited to express interest.
+Why it may interest/expand Ignacio: strong venue for a technical startup concept without needing to be AI-first.
+Confidence: High
+Tags: Entrepreneurship, Student Startup, International, Deadline
+Link: https://ec.hkust.edu.hk/one-million/hk/2026/international-student-track
+
+53. UDC Capital Cup Entrepreneurship Competition
+Category: Entrepreneurship, High-school Innovation
+Organizer/source: University of the District of Columbia
+Date/deadline: registration deadline 2026-06-30
+Location/remote: Washington, D.C. based global competition
+Eligibility/fit notes: high-school innovators from around the world.
+Why it may interest/expand Ignacio: straightforward business-plan practice for hardware, civic, education, or climate ideas.
+Confidence: High
+Tags: Entrepreneurship, Leadership, Student Competition, Deadline
+Link: https://www.udc.edu/sbpa/events/udc-capital-cup-entrepreneurship-competition
+
+54. QGF Global Portfolio Challenge watch
+Category: Finance, Investment, Student Competition
+Organizer/source: QGF
+Date/deadline: Spring 2026 registration closed 2026-02-27; performance window 2026-03-01 to 2026-08-31
+Location/remote: global/remote
+Eligibility/fit notes: students, team-based simulated investment challenge.
+Why it may interest/expand Ignacio: disciplined portfolio construction and fundamental-analysis practice.
+Confidence: High as future cycle
+Tags: Finance, Investing, Competition, Watchlist
+Link: https://qgf.org/
+
+55. Wolves of Wall Street Challenge
+Category: Finance, Investing, Youth Competition
+Organizer/source: Learn with Leaders / Harvard Student Agencies branding on page
+Date/deadline: regular application date 2026-07-15; competition date shown 2026-07-25
+Location/remote: likely online
+Eligibility/fit notes: youth/student stock market competition; verify fees and credibility before paying.
+Why it may interest/expand Ignacio: finance lane that can sharpen investment thesis writing.
+Confidence: Medium
+Tags: Finance, Competition, Investing, Deadline
+Link: https://www.learnwithleaders.com/competitions/the-wolves-of-wall-street-competition-page/
+
+56. MARGA Online Competition for Students
+Category: Business, Management, Strategy
+Organizer/source: MARGA
+Date/deadline: schedule shows 2026-06-18 deadline
+Location/remote: online
+Eligibility/fit notes: student business simulation; check registration eligibility.
+Why it may interest/expand Ignacio: operations/leadership practice outside pure startup pitching.
+Confidence: Medium
+Tags: Business, Operations, Leadership, Competition
+Link: https://www.marga.net/app/uploads/2025/10/MARGA-for-Students-ST26-Schedule.pdf
+
+57. SprintUy 2026
+Category: Uruguay, Innovation, Business, Startup Landing
+Organizer/source: ANII / Uruguay innovation ecosystem
+Date/deadline: guideline mentions 2026-07-21 and immersion 2026-10-05 to 2026-10-09
+Location/remote: Uruguay
+Eligibility/fit notes: appears oriented to innovation/business actors; verify if Ignacio can participate, volunteer, attend, or network.
+Why it may interest/expand Ignacio: local innovation hub exposure and possible founder/investor network.
+Confidence: Medium
+Tags: Uruguay, Entrepreneurship, Innovation, Local
+Link: https://anii.org.uy/upcms/files/llamados/documentos/1779386650-bases-sprintuy-2026.docx-ingl-s-1-.pdf
+
+58. Rice Business Plan Competition watch
+Category: Entrepreneurship, Student Startup
+Organizer/source: Rice Alliance
+Date/deadline: 2026 competition took place 2026-04-11; eligibility window note runs through 2026-06-30; monitor 2027 cycle
+Location/remote: Houston, United States
+Eligibility/fit notes: student startup teams, usually graduate-heavy.
+Why it may interest/expand Ignacio: gold-standard student venture competition to study for future pitch quality.
+Confidence: Medium
+Tags: Entrepreneurship, Venture, Watchlist
+Link: https://rbpc.rice.edu/
+
+Athletics, water polo, performance
+
+59. TCU Global Human Performance Forum
+Category: Sports Science, Human Performance, Technology
+Organizer/source: Texas Christian University
+Date/deadline: 2026-06-15 to 2026-06-16
+Location/remote: Fort Worth, Texas, United States
+Eligibility/fit notes: for people advancing human performance across sport, science, and technology.
+Why it may interest/expand Ignacio: connects athlete training, wellness, data, and sports science to engineering thinking.
+Confidence: High
+Tags: Sports Science, Athletics, Performance, Engineering
+Link: https://www.tcu.edu/human-performance/index.php
+
+60. Koper Water Polo Camp
+Category: Water Polo, Athletics, International Camp
+Organizer/source: Koper Water Polo Club 1958
+Date/deadline: camp 2026-07-21 to 2026-07-27; payment confirmation deadline listed 2026-05-31
+Location/remote: Koper, Slovenia
+Eligibility/fit notes: registration deadline may have just passed; contact organizer for late availability.
+Why it may interest/expand Ignacio: high-quality European water polo plus travel/cultural exposure.
+Confidence: High for event; Medium for late availability
+Tags: Water Polo, Athletics, Travel, Europe
+Link: https://vaterpolo-koper.com/en/summer-camp
+
+61. KAP7 Croatia Water Polo Camp 2026
+Category: Water Polo, Athletics, International Camp
+Organizer/source: KAP7 / Petar Trbojevic
+Date/deadline: 2026 camp; check availability
+Location/remote: Korcula and Cavtat, Croatia
+Eligibility/fit notes: international water polo training and cultural experience.
+Why it may interest/expand Ignacio: strong athlete development plus international exposure.
+Confidence: Medium
+Tags: Water Polo, Athletics, Travel
+Link: https://www.kap7.com/products/kap7-croatia-camp-2026
+
+62. Malibu Water Polo Camp
+Category: Water Polo, Athletics
+Organizer/source: Malibu Water Polo Camp
+Date/deadline: multiple summer 2026 sessions; one listed August 1-2
+Location/remote: Malibu, California
+Eligibility/fit notes: overnight/day camper options; verify age and international logistics.
+Why it may interest/expand Ignacio: elite coaching environment with Olympian/Pepperdine connections.
+Confidence: High
+Tags: Water Polo, Athletics, United States
+Link: https://www.malibuwaterpolocamp.com/
+
+63. Florida International Water Polo Event
+Category: Water Polo, Athletics
+Organizer/source: Gator Water Polo
+Date/deadline: 2026-07-06 to 2026-07-10; full payment deadline was 2026-05-15
+Location/remote: University of Florida area, United States
+Eligibility/fit notes: international camp; check late slots.
+Why it may interest/expand Ignacio: U.S. collegiate-athlete environment and training exposure.
+Confidence: Medium
+Tags: Water Polo, Athletics, United States
+Link: https://www.gatorwaterpolo.com/summer/
+
+64. World Aquatics Water Polo World Cup Super Finals
+Category: Water Polo, Elite Sport, Spectator/Networking
+Organizer/source: World Aquatics / Sydney event
+Date/deadline: 2026-07-22 to 2026-07-26
+Location/remote: Sydney Olympic Park Aquatic Centre, Australia
+Eligibility/fit notes: spectator/event opportunity, not participation.
+Expansion logic: studying elite play, sports operations, and international event logistics can inform athlete development and leadership.
+Confidence: Medium
+Tags: Water Polo, Sports Science, Travel, Wildcard
+Link: https://www.worldaquatics.com/competitions
+
+65. NASPSPA 2026 sport psychology / motor behavior conference
+Category: Sports Psychology, Athlete Development, Research
+Organizer/source: North American Society for the Psychology of Sport and Physical Activity
+Date/deadline: preliminary program shows 2026-06-20 sessions
+Location/remote: check conference site
+Eligibility/fit notes: academic/research conference; likely observer/student registration.
+Why it may interest/expand Ignacio: performance psychology and athlete transitions, useful for serious water polo.
+Confidence: Medium
+Tags: Sports Psychology, Athletics, Research
+Link: https://www.naspspa.com/
+
+Computer science, AI, data, open-source
+
+66. USAII Global AI Hackathon 2026
+Category: AI, Hackathon, Student Competition
+Organizer/source: USAII / Devpost guide
+Date/deadline: 2026-06-14 to 2026-06-21
+Location/remote: fully virtual
+Eligibility/fit notes: student-only worldwide per guide.
+Why it may interest/expand Ignacio: fast technical sprint; best if tied to space, science, education, or civic use rather than generic AI.
+Confidence: Medium
+Tags: AI, Hackathon, Remote, Student
+Link: https://aihackathon.usaii.org/content/docs/usaii-global-ai-hackathon-2026-student-guide.pdf
+
+67. IEEE Computer Society Global Student Challenge 2026
+Category: CS, Data Analytics, Student Competition
+Organizer/source: IEEE Computer Society
+Date/deadline: registration closes 2026-06-28, 23:59 ET; virtual Phase I opens 2026-07-13
+Location/remote: virtual
+Eligibility/fit notes: teams of two students.
+Why it may interest/expand Ignacio: applied data/programming challenge; could choose aerospace/science datasets if available.
+Confidence: High
+Tags: CS, Data, IEEE, Competition, Deadline
+Link: https://www.computer.org/publications/tech-news/events/global-student-challenge-2026
+
+68. AI for Scientists and Engineers Summer Academy
+Category: AI for Science, Engineering, Research Methods
+Organizer/source: University of Michigan MIDAS
+Date/deadline: priority application deadline 2026-06-30; academy 2026-07-13 to 2026-07-31
+Location/remote: University of Michigan, United States
+Eligibility/fit notes: academic researchers; college math/statistics prerequisites; prior coding not required.
+Why it may interest/expand Ignacio: AI as a tool for engineering/science rather than default career center.
+Confidence: High
+Tags: AI for Science, Engineering, Physics, Deadline
+Link: https://midas.umich.edu/events/aise-sa-2026/
+
+69. AI for Science Summer School by Equitech Futures
+Category: AI for Science, Online Learning
+Organizer/source: Equitech Futures community listing
+Date/deadline: deadline 2026-06-25; program 2026-07-06 to 2026-07-31
+Location/remote: fully online
+Eligibility/fit notes: students aged 15-21; challenge-based scholarship mentioned in public post; verify organizer/terms.
+Why it may interest/expand Ignacio: cosmology simulations, AlphaFold, and self-driving labs can connect AI to real science.
+Confidence: Medium
+Tags: AI for Science, Remote, Scholarship, Wildcard
+Link: https://www.reddit.com/r/learnmachinelearning/comments/1ttytio/im_a_student_who_just_finished_a_global_civic/
+
+70. EleutherAI Summer of Open AI Research 2026
+Category: Open Research, AI, Mentorship
+Organizer/source: EleutherAI community listing
+Date/deadline: deadline 2026-06-08; 5-week fully online research mentorship
+Location/remote: online
+Eligibility/fit notes: verify primary application page; public listing describes online research projects with mentors.
+Why it may interest/expand Ignacio: useful only if framed around scientific/open-source research discipline, not generic AI chasing.
+Confidence: Medium
+Tags: AI, Open Source, Research, Remote, Deadline
+Link: https://www.eleuther.ai/
+
+71. Amazon ML Summer School 2026
+Category: Machine Learning, Career Development
+Organizer/source: Amazon / Unstop listing
+Date/deadline: registration deadline 2026-06-14 per public listing
+Location/remote: likely India-focused/online components; verify eligibility
+Eligibility/fit notes: may be geographically restricted; check before investing time.
+Why it may interest/expand Ignacio: ML fundamentals if eligible; lower priority than science/engineering-linked items.
+Confidence: Medium/Low direct eligibility
+Tags: AI, ML, Deadline, Watchlist
+Link: https://unstop.com/hackathons/crp-amazon-ml-summer-school-2026-amazon-1688859
+
+72. Google Summer of Code 2027 preparation
+Category: Open Source, Software, Mentorship
+Organizer/source: Google
+Date/deadline: 2026 contributor applications passed; start preparing for 2027
+Location/remote: remote
+Eligibility/fit notes: open to 18+ contributors; organization/project dependent.
+Why it may interest/expand Ignacio: strong software lane if he chooses aerospace/science/open-data orgs.
+Confidence: High as watchlist
+Tags: Open Source, Software, Remote, Watchlist
+Link: https://summerofcode.withgoogle.com/
+
+Uruguay, LatAm, culture, language, exchange
+
+73. EducationUSA Uruguay Opportunity Funds 2026
+Category: Scholarship, Study Abroad, United States
+Organizer/source: AUCI / EducationUSA Uruguay
+Date/deadline: 2026 call active on AUCI page; verify exact internal deadlines
+Location/remote: Uruguay advising for U.S. undergraduate study
+Eligibility/fit notes: for students seeking U.S. undergraduate study who need economic support; aims at 100% university-funded scholarships.
+Why it may interest/expand Ignacio: directly aligned with rigorous aerospace engineering pathways in the U.S.
+Confidence: High
+Tags: Uruguay, Scholarship, United States, Aerospace Pathway
+Link: https://www.gub.uy/agencia-uruguaya-cooperacion-internacional/comunicacion/convocatorias/programa-fondos-oportunidad-2026
+
+74. Campus France Uruguay advising
+Category: Study Abroad, France, Engineering
+Organizer/source: Alianza Francesa / Campus France Uruguay
+Date/deadline: ongoing advising; research-stay scholarship link noted on page
+Location/remote: Montevideo / France
+Eligibility/fit notes: for Uruguay residents pursuing higher study in France.
+Why it may interest/expand Ignacio: French-language aerospace/engineering pathways and research mobility.
+Confidence: High
+Tags: French, Engineering, Study Abroad, Uruguay
+Link: https://www.alianzafrancesa.edu.uy/estudiar-en-francia/
+
+75. DELF/DALF exam session Uruguay
+Category: Language, Certification, France Pathway
+Organizer/source: Alianza Francesa de Montevideo
+Date/deadline: public session listed 2026-06-22 to 2026-06-26
+Location/remote: Montevideo, Uruguay
+Eligibility/fit notes: French certification; registration dates should be checked.
+Why it may interest/expand Ignacio: language credential for French/European engineering opportunities.
+Confidence: High
+Tags: French, Uruguay, Certification, Study Abroad
+Link: https://www.alianzafrancesa.edu.uy/delf-dalf/
+
+76. Montevideo city cultural/science events portal
+Category: Local Culture, Science, Public Events
+Organizer/source: Intendencia de Montevideo
+Date/deadline: current calendar includes June 2026 events
+Location/remote: Montevideo
+Eligibility/fit notes: public events; filter by science/culture/youth.
+Why it may interest/expand Ignacio: low-friction local exploration beyond academic competitions.
+Confidence: High
+Tags: Uruguay, Culture, Science, Local
+Link: https://eventos.montevideo.gub.uy/
+
+77. Centro Cultural de Espana Montevideo programming
+Category: Culture, Humanities, Public Lectures
+Organizer/source: CCE Montevideo / AECID
+Date/deadline: page shows 2026-06-25 programming; check agenda
+Location/remote: Montevideo
+Eligibility/fit notes: public cultural center.
+Expansion logic: broadens field of view into art, design, humanities, Spain/LatAm culture.
+Confidence: High
+Tags: Culture, Uruguay, Humanities, Outside the Map
+Link: https://ccemontevideo.aecid.es/
+
+78. Coloquio Internacional CEDEI
+Category: Humanities, Education/International Studies
+Organizer/source: Universidad de Montevideo
+Date/deadline: 2026-07-15 to 2026-07-17
+Location/remote: Montevideo, Uruguay
+Eligibility/fit notes: academic colloquium; verify audience/registration.
+Why it may interest/expand Ignacio: local intellectual event with international flavor.
+Confidence: Medium
+Tags: Uruguay, Humanities, University, Local
+Link: https://www.jornadascedei.com/
+
+79. Montevideo Fulldome Festival 2026
+Category: Art + Science, Immersive Media, Planetarium
+Organizer/source: Montevideo Fulldome Festival
+Date/deadline: 2026 call ended; festival/watchlist active
+Location/remote: Montevideo
+Eligibility/fit notes: submissions closed but event and community remain relevant.
+Expansion logic: connects planetarium/space aesthetics, visualization, music tech, and immersive media.
+Confidence: Medium
+Tags: Uruguay, Art Science, Music Tech, Outside the Map
+Link: https://fulldomefestivalmvd.com/
+
+80. FENACIES Student Film Festival watch
+Category: Film, Storytelling, Youth Culture
+Organizer/source: Festival de Cine Estudiantil FENACIES
+Date/deadline: submissions closed 2026-05-30; festival 2026-09-07 to 2026-09-13
+Location/remote: Montevideo, Uruguay
+Eligibility/fit notes: student short films worldwide; watch festival and next call.
+Expansion logic: science communication, aerospace storytelling, and civic-tech narratives need media skill.
+Confidence: Medium
+Tags: Uruguay, Culture, Film, Wildcard
+Link: https://filmmakers.festhome.com/es/festival/festival-de-cine-estudiantil-fenacies
+
+Cross-disciplinary bridges
+
+81. Space + sustainability: TIRIS / UNIVERSEH Summer School watch
+Category: Space, Sustainability, Policy
+Organizer/source: Lucian Blaga University of Sibiu / UNIVERSEH
+Date/deadline: 2026 deadline was 2026-03-20; monitor next edition
+Location/remote: Europe
+Eligibility/fit notes: Master/PhD focus; direct eligibility may be later.
+Why it may interest/expand Ignacio: combines space systems with climate/societal reflection.
+Confidence: Medium
+Tags: Aerospace, Climate, Policy, Cross-disciplinary
+Link: https://international.ulbsibiu.ro/news/tiris-universeh-summer-school-2026-space-and-sustainability/
+
+82. ESA/EUSPA EU Space Academy entrepreneurship modules
+Category: Space Applications, Entrepreneurship
+Organizer/source: ESA Academy page pointing to EU Space Academy
+Date/deadline: online modular courses/workshops/mentoring; check current enrollment
+Location/remote: online
+Eligibility/fit notes: for aspiring entrepreneurs in space-based applications; likely Europe-focused but online learning may be accessible.
+Why it may interest/expand Ignacio: satellite data/product thinking without committing to pure software.
+Confidence: Medium
+Tags: Aerospace, Entrepreneurship, Remote Sensing, Cross-disciplinary
+Link: https://www.esa.int/Education/ESA_Academy/Current_opportunities
+
+83. AI+Science Summer School at University of Chicago
+Category: AI for Science, Physical/Biological Sciences
+Organizer/source: University of Chicago Data Science Institute / Schmidt AI in Science Fellowship
+Date/deadline: 2026-06-22 to 2026-06-26; applications were due 2026-04-22
+Location/remote: Chicago, United States
+Eligibility/fit notes: graduate students and postdocs; future watchlist.
+Why it may interest/expand Ignacio: model for mature AI/science interfaces.
+Confidence: Medium
+Tags: AI for Science, Research, Physics, Watchlist
+Link: https://datascience.uchicago.edu/events/ai-science-summer-school-2026/
+
+84. Deep Learning for Science School 2026
+Category: AI for Science, HPC, Scientific Discovery
+Organizer/source: Berkeley Lab / NERSC
+Date/deadline: application deadline was 2026-04-10; 2026 school upcoming
+Location/remote: Berkeley Lab context
+Eligibility/fit notes: researchers/engineers; future watchlist.
+Why it may interest/expand Ignacio: foundation models, reasoning, and agentic AI for scientific discovery, relevant to simulations.
+Confidence: Medium
+Tags: HPC, AI for Science, Physics, Engineering
+Link: https://www.nersc.gov/news-and-events/calendar-of-events/deep-learning-for-science-school-2026
+
+Wildcards and Outside the Map
+
+85. Global Wellness / cooling-performance venture idea
+Category: Sports Science, Hardware, Entrepreneurship
+Organizer/source: Derived from Shark Tank of Wellness opportunity
+Date/deadline: 2026-06-30
+Location/remote: global
+Eligibility/fit notes: university student wellness idea; speculative if Ignacio is not university-enrolled.
+Expansion logic: turn Peltier cooling, athlete recovery, hydration, or heat-stress ideas into a wellness venture pitch.
+Confidence: Medium
+Tags: Wildcard, Sports Science, Hardware, Entrepreneurship
+Link: https://www.globalwellnesssummit.com/2026-shark-tank-student-competition/
+
+86. Press/science communication route into IAC or local science festivals
+Category: Journalism, Science Communication, Space
+Organizer/source: IAF press accreditation + Semana CyT
+Date/deadline: IAC press can close one week before 2026-10-05; Semana CyT calendar current
+Location/remote: Antalya / Uruguay
+Eligibility/fit notes: requires publishing partnership or outreach role.
+Expansion logic: if research presentation is premature, journalism/outreach can still build a public aerospace identity.
+Confidence: Medium
+Tags: Wildcard, Aerospace, Journalism, Science Communication
+Links: https://www.iafastro.org/events/iac/international-astronautical-congress-2026/media/press-accreditation.html and https://semanacyt.org.uy/
+
+87. Art-science immersive media via Montevideo Fulldome
+Category: Art, Space Visualization, Music Tech
+Organizer/source: Montevideo Fulldome Festival
+Date/deadline: 2026 call closed; festival/community watch
+Location/remote: Montevideo
+Eligibility/fit notes: good for attending, volunteering, or preparing a future submission.
+Expansion logic: aerospace simulations can become immersive visuals, planetarium media, or music/visual performance.
+Confidence: Medium
+Tags: Outside the Map, Art Science, Space, Music
+Link: https://fulldomefestivalmvd.com/
+
+88. Microbiology / astrobiology-adjacent local exploration
+Category: Biology, Astrobiology-adjacent, Uruguay
+Organizer/source: Udelar microbiology congress
+Date/deadline: 2026-07-22 to 2026-07-24
+Location/remote: Montevideo
+Eligibility/fit notes: attend if public/student registration is feasible.
+Expansion logic: life sciences can connect to astrobiology, planetary protection, water quality, and closed-loop life support.
+Confidence: Medium
+Tags: Outside the Map, Biology, Space Medicine, Uruguay
+Link: https://eventos.udelar.edu.uy/event/11/
+
+89. International law / space law watch
+Category: Law, Space Policy, Diplomacy
+Organizer/source: UN International Law Fellowship and IAC/SGAC policy ecosystem
+Date/deadline: 2026 legal fellowship deadline passed; monitor 2027
+Location/remote: Netherlands / global
+Eligibility/fit notes: likely later-career, but useful exploration theme.
+Expansion logic: space law and governance are high-upside for someone with MUN plus aerospace interests.
+Confidence: Medium/Low direct fit
+Tags: Outside the Map, Space Policy, Law, Diplomacy
+Link: https://legal.un.org/poa/ilfp/
+
+90. Ocean / atmospheric / water sensing path
+Category: Water, Ocean/Atmospheric Science, Remote Sensing
+Organizer/source: IRSSS, SORBETTO, JPL Climate, IEEE GRSS
+Date/deadline: multiple June-July deadlines/events
+Location/remote: Europe / U.S. / online elements
+Eligibility/fit notes: choose one concrete program to follow and one local project to prototype.
+Expansion logic: water and climate engineering can be a second identity next to aerospace, not a fallback.
+Confidence: High as theme
+Tags: Water, Climate, Remote Sensing, Cross-disciplinary
+Links: https://www.isac.cnr.it/en/event/sorbetto-4a-international-summer-school/ and https://www.grss-ieee.org/event/2026-ieee-grss-summer-school-on-microwave-and-optical-modeling-for-remote-sensing/
+
+Search coverage and source notes
+- Source types checked: NASA, ESA, IAF/ISEB, SGAC, AIAA, CanSat/rocketry pages, IEEE/GRSS, university summer schools, JPL/Caltech climate pages, SIAM/IOP/math/physics pages, FING/Udelar, ANII/AUCI, Campus France/Alianza Francesa, Montevideo event portals, CCE Montevideo, entrepreneurship competitions, sports/water polo camp pages, and public event/competition listings.
+- Search themes used: aerospace student opportunities 2026; IAC 2026 late abstracts/sponsorship; ESA Academy current opportunities; rocketry/CubeSat/CanSat competitions; remote sensing summer school July 2026; physics/math summer school 2026; Uruguay FING becas movilidad 2026; AUCI scholarships; philosophy essay competition 2026; MUN summer 2026; student entrepreneurship competition June/July 2026; water polo camp 2026; AI for science summer school June 2026; Montevideo culture/science events June 2026.
+- Inaccessible/thin areas: some event pages require account login or have weak indexing; private Slack/Discord/community calendars were not accessible; company early-career aerospace roles were not exhaustively checked today because student-program and deadline inventory was already large; several U.S. federal/NASA items are citizenship-restricted and included as watchlist/benchmark rather than direct-fit leads.
+- Inventory caveat: this list intentionally includes strong watchlist items when 2026 deadlines have just passed or eligibility is uncertain. Those are marked clearly so future runs can avoid re-reporting them as urgent unless a new cycle opens.
+
+Suggested immediate actions for Ignacio
+1. By 2026-06-07/10: decide whether to submit John Locke late entry and/or IAC Late Breaking Abstract.
+2. By 2026-06-12/14: check EU-LAC, PolyU, Amazon/USAII/IEEE deadlines only if there is a concrete project/team.
+3. By 2026-06-15: check FING Maraton Interdisciplinaria and FING/AUGM mobility eligibility.
+4. By 2026-06-21/30: shortlist one entrepreneurship competition and one sports/performance opportunity.
+5. This week: create a watchlist calendar for ESA Academy, SGAC SA-SGW, CanSat/IREC/AIAA next cycles, and EducationUSA/French pathways.

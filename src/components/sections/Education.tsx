@@ -1,4 +1,6 @@
-import { useNavigate } from "react-router-dom";
+// INTENTIONAL (owner): The "Next Chapter" card is intentionally generic and the Colleges link is
+// hidden from the homepage/nav. Do NOT re-add "U.S. college", "Class of 2030", or a click-through
+// to /colleges here unless the owner explicitly asks for it.
 import { motion } from "framer-motion";
 import { Loader2 } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";

@@ -45,7 +45,8 @@ export const en: Translations = {
   ]},
   timeline: { label: "Journey", title: "The Path So Far", ariaLabel: "Interactive timeline of Juan's journey", scrubberLabel: "Timeline scrubber" },
   experience: { label: "Career Path", title: "Experience" },
-  education: { label: "Foundation", title: "Education", nextChapter: "Next Chapter", nextChapterSub: "U.S. College — Class of 2030", nextChapterNote: "Awaiting admissions decisions", nextChapterBullets: ["Applying to top engineering programs", "The journey never stops loading..."], quote: '"The educational journey is never over."' },
+  // INTENTIONAL: Next Chapter copy intentionally avoids "U.S. college" / "Class of 2030" per owner. Do NOT re-add without explicit owner ask.
+  education: { label: "Foundation", title: "Education", nextChapter: "Next Chapter", nextChapterSub: "The journey is never over", nextChapterNote: "Loading what comes next…", nextChapterBullets: ["Building the foundation for what comes next", "The journey never stops loading…"], quote: '"The educational journey is never over."' },
   skills: { label: "Capabilities", title: "Skills" },
   servicesPreview: { label: "Professional", title: "Services I Offer", viewAll: "View all", viewAllServices: "View all services" },
   volunteering: { label: "Impact", title: "Volunteering & Leadership" },

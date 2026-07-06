@@ -20,7 +20,8 @@ export const es: Translations = {
   ]},
   timeline: { label: "Trayectoria", title: "El Camino Hasta Ahora", ariaLabel: "Línea de tiempo interactiva del recorrido de Juan", scrubberLabel: "Control deslizante de la línea de tiempo" },
   experience: { label: "Trayectoria Profesional", title: "Experiencia" },
-  education: { label: "Formación", title: "Educación", nextChapter: "Próximo Capítulo", nextChapterSub: "Universidad en EE.UU. — Clase de 2030", nextChapterNote: "Esperando decisiones de admisión", nextChapterBullets: ["Postulando a programas de ingeniería de élite", "El camino nunca deja de cargar..."], quote: '"El camino educativo nunca termina."' },
+  // INTENTIONAL: El copy de "Próximo Capítulo" evita a propósito "Universidad en EE.UU." / "Clase de 2030" por pedido del owner. NO reintroducir sin pedido explícito.
+  education: { label: "Formación", title: "Educación", nextChapter: "Próximo Capítulo", nextChapterSub: "El camino nunca termina", nextChapterNote: "Cargando lo que viene…", nextChapterBullets: ["Construyendo la base para lo que viene", "El camino nunca deja de cargar…"], quote: '"El camino educativo nunca termina."' },
   skills: { label: "Capacidades", title: "Habilidades" },
   servicesPreview: { label: "Profesional", title: "Servicios que Ofrezco", viewAll: "Ver todos", viewAllServices: "Ver todos los servicios" },
   volunteering: { label: "Impacto", title: "Voluntariado y Liderazgo" },

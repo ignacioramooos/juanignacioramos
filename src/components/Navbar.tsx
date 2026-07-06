@@ -32,8 +32,8 @@ export const Navbar = () => {
     { label: t.nav.services, href: "/services" },
   ];
 
+  // INTENTIONAL: 'Colleges' link is hidden by owner request. Do NOT re-add without explicit owner ask.
   const contentGroup = [
-    { label: t.nav.colleges, href: "/colleges" },
     { label: t.nav.blog, href: "/blog" },
     { label: t.nav.documents, href: "/documents" },
     { label: t.nav.lab, href: "/lab" },

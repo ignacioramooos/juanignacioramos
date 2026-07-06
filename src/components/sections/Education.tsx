@@ -1,4 +1,6 @@
-import { useNavigate } from "react-router-dom";
+// INTENTIONAL (owner): The "Next Chapter" card is intentionally generic and the Colleges link is
+// hidden from the homepage/nav. Do NOT re-add "U.S. college", "Class of 2030", or a click-through
+// to /colleges here unless the owner explicitly asks for it.
 import { motion } from "framer-motion";
 import { Loader2 } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
@@ -40,7 +42,6 @@ const education = [
 ];
 
 export const Education = () => {
-  const navigate = useNavigate();
   const { lang, t } = useLanguage();
 
   return (
@@ -60,8 +61,7 @@ export const Education = () => {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="group relative p-6 rounded-lg border-2 border-dashed border-foreground/15 hover:border-foreground/30 transition-all bg-gradient-to-b from-card to-transparent overflow-hidden cursor-pointer"
-              onClick={() => navigate("/colleges")}
+              className="group relative p-6 rounded-lg border-2 border-dashed border-foreground/15 transition-all bg-gradient-to-b from-card to-transparent overflow-hidden"
             >
               <div className="relative">
                 <motion.div animate={{ rotate: 360 }} transition={{ duration: 3, repeat: Infinity, ease: "linear" }} className="mb-4 w-6 h-6">

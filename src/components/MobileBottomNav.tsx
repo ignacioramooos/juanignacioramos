@@ -9,8 +9,8 @@ export const MobileBottomNav = () => {
   const [exploreOpen, setExploreOpen] = useState(false);
   const { t } = useLanguage();
 
+  // INTENTIONAL: 'Colleges' link is hidden by owner request. Do NOT re-add without explicit owner ask.
   const exploreLinks = [
-    { label: t.nav.colleges, href: "/colleges" },
     { label: t.nav.blog, href: "/blog" },
     { label: t.nav.documents, href: "/documents" },
     { label: t.nav.lab, href: "/lab" },
@@ -49,7 +49,7 @@ export const MobileBottomNav = () => {
           <Link to="/services" aria-label={t.mobileNav.services} className={`flex flex-col items-center gap-0.5 px-3 py-1 rounded-xl transition-colors ${isActive("/services") || location.pathname.startsWith("/services/") ? "text-foreground" : "text-muted-foreground"}`}>
             <Briefcase size={18} /><span className="text-[10px]">{t.mobileNav.services}</span>
           </Link>
-          <button onClick={() => setExploreOpen(!exploreOpen)} aria-label={t.mobileNav.explore} aria-expanded={exploreOpen} className={`flex flex-col items-center gap-0.5 px-3 py-1 rounded-xl transition-colors ${exploreOpen || ["/colleges", "/blog", "/documents", "/lab", "/ideas"].includes(location.pathname) ? "text-foreground" : "text-muted-foreground"}`}>
+          <button onClick={() => setExploreOpen(!exploreOpen)} aria-label={t.mobileNav.explore} aria-expanded={exploreOpen} className={`flex flex-col items-center gap-0.5 px-3 py-1 rounded-xl transition-colors ${exploreOpen || ["/blog", "/documents", "/lab", "/ideas"].includes(location.pathname) ? "text-foreground" : "text-muted-foreground"}`}>
             <Compass size={18} /><span className="text-[10px]">{t.mobileNav.explore}</span>
           </button>
           <Link to="/contact" className={`flex flex-col items-center gap-0.5 px-3 py-1 rounded-xl transition-colors ${isActive("/contact") ? "text-foreground" : "text-muted-foreground"}`}>

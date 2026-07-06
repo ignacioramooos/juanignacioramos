@@ -1,43 +1,32 @@
-## Add custom amount to Buy Me Gas
+## Changes
 
-### What changes
+### 1. "Next Chapter" card (Education section)
+- Keep the animated loading card exactly as it is (spinner, progress bar, dashed border).
+- Replace copy so it no longer mentions U.S. college / Class of 2030 / awaiting admissions.
+- New copy (both languages):
+  - EN — Title: "Next Chapter" · Sub: "The journey is never over" · Note: "Loading what comes next…" · Bullets: ["Building the foundation for what comes next", "The journey never stops loading…"]
+  - ES — Título: "Próximo Capítulo" · Sub: "El camino nunca termina" · Nota: "Cargando lo que viene…" · Bullets: ["Construyendo la base para lo que viene", "El camino nunca deja de cargar…"]
+- Remove the `onClick={() => navigate("/colleges")}` and cursor-pointer on this card (since Colleges is hidden).
+- Files: `src/i18n/translations/en.ts`, `src/i18n/translations/es.ts`, `src/components/sections/Education.tsx`.
 
-1. **Two checkout modes on `/buygas`**: existing km/passenger calculator + a new "custom amount" input (UYU). User picks which mode to pay with via a tab or toggle.
-2. **URL prefill**: `/buygas/:amount` (e.g. `/buygas/20`, `/buygas/100`) opens the page with the custom-amount tab active and the amount prefilled. `/buygas` (no amount) opens normally with custom amount blank/0.
-3. **Edge function** accepts either `{ kilometers, passengers }` OR `{ customAmountUyu }` and builds the Mercado Pago preference with the right unit price + title.
+### 2. Hide Colleges from the homepage / navigation
+- Remove the Colleges entry from `src/components/Navbar.tsx` (portfolio dropdown) and `src/components/MobileBottomNav.tsx` (explore list + active-path check).
+- Keep the `/colleges` route and page intact so the admin panel and direct URL still work — only hidden from user-facing navigation.
 
-### UX
+### 3. Remove "want to study in the USA" future references
+Keep past factual USA references (Space Camp in Huntsville, U.S. Space & Rocket Center feature, Advanced Space Academy). Only remove forward-looking "applying to U.S. universities" language.
+- `supabase/functions/chat/index.ts`: remove the "Currently applying to top U.S. engineering programs (Class of 2030)" line from the system prompt. Update the site-pages list to drop `/colleges`.
+- No other files currently say Juan wants to study in the USA in the future.
 
-- Tabs at top of the checkout card: **"Split a ride"** (current km calculator) | **"Custom amount"** (single UYU input).
-- When the URL contains an amount param, the Custom tab is auto-selected and the input is prefilled.
-- Custom amount minimum 1 UYU, maximum 50000 UYU (sanity bound), rounded to 2 decimals.
-- Checkout button uses the active tab's total.
+### 4. AI-agent disclaimer (so future AI edits don't "correct" this)
+- Add a top-of-file comment block in `src/components/sections/Education.tsx` and in both translation files stating: "INTENTIONAL: The 'Next Chapter' card and the Colleges page link are intentionally hidden / de-scoped by the site owner. Do not re-add U.S. college / Class of 2030 language or the Colleges nav item unless the owner explicitly asks."
+- Add the same note to `.lovable/plan.md` and update `mem://index.md` Core with a one-liner: "Hidden by owner: Colleges nav + any 'studying in USA / Class of 2030' language. Do not re-add without explicit request." Save a `mem://constraint/hidden-sections` memory file with the details.
 
-### Technical details
+### Out of scope (unchanged)
+- `/colleges` route, `CollegesPage`, admin CollegesAdmin, Supabase `colleges` table.
+- Past USA experiences (Space Camp, USSRC feature, Awards descriptions).
+- Any other Education card content.
 
-**Routing (`src/App.tsx`)**
-- Add `<Route path="/buygas/:amount?" element={...} />` so `/buygas` and `/buygas/123` both render `BuyGasPage`.
-
-**`src/pages/BuyGasPage.tsx`**
-- Read `useParams<{ amount?: string }>()`; parse to number, clamp, set as initial `customAmount` and force `mode = "custom"` when present.
-- Add `mode` state (`"split" | "custom"`) using shadcn `Tabs`.
-- New input field for custom UYU amount; reuse existing breakdown card for split mode.
-- `startCheckout` posts either `{ kilometers, passengers }` or `{ customAmountUyu }` to the edge function.
-
-**`src/lib/gas.ts`**
-- Add `CUSTOM_AMOUNT_MIN = 1`, `CUSTOM_AMOUNT_MAX = 50000`, helper `normalizeCustomAmount(value)`.
-
-**`supabase/functions/mercadopago-preference/index.ts`**
-- Branch on payload: if `customAmountUyu` is a finite number ≥ 1 and ≤ 50000, use it directly as `unit_price` with title `"Buy me gas"`. Otherwise keep current km/passenger validation + calculation.
-- Return `{ checkoutUrl, preferenceId, totalUyu }` in both branches.
-
-**Tests (`src/lib/gas.test.ts`)**
-- Add cases for `normalizeCustomAmount` (clamping, rounding, non-finite → min).
-
-### Files touched
-
-- `src/App.tsx` (route param)
-- `src/pages/BuyGasPage.tsx` (tabs + custom input + param parsing)
-- `src/lib/gas.ts` (custom amount helpers)
-- `src/lib/gas.test.ts` (new tests)
-- `supabase/functions/mercadopago-preference/index.ts` (accept custom amount branch)
+### Technical notes
+- Translation shape stays the same; only string values change, so `en.ts` type interface needs no update.
+- Education.tsx keeps the loading spinner, progress bar, and dashed border — only text bindings and the click handler change.

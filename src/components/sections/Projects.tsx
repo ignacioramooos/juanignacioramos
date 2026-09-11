@@ -332,7 +332,7 @@ interface ProjectItem {
 }
 
 export const Projects = () => {
-  const { ref, isInView } = useScrollReveal();
+  const { ref, isInView } = useScrollReveal<HTMLDivElement>();
   const [filter, setFilter] = useState("all");
   const [dbProjects, setDbProjects] = useState<ProjectItem[]>([]);
 

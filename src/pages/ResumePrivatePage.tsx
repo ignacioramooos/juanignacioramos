@@ -115,12 +115,45 @@ const ResumePrivatePage = () => {
             </h1>
             <p className="mt-3 text-muted-foreground">
               {isEs
-                ? "Este espacio está listo. El material y la presentación se agregan a continuación."
-                : "This space is ready. The material and presentation go here next."}
+                ? "Presentaciones. Elegí una y usá «Present» para pantalla completa (flechas para navegar)."
+                : "Presentations. Pick one and hit Present for fullscreen (arrow keys to navigate)."}
             </p>
-            <div className="mt-8 rounded-2xl border border-dashed border-border p-10 text-center text-sm text-muted-foreground">
-              {isEs ? "Contenido próximamente." : "Content coming soon."}
-            </div>
+
+            {!activeDeck ? (
+              <div className="mt-8 grid gap-4 sm:grid-cols-2">
+                {decks.map((deck) => (
+                  <button
+                    key={deck.slug}
+                    onClick={() => setActiveDeck(deck.slug)}
+                    className="group rounded-2xl border border-border bg-card p-6 text-left transition-colors hover:border-primary"
+                  >
+                    <span className="flex items-center gap-2 text-xs uppercase tracking-[0.14em] text-muted-foreground">
+                      <Presentation size={14} />
+                      {deck.slides.length} {isEs ? "diapositivas" : "slides"}
+                    </span>
+                    <h2 className="mt-3 font-display text-xl font-bold">{deck.title}</h2>
+                    {deck.subtitle && <p className="mt-1 text-sm text-muted-foreground">{deck.subtitle}</p>}
+                    {deck.description && (
+                      <p className="mt-3 text-sm text-muted-foreground">{deck.description}</p>
+                    )}
+                  </button>
+                ))}
+              </div>
+            ) : (
+              <div className="mt-8">
+                <button
+                  onClick={() => setActiveDeck(null)}
+                  className="mb-4 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  <ArrowLeft size={15} />
+                  {isEs ? "Todas las presentaciones" : "All presentations"}
+                </button>
+                <SlideDeck
+                  deck={decks.find((d) => d.slug === activeDeck)!}
+                  onExit={() => setActiveDeck(null)}
+                />
+              </div>
+            )}
           </div>
         )}
       </main>

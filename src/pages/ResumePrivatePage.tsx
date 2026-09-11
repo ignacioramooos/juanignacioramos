@@ -20,6 +20,7 @@ const ResumePrivatePage = () => {
   const [unlocked, setUnlocked] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [activeDeck, setActiveDeck] = useState<string | null>(null);
 
   useEffect(() => {
     if (sessionStorage.getItem(SESSION_KEY) === "1") setUnlocked(true);

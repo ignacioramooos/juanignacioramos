@@ -67,7 +67,7 @@ const ResumePrivatePage = () => {
         description="Password-protected area."
       />
       <Navbar />
-      <main className="max-w-3xl mx-auto px-6 pt-28 pb-28">
+      <main className={`${activeDeck ? "max-w-6xl" : "max-w-3xl"} mx-auto px-6 pt-28 pb-28 transition-all`}>
         <Link
           to="/resume"
           className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"

@@ -28,6 +28,8 @@ import GalleryPage from "./pages/GalleryPage";
 import ProfilePage from "./pages/ProfilePage";
 import { MobileBottomNav } from "@/components/MobileBottomNav";
 import BuyGasPage from "./pages/BuyGasPage";
+import ResumePage from "./pages/ResumePage";
+import ResumePrivatePage from "./pages/ResumePrivatePage";
 
 const queryClient = new QueryClient();
 
@@ -57,6 +59,8 @@ const AnimatedRoutes = () => {
         <Route path="/" element={<PageTransition><Index /></PageTransition>} />
         <Route path="/contact" element={<PageTransition><ContactPage /></PageTransition>} />
         <Route path="/profile" element={<PageTransition><ProfilePage /></PageTransition>} />
+        <Route path="/resume" element={<PageTransition><ResumePage /></PageTransition>} />
+        <Route path="/resume/private" element={<PageTransition><ResumePrivatePage /></PageTransition>} />
         <Route path="/projects" element={<PageTransition><ProjectsPage /></PageTransition>} />
         <Route path="/colleges" element={<PageTransition><CollegesPage /></PageTransition>} />
         <Route path="/blog" element={<PageTransition><BlogPage /></PageTransition>} />

@@ -1,5 +1,5 @@
 export interface Translations {
-  nav: { portfolio: string; projects: string; services: string; colleges: string; blog: string; documents: string; lab: string; ideas: string; contact: string; toggleTheme: string };
+  nav: { portfolio: string; projects: string; services: string; colleges: string; blog: string; documents: string; lab: string; ideas: string; resume: string; contact: string; toggleTheme: string };
   mobileNav: { home: string; projects: string; services: string; explore: string; contact: string };
   hero: { location: string; tagline: string; subtitle: string; exploreWork: string; servicesOffer: string; getInTouch: string; pills: string[] };
   highlights: { spaceAcademy: string; spaceAcademyDetail: string; bac: string; bacDetail: string; mun: string; munDetail: string; waterPolo: string; waterPoloDetail: string };
@@ -26,7 +26,7 @@ export interface Translations {
 }
 
 export const en: Translations = {
-  nav: { portfolio: "Portfolio", projects: "Projects", services: "Services", colleges: "Colleges", blog: "Blog", documents: "Documents", lab: "Lab", ideas: "Ideas", contact: "Contact", toggleTheme: "Toggle theme (Ctrl+D)" },
+  nav: { portfolio: "Portfolio", projects: "Projects", services: "Services", colleges: "Colleges", blog: "Blog", documents: "Documents", lab: "Lab", ideas: "Ideas", resume: "Resume", contact: "Contact", toggleTheme: "Toggle theme (Ctrl+D)" },
   mobileNav: { home: "Home", projects: "Projects", services: "Services", explore: "Explore", contact: "Contact" },
   hero: { location: "Montevideo, Uruguay", tagline: "Building the path to aerospace engineering in Uruguay", subtitle: "Aspiring Aerospace Engineer · Learner · Problem Solver", exploreWork: "Explore My Work", servicesOffer: "Services I Offer", getInTouch: "Get in Touch", pills: ["Aerospace", "Systems Thinking", "Leadership", "Real-world Impact"] },
   highlights: { spaceAcademy: "Advanced Space Academy Scholar", spaceAcademyDetail: "Huntsville, Alabama", bac: 'French BAC "Mention Très Bien"', bacDetail: "Top 10–15%", mun: "MUN Secretary General", munDetail: "International leadership", waterPolo: "National Water Polo Pre-selection", waterPoloDetail: "Elite discipline" },

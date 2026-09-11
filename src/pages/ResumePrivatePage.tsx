@@ -5,11 +5,12 @@ import { SlideDeck } from "@/components/deck/SlideDeck";
 import { eventOrganizationDeck } from "@/data/decks/eventOrganization";
 import { bdeStanislasDeck } from "@/data/decks/bdeStanislas";
 
-const decks = [bdeStanislasDeck, eventOrganizationDeck];
 import { Navbar } from "@/components/Navbar";
 import { SEOHead } from "@/components/SEOHead";
 import { supabase } from "@/integrations/supabase/client";
 import { useLanguage } from "@/i18n/LanguageContext";
+
+const decks = [bdeStanislasDeck, eventOrganizationDeck];
 
 const SESSION_KEY = "resume-private-unlocked";
 

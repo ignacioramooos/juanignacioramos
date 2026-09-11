@@ -11,6 +11,7 @@ export const MobileBottomNav = () => {
 
   // INTENTIONAL: 'Colleges' link is hidden by owner request. Do NOT re-add without explicit owner ask.
   const exploreLinks = [
+    { label: t.nav.resume, href: "/resume" },
     { label: t.nav.blog, href: "/blog" },
     { label: t.nav.documents, href: "/documents" },
     { label: t.nav.lab, href: "/lab" },

@@ -1,7 +1,7 @@
 import type { Translations } from "./en";
 
 export const es: Translations = {
-  nav: { portfolio: "Portafolio", projects: "Proyectos", services: "Servicios", colleges: "Universidades", blog: "Blog", documents: "Documentos", lab: "Laboratorio", ideas: "Ideas", contact: "Contacto", toggleTheme: "Cambiar tema (Ctrl+D)" },
+  nav: { portfolio: "Portafolio", projects: "Proyectos", services: "Servicios", colleges: "Universidades", blog: "Blog", documents: "Documentos", lab: "Laboratorio", ideas: "Ideas", resume: "Currículum", contact: "Contacto", toggleTheme: "Cambiar tema (Ctrl+D)" },
   mobileNav: { home: "Inicio", projects: "Proyectos", services: "Servicios", explore: "Explorar", contact: "Contacto" },
   hero: { location: "Montevideo, Uruguay", tagline: "Construyendo el camino hacia la ingeniería aeroespacial en Uruguay", subtitle: "Aspirante a Ingeniero Aeroespacial · Aprendiz · Solucionador de Problemas", exploreWork: "Explorar mi Trabajo", servicesOffer: "Servicios que Ofrezco", getInTouch: "Contacto", pills: ["Aeroespacial", "Pensamiento Sistémico", "Liderazgo", "Impacto Real"] },
   highlights: { spaceAcademy: "Becario Advanced Space Academy", spaceAcademyDetail: "Huntsville, Alabama", bac: 'BAC Francés "Mention Très Bien"', bacDetail: "Top 10–15%", mun: "Secretario General MUN", munDetail: "Liderazgo internacional", waterPolo: "Pre-selección Nacional de Waterpolo", waterPoloDetail: "Disciplina de élite" },

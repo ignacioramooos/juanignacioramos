@@ -3,8 +3,9 @@ import { Link, useSearchParams } from "react-router-dom";
 import { Lock, ArrowLeft, Loader2, Presentation } from "lucide-react";
 import { SlideDeck } from "@/components/deck/SlideDeck";
 import { eventOrganizationDeck } from "@/data/decks/eventOrganization";
+import { bdeStanislasDeck } from "@/data/decks/bdeStanislas";
 
-const decks = [eventOrganizationDeck];
+const decks = [bdeStanislasDeck, eventOrganizationDeck];
 import { Navbar } from "@/components/Navbar";
 import { SEOHead } from "@/components/SEOHead";
 import { supabase } from "@/integrations/supabase/client";

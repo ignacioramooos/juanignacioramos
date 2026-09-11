@@ -6,6 +6,15 @@ export type SlideBlock =
   | { type: "stats"; items: Stat[] }
   | { type: "table"; head: string[]; rows: string[][] }
   | { type: "quote"; text: string; source?: string }
+  | {
+      type: "sheet";
+      file?: string;
+      tab?: string;
+      columns: string[];
+      rows: string[][];
+      highlightRows?: number[];
+      caption?: string;
+    }
   | { type: "image"; src: string; alt: string; caption?: string };
 
 export type Slide = {

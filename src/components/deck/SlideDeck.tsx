@@ -111,6 +111,59 @@ const SlideView = ({ slide, index, total }: { slide: Slide; index: number; total
                 </blockquote>
               );
 
+            if (block.type === "sheet")
+              return (
+                <figure key={i} className="overflow-hidden rounded-[18px] border border-border">
+                  <figcaption className="slide-caption flex items-center gap-[16px] border-b border-border bg-muted px-[24px] py-[14px] text-muted-foreground">
+                    <span className="h-[14px] w-[14px] rounded-[4px] bg-primary" />
+                    {block.file && <span className="font-semibold text-foreground">{block.file}</span>}
+                    {block.tab && <span>— {block.tab}</span>}
+                  </figcaption>
+                  <table className="w-full border-collapse bg-background text-left">
+                    <thead>
+                      <tr>
+                        <th className="slide-caption w-[70px] border-b border-r border-border bg-muted py-[12px] text-center text-muted-foreground" />
+                        {block.columns.map((c, j) => (
+                          <th
+                            key={j}
+                            className="slide-caption border-b border-r border-border bg-muted px-[20px] py-[12px] font-semibold text-muted-foreground"
+                          >
+                            {c}
+                          </th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {block.rows.map((row, j) => {
+                        const highlighted = block.highlightRows?.includes(j);
+                        return (
+                          <tr key={j} className={highlighted ? "bg-muted/60" : undefined}>
+                            <td className="slide-caption border-b border-r border-border bg-muted py-[14px] text-center text-muted-foreground">
+                              {j + 2}
+                            </td>
+                            {row.map((cell, k) => (
+                              <td
+                                key={k}
+                                className={`slide-body border-b border-r border-border px-[20px] py-[14px] ${
+                                  highlighted ? "font-semibold" : k === 0 ? "" : "text-muted-foreground"
+                                } ${k > 0 ? "tabular-nums" : ""}`}
+                              >
+                                {cell}
+                              </td>
+                            ))}
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                  {block.caption && (
+                    <div className="slide-caption border-t border-border px-[24px] py-[14px] text-muted-foreground">
+                      {block.caption}
+                    </div>
+                  )}
+                </figure>
+              );
+
             return (
               <figure key={i}>
                 <img

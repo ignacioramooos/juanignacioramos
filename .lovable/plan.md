@@ -18,30 +18,37 @@ Leí las cinco planillas que subiste. Estos son los números reales que usaré (
 
 **LFMUN** — 150 invitados, 13 colegios, 6 comisiones, catering y protocolo diplomático.
 
-## Estructura de la presentación (≈22 diapositivas, en francés)
+## Relato de apertura (tu contexto)
 
-1. Portada — Candidature BDE Stanislas, pôle Événementiel
-2. Ce que je ne prétends pas / ce que j'apporte (tono humilde)
-3. Panorama : 6 événements dirigés, chiffres clés en 3 stats
-4. Chronologie des événements (tabla corta)
-5. La Nuit 28/02 — le pari (objectif 750)
-6. La Nuit 28/02 — le résultat (821, 406.090 UYU)
-7. La Nuit 28/02 — le budget (captura de planilla)
-8. La Nuit 2 — passer à l'échelle (1.246 entradas)
-9. La Nuit 2 — 310.500 UYU de coûts (captura)
-10. La Nuit 2 — l'imprévu à 40.000 (carpa) y cómo se absorbió
-11. La Nuit 3 — même cadre, salle en centre-ville
-12. La Fet — du chiffre d'affaires au résultat net (captura del balance)
-13. La Fet — 18 personnes payées, en règle (captura de la hoja de personal)
-14. Sécurité — dispositif type y costos
-15. Gradu française — 1.013 entradas, 1.382.000 UYU
-16. Gradu française — tarification par paliers (captura)
-17. Projet LEA — contrôle d'accès par pièce d'identité
-18. Projet LEA — modèle probabilistique de présence (captura del dashboard)
-19. LFMUN — 150 invités, format non festif
-20. Valeurs humaines : bénévolat, Foro Ágora, Engineering for Impact, deporte
-21. Ce que je ferais au BDE (método: presupuesto, equipo, seguridad, post-mortem)
-22. Cierre humilde + cita «Mind and Hand»
+Antes, en el liceo, las fiestas de graduación se financiaban con actividades que rendían poco y los estudiantes terminaban pagando de su bolsillo. En la primera asamblea general propuse hacer fiestas de verdad; nació el «comité jodas» y quedé como presidente. Empezamos 10, terminamos 4 trabajando codo a codo. Buscamos todo desde cero — terreno, baños, generador, luces, sonido, DJ, seguridad, permisos — e incluso construimos nuestro propio escenario para las dos primeras. Todo mientras preparábamos el bac: imprevistos de último momento, decisiones difíciles, delegar, buscar alternativas. Salió bien. Cierre de esa idea: candidatura al pôle Événementiel, y también a la présidence si el jurado lo considera.
+
+## Estructura de la presentación (≈24 diapositivas, en francés)
+
+1. Portada — Candidature BDE Stanislas, pôle Événementiel (y présidence)
+2. Le point de départ — antes las graduaciones se pagaban del bolsillo de los alumnos
+3. La proposition en assemblée générale — nace el « comité jodas », presidencia
+4. L'équipe — de 10 a 4 personas, reparto de roles
+5. Tout partir de zéro — terreno, baños, generador, luces, sonido, seguridad, permisos
+6. Notre propre scène — construida por nosotros en las dos primeras ediciones
+7. En parallèle du bac — gestión del estrés y de las prioridades
+8. Panorama : 6 eventos dirigidos, cifras clave en 3 stats
+9. Chronologie des événements (tabla corta)
+10. La Nuit 28/02 — le pari (objectif 750)
+11. La Nuit 28/02 — le résultat (821, 406.090 UYU)
+12. La Nuit 28/02 — le budget (captura de planilla)
+13. La Nuit 2 — passer à l'échelle (1.246 entradas)
+14. La Nuit 2 — 310.500 UYU de coûts (captura)
+15. La Nuit 2 — l'imprévu à 40.000 (carpa) y cómo se absorbió
+16. La Nuit 3 — même cadre, salle en centre-ville
+17. La Fet — du chiffre d'affaires au résultat net (captura del balance)
+18. La Fet — 18 personnes payées, en règle (captura de la hoja de personal)
+19. Sécurité — dispositif type y costos
+20. Gradu française — 1.013 entradas, 1.382.000 UYU (captura de tandas)
+21. Projet LEA — contrôle d'accès par pièce d'identité + modelo probabilístico (captura)
+22. LFMUN — 150 invités, format non festif
+23. Valeurs humaines : bénévolat, Foro Ágora, Engineering for Impact, deporte, amistades y contactos que dejó el camino
+24. Ce que je ferais au BDE + candidature (événementiel / présidence) y cierre humilde con « Mind and Hand »
+
 
 ## «Capturas» de los Excel
 

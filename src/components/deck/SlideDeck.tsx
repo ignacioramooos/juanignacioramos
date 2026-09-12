@@ -7,7 +7,7 @@ const H = 1080;
 
 const SlideView = ({ slide, index, total }: { slide: Slide; index: number; total: number }) => {
   const isTitle = slide.variant === "title";
-  const image = slide.blocks?.find((block) => block.type === "image");
+  const images = (slide.blocks ?? []).filter((block) => block.type === "image");
   const contentBlocks = slide.blocks?.filter((block) => block.type !== "image");
   return (
     <div className="slide-content flex flex-col bg-background text-foreground px-[120px] py-[80px]">

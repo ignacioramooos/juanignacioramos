@@ -137,6 +137,14 @@ export const Navbar = () => {
             </AnimatePresence>
           </div>
 
+          <Link
+            to="/resume"
+            onClick={() => handleClick("/resume")}
+            className="text-[13px] lg:text-[15px] font-semibold text-foreground/80 hover:text-foreground transition-colors whitespace-nowrap"
+          >
+            {t.nav.resume}
+          </Link>
+
           <div className="glass-pill flex items-center gap-1.5 lg:gap-2">
             {projectsGroup.map(renderLink)}
           </div>
@@ -221,6 +229,14 @@ export const Navbar = () => {
                   </motion.div>
                 )}
               </AnimatePresence>
+
+              <Link
+                to="/resume"
+                onClick={() => handleClick("/resume")}
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors py-2"
+              >
+                {t.nav.resume}
+              </Link>
 
               <div className="glass-pill my-1 py-2 px-3 flex flex-col gap-1">
                 {projectsGroup.map((l) => (

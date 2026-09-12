@@ -16,9 +16,9 @@ describe("BDE Stanislas photo collection", () => {
     expect(new Set(usedSources)).toEqual(new Set(bdePhotoSources));
   });
 
-  it("places at most one collection photo on each slide", () => {
+  it("places at most three collection photos on each slide", () => {
     for (const slide of bdeStanislasDeck.slides) {
-      expect((slide.blocks ?? []).filter((block) => block.type === "image").length).toBeLessThanOrEqual(1);
+      expect((slide.blocks ?? []).filter((block) => block.type === "image").length).toBeLessThanOrEqual(3);
     }
   });
 });

@@ -34,7 +34,7 @@ export const bdeStanislasDeck: Deck = {
             { text: "Personne ne voulait s'occuper de la logistique : trop lourd, trop risqué." },
           ],
         },
-        { type: "image", src: bdePhotos.img0217, alt: "Public réuni sous le chapiteau pendant une soirée", position: "top" },
+        { type: "image", src: bdePhotos.img0217, alt: "Public réuni sous le chapiteau pendant une soirée" },
       ],
     },
     {
@@ -53,7 +53,7 @@ export const bdeStanislasDeck: Deck = {
             { title: "Mon rôle", text: "président du comité, responsable du budget et de la production." },
           ],
         },
-        { type: "image", src: bdePhotos.img0948, alt: "La piste et la structure lumineuse d'une soirée", position: "top" },
+        { type: "image", src: bdePhotos.img0948, alt: "La piste et la structure lumineuse d'une soirée" },
       ],
     },
     {
@@ -69,7 +69,7 @@ export const bdeStanislasDeck: Deck = {
             { title: "Ma leçon", text: "une équipe se juge la nuit même, pas en réunion." },
           ],
         },
-        { type: "image", src: bdePhotos.adminsNuit, alt: "Les quatre membres de l'équipe organisatrice de La Nuit", caption: "Les quatre qui ont porté le projet jusqu'au bout", position: "top" },
+        { type: "image", src: bdePhotos.adminsNuit, alt: "Les quatre membres de l'équipe organisatrice de La Nuit" },
       ],
       footer: "Déléguer, répartir les rôles, tenir jusqu'au démontage",
     },
@@ -89,7 +89,7 @@ export const bdeStanislasDeck: Deck = {
             { title: "Légal", text: "autorisations municipales, droits d'auteur (AGADU), comptable." },
           ],
         },
-        { type: "image", src: bdePhotos.img1258, alt: "Structure technique, son et éclairage d'une soirée", position: "top" },
+        { type: "image", src: bdePhotos.img1258, alt: "Structure technique, son et éclairage d'une soirée" },
       ],
     },
     {
@@ -108,7 +108,7 @@ export const bdeStanislasDeck: Deck = {
             { text: "Chapiteau, barrières et vestiaire intégrés au même plan de salle." },
           ],
         },
-        { type: "image", src: bdePhotos.armadoEscenarioNuit, alt: "Construction artisanale de la scène par l'équipe", caption: "Montage de la scène par le comité", fit: "contain" },
+        { type: "image", src: bdePhotos.armadoEscenarioNuit, alt: "Construction artisanale de la scène par l'équipe" },
       ],
     },
     {
@@ -124,7 +124,7 @@ export const bdeStanislasDeck: Deck = {
             { title: "Sang-froid", text: "chercher une alternative plutôt que subir le problème." },
           ],
         },
-        { type: "image", src: bdePhotos.img1053, alt: "L'équipe réunie pendant une soirée", position: "top" },
+        { type: "image", src: bdePhotos.img1053, alt: "L'équipe réunie pendant une soirée" },
       ],
     },
     {
@@ -140,7 +140,7 @@ export const bdeStanislasDeck: Deck = {
             { value: "18", label: "personnes salariées sur une seule soirée" },
           ],
         },
-        { type: "image", src: bdePhotos.img1605, alt: "Vue de la scène et du public pendant un événement", position: "top" },
+        { type: "image", src: bdePhotos.img1605, alt: "Vue de la scène et du public pendant un événement" },
       ],
       footer: "Chiffres issus de mes propres tableurs",
     },
@@ -162,7 +162,7 @@ export const bdeStanislasDeck: Deck = {
             ["LFMUN", "Secrétaire général", "150 invités"],
           ],
         },
-        { type: "image", src: bdePhotos.img1636, alt: "Public devant la scène pendant une soirée", position: "top" },
+        { type: "image", src: bdePhotos.img1636, alt: "Public devant la scène pendant une soirée" },
       ],
     },
     {
@@ -174,7 +174,7 @@ export const bdeStanislasDeck: Deck = {
           type: "lead",
           text: "Objectif fixé avant l'ouverture de la billetterie, avec une grille tarifaire en cinq paliers (350 → 800 UYU).",
         },
-        { type: "image", src: bdePhotos.vistaNuit1, alt: "Vue d'ensemble du public de La Nuit", caption: "La Nuit — vue du public", position: "center" },
+        { type: "image", src: bdePhotos.vistaNuit1, alt: "Vue d'ensemble du public de La Nuit" },
       ],
     },
     {
@@ -190,7 +190,7 @@ export const bdeStanislasDeck: Deck = {
             { value: "406 090", label: "UYU de recette brute" },
           ],
         },
-        { type: "image", src: bdePhotos.fuegosArtificialesNuit, alt: "Feu d'artifice pendant La Nuit", caption: "La Nuit, au moment du feu d'artifice", position: "top" },
+        { type: "image", src: bdePhotos.fuegosArtificialesNuit, alt: "Feu d'artifice pendant La Nuit" },
       ],
       footer: "Répartition du public : 55,6 % filles / 44,4 % garçons",
     },
@@ -231,7 +231,7 @@ export const bdeStanislasDeck: Deck = {
             { value: "606 700", label: "UYU de recette brute prévue" },
           ],
         },
-        { type: "image", src: bdePhotos.vistaNuit2, alt: "Vue de la scène pendant La Nuit 2", caption: "La Nuit 2", position: "top" },
+        { type: "image", src: bdePhotos.vistaNuit2, alt: "Vue de la scène pendant La Nuit 2" },
       ],
     },
     {
@@ -274,7 +274,7 @@ export const bdeStanislasDeck: Deck = {
             { title: "Compensation", text: "palier tarifaire supplémentaire et arbitrage sur d'autres postes." },
           ],
         },
-        { type: "image", src: bdePhotos.img2882, alt: "Trois membres de l'équipe pendant une soirée", position: "top" },
+        { type: "image", src: bdePhotos.img2882, alt: "Trois membres de l'équipe pendant une soirée" },
       ],
     },
     {
@@ -290,25 +290,9 @@ export const bdeStanislasDeck: Deck = {
             { text: "Preuve que le modèle fonctionne en plein air comme en intérieur." },
           ],
         },
-        { type: "image", src: bdePhotos.nuitSalon, alt: "Publication vidéo montrant le public de La Nuit en salle", caption: "La Nuit 3 — format salle", fit: "contain" },
-      ],
-    },
-    {
-      id: "nuit3-vista",
-      kicker: "11 · La Nuit 3",
-      title: "Une salle pleine, une autre dynamique",
-      blocks: [
-        { type: "lead", text: "Le passage en intérieur change le rythme, la circulation et la proximité avec le public." },
-        { type: "image", src: bdePhotos.nuitSalonVista2, alt: "Vue du public de La Nuit 3 en salle", caption: "La Nuit 3 — vue de la salle", position: "top" },
-      ],
-    },
-    {
-      id: "nuit3-production",
-      kicker: "11 · La Nuit 3",
-      title: "Observer la salle en temps réel",
-      blocks: [
-        { type: "lead", text: "En salle, chaque décision se lit immédiatement dans les flux, la jauge et l'ambiance." },
-        { type: "image", src: bdePhotos.nuitSalon3, alt: "Vue latérale de la production et du public de La Nuit 3", caption: "La Nuit 3 — côté production", position: "top" },
+        { type: "image", src: bdePhotos.nuitSalon, alt: "Publication vidéo montrant le public de La Nuit en salle" },
+        { type: "image", src: bdePhotos.nuitSalonVista2, alt: "Vue du public de La Nuit 3 en salle" },
+        { type: "image", src: bdePhotos.nuitSalon3, alt: "Vue latérale de la production et du public de La Nuit 3" },
       ],
     },
     {
@@ -331,7 +315,7 @@ export const bdeStanislasDeck: Deck = {
           ],
           highlightRows: [5],
         },
-        { type: "image", src: bdePhotos.laFet1, alt: "Vue du public de La Fet", caption: "La Fet — vue de la salle", position: "top" },
+        { type: "image", src: bdePhotos.laFet1, alt: "Vue du public de La Fet" },
       ],
     },
     {
@@ -355,7 +339,7 @@ export const bdeStanislasDeck: Deck = {
           highlightRows: [5],
           caption: "S'ajoutent les droits d'auteur AGADU (14 462 UYU) et les frais de comptable.",
         },
-        { type: "image", src: bdePhotos.laFet2, alt: "Public et éclairage de La Fet", caption: "La Fet — une production portée par 18 salariés", position: "top" },
+        { type: "image", src: bdePhotos.laFet2, alt: "Public et éclairage de La Fet" },
       ],
     },
     {
@@ -372,7 +356,7 @@ export const bdeStanislasDeck: Deck = {
             { title: "Budget dédié", text: "37 500 à 40 000 UYU sur les grandes éditions." },
           ],
         },
-        { type: "image", src: bdePhotos.laFet3, alt: "Vue de la piste de La Fet", caption: "La Fet — vue depuis la production", position: "top" },
+        { type: "image", src: bdePhotos.laFet3, alt: "Vue de la piste de La Fet" },
       ],
     },
     {
@@ -397,7 +381,7 @@ export const bdeStanislasDeck: Deck = {
           highlightRows: [6],
           caption: "Échéancier fournisseur en quatre versements, dont 1 252 000 UYU à 72 heures de l'événement.",
         },
-        { type: "image", src: bdePhotos.img3156, alt: "Public réuni devant une grande scène", position: "top" },
+        { type: "image", src: bdePhotos.img3156, alt: "Public réuni devant une grande scène" },
       ],
     },
     {
@@ -413,7 +397,7 @@ export const bdeStanislasDeck: Deck = {
             { title: "Jauge", text: "objectif 150 personnes, capacité maximale sûre 180." },
           ],
         },
-        { type: "image", src: bdePhotos.img8619, alt: "Équipe de production au contrôle d'un événement", caption: "Le contrôle opérationnel pendant l'événement", position: "top" },
+        { type: "image", src: bdePhotos.img8619, alt: "Équipe de production au contrôle d'un événement" },
       ],
     },
     {
@@ -458,7 +442,7 @@ export const bdeStanislasDeck: Deck = {
             { title: "Secrétaire général", text: "protocole, restauration, badges, salles et récompenses." },
           ],
         },
-        { type: "image", src: bdePhotos.ee377, alt: "Public face à la scène lors d'un événement", position: "top" },
+        { type: "image", src: bdePhotos.ee377, alt: "Public face à la scène lors d'un événement" },
       ],
     },
     {
@@ -475,7 +459,7 @@ export const bdeStanislasDeck: Deck = {
             { title: "Ce qui reste", text: "des contacts, des amitiés et une équipe qui recommencerait demain." },
           ],
         },
-        { type: "image", src: bdePhotos.generationNuit, alt: "Photo de groupe de toute la génération", caption: "Au-delà des chiffres : les liens et les amitiés", fit: "contain" },
+        { type: "image", src: bdePhotos.generationNuit, alt: "Photo de groupe de toute la génération" },
       ],
     },
     {

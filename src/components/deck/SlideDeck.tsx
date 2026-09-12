@@ -7,7 +7,7 @@ const H = 1080;
 
 const SlideView = ({ slide, index, total }: { slide: Slide; index: number; total: number }) => {
   const isTitle = slide.variant === "title";
-  const image = slide.blocks?.find((block) => block.type === "image");
+  const images = (slide.blocks ?? []).filter((block) => block.type === "image");
   const contentBlocks = slide.blocks?.filter((block) => block.type !== "image");
   return (
     <div className="slide-content flex flex-col bg-background text-foreground px-[120px] py-[80px]">
@@ -22,7 +22,7 @@ const SlideView = ({ slide, index, total }: { slide: Slide; index: number; total
         </span>
       </div>
 
-      <div className={`flex flex-1 flex-col ${isTitle ? "justify-center" : "justify-start pt-[40px]"}`}>
+      <div className={`flex min-h-0 flex-1 flex-col ${isTitle ? "justify-center" : "justify-start pt-[40px]"}`}>
         <h2
           className={`font-display font-bold tracking-tight ${isTitle ? "slide-title-lg" : "slide-title"}`}
         >
@@ -32,7 +32,7 @@ const SlideView = ({ slide, index, total }: { slide: Slide; index: number; total
           <p className="slide-subtitle mt-[28px] max-w-[1300px] text-muted-foreground">{slide.subtitle}</p>
         )}
 
-        <div className={`mt-[48px] flex min-h-0 flex-1 ${image ? "gap-[48px]" : ""}`}>
+        <div className={`mt-[48px] flex min-h-0 flex-1 ${images.length ? "gap-[48px]" : ""}`}>
           <div className="min-w-0 flex-1 space-y-[36px]">
           {contentBlocks?.map((block, i) => {
             if (block.type === "lead")
@@ -170,22 +170,26 @@ const SlideView = ({ slide, index, total }: { slide: Slide; index: number; total
             return null;
           })}
           </div>
-          {image && image.type === "image" && (
-            <figure className="flex w-[560px] shrink-0 flex-col">
-              <img
-                src={image.src}
-                alt={image.alt}
-                className={`h-[570px] w-full rounded-[18px] border border-border ${
-                  image.fit === "contain" ? "bg-muted object-contain" : "object-cover"
-                } ${
-                  image.position === "top" ? "object-top" : image.position === "bottom" ? "object-bottom" : "object-center"
-                }`}
-                loading="eager"
-              />
-              {image.caption && (
-                <figcaption className="slide-caption mt-[14px] text-muted-foreground">{image.caption}</figcaption>
+          {images.length > 0 && (
+            <div
+              className={`flex min-h-0 shrink-0 gap-[24px] ${
+                images.length > 1 ? "w-[900px] flex-row" : "w-[560px] flex-col"
+              }`}
+            >
+              {images.map((image, i) =>
+                image.type === "image" ? (
+                  <img
+                    key={i}
+                    src={image.src}
+                    alt={image.alt}
+                    className={`min-h-0 min-w-0 flex-1 rounded-[18px] border border-border bg-muted object-contain ${
+                      images.length > 1 ? "h-full w-0" : "h-0 w-full"
+                    }`}
+                    loading="eager"
+                  />
+                ) : null,
               )}
-            </figure>
+            </div>
           )}
         </div>
       </div>

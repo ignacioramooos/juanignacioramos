@@ -13,6 +13,7 @@ import img2882 from "@/assets/bde/img-2882.webp";
 import img3156 from "@/assets/bde/img-3156.webp";
 import img8619 from "@/assets/bde/img-8619.webp";
 import laFet1 from "@/assets/bde/la-fet-1.webp";
+import lfmunDiscours from "@/assets/bde/lfmun-discours.webp";
 import laFet2 from "@/assets/bde/la-fet-2.webp";
 import laFet3 from "@/assets/bde/la-fet-3.webp";
 import nuitSalon from "@/assets/bde/nuit-salon.webp";
@@ -37,6 +38,7 @@ export const bdePhotos = {
   img3156,
   img8619,
   laFet1,
+  lfmunDiscours,
   laFet2,
   laFet3,
   nuitSalon,

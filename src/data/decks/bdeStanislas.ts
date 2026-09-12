@@ -421,6 +421,7 @@ export const bdeStanislasDeck: Deck = {
           highlightRows: [2, 4],
           caption: "Taux de présence par profil, ajustés selon les relances et la proximité de l'événement.",
         },
+        { type: "image", src: bdePhotos.ee377, alt: "Public face à la scène lors d'un événement" },
       ],
     },
     {
@@ -442,7 +443,7 @@ export const bdeStanislasDeck: Deck = {
             { title: "Secrétaire général", text: "protocole, restauration, badges, salles et récompenses." },
           ],
         },
-        { type: "image", src: bdePhotos.ee377, alt: "Public face à la scène lors d'un événement" },
+        { type: "image", src: bdePhotos.lfmunDiscours, alt: "Prise de parole au pupitre lors du LFMUN" },
       ],
     },
     {

@@ -7,12 +7,12 @@ describe("BDE Stanislas photo collection", () => {
     (slide.blocks ?? []).filter((block) => block.type === "image"),
   );
 
-  it("uses every one of the 22 source photos exactly once", () => {
+  it("uses every one of the 23 source photos exactly once", () => {
     const usedSources = slideImages.map((image) => image.src);
 
-    expect(bdePhotoSources).toHaveLength(22);
-    expect(usedSources).toHaveLength(22);
-    expect(new Set(usedSources).size).toBe(22);
+    expect(bdePhotoSources).toHaveLength(23);
+    expect(usedSources).toHaveLength(23);
+    expect(new Set(usedSources).size).toBe(23);
     expect(new Set(usedSources)).toEqual(new Set(bdePhotoSources));
   });
 

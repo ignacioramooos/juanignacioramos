@@ -32,7 +32,7 @@ const SlideView = ({ slide, index, total }: { slide: Slide; index: number; total
           <p className="slide-subtitle mt-[28px] max-w-[1300px] text-muted-foreground">{slide.subtitle}</p>
         )}
 
-        <div className={`mt-[48px] flex min-h-0 flex-1 ${image ? "gap-[48px]" : ""}`}>
+        <div className={`mt-[48px] flex min-h-0 flex-1 ${images.length ? "gap-[48px]" : ""}`}>
           <div className="min-w-0 flex-1 space-y-[36px]">
           {contentBlocks?.map((block, i) => {
             if (block.type === "lead")
@@ -170,22 +170,20 @@ const SlideView = ({ slide, index, total }: { slide: Slide; index: number; total
             return null;
           })}
           </div>
-          {image && image.type === "image" && (
-            <figure className="flex w-[560px] shrink-0 flex-col">
-              <img
-                src={image.src}
-                alt={image.alt}
-                className={`h-[570px] w-full rounded-[18px] border border-border ${
-                  image.fit === "contain" ? "bg-muted object-contain" : "object-cover"
-                } ${
-                  image.position === "top" ? "object-top" : image.position === "bottom" ? "object-bottom" : "object-center"
-                }`}
-                loading="eager"
-              />
-              {image.caption && (
-                <figcaption className="slide-caption mt-[14px] text-muted-foreground">{image.caption}</figcaption>
+          {images.length > 0 && (
+            <div className="flex w-[560px] shrink-0 flex-col gap-[24px]">
+              {images.map((image, i) =>
+                image.type === "image" ? (
+                  <img
+                    key={i}
+                    src={image.src}
+                    alt={image.alt}
+                    className="min-h-0 w-full flex-1 rounded-[18px] border border-border bg-muted object-contain"
+                    loading="eager"
+                  />
+                ) : null,
               )}
-            </figure>
+            </div>
           )}
         </div>
       </div>

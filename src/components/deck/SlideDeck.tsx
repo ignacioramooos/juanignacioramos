@@ -22,7 +22,7 @@ const SlideView = ({ slide, index, total }: { slide: Slide; index: number; total
         </span>
       </div>
 
-      <div className={`flex flex-1 flex-col ${isTitle ? "justify-center" : "justify-start pt-[40px]"}`}>
+      <div className={`flex min-h-0 flex-1 flex-col ${isTitle ? "justify-center" : "justify-start pt-[40px]"}`}>
         <h2
           className={`font-display font-bold tracking-tight ${isTitle ? "slide-title-lg" : "slide-title"}`}
         >

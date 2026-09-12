@@ -137,6 +137,14 @@ export const Navbar = () => {
             </AnimatePresence>
           </div>
 
+          <Link
+            to="/resume"
+            onClick={() => handleClick("/resume")}
+            className="text-[13px] lg:text-[15px] font-semibold text-foreground/80 hover:text-foreground transition-colors whitespace-nowrap"
+          >
+            {t.nav.resume}
+          </Link>
+
           <div className="glass-pill flex items-center gap-1.5 lg:gap-2">
             {projectsGroup.map(renderLink)}
           </div>

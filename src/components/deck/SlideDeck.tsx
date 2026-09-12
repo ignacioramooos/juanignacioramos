@@ -182,7 +182,9 @@ const SlideView = ({ slide, index, total }: { slide: Slide; index: number; total
                     key={i}
                     src={image.src}
                     alt={image.alt}
-                    className="h-full min-h-0 w-0 min-w-0 flex-1 rounded-[18px] border border-border bg-muted object-contain"
+                    className={`min-h-0 min-w-0 flex-1 rounded-[18px] border border-border bg-muted object-contain ${
+                      images.length > 1 ? "h-full w-0" : "h-0 w-full"
+                    }`}
                     loading="eager"
                   />
                 ) : null,

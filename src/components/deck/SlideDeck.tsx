@@ -171,14 +171,18 @@ const SlideView = ({ slide, index, total }: { slide: Slide; index: number; total
           })}
           </div>
           {images.length > 0 && (
-            <div className="flex w-[560px] shrink-0 flex-col gap-[24px]">
+            <div
+              className={`flex min-h-0 shrink-0 gap-[24px] ${
+                images.length > 1 ? "w-[900px] flex-row" : "w-[560px] flex-col"
+              }`}
+            >
               {images.map((image, i) =>
                 image.type === "image" ? (
                   <img
                     key={i}
                     src={image.src}
                     alt={image.alt}
-                    className="min-h-0 w-full flex-1 rounded-[18px] border border-border bg-muted object-contain"
+                    className="h-full min-h-0 w-0 min-w-0 flex-1 rounded-[18px] border border-border bg-muted object-contain"
                     loading="eager"
                   />
                 ) : null,

@@ -492,7 +492,6 @@ export const bdeStanislasDeck: Deck = {
             { title: "Un bilan après", text: "chiffres réels partagés à l'équipe, pour faire mieux la fois suivante." },
           ],
         },
-        { type: "image", src: bdePhotos.img2882, alt: "Membres de l'équipe pendant une soirée", position: "top" },
       ],
     },
     {
@@ -506,7 +505,6 @@ export const bdeStanislasDeck: Deck = {
           text: "Je ne prétends pas tout savoir : j'ai surtout appris en me trompant, tard le soir, avec une équipe patiente. Ce que je peux promettre, c'est le travail et la rigueur.",
         },
         { type: "quote", text: "Mind and Hand — le planifier sur le papier, puis rester à la porte jusqu'à ce que ça marche." },
-        { type: "image", src: bdePhotos.img8619, alt: "Production d'un événement depuis la régie", position: "top" },
       ],
       footer: "Merci — Juan Ignacio Ramos",
     },

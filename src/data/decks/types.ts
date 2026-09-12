@@ -15,7 +15,14 @@ export type SlideBlock =
       highlightRows?: number[];
       caption?: string;
     }
-  | { type: "image"; src: string; alt: string; caption?: string };
+  | {
+      type: "image";
+      src: string;
+      alt: string;
+      caption?: string;
+      fit?: "cover" | "contain";
+      position?: "center" | "top" | "bottom";
+    };
 
 export type Slide = {
   id: string;

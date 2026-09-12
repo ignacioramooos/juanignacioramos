@@ -7,6 +7,8 @@ const H = 1080;
 
 const SlideView = ({ slide, index, total }: { slide: Slide; index: number; total: number }) => {
   const isTitle = slide.variant === "title";
+  const image = slide.blocks?.find((block) => block.type === "image");
+  const contentBlocks = slide.blocks?.filter((block) => block.type !== "image");
   return (
     <div className="slide-content flex flex-col bg-background text-foreground px-[120px] py-[80px]">
       <div className="flex items-start justify-between">
@@ -30,8 +32,9 @@ const SlideView = ({ slide, index, total }: { slide: Slide; index: number; total
           <p className="slide-subtitle mt-[28px] max-w-[1300px] text-muted-foreground">{slide.subtitle}</p>
         )}
 
-        <div className="mt-[48px] space-y-[36px]">
-          {slide.blocks?.map((block, i) => {
+        <div className={`mt-[48px] flex min-h-0 flex-1 ${image ? "gap-[48px]" : ""}`}>
+          <div className="min-w-0 flex-1 space-y-[36px]">
+          {contentBlocks?.map((block, i) => {
             if (block.type === "lead")
               return (
                 <p key={i} className="slide-body-lg max-w-[1400px] text-muted-foreground">
@@ -164,20 +167,26 @@ const SlideView = ({ slide, index, total }: { slide: Slide; index: number; total
                 </figure>
               );
 
-            return (
-              <figure key={i}>
-                <img
-                  src={block.src}
-                  alt={block.alt}
-                  className="max-h-[520px] w-full rounded-[24px] object-cover"
-                  loading="lazy"
-                />
-                {block.caption && (
-                  <figcaption className="slide-caption mt-[14px] text-muted-foreground">{block.caption}</figcaption>
-                )}
-              </figure>
-            );
+            return null;
           })}
+          </div>
+          {image && image.type === "image" && (
+            <figure className="flex w-[560px] shrink-0 flex-col">
+              <img
+                src={image.src}
+                alt={image.alt}
+                className={`h-[570px] w-full rounded-[18px] border border-border ${
+                  image.fit === "contain" ? "bg-muted object-contain" : "object-cover"
+                } ${
+                  image.position === "top" ? "object-top" : image.position === "bottom" ? "object-bottom" : "object-center"
+                }`}
+                loading="eager"
+              />
+              {image.caption && (
+                <figcaption className="slide-caption mt-[14px] text-muted-foreground">{image.caption}</figcaption>
+              )}
+            </figure>
+          )}
         </div>
       </div>
 

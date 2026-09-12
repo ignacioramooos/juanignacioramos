@@ -291,23 +291,7 @@ export const bdeStanislasDeck: Deck = {
           ],
         },
         { type: "image", src: bdePhotos.nuitSalon, alt: "Publication vidéo montrant le public de La Nuit en salle" },
-      ],
-    },
-    {
-      id: "nuit3-vista",
-      kicker: "11 · La Nuit 3",
-      title: "Une salle pleine, une autre dynamique",
-      blocks: [
-        { type: "lead", text: "Le passage en intérieur change le rythme, la circulation et la proximité avec le public." },
         { type: "image", src: bdePhotos.nuitSalonVista2, alt: "Vue du public de La Nuit 3 en salle" },
-      ],
-    },
-    {
-      id: "nuit3-production",
-      kicker: "11 · La Nuit 3",
-      title: "Observer la salle en temps réel",
-      blocks: [
-        { type: "lead", text: "En salle, chaque décision se lit immédiatement dans les flux, la jauge et l'ambiance." },
         { type: "image", src: bdePhotos.nuitSalon3, alt: "Vue latérale de la production et du public de La Nuit 3" },
       ],
     },

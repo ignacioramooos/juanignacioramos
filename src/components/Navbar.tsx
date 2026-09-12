@@ -230,6 +230,14 @@ export const Navbar = () => {
                 )}
               </AnimatePresence>
 
+              <Link
+                to="/resume"
+                onClick={() => handleClick("/resume")}
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors py-2"
+              >
+                {t.nav.resume}
+              </Link>
+
               <div className="glass-pill my-1 py-2 px-3 flex flex-col gap-1">
                 {projectsGroup.map((l) => (
                   <Link key={l.href} to={l.href} onClick={() => handleClick(l.href)} className="text-sm text-muted-foreground hover:text-foreground transition-colors py-1">

@@ -189,7 +189,43 @@ const ResumePrivatePage = () => {
               ))}
             </div>
 
-            {tab === "decks" ? (
+            {tab === "documents" ? (
+              <>
+                <p className="mt-6 text-muted-foreground">
+                  {isEs
+                    ? "Documentos privados, agrupados por carpeta. Tocá uno para verlo acá mismo."
+                    : "Private documents, grouped by folder. Tap one to read it right here."}
+                </p>
+
+                {docsLoading && (
+                  <p className="mt-8 inline-flex items-center gap-2 text-sm text-muted-foreground">
+                    <Loader2 size={15} className="animate-spin" />
+                    {isEs ? "Cargando documentos…" : "Loading documents…"}
+                  </p>
+                )}
+
+                {docsError && (
+                  <div className="mt-8 space-y-3">
+                    <p className="text-sm text-destructive">{docsError}</p>
+                    <button
+                      onClick={() => {
+                        setDocsError(null);
+                        void loadDocuments();
+                      }}
+                      className="rounded-full border border-border px-4 py-1.5 text-sm transition-colors hover:bg-muted"
+                    >
+                      {isEs ? "Reintentar" : "Retry"}
+                    </button>
+                  </div>
+                )}
+
+                {tree && !docsLoading && (
+                  <div className="mt-8">
+                    <DocumentTree node={tree} onSelect={setPreview} isEs={isEs} />
+                  </div>
+                )}
+              </>
+            ) : (
               <>
                 <p className="mt-6 text-muted-foreground">
                   {isEs
@@ -232,42 +268,6 @@ const ResumePrivatePage = () => {
                       deck={decks.find((d) => d.slug === activeDeck)!}
                       onExit={() => setActiveDeck(null)}
                     />
-                  </div>
-                )}
-              </>
-            ) : (
-              <>
-                <p className="mt-6 text-muted-foreground">
-                  {isEs
-                    ? "Documentos privados, agrupados por carpeta. Tocá uno para verlo acá mismo."
-                    : "Private documents, grouped by folder. Tap one to read it right here."}
-                </p>
-
-                {docsLoading && (
-                  <p className="mt-8 inline-flex items-center gap-2 text-sm text-muted-foreground">
-                    <Loader2 size={15} className="animate-spin" />
-                    {isEs ? "Cargando documentos…" : "Loading documents…"}
-                  </p>
-                )}
-
-                {docsError && (
-                  <div className="mt-8 space-y-3">
-                    <p className="text-sm text-destructive">{docsError}</p>
-                    <button
-                      onClick={() => {
-                        setDocsError(null);
-                        void loadDocuments();
-                      }}
-                      className="rounded-full border border-border px-4 py-1.5 text-sm transition-colors hover:bg-muted"
-                    >
-                      {isEs ? "Reintentar" : "Retry"}
-                    </button>
-                  </div>
-                )}
-
-                {tree && !docsLoading && (
-                  <div className="mt-8">
-                    <DocumentTree node={tree} onSelect={setPreview} isEs={isEs} />
                   </div>
                 )}
               </>

@@ -81,6 +81,7 @@ export const resumeSections: ResumeSection[] = [
           "Co-founding a youth-focused financial education platform that teaches money, investing, companies, and markets through fundamental analysis.",
           "Building the project as an educational community with learning content, events, resources, and student tools rather than trading tips or buy/sell signals.",
           "Leading product vision, strategy, communications, and community growth alongside the founding team.",
+          "Designing the program as free in-person classes for secondary students — recorded and republished online with open resources, assessments, and certificates — structured as a volunteer-run non-profit with institutional partners.",
         ],
       },
       {
@@ -165,6 +166,7 @@ export const resumeSections: ResumeSection[] = [
         bullets: [
           "Developing an anonymous, free, human-first peer-support and emotional reflection platform positioned between silence and clinical care.",
           "Design includes journaling, trained Listener sessions, Listener formation, emotional patterns, breathing tools, safety-aware moderation, multilingual support, and a bounded practice listener rather than an AI replacement for people.",
+          "Authored a master research blueprint grounding the platform in evidence on the loneliness epidemic, the psychology of presence and anonymity, and the limits of the clinical model, and translated it into design and safety protocols for Listeners.",
         ],
       },
       {

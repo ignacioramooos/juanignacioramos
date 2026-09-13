@@ -308,8 +308,14 @@ const projects = [
 },
 {
   title: "Solar Water Distiller",
-  description: "Engineered a solar distillation prototype from scrap materials to provide drinking water to low-income areas. Later optimized with Peltier cells, voltage regulators, and repurposed PC fans for increased efficiency.",
-  tags: ["Engineering", "Solar Energy", "Peltier Cells", "Sustainability"],
+  description: "Engineered a solar distillation prototype from scrap materials to provide drinking water to low-income areas. Field-tested over two November 2020 days in Montevideo with ambient temperatures of 16–22 °C: the device reached 27.8 °C inside and produced roughly 300–350 ml of distilled water from 1.5 L of seawater across about six hours of sun. Later optimized with Peltier cells, voltage regulators, and repurposed PC heatsinks to drop the dew point and increase condensation.",
+  tags: ["Engineering", "Solar Energy", "Peltier Cells", "Sustainability", "Field Testing"],
+  category: "engineering"
+},
+{
+  title: "DHS-C — Hybrid Solar Distiller v2.0",
+  description: "Second-generation build of the solar distiller, documented as a full final engineering project: a redesigned condenser module, hybrid solar-thermal plus thermoelectric operation, and recorded bench tests of the working unit. It carries the 2020 proof of concept toward a device sized for real daily household use.",
+  tags: ["Thermodynamics", "Condenser Design", "Peltier Cells", "Prototyping"],
   category: "engineering"
 },
 {

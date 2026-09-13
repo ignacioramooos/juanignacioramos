@@ -32,7 +32,13 @@ interface DriveFile {
   size?: string;
   modifiedTime?: string;
   webViewLink?: string;
+  thumbnailLink?: string;
+  hasThumbnail?: boolean;
 }
+
+// Drive thumbnail links are signed URLs; bump the requested size for crisp cards.
+const upscaleThumb = (link?: string) =>
+  link ? link.replace(/=s\d+(-c)?$/, "=s800") : undefined;
 
 interface FolderNode {
   id: string;

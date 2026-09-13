@@ -28,7 +28,7 @@ const ResumePrivatePage = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [activeDeck, setActiveDeck] = useState<string | null>(null);
-  const [tab, setTab] = useState<Tab>("decks");
+  const [tab, setTab] = useState<Tab>("documents");
 
   const [tree, setTree] = useState<FolderNode | null>(null);
   const [docsLoading, setDocsLoading] = useState(false);
@@ -104,8 +104,8 @@ const ResumePrivatePage = () => {
   };
 
   const tabs: { id: Tab; label: string; icon: typeof Presentation }[] = [
-    { id: "decks", label: isEs ? "Presentaciones" : "Presentations", icon: Presentation },
     { id: "documents", label: isEs ? "Documentos" : "Documents", icon: FolderOpen },
+    { id: "decks", label: isEs ? "Presentaciones" : "Presentations", icon: Presentation },
   ];
 
   return (

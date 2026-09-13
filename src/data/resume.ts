@@ -170,9 +170,19 @@ export const resumeSections: ResumeSection[] = [
       {
         title: "Solar Water Distiller",
         org: "Solar Energy · Peltier Cells · Sustainability · Prototyping",
+        date: "2020",
         bullets: [
           "Engineered a solar distillation prototype from scrap materials to support drinking-water access in low-income contexts.",
-          "Optimized later iterations with Peltier cells, voltage regulation, and repurposed PC fans to improve efficiency and practical buildability.",
+          "Ran two full days of instrumented field testing in Montevideo (ambient 16–22 °C), logging ambient and internal water temperatures and producing roughly 300–350 ml of distilled water per run from 1.5 L of seawater over about six hours of sun.",
+          "Optimized later iterations with Peltier cells, voltage regulation, and repurposed PC heatsinks to lower the dew point and improve condensation efficiency.",
+        ],
+      },
+      {
+        title: "DHS-C — Hybrid Solar Water Distiller v2.0",
+        org: "Thermodynamics · Condenser Design · Thermoelectrics · Prototyping",
+        bullets: [
+          "Designed and documented a second-generation distiller with a redesigned condenser module combining solar-thermal evaporation and thermoelectric condensation.",
+          "Produced full technical documentation and recorded bench tests of the working unit, scaling the 2020 proof of concept toward daily household output.",
         ],
       },
       {

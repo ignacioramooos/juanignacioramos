@@ -56,7 +56,7 @@ async function listChildren(parentId: string): Promise<DriveFile[]> {
 
   const params = new URLSearchParams({
     q: `'${parentId}' in parents and trashed=false`,
-    fields: "files(id,name,mimeType,size,modifiedTime,webViewLink)",
+    fields: "files(id,name,mimeType,size,modifiedTime,webViewLink,thumbnailLink,hasThumbnail)",
     pageSize: "200",
     orderBy: "folder,name",
   });
@@ -82,7 +82,11 @@ async function buildTree(id: string, name: string, depth: number): Promise<Folde
   const children = await listChildren(id);
   const files = children
     .filter((f) => f.mimeType !== FOLDER_MIME)
-    .map((f) => ({ ...f, name: cleanName(f.name) }));
+    .map((f) => ({
+      ...f,
+      name: cleanName(f.name),
+      thumbnailLink: f.hasThumbnail ? upscaleThumb(f.thumbnailLink) : undefined,
+    }));
   const subfolders = children.filter((f) => f.mimeType === FOLDER_MIME);
 
   const folders =

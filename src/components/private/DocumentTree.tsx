@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   FileText,
   FileSpreadsheet,
@@ -15,6 +16,7 @@ export interface DriveFile {
   size?: string;
   modifiedTime?: string;
   webViewLink?: string;
+  thumbnailLink?: string;
 }
 
 export interface FolderNode {
@@ -47,6 +49,74 @@ const humanSize = (size?: string) => {
   return `${value < 10 && unit > 0 ? value.toFixed(1) : Math.round(value)} ${units[unit]}`;
 };
 
+const DocumentCard = ({
+  file,
+  onSelect,
+  isEs,
+}: {
+  file: DriveFile;
+  onSelect: (file: DriveFile) => void;
+  isEs: boolean;
+}) => {
+  const Icon = iconFor(file.mimeType);
+  const size = humanSize(file.size);
+  const [loaded, setLoaded] = useState(false);
+  const [failed, setFailed] = useState(false);
+  const showThumb = Boolean(file.thumbnailLink) && !failed;
+
+  return (
+    <li className="group relative">
+      <button
+        type="button"
+        onClick={() => onSelect(file)}
+        className="block w-full overflow-hidden rounded-2xl border border-border bg-card text-left transition-colors hover:border-primary"
+      >
+        <span className="relative block aspect-[4/3] w-full overflow-hidden bg-muted">
+          {showThumb ? (
+            <>
+              {!loaded && <span className="absolute inset-0 animate-pulse bg-muted" />}
+              <img
+                src={file.thumbnailLink}
+                alt=""
+                loading="lazy"
+                decoding="async"
+                referrerPolicy="no-referrer"
+                onLoad={() => setLoaded(true)}
+                onError={() => setFailed(true)}
+                className={`h-full w-full object-cover object-top transition-opacity duration-300 ${
+                  loaded ? "opacity-100" : "opacity-0"
+                }`}
+              />
+            </>
+          ) : (
+            <span className="flex h-full w-full items-center justify-center bg-muted">
+              <Icon size={34} className="text-muted-foreground" strokeWidth={1.4} />
+            </span>
+          )}
+        </span>
+        <span className="flex items-start gap-2 px-3.5 py-3">
+          <Icon size={15} className="mt-0.5 shrink-0 text-muted-foreground" />
+          <span className="min-w-0">
+            <span className="block truncate text-sm font-medium">{file.name}</span>
+            {size && <span className="block text-xs text-muted-foreground">{size}</span>}
+          </span>
+        </span>
+      </button>
+      {file.webViewLink && (
+        <a
+          href={file.webViewLink}
+          target="_blank"
+          rel="noreferrer"
+          aria-label={isEs ? "Abrir en Drive" : "Open in Drive"}
+          className="absolute right-2 top-2 rounded-full bg-background/85 p-1.5 text-muted-foreground opacity-0 backdrop-blur transition-opacity hover:text-foreground focus-visible:opacity-100 group-hover:opacity-100"
+        >
+          <ExternalLink size={14} />
+        </a>
+      )}
+    </li>
+  );
+};
+
 interface Props {
   node: FolderNode;
   depth?: number;
@@ -58,7 +128,7 @@ export const DocumentTree = ({ node, depth = 0, onSelect, isEs }: Props) => {
   const empty = node.files.length === 0 && node.folders.length === 0;
 
   return (
-    <div className={depth === 0 ? "space-y-8" : "space-y-4"}>
+    <div className={depth === 0 ? "space-y-10" : "space-y-4"}>
       {depth > 0 && (
         <h3
           className={`font-display font-bold tracking-tight ${
@@ -73,51 +143,17 @@ export const DocumentTree = ({ node, depth = 0, onSelect, isEs }: Props) => {
       )}
 
       {node.files.length > 0 && (
-        <ul className="grid gap-2 sm:grid-cols-2">
-          {node.files.map((file) => {
-            const Icon = iconFor(file.mimeType);
-            const size = humanSize(file.size);
-            return (
-              <li key={file.id}>
-                <div className="flex items-center gap-3 rounded-xl border border-border bg-card px-4 py-3 transition-colors hover:border-primary">
-                  <button
-                    type="button"
-                    onClick={() => onSelect(file)}
-                    className="flex min-w-0 flex-1 items-center gap-3 text-left"
-                  >
-                    <Icon size={17} className="shrink-0 text-muted-foreground" />
-                    <span className="min-w-0">
-                      <span className="block truncate text-sm font-medium">{file.name}</span>
-                      {size && <span className="block text-xs text-muted-foreground">{size}</span>}
-                    </span>
-                  </button>
-                  {file.webViewLink && (
-                    <a
-                      href={file.webViewLink}
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label={isEs ? "Abrir en Drive" : "Open in Drive"}
-                      className="shrink-0 text-muted-foreground transition-colors hover:text-foreground"
-                    >
-                      <ExternalLink size={14} />
-                    </a>
-                  )}
-                </div>
-              </li>
-            );
-          })}
+        <ul className="grid grid-cols-2 gap-4 md:grid-cols-3 xl:grid-cols-4">
+          {node.files.map((file) => (
+            <DocumentCard key={file.id} file={file} onSelect={onSelect} isEs={isEs} />
+          ))}
         </ul>
       )}
 
-      {empty && (
-        <p className="text-sm text-muted-foreground">{isEs ? "Vacía." : "Empty."}</p>
-      )}
+      {empty && <p className="text-sm text-muted-foreground">{isEs ? "Vacía." : "Empty."}</p>}
 
       {node.folders.map((child) => (
-        <div
-          key={child.id}
-          className={depth === 0 ? "" : "border-l border-border pl-4"}
-        >
+        <div key={child.id} className={depth === 0 ? "" : "border-l border-border pl-4"}>
           <DocumentTree node={child} depth={depth + 1} onSelect={onSelect} isEs={isEs} />
         </div>
       ))}

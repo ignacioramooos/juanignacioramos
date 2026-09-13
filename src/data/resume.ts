@@ -81,6 +81,7 @@ export const resumeSections: ResumeSection[] = [
           "Co-founding a youth-focused financial education platform that teaches money, investing, companies, and markets through fundamental analysis.",
           "Building the project as an educational community with learning content, events, resources, and student tools rather than trading tips or buy/sell signals.",
           "Leading product vision, strategy, communications, and community growth alongside the founding team.",
+          "Designing the program as free in-person classes for secondary students — recorded and republished online with open resources, assessments, and certificates — structured as a volunteer-run non-profit with institutional partners.",
         ],
       },
       {
@@ -165,14 +166,25 @@ export const resumeSections: ResumeSection[] = [
         bullets: [
           "Developing an anonymous, free, human-first peer-support and emotional reflection platform positioned between silence and clinical care.",
           "Design includes journaling, trained Listener sessions, Listener formation, emotional patterns, breathing tools, safety-aware moderation, multilingual support, and a bounded practice listener rather than an AI replacement for people.",
+          "Authored a master research blueprint grounding the platform in evidence on the loneliness epidemic, the psychology of presence and anonymity, and the limits of the clinical model, and translated it into design and safety protocols for Listeners.",
         ],
       },
       {
         title: "Solar Water Distiller",
         org: "Solar Energy · Peltier Cells · Sustainability · Prototyping",
+        date: "2020",
         bullets: [
           "Engineered a solar distillation prototype from scrap materials to support drinking-water access in low-income contexts.",
-          "Optimized later iterations with Peltier cells, voltage regulation, and repurposed PC fans to improve efficiency and practical buildability.",
+          "Ran two full days of instrumented field testing in Montevideo (ambient 16–22 °C), logging ambient and internal water temperatures and producing roughly 300–350 ml of distilled water per run from 1.5 L of seawater over about six hours of sun.",
+          "Optimized later iterations with Peltier cells, voltage regulation, and repurposed PC heatsinks to lower the dew point and improve condensation efficiency.",
+        ],
+      },
+      {
+        title: "DHS-C — Hybrid Solar Water Distiller v2.0",
+        org: "Thermodynamics · Condenser Design · Thermoelectrics · Prototyping",
+        bullets: [
+          "Designed and documented a second-generation distiller with a redesigned condenser module combining solar-thermal evaporation and thermoelectric condensation.",
+          "Produced full technical documentation and recorded bench tests of the working unit, scaling the 2020 proof of concept toward daily household output.",
         ],
       },
       {

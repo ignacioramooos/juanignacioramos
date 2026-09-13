@@ -36,7 +36,12 @@ const ResumePrivatePage = () => {
   const [preview, setPreview] = useState<DriveFile | null>(null);
 
   useEffect(() => {
-    if (sessionStorage.getItem(SESSION_KEY) === "1") setUnlocked(true);
+    // Only stay unlocked when the password is still available for document loading.
+    if (sessionStorage.getItem(SESSION_KEY) === "1" && sessionStorage.getItem(SESSION_PASS)) {
+      setUnlocked(true);
+    } else {
+      sessionStorage.removeItem(SESSION_KEY);
+    }
     const prefill = params.get("k");
     if (prefill) setPassword(prefill);
   }, [params]);

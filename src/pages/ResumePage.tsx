@@ -13,8 +13,8 @@ const ResumePage = () => {
     <div className="min-h-screen bg-background text-foreground">
       <SEOHead
         title="Resume — Juan Ignacio Ramos"
-        description="Curriculum vitae of Juan Ignacio Ramos: aerospace-focused engineering student, Advanced Space Academy Scholar, French Baccalauréat Mention Très Bien, LFMUN Co-Secretary General."
-        keywords="Juan Ignacio Ramos resume, CV, aerospace engineering student, Advanced Space Academy Scholar, LFMUN Secretary General"
+        description="Curriculum vitae of Juan Ignacio Ramos: aspiring aerospace engineer, Cor Ad Cor founder, event organizer, Advanced Space Academy Scholar, French Baccalauréat Mention Très Bien, LFMUN Co-Secretary General."
+        keywords="Juan Ignacio Ramos resume, CV, aspiring aerospace engineer, Cor Ad Cor founder, event organizer, Advanced Space Academy Scholar, LFMUN Secretary General"
       />
       <Navbar />
       <main className="max-w-3xl mx-auto px-6 pt-24 pb-28">

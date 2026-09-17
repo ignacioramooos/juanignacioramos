@@ -8,11 +8,11 @@ import { useLanguage } from "@/i18n/LanguageContext";
 const education = [
   {
     title: "Universidad de la República (UdelaR)",
-    subtitle: "Facultad de Ingeniería — Ingeniería Físico Matemática",
-    subtitleEs: "Facultad de Ingeniería — Ingeniería Físico Matemática",
+    subtitle: "Facultad de Ingeniería — quantitative engineering foundation",
+    subtitleEs: "Facultad de Ingeniería — base cuantitativa e ingenieril",
     period: "Enrolled February 2026", periodEs: "Inscripto Febrero 2026",
-    highlights: ["Physical & Mathematical Engineering track", "Building advanced quantitative foundation for aerospace applications"],
-    highlightsEs: ["Carrera de Ingeniería Físico Matemática", "Construyendo base cuantitativa avanzada para aplicaciones aeroespaciales"],
+    highlights: ["Mathematics, physics, and systems thinking for engineering", "Building advanced quantitative foundations for aerospace applications"],
+    highlightsEs: ["Matemática, física y pensamiento sistémico para ingeniería", "Construyendo bases cuantitativas avanzadas para aplicaciones aeroespaciales"],
   },
   {
     title: "Lycée Français Jules Supervielle",

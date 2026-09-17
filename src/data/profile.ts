@@ -35,7 +35,7 @@ export const canonicalProfile = {
   education: [
     {
       name: "Universidad de la Republica (UdelaR)",
-      detail: "Physical & Mathematical Engineering, enrolled February 2026",
+      detail: "Quantitative engineering foundation, enrolled February 2026",
     },
     {
       name: "Lycee Francais Jules Supervielle",
@@ -50,9 +50,10 @@ export const canonicalProfile = {
     "Advanced Space Academy Scholar at the U.S. Space & Rocket Center in Huntsville, Alabama.",
     "Graduated with the French Baccalaureate Mention Tres Bien, the highest honors distinction.",
     "Co-Secretary General of LFMUN 2025 after a four-year Model UN progression from delegate to leadership.",
+    "Organized eight student and community events, including La Nuit 28/02 and La Nuit 2 as separate large-scale productions.",
     "Managed 1,382,000+ UYU in student event operations and logistics.",
     "Built and documented a 6-DOF model rocketry trajectory simulator.",
-    "Developing Cor Ad Cor, an anonymous peer-support and emotional reflection platform with journaling, real-time Listener sessions, formation, multilingual support, and crisis-safety workflows.",
+    "Developing Cor Ad Cor, a private, free, human-first peer-support and emotional reflection platform for journaling, optional Listener sessions, Listener formation, multilingual support, and safety-aware boundaries.",
   ],
   projects: [
     {
@@ -66,7 +67,7 @@ export const canonicalProfile = {
       name: "Cor Ad Cor",
       status: "Active development",
       description:
-        "Anonymous, free, human-first peer-support and emotional reflection platform between silence and clinical care, with journaling, trained Listener sessions, formation, patterns, breathing tools, and safety-aware moderation.",
+        "Private, free, human-first peer-support and emotional reflection platform in active development at coradcor.org. It supports journaling, optional human listening, Listener formation, prompts, breathing tools, and safety boundaries, while staying clear that it is not therapy or crisis care.",
       url: "https://coradcor.org",
     },
     {
@@ -84,11 +85,11 @@ export const canonicalProfile = {
       url: "https://juanignacioramos.com/projects",
     },
     {
-      name: "Ecolojules",
-      status: "School initiative",
+      name: "Event Organization",
+      status: "Operations portfolio",
       description:
-        "School-wide recycling and 3D-printing filament initiative designed around waste classification and circular-economy reuse.",
-      url: "https://juanignacioramos.com/#volunteering",
+        "Eight organized events across student nightlife, graduation fundraising, access control, and formal academic programming, with separate leadership for La Nuit 28/02 and La Nuit 2.",
+      url: "https://juanignacioramos.com/services/event-organization",
     },
   ],
 };

@@ -24,7 +24,7 @@ const Index = () => {
       <SEOHead
         title="Juan Ignacio Ramos - Portfolio"
         description="Juan Ignacio Ramos is an aspiring aerospace engineer from Montevideo, Uruguay. Explore his portfolio, aerospace projects, leadership experience, French BAC Mention Très Bien, and Advanced Space Academy scholarship."
-        keywords="Juan Ignacio Ramos, aspiring aerospace engineer, aerospace engineering student Uruguay, Advanced Space Academy Scholar, French BAC Mention Tres Bien, MUN Secretary General, Cor Ad Cor peer support, Foro Agora, rocketry simulation, Montevideo engineering student"
+        keywords="Juan Ignacio Ramos, aspiring aerospace engineer, Cor Ad Cor founder, event organizer, Advanced Space Academy Scholar, French BAC Mention Tres Bien, MUN Secretary General, peer support platform, Foro Agora, rocketry simulation, Montevideo engineering portfolio"
         jsonLd={{
           "@context": "https://schema.org",
           "@graph": [

@@ -33,14 +33,14 @@ export const en: Translations = {
   about: {
     label: "About Me", title: "Mind & Hand", motto: "Mens et Manus",
     p1: "I'm an aspiring Aerospace Engineer from Montevideo, Uruguay, with a documented record of managing high-stakes logistical projects and developing complex technical simulations. I graduated with the French Baccalaureate \"Mention Très Bien\" (Highest Honors: top 10-15%) and received the Advanced Space Academy Scholarship in Huntsville, Alabama.",
-    p2: "My expertise spans fiduciary management of 1,380,000+ UYU (~$35,000 USD), technical modeling with Excel and 6-DOF simulations, web development, and international leadership as Model UN Secretary General. I'm fluent in four languages and guided by the \"Mens et Manus\" principle, applying both mind and hand to solve complex challenges. (More about my expertise below).",
-    p3: "Currently enrolled in Physical & Mathematical Engineering at Universidad de la República (UdelaR), I'm building a rigorous quantitative foundation for my goal: to promote an aerospace industry in Uruguay and design space vehicles.",
+    p2: "My expertise spans fiduciary management of 1,380,000+ UYU (~$35,000 USD), eight organized events, technical modeling with Excel and 6-DOF simulations, web development, Cor Ad Cor, and international leadership as Model UN Secretary General. I'm fluent in four languages and guided by the \"Mens et Manus\" principle, applying both mind and hand to solve complex challenges. (More about my expertise below).",
+    p3: "My current work is focused on strengthening the quantitative and engineering foundation behind my goal: to promote an aerospace industry in Uruguay and design space vehicles.",
     stats: { languages: "Languages", languagesDesc: "Spanish · French · English · Portuguese", usdManaged: "USD Managed", usdManagedDesc: "Event operations & logistics", attendeesLed: "Attendees Led", attendeesLedDesc: "Across events I organized", keyHonors: "Key Honors", keyHonorsDesc: "BAC Honors · Space Academy · MUN SG" },
   },
   drives: { label: "Purpose", title: "What Drives Me", items: [
     { title: "Building an aerospace future in South America", desc: "Pioneering the path where none exists yet." },
     { title: "Applying engineering to humanitarian challenges", desc: "From drone surveys for housing to infrastructure solutions." },
-    { title: "Designing systems that combine sustainability and performance", desc: "Waste-to-filament, circular economy, real impact." },
+    { title: "Building human-first digital spaces", desc: "Cor Ad Cor, private reflection, and real listening before performance." },
     { title: "Leading teams under pressure and uncertainty", desc: "MUN delegations, event logistics, competitive sports." },
   ]},
   timeline: { label: "Journey", title: "The Path So Far", ariaLabel: "Interactive timeline of Juan's journey", scrubberLabel: "Timeline scrubber" },

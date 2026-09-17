@@ -26,7 +26,7 @@ export const eventOrganizationDeck: Deck = {
         {
           type: "stats",
           items: [
-            { value: "200.000+", label: "UYU fixed cost managed per event" },
+            { value: "8", label: "Events organized in total" },
             { value: "18+", label: "Staff coordinated live on site" },
             { value: "150", label: "Guests at a formal academic event" },
           ],
@@ -34,7 +34,8 @@ export const eventOrganizationDeck: Deck = {
         {
           type: "bullets",
           items: [
-            { title: "Nightlife production", text: "Las Nuits and La Fet — full general organization." },
+            { title: "La Nuit 28/02", text: "821 tickets sold and 406,090 UYU in gross revenue." },
+            { title: "La Nuit 2", text: "1,246 tickets sold, 606,700 UYU projected gross revenue, and 310,500 UYU in costs." },
             { title: "University parties", text: "FING (UdelaR) welcome party, Seven committee, Proyecto LEA." },
             { title: "Institutional launches", text: "Foro Ágora launch at Casa INJU." },
             { title: "Formal events", text: "LFMUN 2026 — Secretary General." },
@@ -44,10 +45,10 @@ export const eventOrganizationDeck: Deck = {
     },
     {
       id: "budgets",
-      kicker: "01 · Las Nuits",
-      title: "High-scale budgets and supplier negotiation",
+      kicker: "01 · La Nuit 28/02 and La Nuit 2",
+      title: "Two separate large-scale productions",
       blocks: [
-        { type: "lead", text: "Role: General organization and production." },
+        { type: "lead", text: "Role: general organization and production for two distinct editions, each with its own budget, ticketing model, suppliers, site constraints, and security plan." },
         {
           type: "table",
           head: ["Line", "Budget (UYU)", "Note"],

@@ -197,8 +197,8 @@ export const services: ServiceData[] = [
     shortDescription: "Data-driven research reports, market analysis, and financial modeling for informed investment decisions.",
     shortDescriptionEs: "Informes de investigación basados en datos, análisis de mercado y modelado financiero para decisiones de inversión informadas.",
     icon: TrendingUp,
-    description: "Quantitative research and analysis to help you make data-driven investment decisions. Leveraging my background in mathematical engineering and Excel modeling expertise.",
-    descriptionEs: "Investigación y análisis cuantitativo para ayudarte a tomar decisiones de inversión basadas en datos. Aprovechando mi formación en ingeniería matemática y experiencia en modelado con Excel.",
+    description: "Quantitative research and analysis to help you make data-driven investment decisions, grounded in Excel modeling, technical documentation, and disciplined fundamental analysis.",
+    descriptionEs: "Investigación y análisis cuantitativo para ayudarte a tomar decisiones de inversión basadas en datos, con modelado en Excel, documentación técnica y análisis fundamental disciplinado.",
     whoItsFor: ["Individual investors", "Small funds & family offices", "Students studying finance", "Startups evaluating markets"],
     whoItsForEs: ["Inversores individuales", "Fondos pequeños y family offices", "Estudiantes de finanzas", "Startups evaluando mercados"],
     useCases: [
@@ -233,8 +233,8 @@ export const services: ServiceData[] = [
     shortDescription: "End-to-end event planning and logistics for conferences, school events, and community gatherings.",
     shortDescriptionEs: "Planificación y logística integral de eventos para conferencias, eventos escolares y reuniones comunitarias.",
     icon: CalendarDays,
-    description: "With experience managing events for 1,350+ participants and budgets of $35,000+, I offer comprehensive event planning — from logistics and budgeting to digital access systems and vendor coordination.",
-    descriptionEs: "Con experiencia gestionando eventos para más de 1.350 participantes y presupuestos de $35.000+, ofrezco planificación integral de eventos — desde logística y presupuesto hasta sistemas de acceso digital y coordinación de proveedores.",
+    description: "With eight organized events across La Nuit 28/02, La Nuit 2, La Nuit 3, La Fet 1, La Fet 2, the French graduation ball, Proyecto LEA, and LFMUN, I offer event planning from logistics and budgeting to digital access systems, safety, and vendor coordination.",
+    descriptionEs: "Con ocho eventos organizados entre La Nuit 28/02, La Nuit 2, La Nuit 3, La Fet 1, La Fet 2, el bal de graduación francés, Proyecto LEA y LFMUN, ofrezco planificación de eventos desde logística y presupuesto hasta sistemas de acceso digital, seguridad y coordinación de proveedores.",
     whoItsFor: ["Schools & universities", "Community organizations", "Corporate teams", "Private event hosts"],
     whoItsForEs: ["Escuelas y universidades", "Organizaciones comunitarias", "Equipos corporativos", "Organizadores de eventos privados"],
     useCases: [

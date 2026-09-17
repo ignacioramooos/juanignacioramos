@@ -292,8 +292,8 @@ const projects = [
 },
 {
   title: "Cor Ad Cor",
-  description: "Active-development anonymous peer-support and emotional reflection platform. Cor ad Cor is a free, human-first space between silence and clinical care, with journaling, trained Listener sessions, formation, emotional patterns, breathing tools, safety-aware moderation, and Aura as a bounded practice listener rather than a replacement for people.",
-  tags: ["React", "TypeScript", "Supabase", "Realtime", "Safety"],
+  description: "Active-development project at coradcor.org: a private, free, human-first room for writing what feels heavy, reflecting at your own pace, and asking for real human listening only when you want it. The design separates Seekers from trained Listeners, keeps strong safety boundaries, and treats AI only as a bounded practice aid — never as therapy, crisis care, or a replacement for people.",
+  tags: ["React", "TypeScript", "Privacy", "Peer Support", "Safety"],
   status: "Active development",
   url: "https://coradcor.org",
   category: "software"

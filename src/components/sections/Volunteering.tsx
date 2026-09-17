@@ -15,10 +15,10 @@ const items = [
     descriptionEs: "Construí viviendas de transición para familias en asentamientos. Realicé relevamientos aéreos con drone personal para planificación logística y documenté el avance para el equipo de medios.",
   },
   {
-    title: "Ecolojules", titleEs: "Ecolojules",
-    subtitle: "Environmental Initiative Co-founder", subtitleEs: "Co-fundador de Iniciativa Ambiental",
-    description: "Implemented school-wide three-bin waste classification system. Negotiated acquisition of a PET/HDPE-to-3D-printing-filament machine, creating a circular economy within the school.",
-    descriptionEs: "Implementé un sistema de clasificación de residuos de tres contenedores a nivel escolar. Negocié la adquisición de una máquina de PET/HDPE a filamento de impresión 3D, creando una economía circular dentro de la escuela.",
+    title: "Cor Ad Cor", titleEs: "Cor Ad Cor",
+    subtitle: "Human-first peer support project", subtitleEs: "Proyecto humano de escucha entre pares",
+    description: "Developing an anonymous, free space for private journaling, reflection, and optional human listening, with safety boundaries and Listener formation built into the product.",
+    descriptionEs: "Desarrollando un espacio anónimo y gratuito para escritura privada, reflexión y escucha humana opcional, con límites de seguridad y formación de Listeners integrados al producto.",
   },
   {
     title: "Schoolhouse.world Tutor", titleEs: "Tutor en Schoolhouse.world",

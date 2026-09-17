@@ -6,6 +6,22 @@ import { useLanguage } from "@/i18n/LanguageContext";
 const experiences = [
   {
     year: "2026",
+    role: "Founder & Builder", roleEs: "Fundador y Constructor",
+    org: "Cor Ad Cor", orgEs: "Cor Ad Cor",
+    location: "Active development", locationEs: "En desarrollo activo",
+    details: [
+      "Building a private, free, human-first space for journaling, reflection, and optional peer support.",
+      "Designing the experience around Seekers who need to write or be heard and Listeners trained to be present without trying to fix people.",
+      "Developing privacy, safety, Listener formation, emotional prompts, and a clear boundary: Cor Ad Cor is not therapy and does not replace crisis care.",
+    ],
+    detailsEs: [
+      "Construyendo un espacio privado, gratuito y humano para escribir, reflexionar y pedir escucha entre pares si la persona lo quiere.",
+      "Diseñando la experiencia alrededor de Seekers que necesitan escribir o ser escuchados y Listeners formados para estar presentes sin intentar arreglar a nadie.",
+      "Desarrollando privacidad, seguridad, formación de Listeners, prompts emocionales y un límite claro: Cor Ad Cor no es terapia ni reemplaza atención de crisis.",
+    ],
+  },
+  {
+    year: "2026",
     role: "Co-founder", roleEs: "Co-fundador",
     org: "Foro Agora", orgEs: "Foro Agora",
     location: "Montevideo, Uruguay", locationEs: "Montevideo, Uruguay",
@@ -64,22 +80,24 @@ const experiences = [
   },
   {
     year: "2025",
-    role: "Student Event Lead & Project Founder", roleEs: "Líder de Eventos Estudiantiles y Fundador de Proyectos",
+    role: "Student Event Organizer", roleEs: "Organizador de Eventos Estudiantiles",
     org: "Lycée Français Jules Supervielle", orgEs: "Lycée Français Jules Supervielle",
     location: "Montevideo, Uruguay", locationEs: "Montevideo, Uruguay",
     details: [
-      "Organized five major school events, coordinating teams of 10+ peers for 1,350+ participants.",
+      "Organized eight student and community events, including La Nuit 28/02, La Nuit 2, La Nuit 3, La Fet 1, La Fet 2, the French graduation ball, Proyecto LEA, and LFMUN.",
+      "Led La Nuit 28/02 as a separate large-scale event: 821 tickets sold and 406,090 UYU in gross revenue.",
+      "Led La Nuit 2 as its own larger edition: 1,246 tickets sold, 606,700 UYU projected gross revenue, and 310,500 UYU in costs.",
       "Managed graduation fund budget totaling 1,382,000 UYU (~$35,000 USD).",
       "Developed QR-code digital access control system for events with 1,250+ attendees.",
       "Rebuilt corrupted logistical databases within 24 hours of event launches.",
-      'Founded "Ecolojules" — school-wide recycling and 3D-printing filament program.',
     ],
     detailsEs: [
-      "Organicé cinco eventos escolares importantes, coordinando equipos de 10+ compañeros para 1.350+ participantes.",
+      "Organicé ocho eventos estudiantiles y comunitarios, incluyendo La Nuit 28/02, La Nuit 2, La Nuit 3, La Fet 1, La Fet 2, el bal de graduación francés, Proyecto LEA y LFMUN.",
+      "Lideré La Nuit 28/02 como evento independiente de gran escala: 821 entradas vendidas y 406.090 UYU de recaudación bruta.",
+      "Lideré La Nuit 2 como una edición propia de mayor escala: 1.246 entradas vendidas, 606.700 UYU de recaudación bruta prevista y 310.500 UYU de costos.",
       "Gestioné el presupuesto del fondo de graduación de 1.382.000 UYU (~$35.000 USD).",
       "Desarrollé un sistema de control de acceso digital con código QR para eventos con 1.250+ asistentes.",
       "Reconstruí bases de datos logísticas corruptas en 24 horas antes del lanzamiento de eventos.",
-      'Fundé "Ecolojules" — programa de reciclaje y filamento de impresión 3D a nivel escolar.',
     ],
   },
   {

@@ -35,7 +35,7 @@ export const canonicalProfile = {
   education: [
     {
       name: "Universidad de la Republica (UdelaR)",
-      detail: "Physical & Mathematical Engineering, enrolled February 2026",
+      detail: "Quantitative engineering foundation, enrolled February 2026",
     },
     {
       name: "Lycee Francais Jules Supervielle",

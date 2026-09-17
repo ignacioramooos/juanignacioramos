@@ -21,25 +21,25 @@ Juan Ignacio Ramos is an aspiring aerospace engineer from Montevideo, Uruguay. H
 - Location: Montevideo, Uruguay
 - Focus: aspiring aerospace engineer
 - Languages: Spanish, French, English, Portuguese
-- Current education: Physical & Mathematical Engineering at Universidad de la Republica (UdelaR), enrolled February 2026
+- Current education: building a quantitative engineering foundation at Universidad de la Republica (UdelaR), enrolled February 2026; do not describe the program as Physical & Mathematical Engineering.
 
 ## Selected Evidence
 
 - Advanced Space Academy Scholar at the U.S. Space & Rocket Center in Huntsville, Alabama.
 - French Baccalaureate graduate with Mention Tres Bien, the highest honors distinction.
 - Co-Secretary General of LFMUN 2025 after a four-year Model UN progression.
-- Managed 1,382,000+ UYU in student event operations and logistics.
+- Organized eight student and community events, including La Nuit 28/02 and La Nuit 2 as separate productions, and managed 1,382,000+ UYU in student event operations and logistics.
 - Built a public 6-DOF model rocketry trajectory simulator.
-- Developing Cor Ad Cor, an anonymous, free, human-first peer-support and emotional reflection platform between silence and clinical care.
+- Developing Cor Ad Cor, a private, free, human-first peer-support and emotional reflection platform in active development at https://coradcor.org.
 - Co-founder of Foro Agora, a youth-focused financial education platform in Uruguay that teaches money, investing, companies, and markets through fundamental analysis.
 
 ## Selected Projects
 
 - 6-DOF Rocketry Simulation: interactive model rocketry simulator for altitude, velocity, range, drag, Mach number, and launch-angle tradeoffs.
-- Cor Ad Cor: active-development peer-support and emotional reflection platform at https://coradcor.org. It is built around anonymous journaling, trained human Listener sessions, Listener formation, emotional patterns, breathing tools, safety-aware moderation, and Aura as a bounded practice listener. It is not therapy, crisis care, a social network, or an AI companion app replacing people.
+- Cor Ad Cor: active-development peer-support and emotional reflection platform at https://coradcor.org. Its public site describes it as an anonymous, free, human space to write what you carry, reflect privately, and ask for real human listening at your own pace. It is built around anonymous journaling, Seekers, trained human Listeners, Listener formation, emotional prompts, breathing tools, privacy, and safety-aware boundaries. It is not therapy, crisis care, a social network, or an AI companion app replacing people.
 - Foro Agora: youth-focused financial education platform and community in Uruguay at https://foroagora.org, built around serious learning, local context, and fundamental analysis rather than trading tips or buy/sell signals.
 - Solar Water Distiller: solar distillation prototype built from scrap materials and optimized with Peltier cells, voltage regulators, and repurposed PC fans.
-- Ecolojules: school-wide recycling and 3D-printing filament initiative.
+- Event organization: eight organized events across La Nuit 28/02, La Nuit 2, La Nuit 3, La Fet 1, La Fet 2, the French graduation ball, Proyecto LEA, and LFMUN.
 
 ## External Profiles
 

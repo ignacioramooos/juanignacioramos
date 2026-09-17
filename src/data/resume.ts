@@ -27,7 +27,7 @@ export const resumeHeader = {
 };
 
 export const resumeProfile =
-  "Aspiring aerospace engineer and Physical & Mathematical Engineering student with a public portfolio across aerospace simulation, software products, social-impact engineering, financial education, event operations, and international leadership. Advanced Space Academy Scholar, French Baccalauréat Mention Très Bien graduate, Co-Secretary General of LFMUN 2025, and builder of technical projects linking engineering rigor with practical service.";
+  "Aspiring aerospace engineer with a public portfolio across aerospace simulation, software products, social-impact engineering, financial education, event operations, and international leadership. Advanced Space Academy Scholar, French Baccalauréat Mention Très Bien graduate, Co-Secretary General of LFMUN 2025, founder of Cor Ad Cor, and builder of technical projects linking engineering rigor with practical service.";
 
 export const resumeSections: ResumeSection[] = [
   {
@@ -36,12 +36,12 @@ export const resumeSections: ResumeSection[] = [
     headingEs: "Educación",
     entries: [
       {
-        title: "Physical & Mathematical Engineering",
+        title: "Quantitative Engineering Foundation",
         org: "Universidad de la República (UdelaR), Facultad de Ingeniería",
         location: "Montevideo, Uruguay",
         date: "Feb. 2026 – Present",
         bullets: [
-          "Pursuing a rigorous quantitative foundation for aerospace applications through engineering mathematics, physics, and systems-oriented technical work.",
+          "Building a rigorous quantitative foundation for aerospace applications through mathematics, physics, and systems-oriented technical work.",
           "Academic direction centers on aerospace engineering, numerical modeling, and long-term contribution to an aerospace industry in Uruguay.",
         ],
       },
@@ -72,6 +72,17 @@ export const resumeSections: ResumeSection[] = [
     heading: "Experience",
     headingEs: "Experiencia",
     entries: [
+      {
+        title: "Founder and Builder",
+        org: "Cor Ad Cor",
+        location: "Remote / Montevideo, Uruguay",
+        date: "2026 – Present",
+        bullets: [
+          "Developing coradcor.org as a private, free, human-first space for journaling, reflection, and optional peer support.",
+          "Designing separate journeys for Seekers who need to write or be heard and Listeners trained to be present without pressure to fix anyone.",
+          "Building product boundaries around privacy, safety, Listener formation, emotional prompts, breathing tools, and clear crisis-care limitations.",
+        ],
+      },
       {
         title: "Co-Founder",
         org: "Foro Ágora",
@@ -106,15 +117,16 @@ export const resumeSections: ResumeSection[] = [
         ],
       },
       {
-        title: "Student Event Lead and Project Founder",
+        title: "Student Event Organizer",
         org: "Lycée Français Jules Supervielle",
         location: "Montevideo, Uruguay",
         date: "2025",
         bullets: [
-          "Organized five major school events, coordinating teams of 10+ peers for 1,350+ participants.",
+          "Organized eight student and community events: La Nuit 28/02, La Nuit 2, La Nuit 3, La Fet 1, La Fet 2, the French graduation ball, Proyecto LEA, and LFMUN.",
+          "Led La Nuit 28/02 as a separate large-scale event with 821 tickets sold and 406,090 UYU in gross revenue.",
+          "Led La Nuit 2 as its own larger edition with 1,246 tickets sold, 606,700 UYU projected gross revenue, and 310,500 UYU in costs.",
           "Managed graduation fund budget totaling 1,382,000 UYU (approximately $35,000 USD).",
           "Developed QR-code digital access control for events with 1,250+ attendees and rebuilt corrupted logistical databases within 24 hours of launch.",
-          "Founded Ecolojules, a school-wide recycling and 3D-printing filament program linking waste classification to circular-economy reuse.",
         ],
       },
       {
@@ -162,11 +174,11 @@ export const resumeSections: ResumeSection[] = [
       },
       {
         title: "Cor Ad Cor",
-        org: "React · TypeScript · Supabase · Realtime · Safety",
+        org: "React · TypeScript · Privacy · Peer Support · Safety",
         bullets: [
-          "Developing an anonymous, free, human-first peer-support and emotional reflection platform positioned between silence and clinical care.",
-          "Design includes journaling, trained Listener sessions, Listener formation, emotional patterns, breathing tools, safety-aware moderation, multilingual support, and a bounded practice listener rather than an AI replacement for people.",
-          "Authored a master research blueprint grounding the platform in evidence on the loneliness epidemic, the psychology of presence and anonymity, and the limits of the clinical model, and translated it into design and safety protocols for Listeners.",
+          "Developing a private, free, human-first peer-support and emotional reflection platform at coradcor.org.",
+          "Product design centers on anonymous journaling, optional human listening, Listener formation, emotional prompts, breathing tools, and safety-aware moderation.",
+          "Defined the platform’s boundaries clearly: Cor Ad Cor is not therapy, not crisis care, not a social network, and not an AI companion replacing people.",
         ],
       },
       {
@@ -188,11 +200,11 @@ export const resumeSections: ResumeSection[] = [
         ],
       },
       {
-        title: "Ecolojules",
-        org: "Circular Economy · 3D Printing · School Operations",
+        title: "Event Operations Systems",
+        org: "Budgets · Ticketing · QR Access · Supplier Coordination",
         bullets: [
-          "Implemented a school-wide three-bin waste classification system.",
-          "Negotiated acquisition of a PET/HDPE-to-3D-printing-filament machine, creating a circular-economy loop within the school.",
+          "Built operational systems for student events, including ticketing lists, budget tracking, QR access control, supplier payments, and post-event reconciliation.",
+          "Separated each major event into its own budget and logistics model, including La Nuit 28/02 and La Nuit 2 as distinct productions.",
         ],
       },
       {

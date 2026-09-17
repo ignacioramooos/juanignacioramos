@@ -26,7 +26,7 @@ export const cpcStanislasDeck: Deck = {
       blocks: [
         {
           type: "lead",
-          text: "Je suis Uruguayen, étudiant en ingénierie physique et mathématique, avec l’envie de construire des projets utiles et concrets.",
+          text: "Je suis Uruguayen, avec une orientation vers l’ingénierie aérospatiale et l’envie de construire des projets utiles et concrets.",
         },
         {
           type: "bullets",
@@ -92,8 +92,8 @@ export const cpcStanislasDeck: Deck = {
               text: "accompagner des élèves dans un cadre international avec Schoolhouse.world.",
             },
             {
-              title: "Ecolojules",
-              text: "relier tri des déchets, économie circulaire et impression 3D au sein de l’école.",
+              title: "Cor Ad Cor",
+              text: "développer un espace gratuit et humain pour écrire, réfléchir et demander une écoute réelle.",
             },
           ],
         },
@@ -107,13 +107,13 @@ export const cpcStanislasDeck: Deck = {
         {
           type: "stats",
           items: [
-            { value: "1 382 000", label: "UYU de budget événementiel géré" },
-            { value: "2 067", label: "billets vendus sur deux événements" },
+            { value: "8", label: "événements organisés au total" },
+            { value: "2 067", label: "billets vendus sur La Nuit 28/02 et La Nuit 2" },
           ],
         },
         {
           type: "lead",
-          text: "Budgets, fournisseurs, billetterie, sécurité et bilan : une méthode que je pourrais adapter à une tombola ou à un événement solidaire.",
+          text: "La Nuit 28/02 et La Nuit 2 ont été deux productions distinctes. Budgets, fournisseurs, billetterie, sécurité et bilan : une méthode que je pourrais adapter à une tombola ou à un événement solidaire.",
         },
         { type: "image", src: bdePhotos.vistaNuit2, alt: "Événement organisé avec le comité étudiant" },
       ],

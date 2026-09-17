@@ -11,7 +11,7 @@ export const bdeStanislasDeck: Deck = {
   title: "BDE Stanislas — Événementiel",
   subtitle: "Candidature — pôle Événementiel",
   description:
-    "Dossier en français : le comité, les six événements dirigés, les budgets réels, la sécurité et les valeurs.",
+    "Dossier en français : le comité, les huit événements organisés, les budgets réels, la sécurité et les valeurs.",
   slides: [
     {
       id: "cover",
@@ -130,14 +130,14 @@ export const bdeStanislasDeck: Deck = {
     {
       id: "overview",
       kicker: "07 · Vue d'ensemble",
-      title: "Six événements dirigés",
+      title: "Huit événements organisés",
       blocks: [
         {
           type: "stats",
           items: [
-            { value: "2 067", label: "billets vendus sur les deux Nuit" },
+            { value: "8", label: "événements organisés au total" },
+            { value: "2 067", label: "billets vendus sur La Nuit 28/02 et La Nuit 2" },
             { value: "1 382 000", label: "UYU de budget géré (bal de promo)" },
-            { value: "18", label: "personnes salariées sur une seule soirée" },
           ],
         },
         { type: "image", src: bdePhotos.img1605, alt: "Vue de la scène et du public pendant un événement" },
@@ -156,7 +156,8 @@ export const bdeStanislasDeck: Deck = {
             ["La Nuit 28/02", "Président du comité", "821 billets"],
             ["La Nuit 2", "Président du comité", "1 246 billets"],
             ["La Nuit 3 (salle du centre)", "Production", "format salle"],
-            ["La Fet 1 & 2", "Production et paie", "18 salariés"],
+            ["La Fet 1", "Production et paie", "personnel salarié"],
+            ["La Fet 2", "Production et paie", "18 salariés"],
             ["Bal de promo français", "Organisation générale", "1 013 billets"],
             ["Projet LEA (04.07)", "Contrôle d'accès", "157 confirmés"],
             ["LFMUN", "Secrétaire général", "150 invités"],

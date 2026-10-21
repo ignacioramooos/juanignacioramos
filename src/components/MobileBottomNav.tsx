@@ -51,7 +51,7 @@ export const MobileBottomNav = () => {
     <motion.span
       layoutId="mobile-nav-indicator"
       transition={reduce ? { duration: 0 } : spring}
-      className="absolute -top-1 h-[2px] w-6 rounded-full bg-foreground"
+      className="absolute top-0.5 h-[2px] w-6 rounded-full bg-foreground"
       aria-hidden
     />
   );
@@ -79,7 +79,7 @@ export const MobileBottomNav = () => {
               className="fixed inset-x-3 z-50 md:hidden"
               style={{ bottom: "calc(env(safe-area-inset-bottom, 0px) + 5.5rem)" }}
             >
-              <ul className="glass-pill rounded-3xl p-2">
+              <ul className="glass-pill !rounded-3xl p-2">
                 {exploreLinks.map((l) => {
                   const active = path.startsWith(l.href);
                   return (
@@ -108,7 +108,7 @@ export const MobileBottomNav = () => {
         className="fixed inset-x-0 bottom-0 z-40 md:hidden"
         style={{ paddingBottom: "calc(env(safe-area-inset-bottom, 0px) + 0.75rem)" }}
       >
-        <div className="mx-3 flex items-stretch justify-between gap-1 rounded-3xl px-1.5 py-1.5 glass-pill">
+        <div className="mx-3 flex items-stretch justify-between gap-1 !rounded-3xl px-1.5 py-1.5 glass-pill">
           {items.map(({ key, label, Icon, to }) => {
             const active = activeKey === key;
             const content = (

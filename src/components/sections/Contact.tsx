@@ -110,16 +110,8 @@ export const Contact = () => {
 
   return (
     <section id="contact" className="relative">
-      {/* Full-bleed night sky; the visit card sits on it */}
+      {/* The visit card on the dark ground — the starfield is the room */}
       <div className="relative min-h-[100svh] flex items-center justify-end">
-        <img
-          src="https://picsum.photos/id/967/2400/1350"
-          alt="Earth's horizon with aurora seen from orbit — NASA"
-          loading="lazy"
-          className="darkroom-img absolute inset-0 w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-background/40" />
-
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}

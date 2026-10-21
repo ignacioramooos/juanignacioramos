@@ -1,83 +1,23 @@
 import { motion, useReducedMotion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
 import { useLanguage } from "@/i18n/LanguageContext";
-import spaceCamp from "@/assets/space-camp.jpg";
-
-// Sky & space imagery (Unsplash licence, via picsum) — the subject's world, not his events.
-const frames = [
-  { src: "https://picsum.photos/id/967/1200/800", alt: "Earth's horizon with aurora, seen from orbit — NASA" },
-  { src: spaceCamp, alt: "Advanced Space Academy, Huntsville" },
-  { src: "https://picsum.photos/id/901/1200/800", alt: "Aurora over snowy ground — Marcelo Quinan" },
-  { src: "https://picsum.photos/id/505/1200/800", alt: "Silhouette under a twilight sky — Lee Scott" },
-  { src: "https://picsum.photos/id/721/1200/800", alt: "Twilight fading to the horizon — Jeremy Ricketts" },
-  { src: "https://picsum.photos/id/114/1200/800", alt: "Storm clouds over a mountain ridge — Brian Gonzalez" },
-  { src: "https://picsum.photos/id/38/1200/800", alt: "Cumulus rising against a dark sky — Allyson Souza" },
-  { src: "https://picsum.photos/id/942/1200/800", alt: "Concrete structure against a black sky — Carl Nenzen Loven" },
-  { src: "https://picsum.photos/id/620/1200/800", alt: "Arched bridge over grey water — Matthew Wiebe" },
-  { src: "https://picsum.photos/id/618/1200/800", alt: "Glass and steel lattice roof — Mika Ruusunen" },
-  { src: "https://picsum.photos/id/508/1200/800", alt: "Vaults and columns — Jeff Sheldon" },
-];
 
 const EASE = [0.23, 1, 0.32, 1] as const;
 
 export const Hero = () => {
   const { t } = useLanguage();
   const reduceMotion = useReducedMotion();
-  const stripRef = useRef<HTMLDivElement>(null);
-  const [centerIdx, setCenterIdx] = useState(0);
-
-  // Track which frame is nearest the viewport centre; it stays at full brightness.
-  useEffect(() => {
-    const strip = stripRef.current;
-    if (!strip) return;
-    let raf = 0;
-    const update = () => {
-      const kids = Array.from(strip.children) as HTMLElement[];
-      const mid = strip.getBoundingClientRect().left + strip.clientWidth / 2;
-      let best = 0;
-      let bestDist = Infinity;
-      kids.forEach((k, i) => {
-        const r = k.getBoundingClientRect();
-        const d = Math.abs(r.left + r.width / 2 - mid);
-        if (d < bestDist) { bestDist = d; best = i; }
-      });
-      setCenterIdx(best);
-    };
-    const onScroll = () => {
-      cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(update);
-    };
-    update();
-    strip.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-    return () => {
-      cancelAnimationFrame(raf);
-      strip.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-    };
-  }, []);
-
-  // Start the strip centred on the middle frame.
-  useEffect(() => {
-    const strip = stripRef.current;
-    if (!strip) return;
-    const middle = strip.children[Math.floor(frames.length / 2)] as HTMLElement | undefined;
-    if (middle) {
-      strip.scrollLeft = middle.offsetLeft - strip.clientWidth / 2 + middle.clientWidth / 2;
-    }
-  }, []);
 
   const enter = (delay: number) =>
     reduceMotion
       ? { initial: { opacity: 0 }, animate: { opacity: 1 }, transition: { delay, duration: 0.3 } }
-      : { initial: { opacity: 0, y: 16 }, animate: { opacity: 1, y: 0 }, transition: { delay, duration: 0.6, ease: EASE } };
+      : { initial: { opacity: 0, y: 24 }, animate: { opacity: 1, y: 0 }, transition: { delay, duration: 0.8, ease: EASE } };
 
   return (
     <section className="relative min-h-[100dvh] flex flex-col justify-between overflow-hidden">
       {/* Top corners */}
       <div className="relative z-10 flex items-start justify-between px-5 sm:px-[72px] pt-6 sm:pt-[44px]">
-        <motion.p {...enter(0.1)} className="text-sm font-medium tracking-tight">
-          <span data-easter-egg="header-name">Juan Ignacio Ramos</span>
+        <motion.p {...enter(0.1)} className="text-sm text-muted-foreground">
+          {t.hero.location}
         </motion.p>
         <motion.a
           {...enter(0.18)}
@@ -88,45 +28,27 @@ export const Hero = () => {
         </motion.a>
       </div>
 
-      {/* The lit strip */}
-      <motion.div
-        initial={reduceMotion ? { opacity: 0 } : { opacity: 0, y: 24 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.3, duration: 0.8, ease: EASE }}
-        className="relative z-10"
-      >
-        <div
-          ref={stripRef}
-          className="filmstrip flex gap-2.5 overflow-x-auto items-center h-[46vh] sm:h-[34vh] px-[8vw]"
-        >
-          {frames.map((f, i) => (
-            <img
-              key={i}
-              src={f.src}
-              alt={f.alt}
-              loading={i < 4 ? "eager" : "lazy"}
-              className={`filmstrip-frame h-full w-auto flex-shrink-0 select-none ${i === centerIdx ? "is-center" : ""}`}
-              draggable={false}
-            />
-          ))}
-        </div>
-        <p className="mt-3 px-5 sm:px-[72px] text-sm text-muted-foreground">
-          {frames[centerIdx]?.alt} · {t.hero.dragHint}
-        </p>
-      </motion.div>
-
-      {/* Bottom corners */}
-      <div className="relative z-10 flex flex-col sm:flex-row sm:items-end justify-between gap-4 px-5 sm:px-[72px] pb-8 sm:pb-[44px]">
-        <motion.p {...enter(0.45)} className="text-base sm:text-lg text-muted-foreground max-w-[36ch] leading-relaxed">
+      {/* The name, full width, along the bottom edge — the starfield is the room */}
+      <div className="relative z-10 px-5 sm:px-[72px] pb-8 sm:pb-[44px]">
+        <motion.p {...enter(0.35)} className="text-base sm:text-lg text-muted-foreground max-w-[36ch] leading-relaxed mb-6">
           {t.hero.sentence}
         </motion.p>
-        <motion.a
-          {...enter(0.55)}
-          href="#about"
-          className="pressable inline-flex items-center gap-2 text-sm font-medium text-foreground underline underline-offset-8 decoration-foreground/30 hover:decoration-foreground transition-[text-decoration-color] duration-200 w-fit"
+        <motion.h1
+          {...enter(0.45)}
+          className="font-display font-light tracking-[-0.04em] leading-[0.95] text-[clamp(3rem,11vw,10rem)]"
         >
-          {t.hero.action} ↓
-        </motion.a>
+          <span data-easter-egg="header-name" className="block">Juan Ignacio</span>
+          <span className="block text-muted-foreground">Ramos</span>
+        </motion.h1>
+        <motion.div {...enter(0.6)} className="mt-8 flex items-center justify-between gap-4">
+          <p className="text-sm text-muted-foreground">{t.hero.subtitle}</p>
+          <a
+            href="#about"
+            className="pressable inline-flex items-center gap-2 text-sm font-medium text-foreground underline underline-offset-8 decoration-foreground/30 hover:decoration-foreground transition-[text-decoration-color] duration-200 shrink-0"
+          >
+            {t.hero.action} ↓
+          </a>
+        </motion.div>
       </div>
     </section>
   );

@@ -50,7 +50,7 @@ const CONSOLE_ART = `
   ─────────────────────────────────────────────
   Esta muy bien. Otro fellow dev.
   Aca te dejo el url del repo: 👇
-  https://github.com/ignacioramooos/juanignacioramos.git
+  Repo: github.com/ignacioramooos/juanignacioramos
   ─────────────────────────────────────────────
   De paso te propongo un reto: ¿podes encontrar todos los easter eggs?
 `;
@@ -115,7 +115,7 @@ export const EasterEggs = () => {
   useEffect(() => {
     console.log(
       CONSOLE_ART,
-      "color: #8c8c8c; font-size: 13px; font-weight: bold; font-family: monospace;"
+      "color: #8c8c8c; font-size: 13px; font-weight: bold; font-family: monospace;" // taste-skill-ignore
     );
   }, []);
 

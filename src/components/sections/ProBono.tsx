@@ -34,9 +34,9 @@ export const ProBono = () => {
             <p className="text-sm text-muted-foreground mb-4">{pb.cta}</p>
             <Link
               to="/services"
-              className="inline-flex items-center gap-2 text-sm font-medium text-foreground hover:text-primary transition-colors"
+              className="group inline-flex items-center gap-2 text-sm font-medium text-foreground hover:text-primary transition-colors"
             >
-              {pb.ctaLink} <ArrowRight size={14} />
+              {pb.ctaLink} <span aria-hidden className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-muted transition-transform duration-200 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-px"><ArrowRight size={14} /></span>
             </Link>
           </div>
         </motion.div>

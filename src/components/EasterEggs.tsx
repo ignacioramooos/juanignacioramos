@@ -49,7 +49,7 @@ const CONSOLE_ART = `
  Holaaa, veo que echas un ojo por aca!
   ─────────────────────────────────────────────
   Esta muy bien. Otro fellow dev.
-  Aca te dejo el url del repo: 👇
+  Aca te dejo el url del repo:
   Repo: github.com/ignacioramooos/juanignacioramos
   ─────────────────────────────────────────────
   De paso te propongo un reto: ¿podes encontrar todos los easter eggs?

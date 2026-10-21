@@ -51,7 +51,7 @@ export const MobileBottomNav = () => {
     <motion.span
       layoutId="mobile-nav-indicator"
       transition={reduce ? { duration: 0 } : spring}
-      className="absolute -top-1 h-[2px] w-6 rounded-full bg-accent"
+      className="absolute -top-1 h-[2px] w-6 rounded-full bg-foreground"
       aria-hidden
     />
   );

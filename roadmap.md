@@ -19,4 +19,4 @@
 - [x] Swap HighlightReel ↔ About stats: números (4 idiomas, $35k, 4250, 3 honores) arriba; honores en About.
 - [x] About: quitar foto bajo "Mind and Hand" (la foto de Space Camp solo en Featured In).
 - [x] Educación: agregar bloque Lycée Stanislas CPGE MPSI (actual, Cannes), mantener Next Chapter.
-- [ ] Aplicar dirección "dark room" al resto del sitio (Services, Blog, Contact, Lab, Ideas, Documents, Resume).
+- [x] Aplicar dirección "dark room" al resto del sitio (Services, Blog, Lab, Ideas, Documents rediseñados; Contact/Projects ya usaban secciones nuevas; Resume queda estilo Harvard a propósito).

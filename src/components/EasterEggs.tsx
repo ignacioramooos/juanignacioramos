@@ -247,10 +247,17 @@ export const EasterEggs = () => {
         )}
       </AnimatePresence>
 
-      {/* ── Footer (Easter Egg 2 trigger) ─────────────────────────────────── */}
-      <footer className={`py-8 px-6 border-t border-border mt-auto transition-transform duration-1000 ${spin ? "rotate-[360deg]" : ""}`}>
-        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-          <p>
+      {/* ── Footer (Easter Egg 2 trigger) — "a single quiet line" ──────────── */}
+      <footer className={`mt-[30svh] pb-8 px-5 sm:px-[72px] transition-transform duration-1000 ${spin ? "rotate-[360deg]" : ""}`}>
+        <div className="grid grid-cols-1 sm:grid-cols-[1fr_auto_1fr] items-baseline gap-2 sm:gap-6 text-sm">
+          <p className="text-muted-foreground">Aspiring aerospace engineer · Montevideo</p>
+          <nav className="flex flex-wrap gap-x-6 gap-y-1 sm:justify-center">
+            <a href="/projects" className="text-foreground hover:text-muted-foreground transition-colors duration-200">Projects</a>
+            <a href="/resume" className="text-foreground hover:text-muted-foreground transition-colors duration-200">Resume</a>
+            <a href="/blog" className="text-foreground hover:text-muted-foreground transition-colors duration-200">Blog</a>
+            <a href="/contact" className="text-foreground hover:text-muted-foreground transition-colors duration-200">Contact</a>
+          </nav>
+          <p className="text-muted-foreground sm:text-right">
             ©{" "}
             <span
               onClick={handleFooterClick}
@@ -260,8 +267,10 @@ export const EasterEggs = () => {
             </span>{" "}
             Juan Ignacio Ramos
           </p>
-          <p className="text-xs">Built with passion · Montevideo, Uruguay</p>
         </div>
+        <p className="mt-3 text-[13px] text-muted-foreground/60">
+          Sky photographs: NASA, Marcelo Quinan, Lee Scott, Jeremy Ricketts, Brian Gonzalez, Allyson Souza, Carl Nenzen Loven, Matthew Wiebe, Mika Ruusunen, Jeff Sheldon — Unsplash licence.
+        </p>
       </footer>
     </>
   );

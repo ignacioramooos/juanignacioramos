@@ -1,7 +1,6 @@
-import { motion } from "framer-motion";
-import { ExternalLink, Newspaper } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
+import { ExternalLink } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
-import { useScrollReveal } from "@/hooks/useScrollReveal";
 import spaceCampImg from "@/assets/space-camp.jpg";
 
 const articles = [
@@ -14,70 +13,54 @@ const articles = [
   },
 ];
 
+const EASE = [0.23, 1, 0.32, 1] as const;
+
 export const FeaturedIn = () => {
   const { t, lang } = useLanguage();
-  const { ref, isInView } = useScrollReveal();
+  const reduceMotion = useReducedMotion();
 
   return (
-    <section id="featured-in" className="py-28 px-6" ref={ref}>
-      <div className="max-w-5xl mx-auto">
+    <section id="featured-in" className="py-32 sm:py-40 px-5 sm:px-[5vw]">
+      <div className="max-w-6xl mx-auto grid grid-cols-12 gap-x-6 gap-y-10 items-end">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          initial={reduceMotion ? { opacity: 0 } : { opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.7, ease: EASE }}
+          className="col-span-12 md:col-span-5"
         >
-          <h2 className="text-3xl md:text-4xl font-bold font-display text-foreground">
-            {t.featuredIn.title}
-          </h2>
+          <img
+            src={spaceCampImg}
+            alt={articles[0].title}
+            loading="lazy"
+            className="darkroom-img w-full aspect-[4/3] object-cover"
+          />
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center max-w-sm mx-auto md:max-w-none">
-          {articles.map((article, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}
-              className="rounded-xl border border-border/50 bg-card/30 overflow-hidden flex flex-col"
-            >
-              {/* Embedded iframe */}
-              <div className="w-full" style={{ height: "220px" }}>
-                <img
-                  src={spaceCampImg}
-                  alt={article.title}
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
-              </div>
-
-              {/* Article info */}
-              <div className="p-4 flex-1 flex flex-col gap-2 border-t border-border/50">
-                <div className="flex items-center gap-2">
-                  <Newspaper className="h-4 w-4 shrink-0 text-primary" />
-                  <p className="text-[10px] font-semibold tracking-widest uppercase text-muted-foreground truncate">
-                    {article.publication}
-                  </p>
-                </div>
-                <h3 className="text-sm font-semibold text-foreground leading-snug line-clamp-2">
-                  {article.title}
-                </h3>
-                <p className="text-xs text-muted-foreground leading-relaxed line-clamp-2">
-                  {lang === "es" ? article.descriptionEs : article.description}
-                </p>
-                <a
-                  href={article.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-auto inline-flex items-center gap-1.5 text-xs font-medium text-primary hover:text-primary/80 transition-colors pt-1"
-                >
-                  {lang === "es" ? "Leer artículo" : "Read article"}
-                  <ExternalLink className="h-3 w-3" />
-                </a>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+        <motion.div
+          initial={reduceMotion ? { opacity: 0 } : { opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.7, delay: 0.1, ease: EASE }}
+          className="col-span-12 md:col-span-6 md:col-start-7"
+        >
+          <p className="text-sm text-muted-foreground mb-4">{t.featuredIn.title} · {articles[0].publication}</p>
+          <p className="font-display text-2xl sm:text-3xl font-medium tracking-tight leading-snug">
+            “{articles[0].title}”
+          </p>
+          <p className="text-base text-muted-foreground leading-relaxed mt-4 max-w-lg">
+            {lang === "es" ? articles[0].descriptionEs : articles[0].description}
+          </p>
+          <a
+            href={articles[0].url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="pressable mt-6 inline-flex items-center gap-2 text-sm font-medium text-foreground underline underline-offset-8 decoration-foreground/30 hover:decoration-foreground transition-[text-decoration-color] duration-200"
+          >
+            {lang === "es" ? "Leer artículo" : "Read article"}
+            <ExternalLink className="h-3.5 w-3.5" />
+          </a>
+        </motion.div>
       </div>
     </section>
   );

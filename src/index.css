@@ -200,12 +200,6 @@ html {
 
 /* Reduced motion: keep opacity/color, drop travel */
 @media (prefers-reduced-motion: reduce) {
-  .filmstrip {
-    scroll-snap-type: none;
-  }
-  .filmstrip-frame {
-    transition: filter 200ms ease;
-  }
   .pressable:active {
     transform: none;
   }

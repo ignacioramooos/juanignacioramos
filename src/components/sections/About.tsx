@@ -97,8 +97,8 @@ export const About = () => {
 
         {/* Stats as printed data row (mobile + remaining) */}
         <motion.div {...enter(0.15)} className="mt-16 flex flex-wrap gap-x-12 gap-y-8 lg:justify-end">
-          {(typeof window !== "undefined" ? stats : stats).map((stat) => (
-            <div key={stat.label} className="lg:hidden xl:block">
+          {stats.map((stat, i) => (
+            <div key={stat.label} className={i < 2 ? "lg:hidden" : ""}>
               <p className="font-display text-2xl font-medium"><CountUp end={stat.value} suffix={stat.suffix} /></p>
               <p className="text-sm mt-1">{stat.label}</p>
               <p className="text-sm text-muted-foreground">{stat.desc}</p>

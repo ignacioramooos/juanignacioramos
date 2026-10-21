@@ -119,7 +119,7 @@ export const RocketSimulator = () => {
   const chartData = useMemo(() => results.filter((_, i) => i % 5 === 0 || i === results.length - 1), [results]);
 
   return (
-    <div className="p-6 rounded-2xl bg-card border border-border space-y-6">
+    <div data-ui className="p-6 rounded-2xl bg-card border border-border space-y-6">
       <div className="flex items-center justify-between flex-wrap gap-3">
         <div>
           <h4 className="font-display font-semibold text-sm">Interactive 6-DOF Trajectory Simulator (for model rockets)</h4>
@@ -204,7 +204,7 @@ export const RocketSimulator = () => {
           transition={{ type: "spring", stiffness: 200, delay: 0.3 }}
           className="p-4 rounded-2xl bg-card border border-foreground/20 text-center space-y-2">
 
-              <p className="text-3xl">🗼</p>
+              <TowerControl size={32} className="mx-auto text-foreground" />
               <p className="font-display font-semibold text-sm">
                 Your rocket just surpassed the Eiffel Tower!
               </p>
@@ -416,7 +416,7 @@ export const Projects = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.1 * i + 0.3, duration: 0.5 }}
-              className="group p-6 rounded-2xl bg-card border border-border hover:border-foreground/20 transition-all hover:-translate-y-1">
+              className="group p-6 rounded-2xl bg-card border border-border hover:border-foreground/20 transition-[border-color,transform] duration-300 hover:-translate-y-1">
 
                 <div className="flex items-start justify-between mb-3">
                   <h3 className="font-display font-semibold">{project.title}</h3>

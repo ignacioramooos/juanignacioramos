@@ -61,7 +61,7 @@ export const Education = () => {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="group relative p-6 rounded-lg border-2 border-dashed border-foreground/15 transition-all bg-gradient-to-b from-card to-transparent overflow-hidden"
+              className="group relative p-6 rounded-lg border-2 border-dashed border-foreground/15 transition-colors bg-card overflow-hidden"
             >
               <div className="relative">
                 <motion.div animate={{ rotate: 360 }} transition={{ duration: 3, repeat: Infinity, ease: "linear" }} className="mb-4 w-6 h-6">

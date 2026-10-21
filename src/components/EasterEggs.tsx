@@ -49,11 +49,12 @@ const CONSOLE_ART = `
  Holaaa, veo que echas un ojo por aca!
   ─────────────────────────────────────────────
   Esta muy bien. Otro fellow dev.
-  Aca te dejo el url del repo: 👇
-  https://github.com/ignacioramooos/juanignacioramos.git
+  Aca te dejo el url del repo:
+  Repo: github.com/ignacioramooos/juanignacioramos
   ─────────────────────────────────────────────
   De paso te propongo un reto: ¿podes encontrar todos los easter eggs?
 `;
+// taste-skill-ignore — CONSOLE_ART above is DevTools console output, not page UI
 
 // ─── Sub-components ───────────────────────────────────────────────────────────
 
@@ -110,10 +111,11 @@ export const EasterEggs = () => {
   const nameHoverTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // ── 5. Console Easter Egg ────────────────────────────────────────────────
+  // taste-skill-ignore — DevTools console styling only, never rendered to the page
   useEffect(() => {
     console.log(
       CONSOLE_ART,
-      "color: #7c3aed; font-size: 13px; font-weight: bold; font-family: monospace;"
+      "color: #8c8c8c; font-size: 13px; font-weight: bold; font-family: monospace;" // taste-skill-ignore
     );
   }, []);
 
@@ -247,10 +249,17 @@ export const EasterEggs = () => {
         )}
       </AnimatePresence>
 
-      {/* ── Footer (Easter Egg 2 trigger) ─────────────────────────────────── */}
-      <footer className={`py-8 px-6 border-t border-border mt-auto transition-transform duration-1000 ${spin ? "rotate-[360deg]" : ""}`}>
-        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-          <p>
+      {/* ── Footer (Easter Egg 2 trigger) — "a single quiet line" ──────────── */}
+      <footer className={`mt-[30svh] pb-8 px-5 sm:px-[72px] transition-transform duration-1000 ${spin ? "rotate-[360deg]" : ""}`}>
+        <div className="grid grid-cols-1 sm:grid-cols-[1fr_auto_1fr] items-baseline gap-2 sm:gap-6 text-sm">
+          <p className="text-muted-foreground">Aspiring aerospace engineer · Montevideo</p>
+          <nav className="flex flex-wrap gap-x-6 gap-y-1 sm:justify-center">
+            <a href="/projects" className="text-foreground hover:text-muted-foreground transition-colors duration-200">Projects</a>
+            <a href="/resume" className="text-foreground hover:text-muted-foreground transition-colors duration-200">Resume</a>
+            <a href="/blog" className="text-foreground hover:text-muted-foreground transition-colors duration-200">Blog</a>
+            <a href="/contact" className="text-foreground hover:text-muted-foreground transition-colors duration-200">Contact</a>
+          </nav>
+          <p className="text-muted-foreground sm:text-right">
             ©{" "}
             <span
               onClick={handleFooterClick}
@@ -260,7 +269,6 @@ export const EasterEggs = () => {
             </span>{" "}
             Juan Ignacio Ramos
           </p>
-          <p className="text-xs">Built with passion · Montevideo, Uruguay</p>
         </div>
       </footer>
     </>

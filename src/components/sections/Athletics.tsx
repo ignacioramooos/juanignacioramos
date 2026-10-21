@@ -51,7 +51,6 @@ export const Athletics = () => {
                   <span className="text-xs text-muted-foreground">{lang === "es" ? item.statsEs : item.stats}</span>
                 </div>
                 <p className="text-sm text-muted-foreground leading-relaxed max-w-2xl">{lang === "es" ? item.descriptionEs : item.description}</p>
-                {i < athletics.length - 1 && <div className="w-8 h-px bg-border mt-8" />}
               </motion.div>
             ))}
           </div>

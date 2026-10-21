@@ -51,7 +51,7 @@ export const Volunteering = () => {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.4, delay: i * 0.05 }}
-                className="grid sm:grid-cols-[200px_1fr] gap-2 sm:gap-8 py-4 border-b border-border last:border-0"
+                className="grid sm:grid-cols-[200px_1fr] gap-2 sm:gap-8 py-4"
               >
                 <div>
                   <p className="font-display font-semibold">{lang === "es" ? item.titleEs : item.title}</p>

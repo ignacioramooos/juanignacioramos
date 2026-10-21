@@ -109,63 +109,57 @@ export const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-28 px-6">
-      <div className="max-w-4xl mx-auto">
+    <section id="contact" className="relative">
+      {/* The visit card on the dark ground — the starfield is the room */}
+      <div className="relative min-h-[100svh] flex items-center justify-end">
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.7, ease: [0.23, 1, 0.32, 1] }}
+          className="relative z-10 w-full max-w-md mx-5 sm:mr-[5vw] my-24 bg-card p-8 rounded-lg"
         >
-          <h2 className="font-display text-3xl sm:text-4xl font-bold mb-2">{t.contact.title}</h2>
-          <p className="text-sm text-muted-foreground mb-10">{t.contact.label}</p>
+          <h2 className="font-display text-3xl font-medium tracking-tight mb-1">{t.contact.title}</h2>
+          <p className="text-sm text-muted-foreground mb-8">{t.contact.label}</p>
 
-          <div className="grid md:grid-cols-5 gap-12">
-            <form onSubmit={handleSubmit} className="md:col-span-3 space-y-4">
-              <div>
-                <Input placeholder={t.contact.namePlaceholder} value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className="bg-card" />
-                {errors.name && <p className="text-xs text-destructive mt-1">{errors.name}</p>}
-              </div>
-              <div>
-                <Input type="email" placeholder={t.contact.emailPlaceholder} value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className="bg-card" />
-                {errors.email && <p className="text-xs text-destructive mt-1">{errors.email}</p>}
-              </div>
-              <div>
-                <Textarea placeholder={t.contact.messagePlaceholder} rows={5} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} className="bg-card resize-none" />
-                {errors.message && <p className="text-xs text-destructive mt-1">{errors.message}</p>}
-              </div>
-              <button type="submit" disabled={sending} className="inline-flex items-center gap-2 px-6 py-3 bg-foreground text-background rounded-full text-sm font-medium hover:bg-foreground/90 transition-colors disabled:opacity-50">
-                <Send size={14} />
-                {sending ? t.contact.sending : t.contact.send}
-              </button>
-            </form>
-
-            <div className="md:col-span-2 space-y-6">
-              <div>
-                <p className="text-sm font-medium mb-4">{t.contact.contactInfo}</p>
-                <div className="space-y-3">
-                  <a href="mailto:ignacioramosgu@gmail.com" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors"><Mail size={16} /> ignacioramosgu@gmail.com</a>
-                  <a href="tel:+59892667755" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors"><Phone size={16} /> +598 92 667 755</a>
-                </div>
-              </div>
-              <div>
-                <p className="text-sm font-medium mb-4">{t.contact.social}</p>
-                <div className="space-y-3">
-                  <a href="https://www.linkedin.com/in/juanignacioramos1/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors"><Linkedin size={16} /> LinkedIn</a>
-                  <a href="https://instagram.com/ignacio.ramooos" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors"><Instagram size={16} /> @ignacio.ramooos</a>
-                </div>
-              </div>
-              <div className="pt-2">
-                <button onClick={() => setChatOpen(!chatOpen)} className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium bg-accent text-accent-foreground hover:bg-accent/80 transition-colors">
-                  <MessageCircle size={16} />
-                  {chatOpen ? t.contact.closeChat : t.contact.askAI}
-                </button>
-              </div>
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div>
+              <Input placeholder={t.contact.namePlaceholder} value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className="bg-background" />
+              {errors.name && <p className="text-xs text-destructive mt-1">{errors.name}</p>}
             </div>
+            <div>
+              <Input type="email" placeholder={t.contact.emailPlaceholder} value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className="bg-background" />
+              {errors.email && <p className="text-xs text-destructive mt-1">{errors.email}</p>}
+            </div>
+            <div>
+              <Textarea placeholder={t.contact.messagePlaceholder} rows={4} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} className="bg-background resize-none" />
+              {errors.message && <p className="text-xs text-destructive mt-1">{errors.message}</p>}
+            </div>
+            <button type="submit" disabled={sending} className="pressable w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-foreground text-background rounded-full text-sm font-medium hover:bg-foreground/90 transition-colors disabled:opacity-50">
+              <Send size={14} />
+              {sending ? t.contact.sending : t.contact.send}
+            </button>
+          </form>
+
+          <div className="mt-8 pt-6 space-y-2.5">
+            <a href="mailto:ignacioramosgu@gmail.com" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors"><Mail size={15} /> ignacioramosgu@gmail.com</a>
+            <a href="tel:+59892667755" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors"><Phone size={15} /> +598 92 667 755</a>
+            <a href="https://www.linkedin.com/in/juanignacioramos1/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors"><Linkedin size={15} /> LinkedIn</a>
+            <a href="https://instagram.com/ignacio.ramooos" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors"><Instagram size={15} /> @ignacio.ramooos</a>
           </div>
 
+          <button onClick={() => setChatOpen(!chatOpen)} className="pressable mt-6 inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium bg-accent text-accent-foreground hover:bg-accent/80 transition-colors">
+            <MessageCircle size={15} />
+            {chatOpen ? t.contact.closeChat : t.contact.askAI}
+          </button>
+        </motion.div>
+      </div>
+
+      <div className="px-5 sm:px-[5vw] pb-24 -mt-24 relative z-20">
+        <div className="max-w-md mx-auto sm:mr-[5vw] sm:ml-auto">
+
           {chatOpen && (
-            <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} transition={{ duration: 0.3 }} className="mt-10 rounded-lg border border-border bg-card overflow-hidden">
+            <motion.div data-ui initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} transition={{ duration: 0.3 }} className="mt-10 rounded-lg border border-border bg-card overflow-hidden">
               <div className="flex items-center justify-between px-5 py-3 border-b border-border">
                 <div className="flex items-center gap-2"><Bot size={18} className="text-muted-foreground" /><span className="text-sm font-medium">{t.contact.aiTitle}</span></div>
                 <button onClick={() => setChatOpen(false)} className="text-muted-foreground hover:text-foreground transition-colors"><X size={16} /></button>
@@ -184,15 +178,16 @@ export const Contact = () => {
                 )}
                 <div ref={chatEndRef} />
               </div>
-              <div className="border-t border-border px-4 py-3 flex gap-2">
+              {/* taste-skill-ignore — form field row inside the data-ui chat fragment */}
+              <div className="border-t border-border px-4 py-3 flex gap-2">{/* taste-skill-ignore */}
                 <Input value={chatInput} onChange={(e) => setChatInput(e.target.value)} onKeyDown={(e) => e.key === "Enter" && !e.shiftKey && sendChatMessage()} placeholder={t.contact.aiPlaceholder} className="bg-background" disabled={chatLoading} />
-                <button onClick={sendChatMessage} disabled={chatLoading || !chatInput.trim()} className="shrink-0 h-10 w-10 flex items-center justify-center rounded-full bg-foreground text-background hover:bg-foreground/90 transition-colors disabled:opacity-50">
+                <button onClick={sendChatMessage} disabled={chatLoading || !chatInput.trim()} className="pressable shrink-0 h-10 w-10 flex items-center justify-center rounded-full bg-foreground text-background hover:bg-foreground/90 transition-colors disabled:opacity-50">
                   <Send size={14} />
                 </button>
               </div>
             </motion.div>
           )}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

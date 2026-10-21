@@ -164,7 +164,7 @@ export const RocketSimulator = () => {
         map(({ key, label, unit, min, max, step }) =>
         <div key={key} className="space-y-2">
             <label className="text-xs text-muted-foreground flex justify-between">
-              {label} <span className="font-mono">{params[key].toFixed(key === "dragCoefficient" ? 2 : 0)}{unit}</span>
+              {label} <span className="font-mono tabular-nums">{/* taste-skill-ignore — numeric readout inside the data-ui simulator */}{params[key].toFixed(key === "dragCoefficient" ? 2 : 0)}{unit}</span>
             </label>
             <Slider
             value={[params[key] * (1 / step)]}

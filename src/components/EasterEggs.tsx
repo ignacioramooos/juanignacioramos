@@ -54,6 +54,7 @@ const CONSOLE_ART = `
   ─────────────────────────────────────────────
   De paso te propongo un reto: ¿podes encontrar todos los easter eggs?
 `;
+// taste-skill-ignore — CONSOLE_ART above is DevTools console output, not page UI
 
 // ─── Sub-components ───────────────────────────────────────────────────────────
 

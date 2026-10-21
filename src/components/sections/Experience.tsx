@@ -1,6 +1,6 @@
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { Plus } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 const experiences = [
@@ -71,14 +71,6 @@ const experiences = [
     ],
   },
   {
-    year: "2022",
-    role: "Logistics and Operations Intern", roleEs: "Pasante de Logística y Operaciones",
-    org: "LKSUR (Infrastructure & Sanitation)", orgEs: "LKSUR (Infraestructura y Saneamiento)",
-    location: "Montevideo, Uruguay", locationEs: "Montevideo, Uruguay",
-    details: ["Worked with project records and reviewed past infrastructure projects completed by the company during the internship."],
-    detailsEs: ["Trabajé con registros de proyectos y revisé proyectos de infraestructura completados por la empresa durante la pasantía."],
-  },
-  {
     year: "2025",
     role: "Student Event Organizer", roleEs: "Organizador de Eventos Estudiantiles",
     org: "Lycée Français Jules Supervielle", orgEs: "Lycée Français Jules Supervielle",
@@ -124,65 +116,92 @@ const experiences = [
       "Documenté el avance de construcción para el equipo de medios de la organización.",
     ],
   },
+  {
+    year: "2022",
+    role: "Logistics and Operations Intern", roleEs: "Pasante de Logística y Operaciones",
+    org: "LKSUR (Infrastructure & Sanitation)", orgEs: "LKSUR (Infraestructura y Saneamiento)",
+    location: "Montevideo, Uruguay", locationEs: "Montevideo, Uruguay",
+    details: ["Worked with project records and reviewed past infrastructure projects completed by the company during the internship."],
+    detailsEs: ["Trabajé con registros de proyectos y revisé proyectos de infraestructura completados por la empresa durante la pasantía."],
+  },
+];
+
+const EASE = [0.23, 1, 0.32, 1] as const;
+
+// Loose scatter: three alternating placements on a 12-column grid.
+const placements = [
+  "lg:col-start-1 lg:col-span-6",
+  "lg:col-start-8 lg:col-span-5 lg:-mt-20",
+  "lg:col-start-3 lg:col-span-7",
 ];
 
 export const Experience = () => {
   const [expanded, setExpanded] = useState<number | null>(null);
   const { lang, t } = useLanguage();
+  const reduceMotion = useReducedMotion();
 
   return (
-    <section id="experience" className="py-28 px-6">
-      <div className="max-w-4xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+    <section id="experience" className="py-32 sm:py-40 px-5 sm:px-[5vw]">
+      <div className="max-w-6xl mx-auto">
+        <motion.h2
+          initial={reduceMotion ? { opacity: 0 } : { opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.7, ease: EASE }}
+          className="font-display text-4xl sm:text-5xl font-medium tracking-tight mb-24"
         >
-          <div className="flex items-baseline gap-4 mb-12">
-            <h2 className="font-display text-3xl sm:text-4xl font-bold">{t.experience.title}</h2>
-            <span className="text-xs text-muted-foreground tracking-widest uppercase">{t.experience.label}</span>
-          </div>
+          {t.experience.title}
+        </motion.h2>
 
-          <div className="relative">
-            <div className="absolute left-[19px] top-0 bottom-0 w-px bg-border" />
-            <div className="space-y-2">
-              {experiences.map((exp, i) => (
-                <div key={i}>
-                  <button onClick={() => setExpanded(expanded === i ? null : i)} className="w-full text-left group">
-                    <div className="flex items-start gap-4 p-4 rounded-xl hover:bg-muted/50 transition-colors">
-                      <div className="mt-1 w-10 h-10 rounded-full bg-muted border border-border flex items-center justify-center flex-shrink-0 group-hover:border-foreground/30 transition-colors">
-                        <span className="text-xs font-medium text-muted-foreground">{exp.year.slice(-2)}</span>
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center justify-between gap-2">
-                          <div>
-                            <p className="font-display font-semibold">{lang === "es" ? exp.roleEs : exp.role}</p>
-                            <p className="text-sm text-muted-foreground">{lang === "es" ? exp.orgEs : exp.org}</p>
-                          </div>
-                          <ChevronDown size={14} className={`text-muted-foreground transition-transform flex-shrink-0 ${expanded === i ? "rotate-180" : ""}`} />
-                        </div>
-                        <p className="text-xs text-muted-foreground mt-0.5">{lang === "es" ? exp.locationEs : exp.location}</p>
-                      </div>
-                    </div>
-                  </button>
-                  {expanded === i && (
-                    <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} className="ml-14 pl-4 pb-4">
-                      <ul className="space-y-2">
-                        {(lang === "es" ? exp.detailsEs : exp.details).map((d, j) => (
-                          <li key={j} className="text-sm text-muted-foreground flex items-start gap-2">
-                            <span className="w-1 h-1 rounded-full bg-muted-foreground mt-2 flex-shrink-0" />
-                            {d}
-                          </li>
-                        ))}
-                      </ul>
-                    </motion.div>
-                  )}
+        <div className="grid grid-cols-12 gap-x-6 gap-y-[22vh]">
+          {experiences.map((exp, i) => {
+            const open = expanded === i;
+            return (
+              <motion.article
+                key={i}
+                initial={reduceMotion ? { opacity: 0 } : { opacity: 0, y: 32 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.7, ease: EASE }}
+                className={`col-span-12 ${placements[i % 3]}`}
+              >
+                <p className="text-sm text-muted-foreground mb-2">{exp.year} · {lang === "es" ? exp.locationEs : exp.location}</p>
+                <button
+                  onClick={() => setExpanded(open ? null : i)}
+                  className="pressable w-full text-left group"
+                  aria-expanded={open}
+                >
+                  <span className="flex items-baseline justify-between gap-4">
+                    <span className="font-display text-2xl sm:text-3xl font-medium tracking-tight group-hover:text-foreground/80 transition-colors duration-200">
+                      {lang === "es" ? exp.roleEs : exp.role}
+                    </span>
+                    <Plus
+                      size={18}
+                      className={`shrink-0 text-muted-foreground transition-transform duration-300 ${open ? "rotate-45" : ""}`}
+                      style={{ transitionTimingFunction: "cubic-bezier(0.23,1,0.32,1)" }}
+                    />
+                  </span>
+                  <span className="block text-base text-muted-foreground mt-1">{lang === "es" ? exp.orgEs : exp.org}</span>
+                </button>
+                <div
+                  className="grid transition-[grid-template-rows,opacity] duration-300"
+                  style={{ gridTemplateRows: open ? "1fr" : "0fr", opacity: open ? 1 : 0, transitionTimingFunction: "cubic-bezier(0.23,1,0.32,1)" }}
+                >
+                  <div className="overflow-hidden">
+                    <ul className="pt-5 space-y-2.5 max-w-xl">
+                      {(lang === "es" ? exp.detailsEs : exp.details).map((d, j) => (
+                        <li key={j} className="text-base text-muted-foreground leading-relaxed flex items-start gap-3">
+                          <span className="w-1 h-1 rounded-full bg-muted-foreground mt-2.5 flex-shrink-0" />
+                          {d}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
-              ))}
-            </div>
-          </div>
-        </motion.div>
+              </motion.article>
+            );
+          })}
+        </div>
       </div>
     </section>
   );

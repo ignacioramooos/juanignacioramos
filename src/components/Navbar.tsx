@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "./ThemeProvider";
-import { Sun, Moon, Menu, X, ChevronDown, Languages } from "@/components/icons";
+import { Sun, Moon, ChevronDown, Languages } from "@/components/icons";
 import { Link, useLocation } from "react-router-dom";
 import { useLanguage } from "@/i18n/LanguageContext";
 
@@ -106,6 +106,7 @@ export const Navbar = () => {
           <div className="relative" ref={dropdownRef}>
             <button
               onClick={() => setPortfolioOpen(!portfolioOpen)}
+              aria-expanded={portfolioOpen}
               className="text-[13px] lg:text-[15px] font-semibold text-foreground/80 hover:text-foreground transition-colors flex items-center gap-1 whitespace-nowrap"
             >
               {t.nav.portfolio}
@@ -114,10 +115,11 @@ export const Navbar = () => {
             <AnimatePresence>
               {portfolioOpen && (
                 <motion.div
-                  initial={{ opacity: 0, y: 8, scale: 0.96 }}
+                  initial={{ opacity: 0, y: -4, scale: 0.96 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: 8, scale: 0.96 }}
-                  transition={{ duration: 0.15 }}
+                  exit={{ opacity: 0, y: -4, scale: 0.96 }}
+                  transition={{ duration: 0.16, ease: [0.23, 1, 0.32, 1] }}
+                  style={{ transformOrigin: "top left" }}
                   className="absolute top-full mt-2 left-0 glass-pill !rounded-xl !px-0 !py-1 min-w-[200px]"
                 >
                   {portfolioItems.map((item) => (
@@ -176,15 +178,21 @@ export const Navbar = () => {
         <div className="flex md:hidden items-center gap-2">
           <button
             onClick={() => setLang(lang === "en" ? "es" : "en")}
-            className="p-2 rounded-full hover:bg-muted transition-colors text-xs font-medium text-muted-foreground"
+            className="h-11 min-w-11 px-2 rounded-full hover:bg-muted transition-[background-color,transform] duration-150 ease-out active:scale-[0.94] text-xs font-medium text-muted-foreground"
           >
             {lang === "en" ? "ES" : "EN"}
           </button>
-          <button onClick={toggle} className="p-2 rounded-full hover:bg-muted transition-colors">
+          <button onClick={toggle} aria-label={t.nav.toggleTheme} className="h-11 w-11 flex items-center justify-center rounded-full hover:bg-muted transition-[background-color,transform] duration-150 ease-out active:scale-[0.94]">
             {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
           </button>
-          <button onClick={() => setMobileOpen(!mobileOpen)} className="p-2">
-            {mobileOpen ? <X size={20} /> : <Menu size={20} />}
+          <button
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Menu"
+            aria-expanded={mobileOpen}
+            className="relative h-11 w-11 rounded-full transition-transform duration-150 ease-out active:scale-[0.94]"
+          >
+            <span aria-hidden className={`absolute left-1/2 top-1/2 h-[1.5px] w-5 -translate-x-1/2 rounded-full bg-foreground transition-transform duration-300 [transition-timing-function:cubic-bezier(0.23,1,0.32,1)] ${mobileOpen ? "-translate-y-1/2 rotate-45" : "-translate-y-[4px]"}`} />
+            <span aria-hidden className={`absolute left-1/2 top-1/2 h-[1.5px] w-5 -translate-x-1/2 rounded-full bg-foreground transition-transform duration-300 [transition-timing-function:cubic-bezier(0.23,1,0.32,1)] ${mobileOpen ? "-translate-y-1/2 -rotate-45" : "translate-y-[3px]"}`} />
           </button>
         </div>
       </div>
@@ -193,9 +201,10 @@ export const Navbar = () => {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.2, ease: [0.23, 1, 0.32, 1] }}
             className="md:hidden bg-background/95 backdrop-blur-lg border-b border-border"
           >
             <div className="px-6 py-4 flex flex-col gap-1">

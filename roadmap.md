@@ -12,3 +12,11 @@
 - [x] Footer: una sola línea quieta (easter egg del año conservado).
 - [x] Motion: ease-out-expo, entradas escalonadas, pressable scale(0.97), reduced-motion, hover gating.
 - [x] Verificación: lint del skill 0 FAIL, build OK, 8/8 tests, screenshots desktop+mobile.
+
+## Ajustes post-rediseño (pedidos de Juan, 21 oct)
+- [x] Hero CTA: "Enter the room" → "Enter" / "Entrar".
+- [x] Subtítulo hero: "Aspiring aerospace engineer from Uruguay." (sin inventos, sin Cannes).
+- [x] Swap HighlightReel ↔ About stats: números (4 idiomas, $35k, 4250, 3 honores) arriba; honores en About.
+- [x] About: quitar foto bajo "Mind and Hand" (la foto de Space Camp solo en Featured In).
+- [x] Educación: agregar bloque Lycée Stanislas CPGE MPSI (actual, Cannes), mantener Next Chapter.
+- [ ] Aplicar dirección "dark room" al resto del sitio (Services, Blog, Contact, Lab, Ideas, Documents, Resume).

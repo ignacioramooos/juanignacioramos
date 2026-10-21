@@ -1,7 +1,10 @@
 # Roadmap
 
-- [x] Refuerzar Cor Ad Cor como proyecto en progreso en página, resume y contexto SEO/IA.
-- [x] Quitar menciones a Ingeniería Físico Matemática y reemplazarlas por formulación amplia.
-- [x] Sacar Ecojules de secciones visibles y poner organización de eventos en su lugar.
-- [x] Separar La Nuit 28/02 y La Nuit 2, y hacer coherente el total de eventos organizados.
-- [x] Verificar búsqueda de textos viejos y preview.
+## Rediseño visual (skills de diseño)
+- [ ] Redibujar dirección de diseño manteniendo identidad espacial (starfield, aeroespacial) — sin concepto "ticket".
+- [ ] Tokens y base CSS: easing propio, motion tokens, limpieza de patrones genéricos.
+- [ ] Hero: rediseño smooth, identidad espacial protagonista, sin look "AI".
+- [ ] Secciones homepage: composiciones variadas (no card grids), stagger entrances, feedback en controles.
+- [ ] Navbar + footer: barra plana premium, footer diseñado.
+- [ ] Motion layer: springs/curvas custom, prefers-reduced-motion, hover gating.
+- [ ] Verificación: lint/inspect del skill, screenshots 1440/768/390, typecheck, tests.

@@ -1,10 +1,12 @@
 import { Navbar } from "@/components/Navbar";
-import { motion } from "framer-motion";
-import { FlaskConical, Calendar, Tag, Construction } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
+import { Construction } from "lucide-react";
 import { SEOHead } from "@/components/SEOHead";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { useLanguage } from "@/i18n/LanguageContext";
+
+const EASE = [0.23, 1, 0.32, 1] as const;
 
 interface LabEntry {
   id: string;
@@ -16,14 +18,9 @@ interface LabEntry {
   date: string;
 }
 
-const statusColors: Record<string, string> = {
-  idea: "border-muted-foreground/30 text-muted-foreground",
-  research: "border-foreground/30 text-foreground/70",
-  prototype: "border-foreground/50 text-foreground",
-};
-
 const LabPage = () => {
   const { lang } = useLanguage();
+  const reduceMotion = useReducedMotion();
 
   const { data: entries = [], isLoading } = useQuery({
     queryKey: ["lab-entries"],
@@ -41,21 +38,15 @@ const LabPage = () => {
         description="Digital laboratory: experiments, technical notes, prototypes, and mini-demos by Juan Ignacio Ramos."
       />
       <Navbar />
-      <div className="pt-24 pb-16 px-6">
+      <div className="pt-32 pb-24 px-5 sm:px-[5vw]">
         <div className="max-w-4xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={reduceMotion ? { opacity: 0 } : { opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.7, ease: EASE }}
           >
-            <div className="flex items-center gap-3 mb-3">
-              <FlaskConical size={20} className="text-muted-foreground" aria-hidden="true" />
-              <p className="text-sm tracking-[0.3em] uppercase text-muted-foreground">
-                {lang === "es" ? "Laboratorio Digital" : "Digital Laboratory"}
-              </p>
-            </div>
-            <h1 className="font-display text-4xl sm:text-5xl font-bold mb-4">Lab</h1>
-            <p className="text-muted-foreground max-w-2xl mb-12">
+            <h1 className="font-display font-light tracking-[-0.03em] leading-[0.95] text-[clamp(2.75rem,7vw,6rem)] mb-6">Lab</h1>
+            <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed mb-20">
               {lang === "es"
                 ? "Experimentos, notas técnicas, prototipos y mini-demos. Un cuaderno digital documentando el camino de la ingeniería."
                 : "Experiments, technical notes, prototypes, and mini-demos. A digital notebook documenting the engineering journey."}
@@ -82,33 +73,28 @@ const LabPage = () => {
               </p>
             </motion.div>
           ) : (
-            <div className="space-y-4" role="feed" aria-label="Lab entries">
+            <div role="feed" aria-label="Lab entries">
               {entries.map((entry, i) => (
                 <motion.article
                   key={entry.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.05 * i, duration: 0.5 }}
-                  className="p-6 rounded-2xl bg-card border border-border hover:border-foreground/20 transition-colors focus-within:ring-2 focus-within:ring-ring"
+                  initial={reduceMotion ? { opacity: 0 } : { opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-60px" }}
+                  transition={{ delay: 0.04 * i, duration: 0.6, ease: EASE }}
+                  className="py-10 border-t border-border/60 first:border-t-0"
                   tabIndex={0}
                 >
-                  <div className="flex items-start justify-between gap-4 mb-3">
-                    <div className="flex items-center gap-3">
-                      <time className="flex items-center gap-1.5 text-xs text-muted-foreground" dateTime={entry.date}>
-                        <Calendar size={12} aria-hidden="true" />
-                        {entry.date}
-                      </time>
-                      <span className={`px-2 py-0.5 text-[10px] font-medium uppercase tracking-wider rounded-full border ${statusColors[entry.status] || ""}`}>
-                        {entry.status}
-                      </span>
-                    </div>
+                  <div className="flex items-center gap-3 mb-3">
+                    <time className="text-sm text-muted-foreground" dateTime={entry.date}>
+                      {entry.date}
+                    </time>
+                    <span className="text-sm text-muted-foreground">· {entry.status}</span>
                   </div>
-                  <h2 className="font-display font-semibold text-lg mb-2">{entry.title}</h2>
-                  <p className="text-sm text-muted-foreground leading-relaxed font-mono whitespace-pre-line mb-4">{entry.content}</p>
-                  <div className="flex flex-wrap gap-1.5" role="list" aria-label="Tags">
+                  <h2 className="font-display text-2xl sm:text-3xl font-medium tracking-tight mb-3">{entry.title}</h2>
+                  <p className="text-muted-foreground leading-relaxed whitespace-pre-line mb-4 max-w-2xl">{entry.content}</p>
+                  <div className="flex flex-wrap gap-x-4 gap-y-1" role="list" aria-label="Tags">
                     {entry.tags.map((tag) => (
-                      <span key={tag} role="listitem" className="inline-flex items-center gap-1 text-[10px] px-2 py-0.5 rounded-full bg-muted text-muted-foreground">
-                        <Tag size={8} aria-hidden="true" />
+                      <span key={tag} role="listitem" className="text-sm text-muted-foreground">
                         {tag}
                       </span>
                     ))}

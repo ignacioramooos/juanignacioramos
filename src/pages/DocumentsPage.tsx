@@ -4,9 +4,9 @@ const DocumentsPage = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Navbar />
-      <main className="max-w-6xl mx-auto px-6 pt-24 pb-16">
-        <h1 className="font-display text-3xl font-bold mb-2">Documents</h1>
-        <p className="text-muted-foreground mb-8">
+      <main className="max-w-6xl mx-auto px-5 sm:px-[5vw] pt-32 pb-16">
+        <h1 className="font-display font-light tracking-[-0.03em] leading-[0.95] text-[clamp(2.75rem,7vw,6rem)] mb-6">Documents</h1>
+        <p className="text-lg text-muted-foreground leading-relaxed mb-12">
           Acceptance letters, certificates, and other documents.
         </p>
         <div className="w-full rounded-xl border border-border overflow-hidden bg-background relative z-[1]" style={{ height: "80vh" }}>

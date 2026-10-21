@@ -1,60 +1,31 @@
-# Plan — Rediseño visual del portfolio
+# Plan — Rediseño "Dark Room" del portfolio
 
-## Dirección (skill design-taste-frontend, seed 1842902362)
+## Dirección (design-taste-frontend, seed 1817372739) + skills de motion (emil-design-eng, apple-design, review-animations)
 
-**"The page is the object"**: la página se convierte en un artefacto impreso del mundo de Juan Ignacio — el ticket de evento / manifiesto de misión. Papel sobre fondo, bordes con forma (muescas, festones, perforaciones), alineación tipográfica de imprenta, dos tintas.
+**"The dark room"**: un solo campo oscuro de arriba abajo — tu starfield ES la sala — y dentro, cosas iluminadas como piezas de una galería nocturna. Nada de bandas de sección ni grillas de tarjetas: cada pantalla tiene una o dos piezas iluminadas con aire alrededor.
 
-**Frase de idea:** En esta página, *el ticket de las Nuits y el manifiesto de vuelo* se convierten en *la página misma*.
+**Frase de idea:** En esta página, *el cielo nocturno sobre Montevideo* se convierte en *la sala donde se exhibe el trabajo*.
 
-**Se respeta la memoria del proyecto:** dark mode por defecto, Space Grotesk + DM Sans, paleta crema/grafito (sin azul oscuro), starfield como fondo (es la identidad: el "papel" flota sobre las estrellas), bloques de contenido opacos, i18n EN/ES intacto, secciones ocultas (Colleges, USA) no se tocan.
+**Se mantiene intacto:** starfield (es la sala), Space Grotesk + DM Sans, paleta crema/grafito sin azul oscuro, dark mode por defecto, i18n EN/ES, easter eggs, rutas, contenido y textos actuales (solo cambia la presentación), secciones ocultas.
 
-## Cambios por capa
+## Qué cambia, sección por sección
 
-### 1. Tokens y base (`src/index.css`)
-- Nuevos tokens: `--paper` (color papel), `--ink`, `--perforation` y utilidades `.ticket-notch`, `.scallop-edge`, `.perf-line` (clip-path/bordes punteados de puntos ≥4px).
-- Curva de easing propia `--ease-out-expo: cubic-bezier(0.23,1,0.32,1)` (skill emil-design-eng).
-- Radios: un solo radio del sistema; botones de una sola forma (pill, ya es la marca).
-- Se eliminan gradientes de texto y sombras decorativas en reposo; superficies separadas por paso de tono, no por hairlines.
+1. **Hero → "Tira iluminada, cuatro esquinas"**: campo negro con una tira horizontal de fotografías (tus fotos reales: space camp, BDE, eventos) que se arrastra de lado con scroll-snap — es también el movimiento firma ("drag row") y la "cosa viva" de la página. Nombre arriba-izquierda, una frase abajo-izquierda, una acción abajo-derecha. El frame central a brillo pleno, los demás atenuados. Sin pills, sin gradientes de texto, sin blur detrás del nombre.
+2. **About → "Retrato como capitular"**: biografía en tipo grande con retrato flotado como letra capitular; stats como datos pequeños al margen. Sin tarjetas.
+3. **Experience → "Dispersión con pausas"**: cada experiencia aparece una por vez, alternando márgenes (izquierda 3:2, derecha 4:5, centro 16:9), con 22–30vh de vacío entre ellas. Nombre arriba, una línea debajo.
+4. **Skills → "Foto sticky + lista activa"**: foto fija a la izquierda que crossfadea según la fila activa; filas de skills a la derecha que se abren al hover/scroll.
+5. **Awards / FeaturedIn → "Nombres como una sola frase"**: los reconocimientos escritos como una oración corrida en tipo grande; un nombre se ilumina cada 2 segundos.
+6. **Contact → "Tarjeta de visita sobre fotografía"**: foto full-bleed (cielo/espacio, del set dealt) con una tarjeta sólida opaca en la esquina: título, datos, botón sólido.
+7. **Footer → "Una sola línea quieta"**: tras 30svh de vacío, una línea con descripción, links centrados y año. Sin columnas ni logo.
+8. **Navbar**: barra plana sin chrome (sin sombra, sin hairline permanente); misma lógica de grupos y rutas.
+9. **Tokens y motion** (`index.css`): curva `--ease-out-expo: cubic-bezier(0.23,1,0.32,1)`, entradas escalonadas 60–90ms (translateY+opacity, una vez), `active:scale-[0.97]` en todo lo presionable, transiciones con propiedades explícitas (nunca `transition-all`), nada desde `scale(0)`, `prefers-reduced-motion` respetado, hover animado solo en `@media (hover:hover)`.
 
-### 2. Hero → "El ticket" (reescritura de `Hero.tsx`)
-- Panel papel 5:7 centrado, borde superior con muescas de ticket (clip-path), cortado por el borde inferior del viewport (la página continúa como el resto del ticket).
-- Nombre en dos líneas grandes escalonadas (Juan Ignacio / Ramos), datos como líneas de ticket: Montevideo · 18 · Aerospace, separados por un rombo sólido.
-- Franja perforada con código de barras decorativo en CSS y "ADMIT ONE → scroll".
-- Una sola acción primaria (Ver proyectos). Sin pills, sin blur detrás del nombre (el panel papel ya da legibilidad — reemplaza la regla de hero-readability por un mecanismo mejor).
-- Se conserva el starfield de fondo y el easter egg `data-easter-egg="header-name"`.
-
-### 3. About → "Carta del fundador"
-- Hoja papel de 640px con borde inferior festoneado y tira troquelada con el email, sobre fondo de contraste. Texto en primera persona (p1–p3 existentes), stats como fila de datos impresos (sin tarjetas).
-
-### 4. Projects preview / Experience → "Carpetas apiladas con pestañas"
-- Bandas de color plano full-width con `position: sticky` y offsets crecientes; cada proyecto/experiencia es una carpeta con pestaña (clip-path polygon) que lleva el nombre. Foto 16:10 a la izquierda, descripción a la derecha.
-
-### 5. Skills → "Palabra gigante + filas de barras"
-- Título de una palabra en capitales condensadas que llena el ancho (container units); grupos de skills como barras rellenas expansibles (`<details>`), nombre a la izquierda, + a la derecha.
-
-### 6. Awards/FeaturedIn → "Lista de invitados impresa"
-- Panel papel rotado 1–2°, cortado por el borde inferior de la sección, nombres como líneas centradas separadas por middots, foto insertada.
-
-### 7. Contact → "Tarjeta de visita sobre fotografía"
-- Foto full-bleed (arquitectura/estructura, set dealt, grayscale para casar con la paleta) con tarjeta papel opaca en esquina: título, datos, botón sólido full-width.
-
-### 8. Footer → "El dorso de la tarjeta" + cortina
-- Nuevo `Footer.tsx`: panel papel con festones superiores, mensaje a la izquierda, bloque de enlaces a la derecha, "sello postal" (foto 3:4), línea de imprenta con copyright.
-- **Movimiento firma: curtain footer** — el contenido sube como hoja y descubre el footer (sticky + z-index, sin JS).
-
-### 9. Navbar
-- Barra plana: monograma JIR, links, una acción. Se mantiene la lógica de grupos/rutas; se simplifica el chrome (sin shadow, hairline solo al hacer scroll si hace falta).
-
-### 10. Motion (skill emil-design-eng)
-- Entradas escalonadas por sección (60–90ms, translateY 16–32px + opacity, una sola vez).
-- `active:scale-[0.97]` en todo lo presionable; transiciones con propiedades explícitas, nunca `transition-all`.
-- Nada anima desde scale(0); popovers con transform-origin en el trigger.
-- `prefers-reduced-motion` respetado.
+## Imágenes
+- Tus fotos propias (space-camp, BDE) primero; el resto del set "Sky and space" (NASA/auroras, picsum, licencia Unsplash) con `brightness(0.85)` para fundirse con el fondo. Créditos en el footer.
 
 ## Verificación
-- `lint.mjs` + `inspect.mjs` del skill contra la preview; screenshots en 1440/768/390; crítica con rubrica y una ronda de fixes.
-- Typecheck + tests existentes (`bdePhotos.test.ts`, `gas.test.ts`).
-- Revisar mobile y dark/light (Ctrl+D).
+- `lint.mjs` + `inspect.mjs` del skill en 1440/768/390, crítica de screenshots y una ronda de fixes.
+- Typecheck + tests existentes. Revisión mobile y dark/light.
 
 ## Fuera de alcance
-- No se tocan: contenido/textos (solo presentación), rutas, admin, backend, secciones ocultas, decks privados.
+Contenido/textos, rutas, admin, backend, decks privados, secciones ocultas.

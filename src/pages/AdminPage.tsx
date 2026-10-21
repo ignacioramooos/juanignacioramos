@@ -9,7 +9,7 @@ import { GalleryAdmin } from "@/components/admin/GalleryAdmin";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
 import { useNavigate } from "react-router-dom";
-import { LogOut } from "lucide-react";
+import { LogOut } from "@/components/icons";
 
 const AdminPage = () => {
   const navigate = useNavigate();

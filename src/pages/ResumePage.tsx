@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Lock, Mail, Globe, Linkedin, Github, MapPin } from "lucide-react";
+import { Lock, Mail, Globe, Linkedin, Github, MapPin } from "@/components/icons";
 import { Navbar } from "@/components/Navbar";
 import { SEOHead } from "@/components/SEOHead";
 import { useLanguage } from "@/i18n/LanguageContext";

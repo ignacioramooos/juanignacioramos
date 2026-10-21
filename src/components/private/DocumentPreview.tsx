@@ -1,4 +1,4 @@
-import { X, ExternalLink } from "lucide-react";
+import { X, ExternalLink } from "@/components/icons";
 import type { DriveFile } from "./DocumentTree";
 
 interface Props {

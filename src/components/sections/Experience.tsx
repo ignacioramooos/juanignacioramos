@@ -1,6 +1,6 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { useState } from "react";
-import { Plus } from "lucide-react";
+import { Plus } from "@/components/icons";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 const experiences = [

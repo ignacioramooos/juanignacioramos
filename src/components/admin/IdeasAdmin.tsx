@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Switch } from "@/components/ui/switch";
 import { toast } from "sonner";
-import { Trash2, Plus } from "lucide-react";
+import { Trash2, Plus } from "@/components/icons";
 
 const ICON_OPTIONS = ["Lightbulb", "Droplets", "BarChart3", "Globe2", "Rocket", "Beaker"] as const;
 

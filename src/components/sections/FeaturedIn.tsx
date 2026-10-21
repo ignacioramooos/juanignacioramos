@@ -1,5 +1,5 @@
 import { motion, useReducedMotion } from "framer-motion";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink } from "@/components/icons";
 import { useLanguage } from "@/i18n/LanguageContext";
 import spaceCampImg from "@/assets/space-camp.jpg";
 

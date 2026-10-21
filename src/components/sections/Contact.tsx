@@ -3,7 +3,7 @@ import { useState, useRef, useEffect } from "react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
-import { Mail, Phone, Linkedin, Instagram, Send, MessageCircle, X, Bot } from "lucide-react";
+import { Mail, Phone, Linkedin, Instagram, Send, MessageCircle, X, Bot } from "@/components/icons";
 import { z } from "zod";
 import { supabase } from "@/integrations/supabase/client";
 import ReactMarkdown from "react-markdown";

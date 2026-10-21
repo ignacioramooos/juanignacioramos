@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "@/components/icons";
 import { getDailyQuotes } from "@/data/quotes";
 import { useState } from "react";
 import { useLanguage } from "@/i18n/LanguageContext";

@@ -2,7 +2,7 @@
 // hidden from the homepage/nav. Do NOT re-add "U.S. college", "Class of 2030", or a click-through
 // to /colleges here unless the owner explicitly asks for it.
 import { motion } from "framer-motion";
-import { Loader2 } from "lucide-react";
+import { Loader2 } from "@/components/icons";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 const education = [
@@ -13,13 +13,11 @@ const education = [
     period: "September 2026 – Present · Cannes, France", periodEs: "Septiembre 2026 – Presente · Cannes, Francia",
     highlights: [
       "Selective two-year intensive program admitted via Parcoursup",
-      "Prepares the concours for France's Grandes Écoles d'Ingénieurs (Polytechnique, Mines-Ponts, Centrale-Supélec, ENAC)",
-      "Weekly oral examinations (colles) and individual mentoring",
+      "Prepares for France's Grandes Écoles.",
     ],
     highlightsEs: [
       "Programa intensivo selectivo de dos años, admisión vía Parcoursup",
-      "Prepara los concours de las Grandes Écoles de Ingeniería de Francia (Polytechnique, Mines-Ponts, Centrale-Supélec, ENAC)",
-      "Exámenes orales semanales (colles) y acompañamiento individual",
+      "Prepara para las Grandes Écoles de Francia.",
     ],
   },
   {

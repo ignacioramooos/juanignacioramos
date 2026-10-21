@@ -183,29 +183,6 @@ html {
   transform: scale(0.97);
 }
 
-/* Hero filmstrip: native horizontal scroll with snap; frames dim unless centered/hovered */
-.filmstrip {
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-}
-.filmstrip::-webkit-scrollbar {
-  display: none;
-}
-.filmstrip-frame {
-  scroll-snap-align: center;
-  filter: brightness(0.55);
-  transition: filter 400ms var(--ease-out-expo), transform 400ms var(--ease-out-expo);
-}
-.filmstrip-frame.is-center {
-  filter: brightness(1);
-}
-@media (hover: hover) and (pointer: fine) {
-  .filmstrip-frame:hover {
-    filter: brightness(0.9);
-  }
-}
-
 /* Dark-room imagery: photos melt into the ground, no frames */
 .darkroom-img {
   filter: brightness(0.85) contrast(1.05);

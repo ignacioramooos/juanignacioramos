@@ -270,9 +270,6 @@ export const EasterEggs = () => {
             Juan Ignacio Ramos
           </p>
         </div>
-        <p className="mt-3 text-[13px] text-muted-foreground/60">
-          Sky photographs: NASA, Marcelo Quinan, Lee Scott, Jeremy Ricketts, Brian Gonzalez, Allyson Souza, Carl Nenzen Loven, Matthew Wiebe, Mika Ruusunen, Jeff Sheldon — Unsplash licence.
-        </p>
       </footer>
     </>
   );

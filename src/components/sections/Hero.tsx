@@ -2,31 +2,20 @@ import { motion, useReducedMotion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import spaceCamp from "@/assets/space-camp.jpg";
-import bde1 from "@/assets/bde/vista-nuit-1.webp";
-import bde2 from "@/assets/bde/fuegos-artificiales-nuit.webp";
-import bde3 from "@/assets/bde/lfmun-discours.webp";
-import bde4 from "@/assets/bde/armado-escenario-nuit.webp";
-import bde5 from "@/assets/bde/nuit-salon.webp";
-import bde6 from "@/assets/bde/la-fet-1.webp";
-import bde7 from "@/assets/bde/generation-nuit.webp";
-import bde8 from "@/assets/bde/vista-nuit-2.webp";
-import bde9 from "@/assets/bde/la-fet-2.webp";
-import bde10 from "@/assets/bde/nuit-salon-vista-2.webp";
-import bde11 from "@/assets/bde/ee377.webp";
 
+// Sky & space imagery (Unsplash licence, via picsum) — the subject's world, not his events.
 const frames = [
+  { src: "https://picsum.photos/id/967/1200/800", alt: "Earth's horizon with aurora, seen from orbit — NASA" },
   { src: spaceCamp, alt: "Advanced Space Academy, Huntsville" },
-  { src: bde3, alt: "LFMUN opening speech" },
-  { src: bde1, alt: "La Nuit — venue view" },
-  { src: bde4, alt: "Building the stage for La Nuit" },
-  { src: bde2, alt: "Fireworks over La Nuit" },
-  { src: bde5, alt: "La Nuit main hall" },
-  { src: bde6, alt: "La Fet 1" },
-  { src: bde7, alt: "La Nuit crowd" },
-  { src: bde8, alt: "La Nuit 2 — venue view" },
-  { src: bde9, alt: "La Fet 2" },
-  { src: bde10, alt: "La Nuit hall, second angle" },
-  { src: bde11, alt: "Event night" },
+  { src: "https://picsum.photos/id/901/1200/800", alt: "Aurora over snowy ground — Marcelo Quinan" },
+  { src: "https://picsum.photos/id/505/1200/800", alt: "Silhouette under a twilight sky — Lee Scott" },
+  { src: "https://picsum.photos/id/721/1200/800", alt: "Twilight fading to the horizon — Jeremy Ricketts" },
+  { src: "https://picsum.photos/id/114/1200/800", alt: "Storm clouds over a mountain ridge — Brian Gonzalez" },
+  { src: "https://picsum.photos/id/38/1200/800", alt: "Cumulus rising against a dark sky — Allyson Souza" },
+  { src: "https://picsum.photos/id/942/1200/800", alt: "Concrete structure against a black sky — Carl Nenzen Loven" },
+  { src: "https://picsum.photos/id/620/1200/800", alt: "Arched bridge over grey water — Matthew Wiebe" },
+  { src: "https://picsum.photos/id/618/1200/800", alt: "Glass and steel lattice roof — Mika Ruusunen" },
+  { src: "https://picsum.photos/id/508/1200/800", alt: "Vaults and columns — Jeff Sheldon" },
 ];
 
 const EASE = [0.23, 1, 0.32, 1] as const;

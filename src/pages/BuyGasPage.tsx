@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { Fuel, Loader2, Users, ArrowLeft } from "lucide-react";
+import { Fuel, Loader2, Users, ArrowLeft } from "@/components/icons";
 import { toast } from "sonner";
 import { Link, useParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";

@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { Loader2, Send } from "lucide-react";
+import { Loader2, Send } from "@/components/icons";
 
 interface ServiceRequestFormProps {
   service: string;

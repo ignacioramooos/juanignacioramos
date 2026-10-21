@@ -1,6 +1,6 @@
 import { Navbar } from "@/components/Navbar";
 import { motion, useReducedMotion } from "framer-motion";
-import { Construction } from "lucide-react";
+import { Construction } from "@/components/icons";
 import { SEOHead } from "@/components/SEOHead";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";

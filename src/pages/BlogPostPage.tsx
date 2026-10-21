@@ -3,7 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { Navbar } from "@/components/Navbar";
 import { supabase } from "@/integrations/supabase/client";
 import ReactMarkdown from "react-markdown";
-import { ArrowLeft, Calendar } from "lucide-react";
+import { ArrowLeft, Calendar } from "@/components/icons";
 import { SEOHead } from "@/components/SEOHead";
 import { BlurImage } from "@/components/ui/blur-image";
 import { getCoverFrame, getFrameFromTitle, getPublicContent } from "@/lib/blogImages";

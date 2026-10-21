@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
-import { Lock, ArrowLeft, Loader2, Presentation, FolderOpen } from "lucide-react";
+import { Lock, ArrowLeft, Loader2, Presentation, FolderOpen } from "@/components/icons";
 import { SlideDeck } from "@/components/deck/SlideDeck";
 import { eventOrganizationDeck } from "@/data/decks/eventOrganization";
 import { bdeStanislasDeck } from "@/data/decks/bdeStanislas";

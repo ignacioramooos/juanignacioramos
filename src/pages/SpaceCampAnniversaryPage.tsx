@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowLeft, Calendar } from "lucide-react";
+import { ArrowLeft, Calendar } from "@/components/icons";
 import { Navbar } from "@/components/Navbar";
 import { SEOHead } from "@/components/SEOHead";
 

@@ -2,7 +2,7 @@ import { Navbar } from "@/components/Navbar";
 import { motion, useReducedMotion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { services } from "@/data/services";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight } from "@/components/icons";
 import { SEOHead } from "@/components/SEOHead";
 import { useLanguage } from "@/i18n/LanguageContext";
 

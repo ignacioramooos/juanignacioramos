@@ -5,7 +5,7 @@ import { services } from "@/data/services";
 import { ServiceRequestForm } from "@/components/ServiceRequestForm";
 import { PrintQuoteEstimator } from "@/components/PrintQuoteEstimator";
 import { SEOHead } from "@/components/SEOHead";
-import { ArrowLeft, CheckCircle2, Users, Lightbulb, Package } from "lucide-react";
+import { ArrowLeft, CheckCircle2, Users, Lightbulb, Package } from "@/components/icons";
 import { useLanguage } from "@/i18n/LanguageContext";
 import NotFound from "./NotFound";
 

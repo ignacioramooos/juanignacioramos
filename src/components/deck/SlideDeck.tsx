@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
-import { ChevronLeft, ChevronRight, Maximize2, Minimize2 } from "lucide-react";
+import { ChevronLeft, ChevronRight, Maximize2, Minimize2 } from "@/components/icons";
 import type { Deck, Slide } from "@/data/decks/types";
 
 const W = 1920;

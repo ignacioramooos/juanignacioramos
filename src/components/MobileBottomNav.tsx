@@ -1,4 +1,4 @@
-import { Home, Rocket, Compass, Mail, Briefcase } from "lucide-react";
+import { Home, Rocket, Compass, Mail, Briefcase } from "@/components/icons";
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";

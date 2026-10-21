@@ -7,7 +7,7 @@ import {
   Video,
   File as FileIcon,
   ExternalLink,
-} from "lucide-react";
+} from "@/components/icons";
 
 export interface DriveFile {
   id: string;

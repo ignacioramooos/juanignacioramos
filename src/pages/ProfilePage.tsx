@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink } from "@/components/icons";
 import { Navbar } from "@/components/Navbar";
 import { SEOHead } from "@/components/SEOHead";
 import { canonicalProfile, personJsonLd, websiteJsonLd } from "@/data/profile";

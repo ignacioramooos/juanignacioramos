@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { supabase } from "@/integrations/supabase/client";
 import { SEOHead } from "@/components/SEOHead";
-import { MapPin, DollarSign, GraduationCap } from "lucide-react";
+import { MapPin, DollarSign, GraduationCap } from "@/components/icons";
 
 interface College {
   id: string;

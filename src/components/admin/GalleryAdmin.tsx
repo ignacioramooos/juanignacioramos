@@ -6,7 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Card } from "@/components/ui/card";
 import { toast } from "sonner";
-import { Trash2, Upload, Eye, EyeOff, Loader2 } from "lucide-react";
+import { Trash2, Upload, Eye, EyeOff, Loader2 } from "@/components/icons";
 
 type GalleryImage = {
   id: string;

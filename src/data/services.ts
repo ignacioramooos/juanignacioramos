@@ -1,8 +1,8 @@
 import {
   Globe, Camera, TrendingUp, CalendarDays, Users, Sheet,
   Bot, Printer, Video, Box
-} from "lucide-react";
-import type { LucideIcon } from "lucide-react";
+} from "@/components/icons";
+import type { LucideIcon } from "@/components/icons";
 
 export interface ServiceData {
   slug: string;

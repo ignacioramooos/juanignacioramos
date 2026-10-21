@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
-import { Copy, Eye, EyeOff, ImagePlus, Plus, Save, Trash2 } from "lucide-react";
+import { Copy, Eye, EyeOff, ImagePlus, Plus, Save, Trash2 } from "@/components/icons";
 import {
   formatMarkdownImage,
   getCoverFrame,

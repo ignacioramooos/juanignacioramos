@@ -34,7 +34,7 @@
 
 import { useEffect, useState, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Rocket } from "lucide-react";
+import { Rocket } from "@/components/icons";
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 

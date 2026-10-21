@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
-import { Trash2, Plus, Save } from "lucide-react";
+import { Trash2, Plus, Save } from "@/components/icons";
 
 interface College {
   id: string;

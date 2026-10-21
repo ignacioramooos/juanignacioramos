@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "./ThemeProvider";
-import { Sun, Moon, Menu, X, ChevronDown, Languages } from "lucide-react";
+import { Sun, Moon, Menu, X, ChevronDown, Languages } from "@/components/icons";
 import { Link, useLocation } from "react-router-dom";
 import { useLanguage } from "@/i18n/LanguageContext";
 

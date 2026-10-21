@@ -1,19 +1,11 @@
 import { Navbar } from "@/components/Navbar";
-import { motion } from "framer-motion";
-import { Lightbulb, Droplets, BarChart3, Globe2, Rocket, Beaker, type LucideIcon } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
 import { SEOHead } from "@/components/SEOHead";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { useLanguage } from "@/i18n/LanguageContext";
 
-const iconMap: Record<string, LucideIcon> = {
-  Lightbulb,
-  Droplets,
-  BarChart3,
-  Globe2,
-  Rocket,
-  Beaker,
-};
+const EASE = [0.23, 1, 0.32, 1] as const;
 
 interface Idea {
   id: string;
@@ -25,14 +17,15 @@ interface Idea {
   display_order: number;
 }
 
-const statusStyles: Record<string, { bg: string; label: string }> = {
-  idea: { bg: "bg-muted text-muted-foreground", label: "💡 Idea" },
-  research: { bg: "bg-muted text-foreground/70", label: "🔬 Research" },
-  prototype: { bg: "bg-foreground/10 text-foreground", label: "🛠️ Prototype" },
+const statusLabels: Record<string, { en: string; es: string }> = {
+  idea: { en: "Idea", es: "Idea" },
+  research: { en: "Research", es: "Investigación" },
+  prototype: { en: "Prototype", es: "Prototipo" },
 };
 
 const IdeasPage = () => {
   const { lang } = useLanguage();
+  const reduceMotion = useReducedMotion();
 
   const { data: ideas = [], isLoading } = useQuery({
     queryKey: ["ideas"],
@@ -50,23 +43,17 @@ const IdeasPage = () => {
         description="Exploring concepts in sustainability, aerospace, prediction markets, and water technology."
       />
       <Navbar />
-      <div className="pt-24 pb-16 px-6">
-        <div className="max-w-5xl mx-auto">
+      <div className="pt-32 pb-24 px-5 sm:px-[5vw]">
+        <div className="max-w-4xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={reduceMotion ? { opacity: 0 } : { opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.7, ease: EASE }}
           >
-            <div className="flex items-center gap-3 mb-3">
-              <Lightbulb size={20} className="text-muted-foreground" aria-hidden="true" />
-              <p className="text-sm tracking-[0.3em] uppercase text-muted-foreground">
-                {lang === "es" ? "Exploración" : "Exploration"}
-              </p>
-            </div>
-            <h1 className="font-display text-4xl sm:text-5xl font-bold mb-4">
+            <h1 className="font-display font-light tracking-[-0.03em] leading-[0.95] text-[clamp(2.75rem,7vw,6rem)] mb-6">
               {lang === "es" ? "Ideas" : "Ideas"}
             </h1>
-            <p className="text-muted-foreground max-w-2xl mb-12">
+            <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed mb-20">
               {lang === "es"
                 ? "Un índice vivo de conceptos que estoy explorando — desde tecnología sostenible hasta ambiciones aeroespaciales."
                 : "A living index of concepts I'm exploring — from sustainability tech to aerospace ambitions. Some are early sparks, others are actively being researched."}
@@ -76,28 +63,23 @@ const IdeasPage = () => {
           {isLoading ? (
             <p className="text-sm text-muted-foreground">{lang === "es" ? "Cargando..." : "Loading..."}</p>
           ) : (
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" role="list" aria-label="Ideas">
+            <div role="list" aria-label="Ideas">
               {ideas.map((idea, i) => {
-                const style = statusStyles[idea.status] || statusStyles.idea;
-                const Icon = iconMap[idea.icon] || Lightbulb;
+                const status = statusLabels[idea.status] || statusLabels.idea;
                 return (
                   <motion.div
                     key={idea.id}
                     role="listitem"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.05 * i, duration: 0.5 }}
-                    className="group p-6 rounded-2xl bg-card border border-border hover:border-foreground/20 transition-all hover:-translate-y-1 focus-within:ring-2 focus-within:ring-ring"
+                    initial={reduceMotion ? { opacity: 0 } : { opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-60px" }}
+                    transition={{ delay: 0.04 * i, duration: 0.6, ease: EASE }}
+                    className="py-10 border-t border-border/60 first:border-t-0"
                     tabIndex={0}
                   >
-                    <div className="flex items-center justify-between mb-4">
-                      <Icon size={20} className="text-muted-foreground group-hover:text-foreground transition-colors" aria-hidden="true" />
-                      <span className={`px-2 py-0.5 text-[10px] font-medium rounded-full ${style.bg}`}>
-                        {style.label}
-                      </span>
-                    </div>
-                    <h2 className="font-display font-semibold mb-2">{idea.title}</h2>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{idea.description}</p>
+                    <p className="text-sm text-muted-foreground mb-2">{lang === "es" ? status.es : status.en}</p>
+                    <h2 className="font-display text-2xl sm:text-3xl font-medium tracking-tight mb-3">{idea.title}</h2>
+                    <p className="text-muted-foreground leading-relaxed max-w-2xl">{idea.description}</p>
                   </motion.div>
                 );
               })}

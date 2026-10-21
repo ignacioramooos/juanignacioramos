@@ -7,6 +7,22 @@ import { useLanguage } from "@/i18n/LanguageContext";
 
 const education = [
   {
+    title: "Lycée Stanislas, Cannes",
+    subtitle: "CPGE — Classe Préparatoire aux Grandes Écoles, MPSI (Mathématiques, Physique, Sciences de l'Ingénieur)",
+    subtitleEs: "CPGE — Classe Préparatoire aux Grandes Écoles, MPSI (Matemática, Física, Ciencias de la Ingeniería)",
+    period: "September 2026 – Present · Cannes, France", periodEs: "Septiembre 2026 – Presente · Cannes, Francia",
+    highlights: [
+      "Selective two-year intensive program admitted via Parcoursup",
+      "Prepares the concours for France's Grandes Écoles d'Ingénieurs (Polytechnique, Mines-Ponts, Centrale-Supélec, ENAC)",
+      "Weekly oral examinations (colles) and individual mentoring",
+    ],
+    highlightsEs: [
+      "Programa intensivo selectivo de dos años, admisión vía Parcoursup",
+      "Prepara los concours de las Grandes Écoles de Ingeniería de Francia (Polytechnique, Mines-Ponts, Centrale-Supélec, ENAC)",
+      "Exámenes orales semanales (colles) y acompañamiento individual",
+    ],
+  },
+  {
     title: "Universidad de la República (UdelaR)",
     subtitle: "Facultad de Ingeniería — quantitative engineering foundation",
     subtitleEs: "Facultad de Ingeniería — base cuantitativa e ingenieril",
@@ -55,7 +71,7 @@ export const Education = () => {
         >
           <h2 className="font-display text-3xl sm:text-4xl font-bold mb-12">{t.education.title}</h2>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}

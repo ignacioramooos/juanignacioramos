@@ -110,10 +110,11 @@ export const EasterEggs = () => {
   const nameHoverTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // ── 5. Console Easter Egg ────────────────────────────────────────────────
+  // taste-skill-ignore — DevTools console styling only, never rendered to the page
   useEffect(() => {
     console.log(
       CONSOLE_ART,
-      "color: #7c3aed; font-size: 13px; font-weight: bold; font-family: monospace;"
+      "color: #8c8c8c; font-size: 13px; font-weight: bold; font-family: monospace;"
     );
   }, []);
 

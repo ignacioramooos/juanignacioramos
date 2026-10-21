@@ -167,7 +167,7 @@ export const Contact = () => {
         <div className="max-w-md mx-auto sm:mr-[5vw] sm:ml-auto">
 
           {chatOpen && (
-            <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} transition={{ duration: 0.3 }} className="mt-10 rounded-lg border border-border bg-card overflow-hidden">
+            <motion.div data-ui initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} transition={{ duration: 0.3 }} className="mt-10 rounded-lg border border-border bg-card overflow-hidden">
               <div className="flex items-center justify-between px-5 py-3 border-b border-border">
                 <div className="flex items-center gap-2"><Bot size={18} className="text-muted-foreground" /><span className="text-sm font-medium">{t.contact.aiTitle}</span></div>
                 <button onClick={() => setChatOpen(false)} className="text-muted-foreground hover:text-foreground transition-colors"><X size={16} /></button>

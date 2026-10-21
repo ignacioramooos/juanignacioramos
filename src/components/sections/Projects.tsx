@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { supabase } from "@/integrations/supabase/client";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Slider } from "@/components/ui/slider";
-import { ExternalLink, Play, RotateCcw } from "lucide-react";
+import { ExternalLink, Play, RotateCcw, TowerControl } from "lucide-react";
 import {
   LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip,
   AreaChart, Area, ResponsiveContainer, ComposedChart, Bar, Legend } from

@@ -15,7 +15,7 @@ export const Hero = () => {
   return (
     <section className="relative min-h-[100dvh] flex flex-col justify-between overflow-hidden">
       {/* Top corners */}
-      <div className="relative z-10 flex items-start justify-between px-5 sm:px-[72px] pt-6 sm:pt-[44px]">
+      <div className="relative z-10 flex items-start justify-between px-5 sm:px-[72px] pt-24 sm:pt-[44px]">
         <motion.p {...enter(0.1)} className="text-sm text-muted-foreground">
           {t.hero.location}
         </motion.p>
@@ -29,7 +29,7 @@ export const Hero = () => {
       </div>
 
       {/* The name, full width, along the bottom edge — the starfield is the room */}
-      <div className="relative z-10 px-5 sm:px-[72px] pb-8 sm:pb-[44px]">
+      <div className="relative z-10 px-5 sm:px-[72px] pb-32 sm:pb-[44px]">
         <motion.p {...enter(0.35)} className="text-base sm:text-lg text-muted-foreground max-w-[36ch] leading-relaxed mb-6">
           {t.hero.sentence}
         </motion.p>

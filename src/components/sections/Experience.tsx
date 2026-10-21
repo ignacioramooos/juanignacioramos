@@ -153,7 +153,7 @@ export const Experience = () => {
           {t.experience.title}
         </motion.h2>
 
-        <div className="grid grid-cols-12 gap-x-6 gap-y-[22vh]">
+        <div className="grid grid-cols-12 gap-x-6 gap-y-16 lg:gap-y-24">
           {experiences.map((exp, i) => {
             const open = expanded === i;
             return (

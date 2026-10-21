@@ -16,27 +16,21 @@ export const ProBono = () => {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
         >
-          <p className="text-xs uppercase tracking-widest text-muted-foreground mb-3">{pb.label}</p>
-          <h2 className="font-display text-3xl sm:text-4xl font-bold mb-6">{pb.title}</h2>
+          <p className="text-sm text-muted-foreground mb-3">{pb.label}</p>
+          <h2 className="font-display text-3xl sm:text-4xl font-medium tracking-tight mb-6">{pb.title}</h2>
 
-          <div className="space-y-4 text-muted-foreground leading-relaxed text-[15px]">
+          <div className="space-y-4 text-muted-foreground leading-relaxed text-base">
             <p>{pb.p1}</p>
             <p>{pb.p2}</p>
           </div>
 
-          <div className="mt-8 grid sm:grid-cols-2 gap-3">
+          <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3">
             {pb.areas.map((area, i) => (
-              <div
-                key={i}
-                className="flex items-center gap-3 px-4 py-3 rounded-lg border border-border bg-card"
-              >
-                <span className="text-xs font-mono text-muted-foreground tabular-nums">0{i + 1}</span>
-                <span className="text-sm font-medium text-foreground">{area}</span>
-              </div>
+              <span key={i} className="text-base font-medium text-foreground">{area}</span>
             ))}
           </div>
 
-          <div className="mt-10 pt-6 border-t border-border">
+          <div className="mt-10">
             <p className="text-sm text-muted-foreground mb-4">{pb.cta}</p>
             <Link
               to="/services"

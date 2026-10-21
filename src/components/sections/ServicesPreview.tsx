@@ -21,8 +21,8 @@ export const ServicesPreview = () => {
               <h2 className="font-display text-3xl sm:text-4xl font-bold">{t.servicesPreview.title}</h2>
               <p className="text-sm text-muted-foreground mt-2">{t.servicesPreview.label}</p>
             </div>
-            <Link to="/services" className="hidden sm:inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors">
-              {t.servicesPreview.viewAll} <ArrowRight size={14} />
+            <Link to="/services" className="group hidden sm:inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors">
+              {t.servicesPreview.viewAll} <span aria-hidden className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-muted transition-transform duration-200 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-px"><ArrowRight size={14} /></span>
             </Link>
           </div>
 
@@ -43,8 +43,8 @@ export const ServicesPreview = () => {
             ))}
           </div>
 
-          <Link to="/services" className="sm:hidden inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors mt-6">
-            {t.servicesPreview.viewAllServices} <ArrowRight size={14} />
+          <Link to="/services" className="group sm:hidden inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors mt-6">
+            {t.servicesPreview.viewAllServices} <span aria-hidden className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-muted transition-transform duration-200 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-px"><ArrowRight size={14} /></span>
           </Link>
         </motion.div>
       </div>

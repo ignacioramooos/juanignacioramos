@@ -122,7 +122,7 @@ const ResumePrivatePage = () => {
       />
       <Navbar />
       <main
-        className={`${activeDeck || tab === "documents" ? "max-w-6xl" : "max-w-3xl"} mx-auto px-6 pt-28 pb-28 transition-all`}
+        className={`${activeDeck || tab === "documents" ? "max-w-6xl" : "max-w-3xl"} mx-auto px-6 pt-28 pb-28 transition-[color,background-color,border-color,opacity,transform]`}
       >
         <Link
           to="/resume"

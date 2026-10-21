@@ -69,7 +69,7 @@ const CollegesPage = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.05, duration: 0.4 }}
-                  className="p-6 rounded-2xl bg-card border border-border hover:border-foreground/20 transition-all"
+                  className="p-6 rounded-2xl bg-card border border-border hover:border-foreground/20 transition-[color,background-color,border-color,opacity,transform]"
                 >
                   <div className="flex items-start justify-between mb-3">
                     <h3 className="font-display font-semibold">{c.name}</h3>
@@ -96,7 +96,7 @@ const CollegesPage = () => {
                         <>
                           <div className="w-full bg-muted rounded-full h-2 overflow-hidden">
                             <div
-                              className="h-full bg-foreground/60 rounded-full transition-all"
+                              className="h-full bg-foreground/60 rounded-full transition-[color,background-color,border-color,opacity,transform]"
                               style={{ width: `${Math.min(100, (c.financial_aid / c.cost_of_attendance) * 100)}%` }}
                             />
                           </div>

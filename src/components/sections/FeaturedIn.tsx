@@ -55,7 +55,7 @@ export const FeaturedIn = () => {
             href={articles[0].url}
             target="_blank"
             rel="noopener noreferrer"
-            className="pressable mt-6 inline-flex items-center gap-2 text-sm font-medium text-foreground underline underline-offset-8 decoration-foreground/30 hover:decoration-foreground transition-[text-decoration-color] duration-200"
+            className="group pressable mt-6 inline-flex items-center gap-2 text-sm font-medium text-foreground underline underline-offset-8 decoration-foreground/30 hover:decoration-foreground transition-[text-decoration-color] duration-200"
           >
             {lang === "es" ? "Leer artículo" : "Read article"}
             <span aria-hidden className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-muted transition-transform duration-200 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-px"><ExternalLink size={14} /></span>

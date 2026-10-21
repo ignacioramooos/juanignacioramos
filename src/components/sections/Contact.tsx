@@ -188,13 +188,13 @@ export const Contact = () => {
               </div>
               <div className="border-t border-border px-4 py-3 flex gap-2">
                 <Input value={chatInput} onChange={(e) => setChatInput(e.target.value)} onKeyDown={(e) => e.key === "Enter" && !e.shiftKey && sendChatMessage()} placeholder={t.contact.aiPlaceholder} className="bg-background" disabled={chatLoading} />
-                <button onClick={sendChatMessage} disabled={chatLoading || !chatInput.trim()} className="shrink-0 h-10 w-10 flex items-center justify-center rounded-full bg-foreground text-background hover:bg-foreground/90 transition-colors disabled:opacity-50">
+                <button onClick={sendChatMessage} disabled={chatLoading || !chatInput.trim()} className="pressable shrink-0 h-10 w-10 flex items-center justify-center rounded-full bg-foreground text-background hover:bg-foreground/90 transition-colors disabled:opacity-50">
                   <Send size={14} />
                 </button>
               </div>
             </motion.div>
           )}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

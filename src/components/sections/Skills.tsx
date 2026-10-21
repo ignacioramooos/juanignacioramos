@@ -1,10 +1,12 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { useState } from "react";
 import { useLanguage } from "@/i18n/LanguageContext";
-import stickyImg from "@/assets/bde/armado-escenario-nuit.webp";
-import stickyImg2 from "@/assets/bde/lfmun-discours.webp";
-import stickyImg3 from "@/assets/bde/fuegos-artificiales-nuit.webp";
 import stickyImg4 from "@/assets/space-camp.jpg";
+
+// Sky & space imagery (Unsplash licence, via picsum)
+const stickyImg = "https://picsum.photos/id/967/1000/1250";
+const stickyImg2 = "https://picsum.photos/id/901/1000/1250";
+const stickyImg3 = "https://picsum.photos/id/505/1000/1250";
 
 const skillGroups = [
   {
